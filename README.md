@@ -1,24 +1,20 @@
-# FresherNote
+# Seek.
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
-
-[heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+Seek is a web application influenced by Quora built using Ruby
+on Rails in tangent with React.js. Users on Seek are able to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 - [ ] Create an account
 - [ ] Log in / Log out
-- [ ] Create, read, edit, and delete notes
-- [ ] Organize notes within Notebooks
-- [ ] Tag notes with multiple tags and search notes by tag
-- [ ] Search through notes for blocks of text
-- [ ] Apply complex styling to notes while editing
-- [ ] Set reminders on notes
+- [ ] Create, read, edit, and delete questions
+- [ ] Create, read, edit, and delete answers to questions
+- [ ] Tag questions with multiple tags, view questions by tag
+- [ ] Upvote questions, view questions sorted by upvotes
+- [ ] Search for questions by question title
 
 ## Design Docs
 * [View Wireframes][view]
