@@ -1,4 +1,4 @@
-# Phase 5: Reminders and Garbage Collection
+# Phase 5: Search Bar + Nav
 
 ## Rails
 ### Models
@@ -22,4 +22,4 @@
 
 
 ## Gems/Libraries
-* Textacular 
+* Textacular
