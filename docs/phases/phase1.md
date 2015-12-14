@@ -11,7 +11,9 @@
 * Api::QuestionsController (create, destroy, index, show, update)
 
 ### Views
+* static_pages/root.html.erb
 * users/new.html.erb
+* users/show.html.erb
 * session/new.html.erb
 * questions/index.json.jbuilder
 * questions/show.json.jbuilder

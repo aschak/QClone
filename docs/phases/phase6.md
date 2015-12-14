@@ -1,22 +1,25 @@
-# Phase 4: Add Tags to Questions (1 day)
+# Phase 5: Reminders and Garbage Collection
 
 ## Rails
 ### Models
-* Tag
-* Tagging
 
 ### Controllers
-Api::TagsController (index)
+
+
 ### Views
-tags/index.json.jbuilder  
 
 
 ## Flux
 ### Views (React Components)
-* Tags
+
 
 ### Stores
 
 ### Actions
+
+### ApiUtil
+ApiUtil.UpdateProfilePic
+ApiUtil.UpdateProfileBio
+
 
 ## Gems/Libraries
