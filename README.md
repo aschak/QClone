@@ -25,12 +25,17 @@ on Rails in tangent with React.js. Users on Seek are able to:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Note Model and JSON API (1.5 days)
+### Phase 1: User Authentication, Question Model and JSON API (1.5 days)
 
-In Phase 1, I will begin by implementing user signup and authentication (using
+<!-- In Phase 1, I will begin by implementing user signup and authentication (using
 BCrypt). There will be a basic landing page after signup that will contain the
 container for the application's root React component. Before building out the
-front end, I will begin by setting up a full JSON API for Notes.
+front end, I will begin by setting up a full JSON API for Notes. -->
+
+In Phase 1, I will first establish user signup and authentication functionality
+using BCrypt. Upon signing in, users will be redirected to a page that will contain
+the SeekIndex root React component. I will also implement a JSON API for all models,
+but will begin with the Question Model. 
 
 [Details][phase-one]
 
