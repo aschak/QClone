@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Api::QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.new(question_params)
 
     if @question.save
-      render json: @question
+      render :show
     else
       render json: @question.errors.full_messages, status: "Unprocessable Entity"
     end
@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
-      render json: @question
+      render :show
     else
       render json: @question.errors.full_messages, status: "Unprocessable Entity"
     end

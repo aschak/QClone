@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def new
     @user = User.new
   end
@@ -9,11 +9,16 @@ class UsersController < ApplicationController
 
     if @user.save
       login!(@user)
-      redirect_to root_url
+      render json: @user
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    @user = current_user
+    render json: @user
   end
 
   private
