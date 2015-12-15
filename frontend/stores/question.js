@@ -1,5 +1,7 @@
-var Store = require('flux/utils').Store
-var AppDispatcher = require('../dispatcher/dispatcher.js')
+var Store = require('flux/utils').Store,
+    AppDispatcher = require('../dispatcher/dispatcher.js'),
+    BenchConstants = require()
+
 
 
 

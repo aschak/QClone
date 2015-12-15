@@ -5,9 +5,14 @@ var React = require('react'),
     Route = ReactRouter.Route,
     IndexRoute = ReactRouter.IndexRoute;
 
+var SeekIndex = require('./components/seek_index.jsx')
+
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  ReactDOM.render()
+  ReactDOM.render(
+    <SeekIndex/>,
+    document.getElementById('root')
+  )
 })
