@@ -2,20 +2,22 @@ var React = require('react'),
     QuestionsIndex = require('./questionsIndex.jsx');
 
 
-  SeekIndex = React.createClass({
+  var SeekIndex = React.createClass({
+
     render: function () {
       return(
         <div>
-          <div>
-            <QuestionsIndex/>
 
+          <div>
+            React is rendering!
+            {<QuestionsIndex/>}
           </div>
 
           {this.props.children}
         </div>
       )
     }
-  })
+  });
 
 
 

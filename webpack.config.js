@@ -2,7 +2,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/seek.jsx",
   output: {
-    path: "./",
+    path: "./app/assets/javascripts/",
     filename: "bundle.js"
   },
   module: {

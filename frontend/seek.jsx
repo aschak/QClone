@@ -5,14 +5,26 @@ var React = require('react'),
     Route = ReactRouter.Route,
     IndexRoute = ReactRouter.IndexRoute;
 
-var SeekIndex = require('./components/seek_index.jsx')
+var SeekIndex = require('./components/seek_index.jsx');
 
 
+window.ApiUtil = require('./util/api_util.js');
+window.QuestionStore = require('./stores/question.js');
+
+var routes = (
+  <Route path="/" component={SeekIndex}>
+
+  </Route>
+)
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  ReactDOM.render(
-    <SeekIndex/>,
-    document.getElementById('root')
-  )
-})
+  var root = document.getElementById('root');
+
+  if (root) {
+    ReactDOM.render(
+      <Router>{routes}</Router>,
+      root
+    );
+  }
+});
