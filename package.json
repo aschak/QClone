@@ -21,8 +21,8 @@
     "url": "https://github.com/aschak/Seek/issues"
   },
   "engines": {
-    "node": "4.1.1",
-    "npm": "2.1.x"
+    "node": "4.2.1",
+    "npm": "3.5.x"
   },
   "devDependencies": {},
   "homepage": "https://github.com/aschak/Seek",
@@ -31,7 +31,8 @@
     "babel-loader": "^6.2.0",
     "babel-preset-react": "^6.3.13",
     "flux": "^2.1.1",
-    "history": "^1.13.1",
+    "foobar": "^1.1.0",
+    "history": "^1.13.x",
     "react": "^0.14.3",
     "react-addons-linked-state-mixin": "^0.14.3",
     "react-dom": "^0.14.3",
