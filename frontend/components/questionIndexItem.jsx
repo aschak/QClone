@@ -5,23 +5,34 @@ var React = require('react');
 var QuestionIndexItem = React.createClass({
   mixins: [History],
 
-  handleClick: function () {
+  showQuestion: function () {
     this.history.push('/question/' + this.props.question.id);
   },
 
   render: function () {
-    return (
-      <div key={this.props.question.id}>
-        <div onClick={this.handleClick}>
-          Question: {this.props.question.title}
-        </div>
+    // Why does author get deleted first before title? Causing TypeError in Render
+    // right after deleting a question.
 
-        <br/>
-        Author: {this.props.question.author.username}
-        <p>Details: {this.props.question.body}</p>
-        <br/>
-      </div>
-    )
+    if (this.props.question.author !== undefined) {
+      return (
+        <div key={this.props.question.id}>
+          <div onClick={this.showQuestion}>
+            Question: {this.props.question.title}
+          </div>
+
+          <br/>
+          Author: {this.props.question.author.username}
+          <p>Details: {this.props.question.body}</p>
+          <br/>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          
+        </div>
+      )
+    }
   }
 });
 

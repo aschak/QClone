@@ -40,7 +40,7 @@ class Api::QuestionsController < ApplicationController
   def destroy
     question = Question.find(params[:id])
     question.destroy
-    redirect_to root_url
+    render json: question
   end
 
   private

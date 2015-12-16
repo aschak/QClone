@@ -9,9 +9,10 @@ var QuestionForm = React.createClass({
   mixins: [LinkedStateMixin, History],
 
   blankForm: {
-    title: ' ',
+    title: '',
     body: ' ',
-    author_id: 4
+    author_id: null,
+    modal: false
   },
 
   getInitialState: function () {
@@ -22,44 +23,64 @@ var QuestionForm = React.createClass({
     event.preventDefault();
     var question = Object.assign({}, this.state);
     ApiUtil.createQuestion(question);
+    this.setState(this.blankForm);
+  },
 
+  revealModal: function () {
+    this.setState({modal: true})
   },
 
 
   render: function () {
-    return (
-      <form onSubmit={this.createQuestion}>
+    var modal = this.state.modal ? true : false
 
-        <div>
-          <input
-            type='hidden'
-            id="question_author_id"
-            valueLink={this.LinkState('author_id')}
-          />
+    if (!modal) {
+      return(
+        <div onClick={this.revealModal}>
+          Ask Question
+        </div>
+      )
+    } else {
+
+      return (
+        <div className='modal-screen'>
+          <div className='modal-content'>
+            <form onSubmit={this.createQuestion}>
+
+              <div>
+                <input
+                  type='hidden'
+                  id="question_author_id"
+                  valueLink={this.linkState('author_id')}
+                />
+              </div>
+
+              <div>
+                <label htmlFor='question_title'>Enter Question:</label>
+                <input
+                  type='text'
+                  id='question_title'
+                  valueLink={this.linkState('title')}
+                />
+              </div>
+
+
+              <div>
+                <label htmlFor='question_body'>Enter Details:</label>
+                <input
+                  type='text'
+                  id='question_body'
+                  valueLink={this.linkState('body')}
+                />
+              </div>
+
+              <input type='submit' value='Ask Question'/>
+            </form>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor='question_title'>Enter Question:</label>
-          <input
-            type='text'
-            id='question_title'
-            valueLink={this.linkState('title')}
-          />
-        </div>
-
-
-        <div>
-          <label htmlFor='question_body'>Enter Details:</label>
-          <input
-            type='text'
-            id='question_body'
-            valueLink={this.linkState('body')}
-          />
-        </div>
-
-        <input type='submit' value='Ask Question'/>
-      </form>
-    )
+      )
+    }
   }
 });
 

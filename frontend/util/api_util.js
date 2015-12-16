@@ -31,12 +31,19 @@ var ApiUtil = {
     });
   },
 
-  editQuestion: function () {
+  editQuestion: function (id) {
 
 
   },
 
   destroyQuestion: function (id) {
+    $.ajax({
+      url: 'api/questions/' + id,
+      type: 'DELETE',
+      success: function (question) {
+        ApiActions.receiveSingleQuestion(question);
+      }
+    })
   }
 }
 

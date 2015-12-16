@@ -30,6 +30,16 @@ module.exports = React.createClass({
     this.questionListener.remove();
   },
 
+  deleteQuestion: function (event) {
+    event.preventDefault();
+    ApiUtil.destroyQuestion(this.props.params.id);
+    this.navigateToIndex();
+  },
+
+  navigateToIndex: function () {
+    this.props.history.push("/");
+  },
+
   render: function () {
     var question = this.state.question;
     if (question === undefined) { return <div></div>; }
@@ -42,6 +52,8 @@ module.exports = React.createClass({
         Asked By: {question.author.username}
         <br/>
         Details: {question.body}
+        <br/>
+        <button onClick={this.deleteQuestion}>Delete Question</button>
       </div>
     );
   }

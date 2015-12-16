@@ -9,7 +9,6 @@ var React = require('react'),
         <div>
 
           <div>
-            React is rendering!
             {<QuestionsIndex/>}
           </div>
 
