@@ -32,8 +32,14 @@ var ApiUtil = {
   },
 
   editQuestion: function (id) {
-
-
+    $.ajax({
+      url: 'api/questions/' + id,
+      type: 'PATCH',
+      data: {question: question},
+      success: function (question) {
+        ApiActions.receiveSingleQuestion(question);
+      }
+    });
   },
 
   destroyQuestion: function (id) {
@@ -43,7 +49,7 @@ var ApiUtil = {
       success: function (question) {
         ApiActions.receiveSingleQuestion(question);
       }
-    })
+    });
   }
 }
 

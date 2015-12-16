@@ -28,9 +28,7 @@ var QuestionIndexItem = React.createClass({
       );
     } else {
       return (
-        <div>
-          
-        </div>
+        <div></div>
       )
     }
   }
