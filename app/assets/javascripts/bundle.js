@@ -52,11 +52,29 @@
 	    IndexRoute = ReactRouter.IndexRoute;
 	
 	var SeekIndex = __webpack_require__(210);
+	var QuestionShow = __webpack_require__(237);
 	
 	window.ApiUtil = __webpack_require__(212);
 	window.QuestionStore = __webpack_require__(219);
 	
-	var routes = React.createElement(Route, { path: '/', component: SeekIndex });
+	var App = React.createClass({
+	  displayName: 'App',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      this.props.children
+	    );
+	  }
+	});
+	
+	var routes = React.createElement(
+	  Route,
+	  { path: '/', component: App },
+	  React.createElement(IndexRoute, { component: SeekIndex }),
+	  React.createElement(Route, { path: 'question/:id', component: QuestionShow })
+	);
 	
 	document.addEventListener("DOMContentLoaded", function () {
 	  var root = document.getElementById('root');
@@ -24510,6 +24528,15 @@
 	    });
 	  },
 	
+	  fetchSingleQuestion: function (id) {
+	    $.ajax({
+	      url: '/api/questions/' + id,
+	      success: function (question) {
+	        ApiActions.receiveSingleQuestion(question);
+	      }
+	    });
+	  },
+	
 	  createQuestion: function () {
 	    $.ajax({
 	      url: '/api/questions',
@@ -24522,7 +24549,7 @@
 	
 	  editQuestion: function () {},
 	
-	  destroyQuestion: function () {}
+	  destroyQuestion: function (id) {}
 	};
 	
 	module.exports = ApiUtil;
@@ -24539,6 +24566,13 @@
 	    Dispatcher.dispatch({
 	      actionType: QuestionConstants.QUESTIONS_RECEIVED,
 	      questions: questions
+	    });
+	  },
+	
+	  receiveSingleQuestion: function (question) {
+	    Dispatcher.dispatch({
+	      actionType: QuestionConstants.QUESTION_RECEIVED,
+	      question: question
 	    });
 	  }
 	};
@@ -24866,7 +24900,8 @@
 /***/ function(module, exports) {
 
 	module.exports = {
-	  QUESTIONS_RECEIVED: "QUESTIONS_RECEIVED"
+	  QUESTIONS_RECEIVED: "QUESTIONS_RECEIVED",
+	  QUESTION_RECEIVED: "QUESTION_RECEIVED"
 	};
 
 /***/ },
@@ -24892,7 +24927,14 @@
 	  switch (payload.actionType) {
 	    case QuestionConstants.QUESTIONS_RECEIVED:
 	      resetQuestions(payload.questions);
+	
 	      QuestionStore.__emitChange();
+	      break;
+	
+	    case QuestionConstants.QUESTION_RECEIVED:
+	      resetQuestions(payload.question);
+	
+	      QuestionStore__.emitChange();
 	      break;
 	  }
 	};
@@ -31278,23 +31320,54 @@
 	
 	  mixins: [History],
 	
+	  handleClick: function () {
+	    debugger;
+	    this.history.push('/question/' + this.props.question.id);
+	  },
+	
 	  render: function () {
 	    return React.createElement(
-	      'li',
+	      'div',
 	      { key: this.props.question.id },
-	      'Question: ',
-	      this.props.question.title,
-	      React.createElement('br', null),
-	      'Details: ',
-	      this.props.question.body,
+	      React.createElement(
+	        'div',
+	        { onClick: this.handleClick },
+	        'Question: ',
+	        this.props.question.title
+	      ),
 	      React.createElement('br', null),
 	      'Author: ',
-	      this.props.question.author.username
+	      this.props.question.author.username,
+	      React.createElement(
+	        'p',
+	        null,
+	        'Details: ',
+	        this.props.question.body
+	      ),
+	      React.createElement('br', null)
 	    );
 	  }
 	});
 	
 	module.exports = QuestionIndexItem;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	module.exports = React.createClass({
+	  displayName: 'exports',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'QuestionShowPage'
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);

@@ -8,6 +8,13 @@ var ApiActions = {
       actionType: QuestionConstants.QUESTIONS_RECEIVED,
       questions: questions
     });
+  },
+
+  receiveSingleQuestion: function (question) {
+    Dispatcher.dispatch({
+      actionType: QuestionConstants.QUESTION_RECEIVED,
+      question: question
+    });
   }
 };
 

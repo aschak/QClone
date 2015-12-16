@@ -5,16 +5,23 @@ var React = require('react');
 var QuestionIndexItem = React.createClass({
   mixins: [History],
 
+  handleClick: function () {
+    debugger
+    this.history.push('/question/' + this.props.question.id);
+  },
 
   render: function () {
     return (
-      <li key={this.props.question.id}>
-        Question: {this.props.question.title}
-        <br/>
-        Details: {this.props.question.body}
+      <div key={this.props.question.id}>
+        <div onClick={this.handleClick}>
+          Question: {this.props.question.title}
+        </div>
+
         <br/>
         Author: {this.props.question.author.username}
-      </li>
+        <p>Details: {this.props.question.body}</p>
+        <br/>
+      </div>
     )
   }
 });
