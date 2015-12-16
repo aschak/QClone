@@ -6,7 +6,6 @@ var QuestionIndexItem = React.createClass({
   mixins: [History],
 
   handleClick: function () {
-    debugger
     this.history.push('/question/' + this.props.question.id);
   },
 
