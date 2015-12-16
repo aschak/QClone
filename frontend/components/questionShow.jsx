@@ -1,12 +1,43 @@
-var React = require('react');
+var React = require('react'),
+    QuestionStore = require('../stores/question.js'),
+    ApiUtil = require('../util/api_util.js'),
+    QuestionsIndex = require('./questionsIndex.jsx');
 
 
 module.exports = React.createClass({
+  getStateFromStore: function () {
+    return { question: QuestionStore.find(parseInt(this.props.params.id)) };
+  },
+
+  getInitialState: function () {
+    return this.getStateFromStore();
+  },
+
+  _questionChange: function () {
+    this.setState(this.getStateFromStore());
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchSingleQuestion(parseInt(newProps.params.id));
+  },
+
+  componentDidMount: function () {
+    this.questionListener = QuestionStore.addListener(this._questionChange);
+    ApiUtil.fetchSingleQuestion(parseInt(this.props.params.id));
+  },
+
+  componentWillUnmount: function () {
+    this.questionListener.remove();
+  },
+
   render: function () {
+    debugger
+    if (this.state.question === undefined) { return <div></div>; }
+
     return (
       <div>
         QuestionShowPage
       </div>
-    )
+    );
   }
 })
