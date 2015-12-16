@@ -44,6 +44,11 @@ group :development, :test do
 
   # pry for Rails
   gem 'pry-rails'
+
+  #Better Errors and Binding of Caller
+  gem 'better_errors'
+
+  gem 'binding_of_caller'
 end
 
 group :development do
