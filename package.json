@@ -20,6 +20,10 @@
   "bugs": {
     "url": "https://github.com/aschak/Seek/issues"
   },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
   "devDependencies": {},
   "homepage": "https://github.com/aschak/Seek",
   "dependencies": {
