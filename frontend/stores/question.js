@@ -26,13 +26,11 @@ QuestionStore.__onDispatch = function (payload) {
     switch(payload.actionType) {
       case QuestionConstants.QUESTIONS_RECEIVED:
         resetQuestions(payload.questions);
-
         QuestionStore.__emitChange();
         break;
 
       case QuestionConstants.QUESTION_RECEIVED:
         resetQuestion(payload.question);
-
         QuestionStore.__emitChange();
         break;
     }

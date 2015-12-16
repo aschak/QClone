@@ -1,7 +1,6 @@
 var ApiActions = require('../actions/api_actions.js');
 
 
-
 var ApiUtil = {
   fetchAllQuestions: function () {
     $.ajax({
@@ -21,17 +20,19 @@ var ApiUtil = {
     });
   },
 
-  createQuestion: function () {
+  createQuestion: function (question) {
     $.ajax({
       url: '/api/questions',
       type: 'POST',
+      data: {question: question},
       success: function (question) {
-        ApiActions.receiveQuestion
+        ApiActions.receiveSingleQuestion(question);
       }
     });
   },
 
   editQuestion: function () {
+
 
   },
 

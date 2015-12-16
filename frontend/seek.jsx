@@ -5,8 +5,9 @@ var React = require('react'),
     Route = ReactRouter.Route,
     IndexRoute = ReactRouter.IndexRoute;
 
-var SeekIndex = require('./components/seek_index.jsx');
-var QuestionShow = require('./components/questionShow.jsx');
+var SeekIndex = require('./components/seek_index.jsx'),
+    QuestionShow = require('./components/questionShow.jsx'),
+    QuestionForm = require('./components/questionForm.jsx');
 
 
 window.ApiUtil = require('./util/api_util.js');
@@ -16,6 +17,10 @@ var App = React.createClass({
   render: function () {
     return(
       <div>
+        <div>
+          <QuestionForm />
+        </div>
+
         {this.props.children}
       </div>
     )

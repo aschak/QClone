@@ -19,7 +19,7 @@ var QuestionIndex = React.createClass({
   },
 
   componentWillUnmount: function () {
-    this.questionListener.remove;
+    this.questionListener.remove();
   },
 
   render: function () {

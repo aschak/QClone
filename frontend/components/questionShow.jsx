@@ -9,12 +9,12 @@ module.exports = React.createClass({
     return { question: QuestionStore.find(parseInt(this.props.params.id)) };
   },
 
-  getInitialState: function () {
-    return this.getStateFromStore();
-  },
-
   _questionChange: function () {
     this.setState(this.getStateFromStore());
+  },
+
+  getInitialState: function () {
+    return this.getStateFromStore();
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -31,12 +31,17 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    debugger
-    if (this.state.question === undefined) { return <div></div>; }
+    var question = this.state.question;
+    if (question === undefined) { return <div></div>; }
+
 
     return (
       <div>
-        QuestionShowPage
+        {question.title}
+        <br/>
+        Asked By: {question.author.username}
+        <br/>
+        Details: {question.body}
       </div>
     );
   }

@@ -16,7 +16,7 @@ gem 'newrelic_rpm'
 # Faker for seeding
 gem 'faker'
 # Bootstrap for styling
-gem 'boostrap-sass'
+gem 'bootstrap-sass'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
