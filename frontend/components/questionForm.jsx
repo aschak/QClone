@@ -1,5 +1,5 @@
 var React = require('react'),
-    ApiUtil = require('../util/api_util.js'),
+    QuestionActions = require('../actions/question_actions.js'),
     History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
@@ -29,10 +29,14 @@ var QuestionForm = React.createClass({
 
   handleSubmit: function (event) {
     event.preventDefault();
-    var question = Object.assign({}, this.state);
+    var question = Object.assign({}, this.props.question, this.state);
 
+    if (this.props.new) {
       QuestionActions.createQuestion(question);
       this.setState(this.blankForm);
+    } else if (!this.props.new) {
+      QuestionActions.editQuestion(question);
+    }
   },
 
   changeModal: function () {
@@ -41,26 +45,28 @@ var QuestionForm = React.createClass({
   },
 
   componentDidMount: function () {
-    if (!this.props.new) {
-      this.populateForm();
-    }
+    if (!this.props.new) {this.populateForm();}
   },
 
 
   render: function () {
     var modal = this.state.modal ? true : false
     var prompt;
+    var submit;
+
 
     if (this.props.new) {
-      prompt = 'Ask Your Question!';
+      prompt = "Ask Question"
+      submit = 'Ask Your Question!';
     } else {
-      prompt = 'Update Question!';
+      prompt = "Edit Question"
+      submit = 'Update Question!';
     }
 
     if (!modal) {
       return(
         <div onClick={this.changeModal}>
-          Ask Question
+          {prompt}
         </div>
       )
 
@@ -68,6 +74,8 @@ var QuestionForm = React.createClass({
 
       return (
         <span>
+          {prompt}
+          <br/>
           <div className='modal-screen' onClick={this.changeModal}/>
           <div className='modal-content'>
             <form onSubmit={this.handleSubmit}>
@@ -99,7 +107,7 @@ var QuestionForm = React.createClass({
                   />
               </div>
 
-              <input type='submit' value={prompt}/>
+              <input type='submit' className='btn' value={submit}/>
             </form>
           </div>
         </span>

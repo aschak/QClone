@@ -11,12 +11,16 @@ var QuestionActions = {
     // });
   },
 
-  createQuestion: function () {
-    ApiUtil.createQuestion();
+  fetchQuestion: function (id) {
+    ApiUtil.fetchSingleQuestion(id);
   },
 
-  editQuestion: function (id) {
-    ApiUtil.editQuestion(id);
+  createQuestion: function (question) {
+    ApiUtil.createQuestion(question);
+  },
+
+  editQuestion: function (question) {
+    ApiUtil.editQuestion(question);
   },
 
   destroyQuestion: function (id) {

@@ -1,7 +1,8 @@
 var React = require('react'),
     QuestionStore = require('../stores/question.js'),
     ApiUtil = require('../util/api_util.js'),
-    QuestionIndexItem = require('./questionIndexItem.jsx')
+    QuestionActions = require('../actions/question_actions.js'),
+    QuestionIndexItem = require('./questionIndexItem.jsx');
 
 
 var QuestionIndex = React.createClass({
@@ -15,7 +16,7 @@ var QuestionIndex = React.createClass({
 
   componentDidMount: function () {
     this.questionListener = QuestionStore.addListener(this._indexChange);
-    ApiUtil.fetchAllQuestions();
+    QuestionActions.fetchQuestions();
   },
 
   componentWillUnmount: function () {

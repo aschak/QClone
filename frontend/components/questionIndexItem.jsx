@@ -26,12 +26,6 @@ var QuestionIndexItem = React.createClass({
       </div>
     );
 
-    // if (this.props.question.author !== undefined) {
-    // } else {
-    //   return (
-    //     <div></div>
-    //   )
-    // }
   }
 });
 

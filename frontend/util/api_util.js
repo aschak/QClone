@@ -31,10 +31,10 @@ var ApiUtil = {
     });
   },
 
-  editQuestion: function (id) {
+  editQuestion: function (question) {
     $.ajax({
-      url: 'api/questions/' + id,
-      type: 'PATCH',
+      url: 'api/questions/' + question.id,
+      type: 'PUT',
       data: {question: question},
       success: function (question) {
         ApiActions.receiveSingleQuestion(question);
