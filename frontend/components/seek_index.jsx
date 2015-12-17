@@ -6,7 +6,7 @@ var React = require('react'),
 
     render: function () {
       return(
-        <div>
+        <div className="container">
 
           <div>
             {<QuestionsIndex/>}

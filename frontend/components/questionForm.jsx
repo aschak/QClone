@@ -40,8 +40,8 @@ var QuestionForm = React.createClass({
   },
 
   changeModal: function () {
-    var change = this.state.modal ? false : true
-    this.setState({modal: change})
+    var modal = this.state.modal ? false : true
+    this.setState({modal: modal})
   },
 
   componentDidMount: function () {
