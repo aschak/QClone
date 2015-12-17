@@ -3,32 +3,44 @@ var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
   fetchAllQuestions: function () {
-    $.ajax({
-      url: '/api/questions',
-      success: function (questions) {
-        ApiActions.receiveAllQuestions(questions);
-      }
+    // $.ajax({
+    //   url: '/api/questions',
+    //   success: function (questions) {
+    //     ApiActions.receiveAllQuestions(questions);
+    //   }
+    // });
+
+    $.get('/api/questions', function (questions) {
+      ApiActions.receiveAllQuestions(questions);
     });
   },
 
   fetchSingleQuestion: function (id) {
-    $.ajax({
-      url: '/api/questions/' + id,
-      success: function (question) {
-        ApiActions.receiveSingleQuestion(question);
-      }
+    // $.ajax({
+    //   url: '/api/questions/' + id,
+    //   success: function (question) {
+    //     ApiActions.receiveSingleQuestion(question);
+    //   }
+    // });
+
+    $.get('/api/questions/' + id, function (question) {
+      ApiActions.receiveSingleQuestion(question);
     });
   },
 
   createQuestion: function (question) {
-    $.ajax({
-      url: '/api/questions',
-      type: 'POST',
-      data: {question: question},
-      success: function (question) {
-        ApiActions.receiveSingleQuestion(question);
-      }
-    });
+    // $.ajax({
+    //   url: '/api/questions',
+    //   type: 'POST',
+    //   data: {question: question},
+    //   success: function (question) {
+    //     ApiActions.receiveSingleQuestion(question);
+    //   }
+    // });
+
+    $.post('/api/questions', {question: question}, function (question) {
+      ApiActions.receiveSingleQuestion(question);
+    })
   },
 
   editQuestion: function (question) {
@@ -40,6 +52,13 @@ var ApiUtil = {
         ApiActions.receiveSingleQuestion(question);
       }
     });
+    // 
+    // $.patch(
+    //   '/api/questions/' + question.id,
+    //   {question: question},
+    //   function (question) {
+    //     ApiActions.receiveSingleQuestion(question);
+    // });
   },
 
   destroyQuestion: function (id) {

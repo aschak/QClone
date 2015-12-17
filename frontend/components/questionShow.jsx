@@ -57,6 +57,8 @@ module.exports = React.createClass({
           <QuestionForm new={false} question={question}/>
         <br/>
           <button onClick={this.deleteQuestion}>Delete Question</button>
+        <br/>
+          <button onClick={this.navigateToIndex}>Back</button>
       </div>
     );
   }
