@@ -34,8 +34,10 @@ var QuestionForm = React.createClass({
     if (this.props.new) {
       QuestionActions.createQuestion(question);
       this.setState(this.blankForm);
+      this.navigateToQuestion();
     } else if (!this.props.new) {
       QuestionActions.editQuestion(question);
+      this.navigateToQuestion();
     }
   },
 
@@ -48,9 +50,13 @@ var QuestionForm = React.createClass({
     if (!this.props.new) {this.populateForm();}
   },
 
+  navigateToQuestion: function () {
+
+  },
+
 
   render: function () {
-    var modal = this.state.modal ? true : false
+    var modal = this.state.modal ? true : false;
     var prompt;
     var submit;
 
@@ -65,15 +71,15 @@ var QuestionForm = React.createClass({
 
     if (!modal) {
       return(
-        <div onClick={this.changeModal}>
+        <button type="button" id="edit-question" className="btn btn-primary" onClick={this.changeModal}>
           {prompt}
-        </div>
+        </button>
       )
 
     } else {
 
       return (
-        <span>
+        <div>
           {prompt}
           <br/>
           <div className='modal-screen' onClick={this.changeModal}/>
@@ -97,7 +103,6 @@ var QuestionForm = React.createClass({
                   />
               </div>
 
-
               <div>
                 <label htmlFor='question_body'>Enter Details:</label>
                 <input
@@ -110,7 +115,7 @@ var QuestionForm = React.createClass({
               <input type='submit' className='btn' value={submit}/>
             </form>
           </div>
-        </span>
+        </div>
       );
     }
   }

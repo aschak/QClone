@@ -68,7 +68,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement(QuestionForm, { 'new': true })
+	        React.createElement(QuestionForm, { className: 'question-form', id: 'new', 'new': true })
 	      ),
 	      this.props.children
 	    );
@@ -24060,6 +24060,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'container' },
+	      React.createElement('div', { className: 'nav-bar' }),
 	      React.createElement(
 	        'div',
 	        null,
@@ -30954,7 +30955,7 @@
 	  mixins: [History],
 	
 	  getInitialState: function () {
-	    return { details: false };
+	    return { showDetails: false };
 	  },
 	
 	  showQuestion: function () {
@@ -30962,9 +30963,9 @@
 	  },
 	
 	  revealDetails: function () {
-	    details = this.details ? false : true;
+	    showDetails = this.state.showDetails ? false : true;
 	    console.log("clicked!");
-	    this.setState({ details: details });
+	    this.setState({ showDetails: showDetails });
 	  },
 	
 	  render: function () {
@@ -30972,15 +30973,18 @@
 	        askTime = new Date(this.props.question.created_at).toString(),
 	        preview = this.props.question.body.slice(0, 10).trim() + "...",
 	        more = "More",
-	        details = this.state.details ? true : false;
+	        showDetails = this.state.showDetails;
 	
 	    if (preview.length < 10) {
 	      preview = this.props.question.body;
 	    }
 	
-	    if (details) {
+	    if (showDetails) {
 	      preview = this.props.question.body;
-	      more = "";
+	      more = "  Hide";
+	    } else if (!showDetails) {
+	      preview = this.props.question.body.slice(0, 60).trim() + "...";
+	      more = "More";
 	    }
 	
 	    return React.createElement(
@@ -31010,7 +31014,7 @@
 	      React.createElement('br', null),
 	      React.createElement(
 	        'div',
-	        { className: 'details', onClick: this.revealDetails },
+	        { className: 'question-details' },
 	        'Details: ',
 	        preview,
 	        React.createElement(
@@ -31019,7 +31023,7 @@
 	          more
 	        )
 	      ),
-	      React.createElement('br', null)
+	      React.createElement('hr', null)
 	    );
 	  }
 	});
@@ -31084,25 +31088,47 @@
 	      return React.createElement('div', null);
 	    }
 	
+	    var asker = question.author.username,
+	        askTime = new Date(question.created_at).toString();
+	
 	    return React.createElement(
 	      'div',
-	      null,
-	      question.title,
-	      React.createElement('br', null),
-	      'Asked By: ',
-	      question.author.username,
-	      React.createElement('br', null),
-	      'Details: ',
-	      question.body,
-	      React.createElement('br', null),
-	      React.createElement(QuestionForm, { 'new': false, question: question }),
+	      { className: 'question-show' },
+	      React.createElement(
+	        'div',
+	        { className: 'asker-container' },
+	        'Question asked by',
+	        React.createElement(
+	          'a',
+	          { href: '#', className: 'asker' },
+	          asker
+	        ),
+	        ',',
+	        React.createElement(
+	          'span',
+	          { className: 'ask-time' },
+	          askTime
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'question-title' },
+	        question.title
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'question-details' },
+	        'Details: ',
+	        question.body
+	      ),
+	      React.createElement(QuestionForm, { className: 'question-form', id: 'edit', 'new': false, question: question }),
 	      React.createElement('br', null),
 	      React.createElement(
 	        'button',
-	        { onClick: this.deleteQuestion },
+	        { type: 'button', className: 'btn btn-primary', onClick: this.deleteQuestion },
 	        'Delete Question'
 	      ),
-	      React.createElement('br', null),
+	      React.createElement('hr', null),
 	      React.createElement(
 	        'button',
 	        { onClick: this.navigateToIndex },
@@ -31152,8 +31178,10 @@
 	    if (this.props.new) {
 	      QuestionActions.createQuestion(question);
 	      this.setState(this.blankForm);
+	      this.navigateToQuestion();
 	    } else if (!this.props.new) {
 	      QuestionActions.editQuestion(question);
+	      this.navigateToQuestion();
 	    }
 	  },
 	
@@ -31167,6 +31195,8 @@
 	      this.populateForm();
 	    }
 	  },
+	
+	  navigateToQuestion: function () {},
 	
 	  render: function () {
 	    var modal = this.state.modal ? true : false;
@@ -31183,14 +31213,14 @@
 	
 	    if (!modal) {
 	      return React.createElement(
-	        'div',
-	        { onClick: this.changeModal },
+	        'button',
+	        { type: 'button', id: 'edit-question', className: 'btn btn-primary', onClick: this.changeModal },
 	        prompt
 	      );
 	    } else {
 	
 	      return React.createElement(
-	        'span',
+	        'div',
 	        null,
 	        prompt,
 	        React.createElement('br', null),

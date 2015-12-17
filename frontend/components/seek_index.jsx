@@ -7,7 +7,7 @@ var React = require('react'),
     render: function () {
       return(
         <div className="container">
-
+          <div className="nav-bar"></div>
           <div>
             {<QuestionsIndex/>}
           </div>

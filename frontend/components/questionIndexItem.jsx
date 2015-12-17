@@ -6,7 +6,7 @@ var QuestionIndexItem = React.createClass({
   mixins: [History],
 
   getInitialState: function () {
-    return {details: false}
+    return {showDetails: false}
   },
 
   showQuestion: function () {
@@ -14,9 +14,9 @@ var QuestionIndexItem = React.createClass({
   },
 
   revealDetails: function () {
-    details = this.details ? false : true;
+    showDetails = this.state.showDetails ? false : true;
     console.log("clicked!");
-    this.setState({details: details});
+    this.setState({showDetails: showDetails});
   },
 
   render: function () {
@@ -24,13 +24,16 @@ var QuestionIndexItem = React.createClass({
         askTime = new Date(this.props.question.created_at).toString(),
         preview = this.props.question.body.slice(0, 10).trim() + "...",
         more = "More",
-        details = this.state.details ? true : false;
+        showDetails = this.state.showDetails;
 
     if (preview.length < 10) {preview = this.props.question.body;}
 
-    if (details) {
+    if (showDetails) {
       preview = this.props.question.body;
-      more = ""
+      more = "  Hide"
+    } else if (!showDetails) {
+      preview = this.props.question.body.slice(0, 60).trim() + "..."
+      more = "More"
     }
 
     return (
@@ -49,11 +52,11 @@ var QuestionIndexItem = React.createClass({
 
         <br/>
 
-        <div className="details" onClick={this.revealDetails}>
+        <div className="question-details">
           Details: {preview}<a href="#" className="more-details" onClick={this.revealDetails}>{more}</a>
         </div>
 
-        <br/>
+        <hr/>
       </div>
     );
 

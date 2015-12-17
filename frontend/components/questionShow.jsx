@@ -45,20 +45,35 @@ module.exports = React.createClass({
     var question = this.state.question;
     if (question === undefined) { return <div></div>; }
 
+    var asker = question.author.username,
+        askTime = new Date(question.created_at).toString();
 
     return (
-      <div>
-        {question.title}
-        <br/>
-          Asked By: {question.author.username}
-        <br/>
+
+      <div className="question-show">
+
+
+        <div className="asker-container">Question asked by
+          <a href="#" className="asker">{asker}</a>,
+            <span className="ask-time">{askTime}</span>
+        </div>
+
+
+        <div className="question-title">
+          {question.title}
+        </div>
+
+        <div className="question-details">
           Details: {question.body}
+        </div>
+
+
+        <QuestionForm className="question-form" id="edit" new={false} question={question}/>
         <br/>
-          <QuestionForm new={false} question={question}/>
-        <br/>
-          <button onClick={this.deleteQuestion}>Delete Question</button>
-        <br/>
-          <button onClick={this.navigateToIndex}>Back</button>
+        <button type="button" className="btn btn-primary" onClick={this.deleteQuestion}>Delete Question</button>
+
+        <hr/>
+        <button onClick={this.navigateToIndex}>Back</button>
       </div>
     );
   }
