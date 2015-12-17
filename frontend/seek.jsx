@@ -18,7 +18,7 @@ var App = React.createClass({
     return(
       <div>
         <div>
-          <QuestionForm />
+          <QuestionForm new={true}/>
         </div>
 
         {this.props.children}

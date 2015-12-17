@@ -13,24 +13,25 @@ var QuestionIndexItem = React.createClass({
     // Why does author get deleted first before title? Causing TypeError in Render
     // right after deleting a question.
 
-    if (this.props.question.author !== undefined) {
-      return (
-        <div key={this.props.question.id}>
-          <div onClick={this.showQuestion}>
-            Question: {this.props.question.title}
-          </div>
-
-          <br/>
-          Author: {this.props.question.author.username}
-          <p>Details: {this.props.question.body}</p>
-          <br/>
+    return (
+      <div key={this.props.question.id}>
+        <div onClick={this.showQuestion}>
+          Question: {this.props.question.title}
         </div>
-      );
-    } else {
-      return (
-        <div></div>
-      )
-    }
+
+        <br/>
+        Author: {this.props.question.author.username}
+        <p>Details: {this.props.question.body}</p>
+        <br/>
+      </div>
+    );
+
+    // if (this.props.question.author !== undefined) {
+    // } else {
+    //   return (
+    //     <div></div>
+    //   )
+    // }
   }
 });
 

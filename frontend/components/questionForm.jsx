@@ -19,40 +19,65 @@ var QuestionForm = React.createClass({
     return this.blankForm;
   },
 
-  createQuestion: function (event) {
-    event.preventDefault();
-    var question = Object.assign({}, this.state);
-    ApiUtil.createQuestion(question);
-    this.setState(this.blankForm);
+  populateForm: function () {
+    this.setState({
+      title: this.props.question.title,
+      body: this.props.question.body,
+      author_id: this.props.question.author_id
+    });
   },
 
-  revealModal: function () {
-    this.setState({modal: true})
+  handleSubmit: function (event) {
+    event.preventDefault();
+    var question = Object.assign({}, this.state);
+
+      QuestionActions.createQuestion(question);
+      this.setState(this.blankForm);
+  },
+
+  changeModal: function () {
+    var change = this.state.modal ? false : true
+    this.setState({modal: change})
+  },
+
+  componentDidMount: function () {
+    if (!this.props.new) {
+      this.populateForm();
+    }
   },
 
 
   render: function () {
     var modal = this.state.modal ? true : false
+    var prompt;
+
+    if (this.props.new) {
+      prompt = 'Ask Your Question!';
+    } else {
+      prompt = 'Update Question!';
+    }
 
     if (!modal) {
       return(
-        <div onClick={this.revealModal}>
+        <div onClick={this.changeModal}>
           Ask Question
         </div>
       )
+
     } else {
 
       return (
-        <div className='modal-screen'>
+        <span>
+          <div className='modal-screen' onClick={this.changeModal}/>
           <div className='modal-content'>
-            <form onSubmit={this.createQuestion}>
+            <form onSubmit={this.handleSubmit}>
 
               <div>
                 <input
                   type='hidden'
                   id="question_author_id"
                   valueLink={this.linkState('author_id')}
-                />
+                  />
               </div>
 
               <div>
@@ -61,7 +86,7 @@ var QuestionForm = React.createClass({
                   type='text'
                   id='question_title'
                   valueLink={this.linkState('title')}
-                />
+                  />
               </div>
 
 
@@ -71,15 +96,14 @@ var QuestionForm = React.createClass({
                   type='text'
                   id='question_body'
                   valueLink={this.linkState('body')}
-                />
+                  />
               </div>
 
-              <input type='submit' value='Ask Question'/>
+              <input type='submit' value={prompt}/>
             </form>
           </div>
-        </div>
-
-      )
+        </span>
+      );
     }
   }
 });

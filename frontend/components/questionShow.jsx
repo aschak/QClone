@@ -1,7 +1,9 @@
 var React = require('react'),
     QuestionStore = require('../stores/question.js'),
     ApiUtil = require('../util/api_util.js'),
-    QuestionsIndex = require('./questionsIndex.jsx');
+    QuestionActions = require('../actions/question_actions.js'),
+    QuestionsIndex = require('./questionsIndex.jsx'),
+    QuestionForm = require('./questionForm.jsx');
 
 
 module.exports = React.createClass({
@@ -32,7 +34,7 @@ module.exports = React.createClass({
 
   deleteQuestion: function (event) {
     event.preventDefault();
-    ApiUtil.destroyQuestion(this.props.params.id);
+    QuestionActions.destroyQuestion(this.props.params.id);
     this.navigateToIndex();
   },
 
@@ -49,11 +51,13 @@ module.exports = React.createClass({
       <div>
         {question.title}
         <br/>
-        Asked By: {question.author.username}
+          Asked By: {question.author.username}
         <br/>
-        Details: {question.body}
+          Details: {question.body}
         <br/>
-        <button onClick={this.deleteQuestion}>Delete Question</button>
+          <QuestionForm new={false} question={question}/>
+        <br/>
+          <button onClick={this.deleteQuestion}>Delete Question</button>
       </div>
     );
   }

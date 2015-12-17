@@ -2,6 +2,7 @@ var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher.js'),
     QuestionConstants = require('../constants/question_constants.js');
 
+
 var QuestionStore = new Store(AppDispatcher);
 var _questions = [];
 
@@ -13,6 +14,10 @@ var resetQuestion = function (question) {
   _questions[question.id] = question;
 }
 
+var deleteQuestion = function (question) {
+  var idx = _questions.indexOf(question);
+  _questions.splice(idx, 1);
+}
 
 QuestionStore.all = function () {
   return _questions.slice(0);
@@ -31,6 +36,11 @@ QuestionStore.__onDispatch = function (payload) {
 
       case QuestionConstants.QUESTION_RECEIVED:
         resetQuestion(payload.question);
+        QuestionStore.__emitChange();
+        break;
+
+      case QuestionConstants.QUESTION_DELETED:
+        deleteQuestion(payload.question);
         QuestionStore.__emitChange();
         break;
     }

@@ -47,7 +47,7 @@ var ApiUtil = {
       url: 'api/questions/' + id,
       type: 'DELETE',
       success: function (question) {
-        ApiActions.receiveSingleQuestion(question);
+        ApiActions.deleteSingleQuestion(question);
       }
     });
   }

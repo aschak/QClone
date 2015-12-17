@@ -15,8 +15,17 @@ var ApiActions = {
       actionType: QuestionConstants.QUESTION_RECEIVED,
       question: question
     });
+  },
+
+  deleteSingleQuestion: function (question) {
+    Dispatcher.dispatch({
+      actionType: QuestionConstants.QUESTION_DELETED,
+      question: question
+    });
   }
 };
+
+
 
 
 
