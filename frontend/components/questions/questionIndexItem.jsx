@@ -53,7 +53,7 @@ var QuestionIndexItem = React.createClass({
         <br/>
 
         <div className="question-details">
-          Details: {preview}<a href="#" className="more-details" onClick={this.revealDetails}>{more}</a>
+          Details: {preview}<a className="more-details" onClick={this.revealDetails}>{more}</a>
         </div>
 
         <hr/>

@@ -23,6 +23,11 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     class_name: "Question"
 
+  has_many :answers,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: "Answer"
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil

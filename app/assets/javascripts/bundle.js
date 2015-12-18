@@ -31143,7 +31143,7 @@
 	        preview,
 	        React.createElement(
 	          'a',
-	          { href: '#', className: 'more-details', onClick: this.revealDetails },
+	          { className: 'more-details', onClick: this.revealDetails },
 	          more
 	        )
 	      ),
