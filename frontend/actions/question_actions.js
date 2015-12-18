@@ -27,7 +27,7 @@ var QuestionActions = {
     ApiUtil.destroyQuestion(id);
   }
 
-}
+};
 
 
 module.exports = QuestionActions;

@@ -7,20 +7,20 @@ var _answers = [];
 
 var resetAnswers = function (answers) {
   _answers = answers.slice(0);
-}
+};
 
 var resetAnswer = function (answer) {
   _answers[answer.id] = answer;
-}
+};
 
 var deleteAnswer = function (answer) {
   var idx = _answers.indexOf(answer);
   _answers.splice(idx, 1);
-}
+};
 
 AnswerStore.all = function () {
   return _answers.slice(0);
-}
+};
 
 AnswerStore.find = function () {
   var found;
@@ -29,16 +29,16 @@ AnswerStore.find = function () {
     if (answer.id = id) {
       found = answer;
     }
-  })
+  });
 
   return found;
-}
+};
 
 
 AnswerStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case AnswerConstants.ANSWERS_RECEIVED:
-      resetAnswers(payload.answers)
+      resetAnswers(payload.answers);
       AnswerStore.__emitChange();
       break;
 
@@ -52,7 +52,7 @@ AnswerStore.__onDispatch = function (payload) {
       AnswerStore.__emitChange();
       break;
   }
-}
+};
 
 
 

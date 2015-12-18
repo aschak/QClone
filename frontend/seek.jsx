@@ -23,9 +23,9 @@ var App = React.createClass({
 
         {this.props.children}
       </div>
-    )
+    );
   }
-})
+});
 
 
 var routes = (
@@ -34,7 +34,7 @@ var routes = (
   <Route path='question/:id' component={QuestionShow}/>
 
 </Route>
-)
+);
 
 
 document.addEventListener("DOMContentLoaded", function () {

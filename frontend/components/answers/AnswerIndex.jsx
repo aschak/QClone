@@ -29,14 +29,14 @@ var AnswerIndex = React.createClass({
       <ul className="answers-container">
         {
           answers.map(function (answer, idx) {
-            return <AnswerIndexItem key={idx} answer={answer}/>
+            return <AnswerIndexItem key={idx} answer={answer}/>;
           })
         }
       </ul>
-    )
+    );
   }
 
-})
+});
 
 
 module.exports = AnswerIndex;

@@ -8,11 +8,11 @@ var _user = [];
 
 var resetUser = function (user) {
   _user = user;
-}
+};
 
 UserStore.all = function () {
   return _user.slice(0);
-}
+};
 
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
@@ -21,6 +21,6 @@ UserStore.__onDispatch = function (payload) {
       break;
 
   }
-}
+};
 
 module.exports = UserStore;

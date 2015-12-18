@@ -6,7 +6,7 @@ var QuestionIndexItem = React.createClass({
   mixins: [History],
 
   getInitialState: function () {
-    return {showDetails: false}
+    return {showDetails: false};
   },
 
   showQuestion: function () {
@@ -30,10 +30,10 @@ var QuestionIndexItem = React.createClass({
 
     if (showDetails) {
       preview = this.props.question.body;
-      more = "  Hide"
+      more = "  Hide";
     } else if (!showDetails) {
-      preview = this.props.question.body.slice(0, 60).trim() + "..."
-      more = "More"
+      preview = this.props.question.body.slice(0, 60).trim() + "...";
+      more = "More";
     }
 
     return (

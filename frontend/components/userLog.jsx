@@ -42,7 +42,7 @@ var UserLog = React.createClass({
       username: this.state.username,
       password: this.state.password
     };
-    this.props.logType === "Sign In" ? UserActions.signUserIn(user) : UserActions.createUser(user)
+    this.props.logType === "Sign In" ? UserActions.signUserIn(user) : UserActions.createUser(user);
   },
 
   render: function () {
@@ -52,9 +52,9 @@ var UserLog = React.createClass({
     if (this.state.userCodes.length > 0) {
       userCodes = <ul>
         {this.state.userCodes.map(function (userCode) {
-          return <li>{userCode}</li>
+          return <li>{userCode}</li>;
         })}
-      </ul>
+      </ul>;
     }
 
     return(
@@ -84,13 +84,13 @@ var UserLog = React.createClass({
           </button>
         </form>
       </div>
-    )
+    );
 
 
   }
 
 
-})
+});
 
 
 module.exports = UserLog;

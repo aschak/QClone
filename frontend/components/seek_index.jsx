@@ -60,7 +60,7 @@ var React = require('react'),
 
           {this.props.children}
         </div>
-      )
+      );
     }
   });
 

@@ -43,8 +43,8 @@ var QuestionForm = React.createClass({
   },
 
   changeModal: function () {
-    var modal = this.state.modal ? false : true
-    this.setState({modal: modal})
+    var modal = this.state.modal ? false : true;
+    this.setState({modal: modal});
   },
 
   componentDidMount: function () {
@@ -64,10 +64,10 @@ var QuestionForm = React.createClass({
 
 
     if (this.props.new) {
-      prompt = "Ask Question"
+      prompt = "Ask Question";
       submit = 'Ask Your Question!';
     } else {
-      prompt = "Edit Question"
+      prompt = "Edit Question";
       submit = 'Update Question!';
     }
 
@@ -76,7 +76,7 @@ var QuestionForm = React.createClass({
         <button type="button" id="edit-question" className="btn btn-primary" onClick={this.changeModal}>
           {prompt}
         </button>
-      )
+      );
 
     } else {
 

@@ -14,6 +14,6 @@ var UserActions = {
   createUser: function (user) {
     ApiUtil.createUser(user);
   }
-}
+};
 
 module.exports = UserActions;

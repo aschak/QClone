@@ -23,20 +23,20 @@ var QuestionIndex = React.createClass({
   },
 
   render: function () {
-    var questions = this.state.questions
+    var questions = this.state.questions;
     return (
       <ul className="questions-container">
         {
           questions.map(function (question, idx) {
-            return <QuestionIndexItem key={idx} question={question}/>
+            return <QuestionIndexItem key={idx} question={question}/>;
           })
         }
       </ul>
-    )
+    );
   }
 
 
-})
+});
 
 
 

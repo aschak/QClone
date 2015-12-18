@@ -23,6 +23,6 @@ var AnswerActions = {
     ApiUtil.destroyAnswer(id);
   }
 
-}
+};
 
 module.exports = AnswerActions;

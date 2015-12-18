@@ -66,7 +66,7 @@ var ApiUtil = {
     $.post('/api/questions', {question: question}, function (question) {
       ApiActions.receiveSingleQuestion(question);
       callback(question);
-    })
+    });
   },
 
   editQuestion: function (question) {
@@ -105,7 +105,7 @@ var ApiUtil = {
   createAnswer: function (answer) {
     $.post('/api/answers', {answer: answer}, function (answer) {
       ApiActions.receiveSingleAnswer(answer);
-    })
+    });
   },
 
   editAnswer: function (answer) {
@@ -129,6 +129,6 @@ var ApiUtil = {
     });
   }
 
-}
+};
 
 module.exports = ApiUtil;
