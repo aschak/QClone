@@ -17,6 +17,8 @@ gem 'newrelic_rpm'
 gem 'faker'
 # Bootstrap for styling
 gem 'bootstrap-sass'
+#Annotate for quick schema
+gem 'annotate'
 
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
