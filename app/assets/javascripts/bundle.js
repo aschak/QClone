@@ -24148,7 +24148,7 @@
 	  var found;
 	
 	  _questions.forEach(function (question) {
-	    if (question.id = id) {
+	    if (question.id === id) {
 	      found = question;
 	    }
 	  });

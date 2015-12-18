@@ -12,30 +12,30 @@ var resetQuestions = function (questions) {
 
 var resetQuestion = function (question) {
   _questions[question.id] = question;
-}
+};
 
 var deleteQuestion = function (question) {
   var idx = _questions.indexOf(question);
   _questions.splice(idx, 1);
-}
+};
 
 QuestionStore.all = function () {
   return _questions.slice(0);
-}
+};
 
 QuestionStore.find = function (id) {
   var found;
 
   _questions.forEach(function (question) {
-    if (question.id = id) {
+    if (question.id === id) {
       found = question;
     }
-  })
+  });
 
   return found;
 
   // return _questions[id]
-}
+};
 
 QuestionStore.__onDispatch = function (payload) {
     switch(payload.actionType) {
@@ -54,7 +54,7 @@ QuestionStore.__onDispatch = function (payload) {
         QuestionStore.__emitChange();
         break;
     }
-}
+};
 
 
 module.exports = QuestionStore;
