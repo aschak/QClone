@@ -17,8 +17,10 @@ UserStore.all = function () {
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case UserConstants.USER_RECEIVED:
-      resetUsers(payload.user);
+      resetUser(payload.user);
       break;
 
   }
 }
+
+module.exports = UserStore;

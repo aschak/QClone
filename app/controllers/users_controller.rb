@@ -10,11 +10,11 @@ class UsersController < ApplicationController
     if @user.save
       login!(@user)
       render json: ["Created"]
-      # redirect_to root_url
+      redirect_to root_url
     else
-      render json: @user.errors.full_messages
-      # flash.now[:errors] = @user.errors.full_messages
-      # render :new
+      # render json: @user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
+      render :new
     end
   end
 

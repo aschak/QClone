@@ -5,13 +5,13 @@ var ApiUtil = {
 
   createUser: function (user) {
     $.post('users', {user: user}, function (user) {
-      ApiAction.receiveUser(user);
+      ApiActions.receiveUser(user);
     });
   },
 
   signUserIn: function (user) {
     $.post('session', {user: user}, function (user) {
-      ApiAction.receiveUser(user);
+      ApiActions.receiveUser(user);
     });
   },
 

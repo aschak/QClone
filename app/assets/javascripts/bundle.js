@@ -51,12 +51,12 @@
 	    Route = ReactRouter.Route,
 	    IndexRoute = ReactRouter.IndexRoute;
 	
-	var SeekIndex = __webpack_require__(210),
-	    QuestionShow = __webpack_require__(249),
-	    QuestionForm = __webpack_require__(248);
+	var SeekIndex = __webpack_require__(208),
+	    QuestionShow = __webpack_require__(209),
+	    QuestionForm = __webpack_require__(238);
 	
-	window.ApiUtil = __webpack_require__(234);
-	window.QuestionStore = __webpack_require__(212);
+	window.ApiUtil = __webpack_require__(233);
+	window.QuestionStore = __webpack_require__(210);
 	
 	var App = React.createClass({
 	  displayName: 'App',
@@ -19698,13 +19698,13 @@
 	
 	exports.Router = _Router3['default'];
 	
-	var _Link2 = __webpack_require__(198);
+	var _Link2 = __webpack_require__(196);
 	
 	var _Link3 = _interopRequireDefault(_Link2);
 	
 	exports.Link = _Link3['default'];
 	
-	var _IndexLink2 = __webpack_require__(199);
+	var _IndexLink2 = __webpack_require__(197);
 	
 	var _IndexLink3 = _interopRequireDefault(_IndexLink2);
 	
@@ -19712,25 +19712,25 @@
 	
 	/* components (configuration) */
 	
-	var _IndexRedirect2 = __webpack_require__(200);
+	var _IndexRedirect2 = __webpack_require__(198);
 	
 	var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
 	
 	exports.IndexRedirect = _IndexRedirect3['default'];
 	
-	var _IndexRoute2 = __webpack_require__(202);
+	var _IndexRoute2 = __webpack_require__(200);
 	
 	var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
 	
 	exports.IndexRoute = _IndexRoute3['default'];
 	
-	var _Redirect2 = __webpack_require__(201);
+	var _Redirect2 = __webpack_require__(199);
 	
 	var _Redirect3 = _interopRequireDefault(_Redirect2);
 	
 	exports.Redirect = _Redirect3['default'];
 	
-	var _Route2 = __webpack_require__(203);
+	var _Route2 = __webpack_require__(201);
 	
 	var _Route3 = _interopRequireDefault(_Route2);
 	
@@ -19738,19 +19738,19 @@
 	
 	/* mixins */
 	
-	var _History2 = __webpack_require__(204);
+	var _History2 = __webpack_require__(202);
 	
 	var _History3 = _interopRequireDefault(_History2);
 	
 	exports.History = _History3['default'];
 	
-	var _Lifecycle2 = __webpack_require__(205);
+	var _Lifecycle2 = __webpack_require__(203);
 	
 	var _Lifecycle3 = _interopRequireDefault(_Lifecycle2);
 	
 	exports.Lifecycle = _Lifecycle3['default'];
 	
-	var _RouteContext2 = __webpack_require__(206);
+	var _RouteContext2 = __webpack_require__(204);
 	
 	var _RouteContext3 = _interopRequireDefault(_RouteContext2);
 	
@@ -19774,13 +19774,13 @@
 	
 	exports.RoutingContext = _RoutingContext3['default'];
 	
-	var _PropTypes2 = __webpack_require__(197);
+	var _PropTypes2 = __webpack_require__(195);
 	
 	var _PropTypes3 = _interopRequireDefault(_PropTypes2);
 	
 	exports.PropTypes = _PropTypes3['default'];
 	
-	var _match2 = __webpack_require__(207);
+	var _match2 = __webpack_require__(205);
 	
 	var _match3 = _interopRequireDefault(_match2);
 	
@@ -19830,7 +19830,7 @@
 	
 	var _useRoutes2 = _interopRequireDefault(_useRoutes);
 	
-	var _PropTypes = __webpack_require__(197);
+	var _PropTypes = __webpack_require__(195);
 	
 	var _React$PropTypes = _react2['default'].PropTypes;
 	var func = _React$PropTypes.func;
@@ -21913,21 +21913,21 @@
 	
 	var _historyLibUseQueries2 = _interopRequireDefault(_historyLibUseQueries);
 	
-	var _computeChangedRoutes2 = __webpack_require__(191);
+	var _computeChangedRoutes2 = __webpack_require__(189);
 	
 	var _computeChangedRoutes3 = _interopRequireDefault(_computeChangedRoutes2);
 	
-	var _TransitionUtils = __webpack_require__(192);
+	var _TransitionUtils = __webpack_require__(190);
 	
-	var _isActive2 = __webpack_require__(194);
+	var _isActive2 = __webpack_require__(192);
 	
 	var _isActive3 = _interopRequireDefault(_isActive2);
 	
-	var _getComponents = __webpack_require__(195);
+	var _getComponents = __webpack_require__(193);
 	
 	var _getComponents2 = _interopRequireDefault(_getComponents);
 	
-	var _matchRoutes = __webpack_require__(196);
+	var _matchRoutes = __webpack_require__(194);
 	
 	var _matchRoutes2 = _interopRequireDefault(_matchRoutes);
 	
@@ -22204,7 +22204,7 @@
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _queryString = __webpack_require__(244);
+	var _queryString = __webpack_require__(187);
 	
 	var _runTransitionHook = __webpack_require__(178);
 	
@@ -22359,11 +22359,91 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 187 */,
-/* 188 */,
-/* 189 */,
-/* 190 */,
-/* 191 */
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	var strictUriEncode = __webpack_require__(188);
+	
+	exports.extract = function (str) {
+		return str.split('?')[1] || '';
+	};
+	
+	exports.parse = function (str) {
+		if (typeof str !== 'string') {
+			return {};
+		}
+	
+		str = str.trim().replace(/^(\?|#|&)/, '');
+	
+		if (!str) {
+			return {};
+		}
+	
+		return str.split('&').reduce(function (ret, param) {
+			var parts = param.replace(/\+/g, ' ').split('=');
+			// Firefox (pre 40) decodes `%3D` to `=`
+			// https://github.com/sindresorhus/query-string/pull/37
+			var key = parts.shift();
+			var val = parts.length > 0 ? parts.join('=') : undefined;
+	
+			key = decodeURIComponent(key);
+	
+			// missing `=` should be `null`:
+			// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+			val = val === undefined ? null : decodeURIComponent(val);
+	
+			if (!ret.hasOwnProperty(key)) {
+				ret[key] = val;
+			} else if (Array.isArray(ret[key])) {
+				ret[key].push(val);
+			} else {
+				ret[key] = [ret[key], val];
+			}
+	
+			return ret;
+		}, {});
+	};
+	
+	exports.stringify = function (obj) {
+		return obj ? Object.keys(obj).sort().map(function (key) {
+			var val = obj[key];
+	
+			if (val === undefined) {
+				return '';
+			}
+	
+			if (val === null) {
+				return key;
+			}
+	
+			if (Array.isArray(val)) {
+				return val.sort().map(function (val2) {
+					return strictUriEncode(key) + '=' + strictUriEncode(val2);
+				}).join('&');
+			}
+	
+			return strictUriEncode(key) + '=' + strictUriEncode(val);
+		}).filter(function (x) {
+			return x.length > 0;
+		}).join('&') : '';
+	};
+
+
+/***/ },
+/* 188 */
+/***/ function(module, exports) {
+
+	'use strict';
+	module.exports = function (str) {
+		return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+			return '%' + c.charCodeAt(0).toString(16);
+		});
+	};
+
+
+/***/ },
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22424,7 +22504,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 192 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22433,7 +22513,7 @@
 	exports.runEnterHooks = runEnterHooks;
 	exports.runLeaveHooks = runLeaveHooks;
 	
-	var _AsyncUtils = __webpack_require__(193);
+	var _AsyncUtils = __webpack_require__(191);
 	
 	function createEnterHook(hook, route) {
 	  return function (a, b, callback) {
@@ -22501,7 +22581,7 @@
 	}
 
 /***/ },
-/* 193 */
+/* 191 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -22564,7 +22644,7 @@
 	}
 
 /***/ },
-/* 194 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22692,14 +22772,14 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 195 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _AsyncUtils = __webpack_require__(193);
+	var _AsyncUtils = __webpack_require__(191);
 	
 	function getComponentsForRoute(location, route, callback) {
 	  if (route.component || route.components) {
@@ -22730,7 +22810,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 196 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -22743,7 +22823,7 @@
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _AsyncUtils = __webpack_require__(193);
+	var _AsyncUtils = __webpack_require__(191);
 	
 	var _PatternUtils = __webpack_require__(184);
 	
@@ -22924,7 +23004,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 197 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22982,7 +23062,7 @@
 	};
 
 /***/ },
-/* 198 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23150,7 +23230,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 199 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23169,7 +23249,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Link = __webpack_require__(198);
+	var _Link = __webpack_require__(196);
 	
 	var _Link2 = _interopRequireDefault(_Link);
 	
@@ -23197,7 +23277,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 200 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -23222,11 +23302,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Redirect = __webpack_require__(201);
+	var _Redirect = __webpack_require__(199);
 	
 	var _Redirect2 = _interopRequireDefault(_Redirect);
 	
-	var _PropTypes = __webpack_require__(197);
+	var _PropTypes = __webpack_require__(195);
 	
 	var _React$PropTypes = _react2['default'].PropTypes;
 	var string = _React$PropTypes.string;
@@ -23276,7 +23356,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 201 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -23301,7 +23381,7 @@
 	
 	var _PatternUtils = __webpack_require__(184);
 	
-	var _PropTypes = __webpack_require__(197);
+	var _PropTypes = __webpack_require__(195);
 	
 	var _React$PropTypes = _react2['default'].PropTypes;
 	var string = _React$PropTypes.string;
@@ -23389,7 +23469,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 202 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -23416,7 +23496,7 @@
 	
 	var _RouteUtils = __webpack_require__(180);
 	
-	var _PropTypes = __webpack_require__(197);
+	var _PropTypes = __webpack_require__(195);
 	
 	var func = _react2['default'].PropTypes.func;
 	
@@ -23465,7 +23545,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 203 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -23488,7 +23568,7 @@
 	
 	var _RouteUtils = __webpack_require__(180);
 	
-	var _PropTypes = __webpack_require__(197);
+	var _PropTypes = __webpack_require__(195);
 	
 	var _React$PropTypes = _react2['default'].PropTypes;
 	var string = _React$PropTypes.string;
@@ -23538,14 +23618,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 204 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	exports.__esModule = true;
 	
-	var _PropTypes = __webpack_require__(197);
+	var _PropTypes = __webpack_require__(195);
 	
 	/**
 	 * A mixin that adds the "history" instance variable to components.
@@ -23566,7 +23646,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 205 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -23636,7 +23716,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 206 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23679,7 +23759,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 207 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -23694,11 +23774,11 @@
 	
 	var _invariant2 = _interopRequireDefault(_invariant);
 	
-	var _historyLibCreateMemoryHistory = __webpack_require__(208);
+	var _historyLibCreateMemoryHistory = __webpack_require__(206);
 	
 	var _historyLibCreateMemoryHistory2 = _interopRequireDefault(_historyLibCreateMemoryHistory);
 	
-	var _historyLibUseBasename = __webpack_require__(209);
+	var _historyLibUseBasename = __webpack_require__(207);
 	
 	var _historyLibUseBasename2 = _interopRequireDefault(_historyLibUseBasename);
 	
@@ -23748,7 +23828,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 208 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -23902,7 +23982,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 209 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24047,16 +24127,60 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 210 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    QuestionsIndex = __webpack_require__(246);
+	    QuestionsIndex = __webpack_require__(236),
+	    UserLog = __webpack_require__(244),
+	    UserActions = __webpack_require__(243);
 	
 	var SeekIndex = React.createClass({
 	  displayName: 'SeekIndex',
 	
+	  getInitialState: function () {
+	    return {
+	      logType: "",
+	      loggedIn: false,
+	      authorized: false
+	    };
+	  },
+	
+	  signIn: function () {
+	    this.setState({ authorized: false, loggedIn: true });
+	  },
+	
+	  signOut: function () {
+	    UserActions.signUserOut();
+	    this.setState({ loggedIn: false });
+	  },
+	
+	  startAuth: function (logType) {
+	    this.setState({ authorized: true, logType: logType });
+	  },
+	
 	  render: function () {
+	    // var userLog = "",
+	    //     logButtons;
+	    //
+	    // if (this.state.authorized) {
+	    //   userLog = <UserLog
+	    //       logType={this.state.logType}
+	    //       logIn={this.signIn}/>
+	    //   };
+	    //
+	    // if (this.state.loggedIn) {
+	    //   logButtons =
+	    //     <button
+	    //         type="button"
+	    //         className = "btn btn-primary"
+	    //         onClick={this.signOut}>
+	    //         Sign Out
+	    //     </button>
+	    // } else {
+	    //
+	    // }
+	
 	    return React.createElement(
 	      'div',
 	      { className: 'container' },
@@ -24074,13 +24198,116 @@
 	module.exports = SeekIndex;
 
 /***/ },
-/* 211 */,
-/* 212 */
+/* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Store = __webpack_require__(213).Store,
-	    AppDispatcher = __webpack_require__(230),
-	    QuestionConstants = __webpack_require__(233);
+	var React = __webpack_require__(1),
+	    QuestionStore = __webpack_require__(210),
+	    QuestionActions = __webpack_require__(232),
+	    QuestionsIndex = __webpack_require__(236),
+	    QuestionForm = __webpack_require__(238);
+	
+	module.exports = React.createClass({
+	  displayName: 'exports',
+	
+	  getStateFromStore: function () {
+	    return { question: QuestionStore.find(parseInt(this.props.params.id)) };
+	  },
+	
+	  _questionChange: function () {
+	    this.setState(this.getStateFromStore());
+	  },
+	
+	  getInitialState: function () {
+	    return this.getStateFromStore();
+	  },
+	
+	  componentWillReceiveProps: function (newProps) {
+	    QuestionActions.fetchQuestion(parseInt(newProps.params.id));
+	  },
+	
+	  componentDidMount: function () {
+	    this.questionListener = QuestionStore.addListener(this._questionChange);
+	    QuestionActions.fetchQuestion(parseInt(this.props.params.id));
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.questionListener.remove();
+	  },
+	
+	  deleteQuestion: function (event) {
+	    event.preventDefault();
+	    QuestionActions.destroyQuestion(this.props.params.id);
+	    this.navigateToIndex();
+	  },
+	
+	  navigateToIndex: function () {
+	    this.props.history.push("/");
+	  },
+	
+	  render: function () {
+	    var question = this.state.question;
+	    if (question === undefined) {
+	      return React.createElement('div', null);
+	    }
+	
+	    var asker = question.author.username,
+	        askTime = new Date(question.created_at).toString();
+	
+	    return React.createElement(
+	      'div',
+	      { className: 'question-show' },
+	      React.createElement(
+	        'div',
+	        { className: 'asker-container' },
+	        'Question asked by',
+	        React.createElement(
+	          'a',
+	          { href: '#', className: 'asker' },
+	          asker
+	        ),
+	        ',',
+	        React.createElement(
+	          'span',
+	          { className: 'ask-time' },
+	          askTime
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'question-title' },
+	        question.title
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'question-details' },
+	        'Details: ',
+	        question.body
+	      ),
+	      React.createElement(QuestionForm, { className: 'question-form', id: 'edit', 'new': false, question: question }),
+	      React.createElement('br', null),
+	      React.createElement(
+	        'button',
+	        { type: 'button', className: 'btn btn-primary', onClick: this.deleteQuestion },
+	        'Delete Question'
+	      ),
+	      React.createElement('hr', null),
+	      React.createElement(
+	        'button',
+	        { className: 'btn btn-primary', onClick: this.navigateToIndex },
+	        'Back'
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Store = __webpack_require__(211).Store,
+	    AppDispatcher = __webpack_require__(228),
+	    QuestionConstants = __webpack_require__(231);
 	
 	var QuestionStore = new Store(AppDispatcher);
 	var _questions = [];
@@ -24127,7 +24354,7 @@
 	module.exports = QuestionStore;
 
 /***/ },
-/* 213 */
+/* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24139,15 +24366,15 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 	
-	module.exports.Container = __webpack_require__(214);
-	module.exports.MapStore = __webpack_require__(218);
-	module.exports.Mixin = __webpack_require__(229);
-	module.exports.ReduceStore = __webpack_require__(219);
-	module.exports.Store = __webpack_require__(220);
+	module.exports.Container = __webpack_require__(212);
+	module.exports.MapStore = __webpack_require__(216);
+	module.exports.Mixin = __webpack_require__(227);
+	module.exports.ReduceStore = __webpack_require__(217);
+	module.exports.Store = __webpack_require__(218);
 
 
 /***/ },
-/* 214 */
+/* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24169,10 +24396,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxStoreGroup = __webpack_require__(215);
+	var FluxStoreGroup = __webpack_require__(213);
 	
-	var invariant = __webpack_require__(216);
-	var shallowEqual = __webpack_require__(217);
+	var invariant = __webpack_require__(214);
+	var shallowEqual = __webpack_require__(215);
 	
 	var DEFAULT_OPTIONS = {
 	  pure: true,
@@ -24330,7 +24557,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 215 */
+/* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24349,7 +24576,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(216);
+	var invariant = __webpack_require__(214);
 	
 	/**
 	 * FluxStoreGroup allows you to execute a callback on every dispatch after
@@ -24411,7 +24638,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 216 */
+/* 214 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24466,7 +24693,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 217 */
+/* 215 */
 /***/ function(module, exports) {
 
 	/**
@@ -24521,7 +24748,7 @@
 	module.exports = shallowEqual;
 
 /***/ },
-/* 218 */
+/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24542,10 +24769,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxReduceStore = __webpack_require__(219);
-	var Immutable = __webpack_require__(228);
+	var FluxReduceStore = __webpack_require__(217);
+	var Immutable = __webpack_require__(226);
 	
-	var invariant = __webpack_require__(216);
+	var invariant = __webpack_require__(214);
 	
 	/**
 	 * This is a simple store. It allows caching key value pairs. An implementation
@@ -24671,7 +24898,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 219 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24692,10 +24919,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxStore = __webpack_require__(220);
+	var FluxStore = __webpack_require__(218);
 	
-	var abstractMethod = __webpack_require__(227);
-	var invariant = __webpack_require__(216);
+	var abstractMethod = __webpack_require__(225);
+	var invariant = __webpack_require__(214);
 	
 	var FluxReduceStore = (function (_FluxStore) {
 	  _inherits(FluxReduceStore, _FluxStore);
@@ -24778,7 +25005,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 220 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -24797,11 +25024,11 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _require = __webpack_require__(221);
+	var _require = __webpack_require__(219);
 	
 	var EventEmitter = _require.EventEmitter;
 	
-	var invariant = __webpack_require__(216);
+	var invariant = __webpack_require__(214);
 	
 	/**
 	 * This class should be extended by the stores in your application, like so:
@@ -24961,7 +25188,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 221 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24974,14 +25201,14 @@
 	 */
 	
 	var fbemitter = {
-	  EventEmitter: __webpack_require__(222)
+	  EventEmitter: __webpack_require__(220)
 	};
 	
 	module.exports = fbemitter;
 
 
 /***/ },
-/* 222 */
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25000,11 +25227,11 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var EmitterSubscription = __webpack_require__(223);
-	var EventSubscriptionVendor = __webpack_require__(225);
+	var EmitterSubscription = __webpack_require__(221);
+	var EventSubscriptionVendor = __webpack_require__(223);
 	
-	var emptyFunction = __webpack_require__(226);
-	var invariant = __webpack_require__(216);
+	var emptyFunction = __webpack_require__(224);
+	var invariant = __webpack_require__(214);
 	
 	/**
 	 * @class BaseEventEmitter
@@ -25178,7 +25405,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 223 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25199,7 +25426,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var EventSubscription = __webpack_require__(224);
+	var EventSubscription = __webpack_require__(222);
 	
 	/**
 	 * EmitterSubscription represents a subscription with listener and context data.
@@ -25231,7 +25458,7 @@
 	module.exports = EmitterSubscription;
 
 /***/ },
-/* 224 */
+/* 222 */
 /***/ function(module, exports) {
 
 	/**
@@ -25282,7 +25509,7 @@
 	module.exports = EventSubscription;
 
 /***/ },
-/* 225 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25301,7 +25528,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(216);
+	var invariant = __webpack_require__(214);
 	
 	/**
 	 * EventSubscriptionVendor stores a set of EventSubscriptions that are
@@ -25391,7 +25618,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 226 */
+/* 224 */
 /***/ function(module, exports) {
 
 	/**
@@ -25434,7 +25661,7 @@
 	module.exports = emptyFunction;
 
 /***/ },
-/* 227 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25451,7 +25678,7 @@
 	
 	'use strict';
 	
-	var invariant = __webpack_require__(216);
+	var invariant = __webpack_require__(214);
 	
 	function abstractMethod(className, methodName) {
 	   true ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Subclasses of %s must override %s() with their own implementation.', className, methodName) : invariant(false) : undefined;
@@ -25461,7 +25688,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 228 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30426,7 +30653,7 @@
 	}));
 
 /***/ },
-/* 229 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -30443,9 +30670,9 @@
 	
 	'use strict';
 	
-	var FluxStoreGroup = __webpack_require__(215);
+	var FluxStoreGroup = __webpack_require__(213);
 	
-	var invariant = __webpack_require__(216);
+	var invariant = __webpack_require__(214);
 	
 	/**
 	 * `FluxContainer` should be preferred over this mixin, but it requires using
@@ -30549,15 +30776,15 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 230 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(231).Dispatcher;
+	var Dispatcher = __webpack_require__(229).Dispatcher;
 	
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 231 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -30569,11 +30796,11 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 	
-	module.exports.Dispatcher = __webpack_require__(232);
+	module.exports.Dispatcher = __webpack_require__(230);
 
 
 /***/ },
-/* 232 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -30595,7 +30822,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(216);
+	var invariant = __webpack_require__(214);
 	
 	var _prefix = 'ID_';
 	
@@ -30810,7 +31037,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 233 */
+/* 231 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -30821,22 +31048,58 @@
 	};
 
 /***/ },
-/* 234 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ApiActions = __webpack_require__(242);
+	var Dispatcher = __webpack_require__(228),
+	    ApiUtil = __webpack_require__(233);
+	
+	var QuestionActions = {
+	  fetchQuestions: function () {
+	    ApiUtil.fetchAllQuestions();
+	    // Dispatcher.dispatch({
+	    //   actionType: QuestionConstants.QUESTIONS_LOADING,
+	    //   questions: questions
+	    // });
+	  },
+	
+	  fetchQuestion: function (id) {
+	    ApiUtil.fetchSingleQuestion(id);
+	  },
+	
+	  createQuestion: function (question, callback) {
+	    ApiUtil.createQuestion(question, callback);
+	  },
+	
+	  editQuestion: function (question) {
+	    ApiUtil.editQuestion(question);
+	  },
+	
+	  destroyQuestion: function (id) {
+	    ApiUtil.destroyQuestion(id);
+	  }
+	
+	};
+	
+	module.exports = QuestionActions;
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ApiActions = __webpack_require__(234);
 	
 	var ApiUtil = {
 	
 	  createUser: function (user) {
 	    $.post('users', { user: user }, function (user) {
-	      ApiAction.receiveUser(user);
+	      ApiActions.receiveUser(user);
 	    });
 	  },
 	
 	  signUserIn: function (user) {
 	    $.post('session', { user: user }, function (user) {
-	      ApiAction.receiveUser(user);
+	      ApiActions.receiveUser(user);
 	    });
 	  },
 	
@@ -30917,245 +31180,12 @@
 	module.exports = ApiUtil;
 
 /***/ },
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(239);
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule LinkedStateMixin
-	 * @typechecks static-only
-	 */
-	
-	'use strict';
-	
-	var ReactLink = __webpack_require__(240);
-	var ReactStateSetters = __webpack_require__(241);
-	
-	/**
-	 * A simple mixin around ReactLink.forState().
-	 */
-	var LinkedStateMixin = {
-	  /**
-	   * Create a ReactLink that's linked to part of this component's state. The
-	   * ReactLink will have the current value of this.state[key] and will call
-	   * setState() when a change is requested.
-	   *
-	   * @param {string} key state key to update. Note: you may want to use keyOf()
-	   * if you're using Google Closure Compiler advanced mode.
-	   * @return {ReactLink} ReactLink instance linking to the state.
-	   */
-	  linkState: function (key) {
-	    return new ReactLink(this.state[key], ReactStateSetters.createStateKeySetter(this, key));
-	  }
-	};
-	
-	module.exports = LinkedStateMixin;
-
-/***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactLink
-	 * @typechecks static-only
-	 */
-	
-	'use strict';
-	
-	/**
-	 * ReactLink encapsulates a common pattern in which a component wants to modify
-	 * a prop received from its parent. ReactLink allows the parent to pass down a
-	 * value coupled with a callback that, when invoked, expresses an intent to
-	 * modify that value. For example:
-	 *
-	 * React.createClass({
-	 *   getInitialState: function() {
-	 *     return {value: ''};
-	 *   },
-	 *   render: function() {
-	 *     var valueLink = new ReactLink(this.state.value, this._handleValueChange);
-	 *     return <input valueLink={valueLink} />;
-	 *   },
-	 *   _handleValueChange: function(newValue) {
-	 *     this.setState({value: newValue});
-	 *   }
-	 * });
-	 *
-	 * We have provided some sugary mixins to make the creation and
-	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
-	 */
-	
-	var React = __webpack_require__(2);
-	
-	/**
-	 * @param {*} value current value of the link
-	 * @param {function} requestChange callback to request a change
-	 */
-	function ReactLink(value, requestChange) {
-	  this.value = value;
-	  this.requestChange = requestChange;
-	}
-	
-	/**
-	 * Creates a PropType that enforces the ReactLink API and optionally checks the
-	 * type of the value being passed inside the link. Example:
-	 *
-	 * MyComponent.propTypes = {
-	 *   tabIndexLink: ReactLink.PropTypes.link(React.PropTypes.number)
-	 * }
-	 */
-	function createLinkTypeChecker(linkType) {
-	  var shapes = {
-	    value: typeof linkType === 'undefined' ? React.PropTypes.any.isRequired : linkType.isRequired,
-	    requestChange: React.PropTypes.func.isRequired
-	  };
-	  return React.PropTypes.shape(shapes);
-	}
-	
-	ReactLink.PropTypes = {
-	  link: createLinkTypeChecker
-	};
-	
-	module.exports = ReactLink;
-
-/***/ },
-/* 241 */
-/***/ function(module, exports) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactStateSetters
-	 */
-	
-	'use strict';
-	
-	var ReactStateSetters = {
-	  /**
-	   * Returns a function that calls the provided function, and uses the result
-	   * of that to set the component's state.
-	   *
-	   * @param {ReactCompositeComponent} component
-	   * @param {function} funcReturningState Returned callback uses this to
-	   *                                      determine how to update state.
-	   * @return {function} callback that when invoked uses funcReturningState to
-	   *                    determined the object literal to setState.
-	   */
-	  createStateSetter: function (component, funcReturningState) {
-	    return function (a, b, c, d, e, f) {
-	      var partialState = funcReturningState.call(component, a, b, c, d, e, f);
-	      if (partialState) {
-	        component.setState(partialState);
-	      }
-	    };
-	  },
-	
-	  /**
-	   * Returns a single-argument callback that can be used to update a single
-	   * key in the component's state.
-	   *
-	   * Note: this is memoized function, which makes it inexpensive to call.
-	   *
-	   * @param {ReactCompositeComponent} component
-	   * @param {string} key The key in the state that you should update.
-	   * @return {function} callback of 1 argument which calls setState() with
-	   *                    the provided keyName and callback argument.
-	   */
-	  createStateKeySetter: function (component, key) {
-	    // Memoize the setters.
-	    var cache = component.__keySetters || (component.__keySetters = {});
-	    return cache[key] || (cache[key] = createStateKeySetter(component, key));
-	  }
-	};
-	
-	function createStateKeySetter(component, key) {
-	  // Partial state is allocated outside of the function closure so it can be
-	  // reused with every call, avoiding memory allocation when this function
-	  // is called.
-	  var partialState = {};
-	  return function stateKeySetter(value) {
-	    partialState[key] = value;
-	    component.setState(partialState);
-	  };
-	}
-	
-	ReactStateSetters.Mixin = {
-	  /**
-	   * Returns a function that calls the provided function, and uses the result
-	   * of that to set the component's state.
-	   *
-	   * For example, these statements are equivalent:
-	   *
-	   *   this.setState({x: 1});
-	   *   this.createStateSetter(function(xValue) {
-	   *     return {x: xValue};
-	   *   })(1);
-	   *
-	   * @param {function} funcReturningState Returned callback uses this to
-	   *                                      determine how to update state.
-	   * @return {function} callback that when invoked uses funcReturningState to
-	   *                    determined the object literal to setState.
-	   */
-	  createStateSetter: function (funcReturningState) {
-	    return ReactStateSetters.createStateSetter(this, funcReturningState);
-	  },
-	
-	  /**
-	   * Returns a single-argument callback that can be used to update a single
-	   * key in the component's state.
-	   *
-	   * For example, these statements are equivalent:
-	   *
-	   *   this.setState({x: 1});
-	   *   this.createStateKeySetter('x')(1);
-	   *
-	   * Note: this is memoized function, which makes it inexpensive to call.
-	   *
-	   * @param {string} key The key in the state that you should update.
-	   * @return {function} callback of 1 argument which calls setState() with
-	   *                    the provided keyName and callback argument.
-	   */
-	  createStateKeySetter: function (key) {
-	    return ReactStateSetters.createStateKeySetter(this, key);
-	  }
-	};
-	
-	module.exports = ReactStateSetters;
-
-/***/ },
-/* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(230),
-	    QuestionConstants = __webpack_require__(233),
-	    UserConstants = __webpack_require__(250);
+	var Dispatcher = __webpack_require__(228),
+	    QuestionConstants = __webpack_require__(231),
+	    UserConstants = __webpack_require__(235);
 	
 	var ApiActions = {
 	
@@ -31191,134 +31221,22 @@
 	module.exports = ApiActions;
 
 /***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(230),
-	    ApiUtil = __webpack_require__(234);
-	
-	var QuestionActions = {
-	  fetchQuestions: function () {
-	    ApiUtil.fetchAllQuestions();
-	    // Dispatcher.dispatch({
-	    //   actionType: QuestionConstants.QUESTIONS_LOADING,
-	    //   questions: questions
-	    // });
-	  },
-	
-	  fetchQuestion: function (id) {
-	    ApiUtil.fetchSingleQuestion(id);
-	  },
-	
-	  createQuestion: function (question, callback) {
-	    ApiUtil.createQuestion(question, callback);
-	  },
-	
-	  editQuestion: function (question) {
-	    ApiUtil.editQuestion(question);
-	  },
-	
-	  destroyQuestion: function (id) {
-	    ApiUtil.destroyQuestion(id);
-	  }
-	
-	};
-	
-	module.exports = QuestionActions;
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	var strictUriEncode = __webpack_require__(245);
-	
-	exports.extract = function (str) {
-		return str.split('?')[1] || '';
-	};
-	
-	exports.parse = function (str) {
-		if (typeof str !== 'string') {
-			return {};
-		}
-	
-		str = str.trim().replace(/^(\?|#|&)/, '');
-	
-		if (!str) {
-			return {};
-		}
-	
-		return str.split('&').reduce(function (ret, param) {
-			var parts = param.replace(/\+/g, ' ').split('=');
-			// Firefox (pre 40) decodes `%3D` to `=`
-			// https://github.com/sindresorhus/query-string/pull/37
-			var key = parts.shift();
-			var val = parts.length > 0 ? parts.join('=') : undefined;
-	
-			key = decodeURIComponent(key);
-	
-			// missing `=` should be `null`:
-			// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
-			val = val === undefined ? null : decodeURIComponent(val);
-	
-			if (!ret.hasOwnProperty(key)) {
-				ret[key] = val;
-			} else if (Array.isArray(ret[key])) {
-				ret[key].push(val);
-			} else {
-				ret[key] = [ret[key], val];
-			}
-	
-			return ret;
-		}, {});
-	};
-	
-	exports.stringify = function (obj) {
-		return obj ? Object.keys(obj).sort().map(function (key) {
-			var val = obj[key];
-	
-			if (val === undefined) {
-				return '';
-			}
-	
-			if (val === null) {
-				return key;
-			}
-	
-			if (Array.isArray(val)) {
-				return val.sort().map(function (val2) {
-					return strictUriEncode(key) + '=' + strictUriEncode(val2);
-				}).join('&');
-			}
-	
-			return strictUriEncode(key) + '=' + strictUriEncode(val);
-		}).filter(function (x) {
-			return x.length > 0;
-		}).join('&') : '';
-	};
-
-
-/***/ },
-/* 245 */
+/* 235 */
 /***/ function(module, exports) {
 
-	'use strict';
-	module.exports = function (str) {
-		return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
-			return '%' + c.charCodeAt(0).toString(16);
-		});
+	module.exports = {
+	  USER_RECEIVED: "USER_RECEIVED"
 	};
 
-
 /***/ },
-/* 246 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    QuestionStore = __webpack_require__(212),
-	    ApiUtil = __webpack_require__(234),
-	    QuestionActions = __webpack_require__(243),
-	    QuestionIndexItem = __webpack_require__(247);
+	    QuestionStore = __webpack_require__(210),
+	    ApiUtil = __webpack_require__(233),
+	    QuestionActions = __webpack_require__(232),
+	    QuestionIndexItem = __webpack_require__(237);
 	
 	var QuestionIndex = React.createClass({
 	  displayName: 'QuestionIndex',
@@ -31356,7 +31274,7 @@
 	module.exports = QuestionIndex;
 
 /***/ },
-/* 247 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -31448,13 +31366,13 @@
 	module.exports = QuestionIndexItem;
 
 /***/ },
-/* 248 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    QuestionActions = __webpack_require__(243),
+	    QuestionActions = __webpack_require__(232),
 	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(238);
+	    LinkedStateMixin = __webpack_require__(239);
 	
 	var QuestionForm = React.createClass({
 	  displayName: 'QuestionForm',
@@ -31594,116 +31512,398 @@
 	module.exports = QuestionForm;
 
 /***/ },
-/* 249 */
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(240);
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule LinkedStateMixin
+	 * @typechecks static-only
+	 */
+	
+	'use strict';
+	
+	var ReactLink = __webpack_require__(241);
+	var ReactStateSetters = __webpack_require__(242);
+	
+	/**
+	 * A simple mixin around ReactLink.forState().
+	 */
+	var LinkedStateMixin = {
+	  /**
+	   * Create a ReactLink that's linked to part of this component's state. The
+	   * ReactLink will have the current value of this.state[key] and will call
+	   * setState() when a change is requested.
+	   *
+	   * @param {string} key state key to update. Note: you may want to use keyOf()
+	   * if you're using Google Closure Compiler advanced mode.
+	   * @return {ReactLink} ReactLink instance linking to the state.
+	   */
+	  linkState: function (key) {
+	    return new ReactLink(this.state[key], ReactStateSetters.createStateKeySetter(this, key));
+	  }
+	};
+	
+	module.exports = LinkedStateMixin;
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactLink
+	 * @typechecks static-only
+	 */
+	
+	'use strict';
+	
+	/**
+	 * ReactLink encapsulates a common pattern in which a component wants to modify
+	 * a prop received from its parent. ReactLink allows the parent to pass down a
+	 * value coupled with a callback that, when invoked, expresses an intent to
+	 * modify that value. For example:
+	 *
+	 * React.createClass({
+	 *   getInitialState: function() {
+	 *     return {value: ''};
+	 *   },
+	 *   render: function() {
+	 *     var valueLink = new ReactLink(this.state.value, this._handleValueChange);
+	 *     return <input valueLink={valueLink} />;
+	 *   },
+	 *   _handleValueChange: function(newValue) {
+	 *     this.setState({value: newValue});
+	 *   }
+	 * });
+	 *
+	 * We have provided some sugary mixins to make the creation and
+	 * consumption of ReactLink easier; see LinkedValueUtils and LinkedStateMixin.
+	 */
+	
+	var React = __webpack_require__(2);
+	
+	/**
+	 * @param {*} value current value of the link
+	 * @param {function} requestChange callback to request a change
+	 */
+	function ReactLink(value, requestChange) {
+	  this.value = value;
+	  this.requestChange = requestChange;
+	}
+	
+	/**
+	 * Creates a PropType that enforces the ReactLink API and optionally checks the
+	 * type of the value being passed inside the link. Example:
+	 *
+	 * MyComponent.propTypes = {
+	 *   tabIndexLink: ReactLink.PropTypes.link(React.PropTypes.number)
+	 * }
+	 */
+	function createLinkTypeChecker(linkType) {
+	  var shapes = {
+	    value: typeof linkType === 'undefined' ? React.PropTypes.any.isRequired : linkType.isRequired,
+	    requestChange: React.PropTypes.func.isRequired
+	  };
+	  return React.PropTypes.shape(shapes);
+	}
+	
+	ReactLink.PropTypes = {
+	  link: createLinkTypeChecker
+	};
+	
+	module.exports = ReactLink;
+
+/***/ },
+/* 242 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactStateSetters
+	 */
+	
+	'use strict';
+	
+	var ReactStateSetters = {
+	  /**
+	   * Returns a function that calls the provided function, and uses the result
+	   * of that to set the component's state.
+	   *
+	   * @param {ReactCompositeComponent} component
+	   * @param {function} funcReturningState Returned callback uses this to
+	   *                                      determine how to update state.
+	   * @return {function} callback that when invoked uses funcReturningState to
+	   *                    determined the object literal to setState.
+	   */
+	  createStateSetter: function (component, funcReturningState) {
+	    return function (a, b, c, d, e, f) {
+	      var partialState = funcReturningState.call(component, a, b, c, d, e, f);
+	      if (partialState) {
+	        component.setState(partialState);
+	      }
+	    };
+	  },
+	
+	  /**
+	   * Returns a single-argument callback that can be used to update a single
+	   * key in the component's state.
+	   *
+	   * Note: this is memoized function, which makes it inexpensive to call.
+	   *
+	   * @param {ReactCompositeComponent} component
+	   * @param {string} key The key in the state that you should update.
+	   * @return {function} callback of 1 argument which calls setState() with
+	   *                    the provided keyName and callback argument.
+	   */
+	  createStateKeySetter: function (component, key) {
+	    // Memoize the setters.
+	    var cache = component.__keySetters || (component.__keySetters = {});
+	    return cache[key] || (cache[key] = createStateKeySetter(component, key));
+	  }
+	};
+	
+	function createStateKeySetter(component, key) {
+	  // Partial state is allocated outside of the function closure so it can be
+	  // reused with every call, avoiding memory allocation when this function
+	  // is called.
+	  var partialState = {};
+	  return function stateKeySetter(value) {
+	    partialState[key] = value;
+	    component.setState(partialState);
+	  };
+	}
+	
+	ReactStateSetters.Mixin = {
+	  /**
+	   * Returns a function that calls the provided function, and uses the result
+	   * of that to set the component's state.
+	   *
+	   * For example, these statements are equivalent:
+	   *
+	   *   this.setState({x: 1});
+	   *   this.createStateSetter(function(xValue) {
+	   *     return {x: xValue};
+	   *   })(1);
+	   *
+	   * @param {function} funcReturningState Returned callback uses this to
+	   *                                      determine how to update state.
+	   * @return {function} callback that when invoked uses funcReturningState to
+	   *                    determined the object literal to setState.
+	   */
+	  createStateSetter: function (funcReturningState) {
+	    return ReactStateSetters.createStateSetter(this, funcReturningState);
+	  },
+	
+	  /**
+	   * Returns a single-argument callback that can be used to update a single
+	   * key in the component's state.
+	   *
+	   * For example, these statements are equivalent:
+	   *
+	   *   this.setState({x: 1});
+	   *   this.createStateKeySetter('x')(1);
+	   *
+	   * Note: this is memoized function, which makes it inexpensive to call.
+	   *
+	   * @param {string} key The key in the state that you should update.
+	   * @return {function} callback of 1 argument which calls setState() with
+	   *                    the provided keyName and callback argument.
+	   */
+	  createStateKeySetter: function (key) {
+	    return ReactStateSetters.createStateKeySetter(this, key);
+	  }
+	};
+	
+	module.exports = ReactStateSetters;
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(228),
+	    ApiUtil = __webpack_require__(233);
+	
+	var UserActions = {
+	  userSignIn: function (user) {
+	    ApiUtil.userSignIn(user);
+	  },
+	
+	  userSignOut: function (user) {
+	    ApiUtil.userSignOut(user);
+	  },
+	
+	  createUser: function (user) {
+	    ApiUtil.createUser(user);
+	  }
+	};
+	
+	module.exports = UserActions;
+
+/***/ },
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    QuestionStore = __webpack_require__(212),
-	    QuestionActions = __webpack_require__(243),
-	    QuestionsIndex = __webpack_require__(246),
-	    QuestionForm = __webpack_require__(248);
+	    UserStore = __webpack_require__(245),
+	    UserActions = __webpack_require__(243),
+	    LinkedStateMixin = __webpack_require__(239);
 	
-	module.exports = React.createClass({
-	  displayName: 'exports',
+	var UserLog = React.createClass({
+	  displayName: 'UserLog',
 	
-	  getStateFromStore: function () {
-	    return { question: QuestionStore.find(parseInt(this.props.params.id)) };
-	  },
-	
-	  _questionChange: function () {
-	    this.setState(this.getStateFromStore());
-	  },
+	  mixins: [LinkedStateMixin],
 	
 	  getInitialState: function () {
-	    return this.getStateFromStore();
+	    return {
+	      username: "",
+	      password: "",
+	      userCodes: []
+	    };
 	  },
 	
-	  componentWillReceiveProps: function (newProps) {
-	    QuestionActions.fetchQuestion(parseInt(newProps.params.id));
+	  _userChange: function () {
+	    var userCodes = UserStore.all();
+	
+	    SuccessCases = ["Signed In", "Signed Out", "Created"];
+	
+	    if (this.successCases.indexOf(userCodes[0]) !== -1) {
+	      this.props.signIn();
+	    } else {
+	      this.setState({ userCodes: userCodes });
+	    }
 	  },
 	
 	  componentDidMount: function () {
-	    this.questionListener = QuestionStore.addListener(this._questionChange);
-	    QuestionActions.fetchQuestion(parseInt(this.props.params.id));
+	    this.userListener = UserStore.addListener(this._onChange);
 	  },
 	
-	  componentWillUnmount: function () {
-	    this.questionListener.remove();
-	  },
-	
-	  deleteQuestion: function (event) {
+	  handleSubmit: function (event) {
 	    event.preventDefault();
-	    QuestionActions.destroyQuestion(this.props.params.id);
-	    this.navigateToIndex();
-	  },
-	
-	  navigateToIndex: function () {
-	    this.props.history.push("/");
+	    var user = {
+	      username: this.state.username,
+	      password: this.state.password
+	    };
+	    this.props.logType === "Sign In" ? UserActions.signUserIn(user) : UserActions.createUser(user);
 	  },
 	
 	  render: function () {
-	    var question = this.state.question;
-	    if (question === undefined) {
-	      return React.createElement('div', null);
-	    }
+	    var userCodes = "",
+	        logType = this.props.logType;
 	
-	    var asker = question.author.username,
-	        askTime = new Date(question.created_at).toString();
+	    if (this.state.userCodes.length > 0) {
+	      userCodes = React.createElement(
+	        'ul',
+	        null,
+	        this.state.userCodes.map(function (userCode) {
+	          return React.createElement(
+	            'li',
+	            null,
+	            userCode
+	          );
+	        })
+	      );
+	    }
 	
 	    return React.createElement(
 	      'div',
-	      { className: 'question-show' },
+	      null,
 	      React.createElement(
 	        'div',
-	        { className: 'asker-container' },
-	        'Question asked by',
-	        React.createElement(
-	          'a',
-	          { href: '#', className: 'asker' },
-	          asker
-	        ),
-	        ',',
+	        null,
+	        userCodes,
 	        React.createElement(
 	          'span',
-	          { className: 'ask-time' },
-	          askTime
+	          null,
+	          logType
 	        )
 	      ),
 	      React.createElement(
-	        'div',
-	        { className: 'question-title' },
-	        question.title
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'question-details' },
-	        'Details: ',
-	        question.body
-	      ),
-	      React.createElement(QuestionForm, { className: 'question-form', id: 'edit', 'new': false, question: question }),
-	      React.createElement('br', null),
-	      React.createElement(
-	        'button',
-	        { type: 'button', className: 'btn btn-primary', onClick: this.deleteQuestion },
-	        'Delete Question'
-	      ),
-	      React.createElement('hr', null),
-	      React.createElement(
-	        'button',
-	        { className: 'btn btn-primary', onClick: this.navigateToIndex },
-	        'Back'
+	        'form',
+	        null,
+	        React.createElement(
+	          'div',
+	          { className: 'user-sign-in' },
+	          'Username:',
+	          React.createElement('input', {
+	            type: 'text',
+	            valueLink: this.linkState('username') })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'user-sign-out' },
+	          'Password:',
+	          React.createElement('input', {
+	            type: 'password',
+	            valueLink: this.linkState('password') })
+	        ),
+	        React.createElement(
+	          'button',
+	          { type: 'button', className: 'btn btn-primary', onClick: this.handleSubmit },
+	          'SIGN IN'
+	        )
 	      )
 	    );
 	  }
+	
 	});
+	
+	module.exports = UserLog;
 
 /***/ },
-/* 250 */
-/***/ function(module, exports) {
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = {
-	  USER_RECEIVED: "USER_RECEIVED"
+	var Store = __webpack_require__(211).Store,
+	    AppDispatcher = __webpack_require__(228),
+	    UserConstants = __webpack_require__(235);
+	
+	var UserStore = new Store(AppDispatcher);
+	
+	var _user = [];
+	
+	var resetUser = function (user) {
+	  _user = user;
 	};
+	
+	UserStore.all = function () {
+	  return _user.slice(0);
+	};
+	
+	UserStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case UserConstants.USER_RECEIVED:
+	      resetUser(payload.user);
+	      break;
+	
+	  }
+	};
+	
+	module.exports = UserStore;
 
 /***/ }
 /******/ ]);
