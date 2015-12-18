@@ -24078,7 +24078,6 @@
 
 	var React = __webpack_require__(1),
 	    QuestionStore = __webpack_require__(208),
-	    ApiUtil = __webpack_require__(230),
 	    QuestionActions = __webpack_require__(233),
 	    QuestionIndexItem = __webpack_require__(234);
 	
@@ -24146,25 +24145,36 @@
 	};
 	
 	QuestionStore.find = function (id) {
-	  return _questions[id];
+	  var found;
+	
+	  _questions.forEach(function (question) {
+	    if (question.id = id) {
+	      found = question;
+	    }
+	  });
+	
+	  return found;
+	
+	  // return _questions[id]
 	};
 	
 	QuestionStore.__onDispatch = function (payload) {
 	  switch (payload.actionType) {
 	    case QuestionConstants.QUESTIONS_RECEIVED:
 	      resetQuestions(payload.questions);
+	      QuestionStore.__emitChange();
 	      break;
 	
 	    case QuestionConstants.QUESTION_RECEIVED:
 	      resetQuestion(payload.question);
+	      QuestionStore.__emitChange();
 	      break;
 	
 	    case QuestionConstants.QUESTION_DELETED:
 	      deleteQuestion(payload.question);
+	      QuestionStore.__emitChange();
 	      break;
 	  }
-	
-	  QuestionStore.__emitChange();
 	};
 	
 	module.exports = QuestionStore;
@@ -30976,7 +30986,47 @@
 	        ApiActions.deleteSingleQuestion(question);
 	      }
 	    });
+	  },
+	
+	  fetchAllAnswers: function () {
+	    $.get('/api/answers', function (answers) {
+	      ApiActions.receiveAllAnswers(answers);
+	    });
+	  },
+	
+	  fetchSingleQuestion: function (id) {
+	    $.get('/api/answers/' + id, function (answer) {
+	      ApiActions.receiveSingleAnswer(answer);
+	    });
+	  },
+	
+	  createAnswer: function (answer) {
+	    $.post('/api/answers', { answer: answer }, function (answer) {
+	      ApiActions.receiveSingleAnswer(answer);
+	    });
+	  },
+	
+	  editAnswer: function (answer) {
+	    $.ajax({
+	      url: '/api/answers/' + answer.id,
+	      type: 'PUT',
+	      data: { question: question },
+	      success: function (answer) {
+	        ApiActions.receiveSingleAnswer(answer);
+	      }
+	    });
+	  },
+	
+	  destroyAnswer: function (id) {
+	    $.ajax({
+	      url: '/api/answers/' + id,
+	      type: 'DELETE',
+	      success: function (answer) {
+	        ApiActions.deleteSingleAnswer(answer);
+	      }
+	    });
 	  }
+	
 	};
 	
 	module.exports = ApiUtil;
@@ -30987,7 +31037,8 @@
 
 	var Dispatcher = __webpack_require__(226),
 	    QuestionConstants = __webpack_require__(229),
-	    UserConstants = __webpack_require__(232);
+	    UserConstants = __webpack_require__(232),
+	    AnswerConstants = __webpack_require__(244);
 	
 	var ApiActions = {
 	
@@ -31016,6 +31067,27 @@
 	    Dispatcher.dispatch({
 	      actionType: QuestionConstants.QUESTION_DELETED,
 	      question: question
+	    });
+	  },
+	
+	  receiveAllAnswers: function (answers) {
+	    Dispatcher.dispatch({
+	      actionType: AnswerConstants.ANSWERS_RECEIVED,
+	      answers: answers
+	    });
+	  },
+	
+	  receiveSingleAnswer: function (answer) {
+	    Dispatcher.dispatch({
+	      actionType: AnswerConstants.ANSWER_RECIEVED,
+	      answer: answer
+	    });
+	  },
+	
+	  deleteSingleAnswer: function (answer) {
+	    Dispatcher.dispatch({
+	      actionType: AnswerConstants.ANSWER_DELETED,
+	      answer: answer
 	    });
 	  }
 	};
@@ -31801,6 +31873,16 @@
 	});
 	
 	module.exports = QuestionForm;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  ANSWERS_RECEIVED: "ANSWERS_RECEIVED",
+	  ANSWER_RECIEVED: "ANSWER_RECIEVED",
+	  ANSWER_DELETED: "ANSWER_DELETED"
+	};
 
 /***/ }
 /******/ ]);

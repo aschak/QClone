@@ -1,6 +1,7 @@
 var Dispatcher = require('../dispatcher/dispatcher.js'),
     QuestionConstants = require('../constants/question_constants.js'),
-    UserConstants = require('../constants/user_constants.js')
+    UserConstants = require('../constants/user_constants.js'),
+    AnswerConstants = require('../constants/answer_constants.js');
 
 
 var ApiActions = {
@@ -30,6 +31,27 @@ var ApiActions = {
     Dispatcher.dispatch({
       actionType: QuestionConstants.QUESTION_DELETED,
       question: question
+    });
+  },
+
+  receiveAllAnswers: function (answers) {
+    Dispatcher.dispatch({
+      actionType: AnswerConstants.ANSWERS_RECEIVED,
+      answers: answers
+    });
+  },
+
+  receiveSingleAnswer: function (answer) {
+    Dispatcher.dispatch({
+      actionType: AnswerConstants.ANSWER_RECIEVED,
+      answer: answer
+    });
+  },
+
+  deleteSingleAnswer: function (answer) {
+    Dispatcher.dispatch({
+      actionType: AnswerConstants.ANSWER_DELETED,
+      answer: answer
     });
   }
 };

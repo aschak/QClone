@@ -26,7 +26,6 @@ var ApiUtil = {
     });
   },
 
-
   fetchAllQuestions: function () {
     // $.ajax({
     //   url: '/api/questions',
@@ -89,7 +88,47 @@ var ApiUtil = {
         ApiActions.deleteSingleQuestion(question);
       }
     });
+  },
+
+  fetchAllAnswers: function () {
+    $.get('/api/answers', function (answers) {
+      ApiActions.receiveAllAnswers(answers);
+    });
+  },
+
+  fetchSingleQuestion: function (id) {
+    $.get('/api/answers/' + id, function (answer) {
+      ApiActions.receiveSingleAnswer(answer);
+    });
+  },
+
+  createAnswer: function (answer) {
+    $.post('/api/answers', {answer: answer}, function (answer) {
+      ApiActions.receiveSingleAnswer(answer);
+    })
+  },
+
+  editAnswer: function (answer) {
+    $.ajax({
+      url: '/api/answers/' + answer.id,
+      type: 'PUT',
+      data: {question: question},
+      success: function (answer) {
+        ApiActions.receiveSingleAnswer(answer);
+      }
+    });
+  },
+
+  destroyAnswer:function (id) {
+    $.ajax({
+      url: '/api/answers/' + id,
+      type: 'DELETE',
+      success: function (answer) {
+        ApiActions.deleteSingleAnswer(answer);
+      }
+    });
   }
+
 }
 
 module.exports = ApiUtil;

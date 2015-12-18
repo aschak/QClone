@@ -24,25 +24,36 @@ QuestionStore.all = function () {
 }
 
 QuestionStore.find = function (id) {
-  return _questions[id];
+  var found;
+
+  _questions.forEach(function (question) {
+    if (question.id = id) {
+      found = question;
+    }
+  })
+
+  return found;
+
+  // return _questions[id]
 }
 
 QuestionStore.__onDispatch = function (payload) {
     switch(payload.actionType) {
       case QuestionConstants.QUESTIONS_RECEIVED:
         resetQuestions(payload.questions);
+        QuestionStore.__emitChange();
         break;
 
       case QuestionConstants.QUESTION_RECEIVED:
         resetQuestion(payload.question);
+        QuestionStore.__emitChange();
         break;
 
       case QuestionConstants.QUESTION_DELETED:
         deleteQuestion(payload.question);
+        QuestionStore.__emitChange();
         break;
     }
-
-  QuestionStore.__emitChange();
 }
 
 

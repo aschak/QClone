@@ -15,7 +15,19 @@ end
 
 10.times do
   question = Faker::Hacker.say_something_smart
-  body = Faker::Lorem.paragraph(3)
+  body = Faker::Lorem.paragraph(5)
   author_id = rand(1..5)
   Question.create!(title: question, author_id: author_id, body: body)
+end
+
+15.times do
+  answer = Faker::Lorem.paragraph(2)
+  author_id = rand(1..5)
+  question_id = rand(1..10)
+
+  Answer.create!(
+    body: answer,
+    author_id: author_id,
+    question_id: question_id
+  )
 end

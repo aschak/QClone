@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   end
 
   def create
-  @user = User.new(user_params)
+    @user = User.new(user_params)
 
     if @user.save
       login!(@user)
-      render json: ["Created"]
+      # render json: ["Created"]
       redirect_to root_url
     else
       # render json: @user.errors.full_messages
