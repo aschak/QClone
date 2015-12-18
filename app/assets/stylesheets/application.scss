@@ -90,7 +90,12 @@ hr {
 }
 
 .logo {
+  font-size: 40px;
+  letter-spacing: 2px;
+}
 
+.logo:hover {
+  text-decoration: none;
 }
 
 .btn-primary {

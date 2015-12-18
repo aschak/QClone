@@ -1,5 +1,5 @@
 var React = require('react'),
-    QuestionsIndex = require('./questionsIndex.jsx');
+    QuestionsIndex = require('./questions/questionsIndex.jsx');
 
 
   var SeekIndex = React.createClass({

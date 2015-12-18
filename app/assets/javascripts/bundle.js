@@ -52,8 +52,8 @@
 	    IndexRoute = ReactRouter.IndexRoute;
 	
 	var SeekIndex = __webpack_require__(210),
-	    QuestionShow = __webpack_require__(236),
-	    QuestionForm = __webpack_require__(237);
+	    QuestionShow = __webpack_require__(249),
+	    QuestionForm = __webpack_require__(248);
 	
 	window.ApiUtil = __webpack_require__(234);
 	window.QuestionStore = __webpack_require__(212);
@@ -24051,7 +24051,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    QuestionsIndex = __webpack_require__(211);
+	    QuestionsIndex = __webpack_require__(246);
 	
 	var SeekIndex = React.createClass({
 	  displayName: 'SeekIndex',
@@ -24074,51 +24074,7 @@
 	module.exports = SeekIndex;
 
 /***/ },
-/* 211 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1),
-	    QuestionStore = __webpack_require__(212),
-	    ApiUtil = __webpack_require__(234),
-	    QuestionActions = __webpack_require__(243),
-	    QuestionIndexItem = __webpack_require__(235);
-	
-	var QuestionIndex = React.createClass({
-	  displayName: 'QuestionIndex',
-	
-	  getInitialState: function () {
-	    return { questions: QuestionStore.all() };
-	  },
-	
-	  _indexChange: function () {
-	    this.setState({ questions: QuestionStore.all() });
-	  },
-	
-	  componentDidMount: function () {
-	    this.questionListener = QuestionStore.addListener(this._indexChange);
-	    QuestionActions.fetchQuestions();
-	  },
-	
-	  componentWillUnmount: function () {
-	    this.questionListener.remove();
-	  },
-	
-	  render: function () {
-	    var questions = this.state.questions;
-	    return React.createElement(
-	      'ul',
-	      { className: 'questions-container' },
-	      questions.map(function (question, idx) {
-	        return React.createElement(QuestionIndexItem, { key: idx, question: question });
-	      })
-	    );
-	  }
-	
-	});
-	
-	module.exports = QuestionIndex;
-
-/***/ },
+/* 211 */,
 /* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -30860,7 +30816,8 @@
 	module.exports = {
 	  QUESTIONS_RECEIVED: "QUESTIONS_RECEIVED",
 	  QUESTION_RECEIVED: "QUESTION_RECEIVED",
-	  QUESTION_DELETED: "QUESTION_DELETED"
+	  QUESTION_DELETED: "QUESTION_DELETED",
+	  QUESTION_CREATED: "QUESTION_CREATED"
 	};
 
 /***/ },
@@ -30870,6 +30827,28 @@
 	var ApiActions = __webpack_require__(242);
 	
 	var ApiUtil = {
+	
+	  createUser: function (user) {
+	    $.post('users', { user: user }, function (user) {
+	      ApiAction.receiveUser(user);
+	    });
+	  },
+	
+	  signUserIn: function (user) {
+	    $.post('session', { user: user }, function (user) {
+	      ApiAction.receiveUser(user);
+	    });
+	  },
+	
+	  signUserOut: function (user) {
+	    $.ajax({
+	      url: 'session',
+	      type: 'DELETE',
+	      data: { user: user },
+	      success: function (user) {}
+	    });
+	  },
+	
 	  fetchAllQuestions: function () {
 	    // $.ajax({
 	    //   url: '/api/questions',
@@ -30896,18 +30875,20 @@
 	    });
 	  },
 	
-	  createQuestion: function (question) {
+	  createQuestion: function (question, callback) {
 	    // $.ajax({
 	    //   url: '/api/questions',
 	    //   type: 'POST',
 	    //   data: {question: question},
-	    //   success: function (question) {
-	    //     ApiActions.receiveSingleQuestion(question);
+	    //   error: function (question) {
+	    //     debugger
+	    //     // ApiActions.receiveSingleQuestion(question);
 	    //   }
 	    // });
 	
 	    $.post('/api/questions', { question: question }, function (question) {
 	      ApiActions.receiveSingleQuestion(question);
+	      callback(question);
 	    });
 	  },
 	
@@ -30920,13 +30901,6 @@
 	        ApiActions.receiveSingleQuestion(question);
 	      }
 	    });
-	    //
-	    // $.patch(
-	    //   '/api/questions/' + question.id,
-	    //   {question: question},
-	    //   function (question) {
-	    //     ApiActions.receiveSingleQuestion(question);
-	    // });
 	  },
 	
 	  destroyQuestion: function (id) {
@@ -30943,342 +30917,9 @@
 	module.exports = ApiUtil;
 
 /***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	History = __webpack_require__(159).History;
-	
-	var QuestionIndexItem = React.createClass({
-	  displayName: 'QuestionIndexItem',
-	
-	  mixins: [History],
-	
-	  getInitialState: function () {
-	    return { showDetails: false };
-	  },
-	
-	  showQuestion: function () {
-	    this.history.push('/question/' + this.props.question.id);
-	  },
-	
-	  revealDetails: function () {
-	    showDetails = this.state.showDetails ? false : true;
-	    console.log("clicked!");
-	    this.setState({ showDetails: showDetails });
-	  },
-	
-	  render: function () {
-	    var asker = this.props.question.author.username,
-	        askTime = new Date(this.props.question.created_at).toString(),
-	        preview = this.props.question.body.slice(0, 10).trim() + "...",
-	        more = "More",
-	        showDetails = this.state.showDetails;
-	
-	    if (preview.length < 10) {
-	      preview = this.props.question.body;
-	    }
-	
-	    if (showDetails) {
-	      preview = this.props.question.body;
-	      more = "  Hide";
-	    } else if (!showDetails) {
-	      preview = this.props.question.body.slice(0, 60).trim() + "...";
-	      more = "More";
-	    }
-	
-	    return React.createElement(
-	      'div',
-	      { key: this.props.question.id, className: 'question-container' },
-	      React.createElement(
-	        'div',
-	        { className: 'asker-container' },
-	        'Question asked by',
-	        React.createElement(
-	          'a',
-	          { href: '#', className: 'asker' },
-	          asker
-	        ),
-	        ',',
-	        React.createElement(
-	          'span',
-	          { className: 'ask-time' },
-	          askTime
-	        )
-	      ),
-	      React.createElement(
-	        'div',
-	        { onClick: this.showQuestion, className: 'question-title' },
-	        this.props.question.title
-	      ),
-	      React.createElement('br', null),
-	      React.createElement(
-	        'div',
-	        { className: 'question-details' },
-	        'Details: ',
-	        preview,
-	        React.createElement(
-	          'a',
-	          { href: '#', className: 'more-details', onClick: this.revealDetails },
-	          more
-	        )
-	      ),
-	      React.createElement('hr', null)
-	    );
-	  }
-	});
-	
-	// <div onClick={this.showQuestion} className="question-title">
-	//   {this.props.question.title}
-	// </div>
-	
-	module.exports = QuestionIndexItem;
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1),
-	    QuestionStore = __webpack_require__(212),
-	    QuestionActions = __webpack_require__(243),
-	    QuestionsIndex = __webpack_require__(211),
-	    QuestionForm = __webpack_require__(237);
-	
-	module.exports = React.createClass({
-	  displayName: 'exports',
-	
-	  getStateFromStore: function () {
-	    return { question: QuestionStore.find(parseInt(this.props.params.id)) };
-	  },
-	
-	  _questionChange: function () {
-	    this.setState(this.getStateFromStore());
-	  },
-	
-	  getInitialState: function () {
-	    return this.getStateFromStore();
-	  },
-	
-	  componentWillReceiveProps: function (newProps) {
-	    QuestionActions.fetchQuestion(parseInt(newProps.params.id));
-	  },
-	
-	  componentDidMount: function () {
-	    this.questionListener = QuestionStore.addListener(this._questionChange);
-	    QuestionActions.fetchQuestion(parseInt(this.props.params.id));
-	  },
-	
-	  componentWillUnmount: function () {
-	    this.questionListener.remove();
-	  },
-	
-	  deleteQuestion: function (event) {
-	    event.preventDefault();
-	    QuestionActions.destroyQuestion(this.props.params.id);
-	    this.navigateToIndex();
-	  },
-	
-	  navigateToIndex: function () {
-	    this.props.history.push("/");
-	  },
-	
-	  render: function () {
-	    var question = this.state.question;
-	    if (question === undefined) {
-	      return React.createElement('div', null);
-	    }
-	
-	    var asker = question.author.username,
-	        askTime = new Date(question.created_at).toString();
-	
-	    return React.createElement(
-	      'div',
-	      { className: 'question-show' },
-	      React.createElement(
-	        'div',
-	        { className: 'asker-container' },
-	        'Question asked by',
-	        React.createElement(
-	          'a',
-	          { href: '#', className: 'asker' },
-	          asker
-	        ),
-	        ',',
-	        React.createElement(
-	          'span',
-	          { className: 'ask-time' },
-	          askTime
-	        )
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'question-title' },
-	        question.title
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'question-details' },
-	        'Details: ',
-	        question.body
-	      ),
-	      React.createElement(QuestionForm, { className: 'question-form', id: 'edit', 'new': false, question: question }),
-	      React.createElement('br', null),
-	      React.createElement(
-	        'button',
-	        { type: 'button', className: 'btn btn-primary', onClick: this.deleteQuestion },
-	        'Delete Question'
-	      ),
-	      React.createElement('hr', null),
-	      React.createElement(
-	        'button',
-	        { onClick: this.navigateToIndex },
-	        'Back'
-	      )
-	    );
-	  }
-	});
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1),
-	    QuestionActions = __webpack_require__(243),
-	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(238);
-	
-	var QuestionForm = React.createClass({
-	  displayName: 'QuestionForm',
-	
-	  mixins: [LinkedStateMixin, History],
-	
-	  blankForm: {
-	    title: '',
-	    body: ' ',
-	    author_id: null,
-	    modal: false
-	  },
-	
-	  getInitialState: function () {
-	    return this.blankForm;
-	  },
-	
-	  populateForm: function () {
-	    this.setState({
-	      title: this.props.question.title,
-	      body: this.props.question.body,
-	      author_id: this.props.question.author_id
-	    });
-	  },
-	
-	  handleSubmit: function (event) {
-	    event.preventDefault();
-	    var question = Object.assign({}, this.props.question, this.state);
-	
-	    if (this.props.new) {
-	      QuestionActions.createQuestion(question);
-	      this.setState(this.blankForm);
-	      this.navigateToQuestion();
-	    } else if (!this.props.new) {
-	      QuestionActions.editQuestion(question);
-	      this.navigateToQuestion();
-	    }
-	  },
-	
-	  changeModal: function () {
-	    var modal = this.state.modal ? false : true;
-	    this.setState({ modal: modal });
-	  },
-	
-	  componentDidMount: function () {
-	    if (!this.props.new) {
-	      this.populateForm();
-	    }
-	  },
-	
-	  navigateToQuestion: function () {},
-	
-	  render: function () {
-	    var modal = this.state.modal ? true : false;
-	    var prompt;
-	    var submit;
-	
-	    if (this.props.new) {
-	      prompt = "Ask Question";
-	      submit = 'Ask Your Question!';
-	    } else {
-	      prompt = "Edit Question";
-	      submit = 'Update Question!';
-	    }
-	
-	    if (!modal) {
-	      return React.createElement(
-	        'button',
-	        { type: 'button', id: 'edit-question', className: 'btn btn-primary', onClick: this.changeModal },
-	        prompt
-	      );
-	    } else {
-	
-	      return React.createElement(
-	        'div',
-	        null,
-	        prompt,
-	        React.createElement('br', null),
-	        React.createElement('div', { className: 'modal-screen', onClick: this.changeModal }),
-	        React.createElement(
-	          'div',
-	          { className: 'modal-content' },
-	          React.createElement(
-	            'form',
-	            { onSubmit: this.handleSubmit },
-	            React.createElement(
-	              'div',
-	              null,
-	              React.createElement('input', {
-	                type: 'hidden',
-	                id: 'question_author_id',
-	                valueLink: this.linkState('author_id')
-	              })
-	            ),
-	            React.createElement(
-	              'div',
-	              null,
-	              React.createElement(
-	                'label',
-	                { htmlFor: 'question_title' },
-	                'Enter Question:'
-	              ),
-	              React.createElement('input', {
-	                type: 'text',
-	                id: 'question_title',
-	                valueLink: this.linkState('title')
-	              })
-	            ),
-	            React.createElement(
-	              'div',
-	              null,
-	              React.createElement(
-	                'label',
-	                { htmlFor: 'question_body' },
-	                'Enter Details:'
-	              ),
-	              React.createElement('input', {
-	                type: 'text',
-	                id: 'question_body',
-	                valueLink: this.linkState('body')
-	              })
-	            ),
-	            React.createElement('input', { type: 'submit', className: 'btn', value: submit })
-	          )
-	        )
-	      );
-	    }
-	  }
-	});
-	
-	module.exports = QuestionForm;
-
-/***/ },
+/* 235 */,
+/* 236 */,
+/* 237 */,
 /* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31513,9 +31154,18 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(230),
-	    QuestionConstants = __webpack_require__(233);
+	    QuestionConstants = __webpack_require__(233),
+	    UserConstants = __webpack_require__(250);
 	
 	var ApiActions = {
+	
+	  receiveUser: function (user) {
+	    Dispatcher.dispatch({
+	      actionType: UserConstants.USER_RECEIVED,
+	      user: user
+	    });
+	  },
+	
 	  receiveAllQuestions: function (questions) {
 	    Dispatcher.dispatch({
 	      actionType: QuestionConstants.QUESTIONS_RECEIVED,
@@ -31560,8 +31210,8 @@
 	    ApiUtil.fetchSingleQuestion(id);
 	  },
 	
-	  createQuestion: function (question) {
-	    ApiUtil.createQuestion(question);
+	  createQuestion: function (question, callback) {
+	    ApiUtil.createQuestion(question, callback);
 	  },
 	
 	  editQuestion: function (question) {
@@ -31659,6 +31309,401 @@
 		});
 	};
 
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    QuestionStore = __webpack_require__(212),
+	    ApiUtil = __webpack_require__(234),
+	    QuestionActions = __webpack_require__(243),
+	    QuestionIndexItem = __webpack_require__(247);
+	
+	var QuestionIndex = React.createClass({
+	  displayName: 'QuestionIndex',
+	
+	  getInitialState: function () {
+	    return { questions: QuestionStore.all() };
+	  },
+	
+	  _indexChange: function () {
+	    this.setState({ questions: QuestionStore.all() });
+	  },
+	
+	  componentDidMount: function () {
+	    this.questionListener = QuestionStore.addListener(this._indexChange);
+	    QuestionActions.fetchQuestions();
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.questionListener.remove();
+	  },
+	
+	  render: function () {
+	    var questions = this.state.questions;
+	    return React.createElement(
+	      'ul',
+	      { className: 'questions-container' },
+	      questions.map(function (question, idx) {
+	        return React.createElement(QuestionIndexItem, { key: idx, question: question });
+	      })
+	    );
+	  }
+	
+	});
+	
+	module.exports = QuestionIndex;
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	History = __webpack_require__(159).History;
+	
+	var QuestionIndexItem = React.createClass({
+	  displayName: 'QuestionIndexItem',
+	
+	  mixins: [History],
+	
+	  getInitialState: function () {
+	    return { showDetails: false };
+	  },
+	
+	  showQuestion: function () {
+	    this.history.push('/question/' + this.props.question.id);
+	  },
+	
+	  revealDetails: function () {
+	    showDetails = this.state.showDetails ? false : true;
+	    console.log("clicked!");
+	    this.setState({ showDetails: showDetails });
+	  },
+	
+	  render: function () {
+	    var asker = this.props.question.author.username,
+	        askTime = new Date(this.props.question.created_at).toString(),
+	        preview = this.props.question.body.slice(0, 60).trim() + "...",
+	        more = "More",
+	        showDetails = this.state.showDetails;
+	
+	    if (preview.length < 10) {
+	      preview = this.props.question.body;
+	    }
+	
+	    if (showDetails) {
+	      preview = this.props.question.body;
+	      more = "  Hide";
+	    } else if (!showDetails) {
+	      preview = this.props.question.body.slice(0, 60).trim() + "...";
+	      more = "More";
+	    }
+	
+	    return React.createElement(
+	      'div',
+	      { key: this.props.question.id, className: 'question-container' },
+	      React.createElement(
+	        'div',
+	        { className: 'asker-container' },
+	        'Question asked by',
+	        React.createElement(
+	          'a',
+	          { href: '#', className: 'asker' },
+	          asker
+	        ),
+	        ',',
+	        React.createElement(
+	          'span',
+	          { className: 'ask-time' },
+	          askTime
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { onClick: this.showQuestion, className: 'question-title' },
+	        this.props.question.title
+	      ),
+	      React.createElement('br', null),
+	      React.createElement(
+	        'div',
+	        { className: 'question-details' },
+	        'Details: ',
+	        preview,
+	        React.createElement(
+	          'a',
+	          { href: '#', className: 'more-details', onClick: this.revealDetails },
+	          more
+	        )
+	      ),
+	      React.createElement('hr', null)
+	    );
+	  }
+	});
+	
+	// <div onClick={this.showQuestion} className="question-title">
+	//   {this.props.question.title}
+	// </div>
+	
+	module.exports = QuestionIndexItem;
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    QuestionActions = __webpack_require__(243),
+	    History = __webpack_require__(159).History,
+	    LinkedStateMixin = __webpack_require__(238);
+	
+	var QuestionForm = React.createClass({
+	  displayName: 'QuestionForm',
+	
+	  mixins: [LinkedStateMixin, History],
+	
+	  blankForm: {
+	    title: '',
+	    body: ' ',
+	    author_id: null,
+	    modal: false
+	  },
+	
+	  getInitialState: function () {
+	    return this.blankForm;
+	  },
+	
+	  populateForm: function () {
+	    this.setState({
+	      title: this.props.question.title,
+	      body: this.props.question.body,
+	      author_id: this.props.question.author_id
+	    });
+	  },
+	
+	  handleSubmit: function (event) {
+	    event.preventDefault();
+	    var question = Object.assign({}, this.props.question, this.state);
+	
+	    if (this.props.new) {
+	      QuestionActions.createQuestion(question, this.navigateToQuestion);
+	      this.setState(this.blankForm);
+	      this.navigateToQuestion();
+	    } else if (!this.props.new) {
+	      QuestionActions.editQuestion(question);
+	      this.changeModal();
+	    }
+	  },
+	
+	  changeModal: function () {
+	    var modal = this.state.modal ? false : true;
+	    this.setState({ modal: modal });
+	  },
+	
+	  componentDidMount: function () {
+	    if (!this.props.new) {
+	      this.populateForm();
+	    }
+	  },
+	
+	  navigateToQuestion: function (question) {
+	    // var question = QuestionStore.all()[QuestionStore.all().length - 1]
+	    this.history.push('question/' + question.id);
+	  },
+	
+	  render: function () {
+	    var modal = this.state.modal ? true : false;
+	    var prompt;
+	    var submit;
+	
+	    if (this.props.new) {
+	      prompt = "Ask Question";
+	      submit = 'Ask Your Question!';
+	    } else {
+	      prompt = "Edit Question";
+	      submit = 'Update Question!';
+	    }
+	
+	    if (!modal) {
+	      return React.createElement(
+	        'button',
+	        { type: 'button', id: 'edit-question', className: 'btn btn-primary', onClick: this.changeModal },
+	        prompt
+	      );
+	    } else {
+	
+	      return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	          'button',
+	          { type: 'button', id: 'edit-question', className: 'btn btn-primary', onClick: this.changeModal },
+	          prompt
+	        ),
+	        React.createElement('div', { className: 'modal-screen', onClick: this.changeModal }),
+	        React.createElement(
+	          'div',
+	          { className: 'modal-content' },
+	          React.createElement(
+	            'form',
+	            { onSubmit: this.handleSubmit },
+	            React.createElement(
+	              'div',
+	              null,
+	              React.createElement('input', {
+	                type: 'hidden',
+	                id: 'question_author_id',
+	                valueLink: this.linkState('author_id')
+	              })
+	            ),
+	            React.createElement(
+	              'div',
+	              null,
+	              React.createElement(
+	                'label',
+	                { htmlFor: 'question_title' },
+	                'Enter Question:'
+	              ),
+	              React.createElement('input', {
+	                type: 'text',
+	                id: 'question_title',
+	                valueLink: this.linkState('title')
+	              })
+	            ),
+	            React.createElement(
+	              'div',
+	              null,
+	              React.createElement(
+	                'label',
+	                { htmlFor: 'question_body' },
+	                'Enter Details:'
+	              ),
+	              React.createElement('input', {
+	                type: 'text',
+	                id: 'question_body',
+	                valueLink: this.linkState('body')
+	              })
+	            ),
+	            React.createElement('input', { type: 'submit', className: 'btn', value: submit })
+	          )
+	        )
+	      );
+	    }
+	  }
+	});
+	
+	module.exports = QuestionForm;
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    QuestionStore = __webpack_require__(212),
+	    QuestionActions = __webpack_require__(243),
+	    QuestionsIndex = __webpack_require__(246),
+	    QuestionForm = __webpack_require__(248);
+	
+	module.exports = React.createClass({
+	  displayName: 'exports',
+	
+	  getStateFromStore: function () {
+	    return { question: QuestionStore.find(parseInt(this.props.params.id)) };
+	  },
+	
+	  _questionChange: function () {
+	    this.setState(this.getStateFromStore());
+	  },
+	
+	  getInitialState: function () {
+	    return this.getStateFromStore();
+	  },
+	
+	  componentWillReceiveProps: function (newProps) {
+	    QuestionActions.fetchQuestion(parseInt(newProps.params.id));
+	  },
+	
+	  componentDidMount: function () {
+	    this.questionListener = QuestionStore.addListener(this._questionChange);
+	    QuestionActions.fetchQuestion(parseInt(this.props.params.id));
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.questionListener.remove();
+	  },
+	
+	  deleteQuestion: function (event) {
+	    event.preventDefault();
+	    QuestionActions.destroyQuestion(this.props.params.id);
+	    this.navigateToIndex();
+	  },
+	
+	  navigateToIndex: function () {
+	    this.props.history.push("/");
+	  },
+	
+	  render: function () {
+	    var question = this.state.question;
+	    if (question === undefined) {
+	      return React.createElement('div', null);
+	    }
+	
+	    var asker = question.author.username,
+	        askTime = new Date(question.created_at).toString();
+	
+	    return React.createElement(
+	      'div',
+	      { className: 'question-show' },
+	      React.createElement(
+	        'div',
+	        { className: 'asker-container' },
+	        'Question asked by',
+	        React.createElement(
+	          'a',
+	          { href: '#', className: 'asker' },
+	          asker
+	        ),
+	        ',',
+	        React.createElement(
+	          'span',
+	          { className: 'ask-time' },
+	          askTime
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'question-title' },
+	        question.title
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'question-details' },
+	        'Details: ',
+	        question.body
+	      ),
+	      React.createElement(QuestionForm, { className: 'question-form', id: 'edit', 'new': false, question: question }),
+	      React.createElement('br', null),
+	      React.createElement(
+	        'button',
+	        { type: 'button', className: 'btn btn-primary', onClick: this.deleteQuestion },
+	        'Delete Question'
+	      ),
+	      React.createElement('hr', null),
+	      React.createElement(
+	        'button',
+	        { className: 'btn btn-primary', onClick: this.navigateToIndex },
+	        'Back'
+	      )
+	    );
+	  }
+	});
+
+/***/ },
+/* 250 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  USER_RECEIVED: "USER_RECEIVED"
+	};
 
 /***/ }
 /******/ ]);

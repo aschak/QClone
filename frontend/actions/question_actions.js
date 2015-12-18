@@ -15,8 +15,8 @@ var QuestionActions = {
     ApiUtil.fetchSingleQuestion(id);
   },
 
-  createQuestion: function (question) {
-    ApiUtil.createQuestion(question);
+  createQuestion: function (question, callback) {
+    ApiUtil.createQuestion(question, callback);
   },
 
   editQuestion: function (question) {

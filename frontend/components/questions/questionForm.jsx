@@ -1,5 +1,5 @@
 var React = require('react'),
-    QuestionActions = require('../actions/question_actions.js'),
+    QuestionActions = require('../../actions/question_actions.js'),
     History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
@@ -32,12 +32,13 @@ var QuestionForm = React.createClass({
     var question = Object.assign({}, this.props.question, this.state);
 
     if (this.props.new) {
-      QuestionActions.createQuestion(question);
+      QuestionActions.createQuestion(question, this.navigateToQuestion);
       this.setState(this.blankForm);
       this.navigateToQuestion();
+
     } else if (!this.props.new) {
       QuestionActions.editQuestion(question);
-      this.navigateToQuestion();
+      this.changeModal();
     }
   },
 
@@ -50,8 +51,9 @@ var QuestionForm = React.createClass({
     if (!this.props.new) {this.populateForm();}
   },
 
-  navigateToQuestion: function () {
-
+  navigateToQuestion: function (question) {
+    // var question = QuestionStore.all()[QuestionStore.all().length - 1]
+    this.history.push('question/' + question.id);
   },
 
 
@@ -80,8 +82,9 @@ var QuestionForm = React.createClass({
 
       return (
         <div>
-          {prompt}
-          <br/>
+          <button type="button" id="edit-question" className="btn btn-primary" onClick={this.changeModal}>
+            {prompt}
+          </button>
           <div className='modal-screen' onClick={this.changeModal}/>
           <div className='modal-content'>
             <form onSubmit={this.handleSubmit}>

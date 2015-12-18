@@ -1,6 +1,6 @@
 var React = require('react'),
-    QuestionStore = require('../stores/question.js'),
-    QuestionActions = require('../actions/question_actions.js'),
+    QuestionStore = require('../../stores/question.js'),
+    QuestionActions = require('../../actions/question_actions.js'),
     QuestionsIndex = require('./questionsIndex.jsx'),
     QuestionForm = require('./questionForm.jsx');
 
@@ -73,7 +73,7 @@ module.exports = React.createClass({
         <button type="button" className="btn btn-primary" onClick={this.deleteQuestion}>Delete Question</button>
 
         <hr/>
-        <button onClick={this.navigateToIndex}>Back</button>
+        <button className="btn btn-primary" onClick={this.navigateToIndex}>Back</button>
       </div>
     );
   }

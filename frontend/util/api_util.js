@@ -2,6 +2,31 @@ var ApiActions = require('../actions/api_actions.js');
 
 
 var ApiUtil = {
+
+  createUser: function (user) {
+    $.post('users', {user: user}, function (user) {
+      ApiAction.receiveUser(user);
+    });
+  },
+
+  signUserIn: function (user) {
+    $.post('session', {user: user}, function (user) {
+      ApiAction.receiveUser(user);
+    });
+  },
+
+  signUserOut: function (user) {
+    $.ajax({
+      url: 'session',
+      type: 'DELETE',
+      data: {user: user},
+      success: function (user) {
+
+      }
+    });
+  },
+
+
   fetchAllQuestions: function () {
     // $.ajax({
     //   url: '/api/questions',
@@ -28,18 +53,20 @@ var ApiUtil = {
     });
   },
 
-  createQuestion: function (question) {
+  createQuestion: function (question, callback) {
     // $.ajax({
     //   url: '/api/questions',
     //   type: 'POST',
     //   data: {question: question},
-    //   success: function (question) {
-    //     ApiActions.receiveSingleQuestion(question);
+    //   error: function (question) {
+    //     debugger
+    //     // ApiActions.receiveSingleQuestion(question);
     //   }
     // });
 
     $.post('/api/questions', {question: question}, function (question) {
       ApiActions.receiveSingleQuestion(question);
+      callback(question);
     })
   },
 
@@ -52,13 +79,6 @@ var ApiUtil = {
         ApiActions.receiveSingleQuestion(question);
       }
     });
-    // 
-    // $.patch(
-    //   '/api/questions/' + question.id,
-    //   {question: question},
-    //   function (question) {
-    //     ApiActions.receiveSingleQuestion(question);
-    // });
   },
 
   destroyQuestion: function (id) {
@@ -71,7 +91,5 @@ var ApiUtil = {
     });
   }
 }
-
-
 
 module.exports = ApiUtil;

@@ -22,7 +22,7 @@ var QuestionIndexItem = React.createClass({
   render: function () {
     var asker = this.props.question.author.username,
         askTime = new Date(this.props.question.created_at).toString(),
-        preview = this.props.question.body.slice(0, 10).trim() + "...",
+        preview = this.props.question.body.slice(0, 60).trim() + "...",
         more = "More",
         showDetails = this.state.showDetails;
 

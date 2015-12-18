@@ -6,8 +6,8 @@ var React = require('react'),
     IndexRoute = ReactRouter.IndexRoute;
 
 var SeekIndex = require('./components/seek_index.jsx'),
-    QuestionShow = require('./components/questionShow.jsx'),
-    QuestionForm = require('./components/questionForm.jsx');
+    QuestionShow = require('./components/questions/questionShow.jsx'),
+    QuestionForm = require('./components/questions/questionForm.jsx');
 
 
 window.ApiUtil = require('./util/api_util.js');

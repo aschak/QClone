@@ -1,7 +1,7 @@
 var React = require('react'),
-    QuestionStore = require('../stores/question.js'),
-    ApiUtil = require('../util/api_util.js'),
-    QuestionActions = require('../actions/question_actions.js'),
+    QuestionStore = require('../../stores/question.js'),
+    ApiUtil = require('../../util/api_util.js'),
+    QuestionActions = require('../../actions/question_actions.js'),
     QuestionIndexItem = require('./questionIndexItem.jsx');
 
 
