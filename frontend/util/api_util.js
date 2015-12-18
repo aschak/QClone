@@ -96,7 +96,7 @@ var ApiUtil = {
     });
   },
 
-  fetchSingleQuestion: function (id) {
+  fetchSingleAnswer: function (id) {
     $.get('/api/answers/' + id, function (answer) {
       ApiActions.receiveSingleAnswer(answer);
     });

@@ -1,6 +1,7 @@
 var React = require('react'),
     AnswerStore = require('../../stores/answer.js'),
     AnswerActions = require('../../actions/answer_actions.js'),
+    AnswerForm = require('./answerForm.jsx'),
     AnswerIndexItem = require('./answerIndexItem.jsx');
 
 
@@ -10,7 +11,7 @@ var AnswerIndex = React.createClass({
   },
 
   _indexChange: function () {
-    this.setState({answers: AnswerSTore.all()});
+    this.setState({answers: AnswerStore.all()});
   },
 
   componentDidMount: function () {
@@ -23,16 +24,26 @@ var AnswerIndex = React.createClass({
   },
 
   render: function () {
-    var answers = this.props.question.answers;
+    var question = this.props.question;
+        // answers;
+
 
     return (
-      <ul className="answers-container">
-        {
-          answers.map(function (answer, idx) {
-            return <AnswerIndexItem key={idx} answer={answer}/>;
-          })
-        }
-      </ul>
+
+      <div className="answers-main">
+        <AnswerForm question={question}/>
+
+        <div className="answers-container">
+          {
+            question.answers.map(function (answer, idx) {
+              return <AnswerIndexItem
+                key={idx}
+                question={question}
+                answer={answer}/>;
+            })
+          }
+        </div>
+      </div>
     );
   }
 

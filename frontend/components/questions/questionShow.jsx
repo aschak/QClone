@@ -2,7 +2,8 @@ var React = require('react'),
     QuestionStore = require('../../stores/question.js'),
     QuestionActions = require('../../actions/question_actions.js'),
     QuestionsIndex = require('./questionsIndex.jsx'),
-    QuestionForm = require('./questionForm.jsx');
+    QuestionForm = require('./questionForm.jsx'),
+    AnswerIndex = require('../answers/answerIndex.jsx');
 
 
 module.exports = React.createClass({
@@ -70,9 +71,12 @@ module.exports = React.createClass({
 
         <QuestionForm className="question-form" id="edit" new={false} question={question}/>
         <br/>
-        <button type="button" className="btn btn-primary" onClick={this.deleteQuestion}>Delete Question</button>
+        <button type="button" className="btn btn-primary" id="btn-delete" onClick={this.deleteQuestion}>Delete Question</button>
 
-        <hr/>
+        <div>
+          <AnswerIndex question={question}/>
+        </div>
+
         <button className="btn btn-primary" onClick={this.navigateToIndex}>Back</button>
       </div>
     );

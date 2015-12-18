@@ -30994,7 +30994,7 @@
 	    });
 	  },
 	
-	  fetchSingleQuestion: function (id) {
+	  fetchSingleAnswer: function (id) {
 	    $.get('/api/answers/' + id, function (answer) {
 	      ApiActions.receiveSingleAnswer(answer);
 	    });
@@ -31632,7 +31632,8 @@
 	    QuestionStore = __webpack_require__(208),
 	    QuestionActions = __webpack_require__(233),
 	    QuestionsIndex = __webpack_require__(207),
-	    QuestionForm = __webpack_require__(243);
+	    QuestionForm = __webpack_require__(243),
+	    AnswerIndex = __webpack_require__(245);
 	
 	module.exports = React.createClass({
 	  displayName: 'exports',
@@ -31715,10 +31716,14 @@
 	      React.createElement('br', null),
 	      React.createElement(
 	        'button',
-	        { type: 'button', className: 'btn btn-primary', onClick: this.deleteQuestion },
+	        { type: 'button', className: 'btn btn-primary', id: 'btn-delete', onClick: this.deleteQuestion },
 	        'Delete Question'
 	      ),
-	      React.createElement('hr', null),
+	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement(AnswerIndex, { question: question })
+	      ),
 	      React.createElement(
 	        'button',
 	        { className: 'btn btn-primary', onClick: this.navigateToIndex },
@@ -31743,7 +31748,7 @@
 	  mixins: [LinkedStateMixin, History],
 	
 	  blankForm: {
-	    title: '',
+	    title: '?',
 	    body: ' ',
 	    author_id: null,
 	    modal: false
@@ -31883,6 +31888,270 @@
 	  ANSWER_RECIEVED: "ANSWER_RECIEVED",
 	  ANSWER_DELETED: "ANSWER_DELETED"
 	};
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    AnswerStore = __webpack_require__(246),
+	    AnswerActions = __webpack_require__(247),
+	    AnswerForm = __webpack_require__(248),
+	    AnswerIndexItem = __webpack_require__(249);
+	
+	var AnswerIndex = React.createClass({
+	  displayName: 'AnswerIndex',
+	
+	  getInitialState: function () {
+	    return { answers: AnswerStore.all() };
+	  },
+	
+	  _indexChange: function () {
+	    this.setState({ answers: AnswerStore.all() });
+	  },
+	
+	  componentDidMount: function () {
+	    this.answerListener = AnswerStore.addListener(this._indexChange);
+	    AnswerActions.fetchAnswers();
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.answerListener.remove();
+	  },
+	
+	  render: function () {
+	    var question = this.props.question;
+	    // answers;
+	
+	    return React.createElement(
+	      'div',
+	      { className: 'answers-main' },
+	      React.createElement(AnswerForm, { question: question }),
+	      React.createElement(
+	        'div',
+	        { className: 'answers-container' },
+	        question.answers.map(function (answer, idx) {
+	          return React.createElement(AnswerIndexItem, {
+	            key: idx,
+	            question: question,
+	            answer: answer });
+	        })
+	      )
+	    );
+	  }
+	
+	});
+	
+	module.exports = AnswerIndex;
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Store = __webpack_require__(209).Store,
+	    AppDispatcher = __webpack_require__(226),
+	    AnswerConstants = __webpack_require__(244);
+	
+	var AnswerStore = new Store(AppDispatcher);
+	var _answers = [];
+	
+	var resetAnswers = function (answers) {
+	  _answers = answers.slice(0);
+	};
+	
+	var resetAnswer = function (answer) {
+	  _answers[answer.id] = answer;
+	};
+	
+	var deleteAnswer = function (answer) {
+	  var idx = _answers.indexOf(answer);
+	  _answers.splice(idx, 1);
+	};
+	
+	AnswerStore.all = function () {
+	  return _answers.slice(0);
+	};
+	
+	AnswerStore.find = function () {
+	  var found;
+	
+	  _answers.forEach(function (answer) {
+	    if (answer.id = id) {
+	      found = answer;
+	    }
+	  });
+	
+	  return found;
+	};
+	
+	AnswerStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case AnswerConstants.ANSWERS_RECEIVED:
+	      resetAnswers(payload.answers);
+	      AnswerStore.__emitChange();
+	      break;
+	
+	    case AnswerConstants.ANSWER_RECIEVED:
+	      resetAnswer(payload.answer);
+	      AnswerStore.__emitChange();
+	      break;
+	
+	    case AnswerConstants.ANSWER_DELETED:
+	      deleteAnswer(payload.answer);
+	      AnswerStore.__emitChange();
+	      break;
+	  }
+	};
+	
+	module.exports = AnswerStore;
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(226),
+	    ApiUtil = __webpack_require__(230);
+	
+	var AnswerActions = {
+	  fetchAnswers: function () {
+	    ApiUtil.fetchAllAnswers();
+	  },
+	
+	  fetchAnswer: function (id) {
+	    ApiUtil.fetchSingleQuestion(id);
+	  },
+	
+	  createAnswer: function (answer) {
+	    ApiUtil.createAnswer(answer);
+	  },
+	
+	  editQuestion: function (answer) {
+	    ApiUtil.editAnswer(answer);
+	  },
+	
+	  destroyAnswer: function (id) {
+	    ApiUtil.destroyAnswer(id);
+	  }
+	
+	};
+	
+	module.exports = AnswerActions;
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    AnswerActions = __webpack_require__(247),
+	    LinkedStateMixin = __webpack_require__(238);
+	
+	var AnswerForm = React.createClass({
+	  displayName: 'AnswerForm',
+	
+	  mixins: [LinkedStateMixin],
+	
+	  getInitialState: function () {
+	    var question_id = this.props.question.id;
+	    return {
+	      body: '',
+	      author_id: null,
+	      question_id: question_id
+	    };
+	  },
+	
+	  handleSubmit: function (event) {
+	    event.preventDefault();
+	    var answer = Object.assign({}, this.props.answer, this.state);
+	    AnswerActions.createAnswer(answer);
+	  },
+	
+	  componentDidMount: function () {},
+	
+	  render: function () {
+	
+	    return React.createElement(
+	      'div',
+	      { className: 'answer-form' },
+	      React.createElement(
+	        'form',
+	        { onSubmit: this.handleSubmit },
+	        React.createElement(
+	          'div',
+	          null,
+	          React.createElement('input', {
+	            type: 'hidden',
+	            id: 'answer_author_id',
+	            valueLink: this.linkState('author_id')
+	          })
+	        ),
+	        React.createElement(
+	          'div',
+	          null,
+	          React.createElement(
+	            'label',
+	            { htmlFor: 'answer_body' },
+	            'Enter Answer:'
+	          ),
+	          React.createElement('input', {
+	            type: 'textarea',
+	            id: 'answer_body',
+	
+	            valueLink: this.linkState('body')
+	          })
+	        ),
+	        React.createElement('input', { type: 'submit', className: 'btn btn-primary', value: 'Submit Answer' })
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = AnswerForm;
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var AnswerIndexItem = React.createClass({
+	  displayName: "AnswerIndexItem",
+	
+	  render: function () {
+	    var answerer = this.props.answer.author,
+	        answerTime = new Date(this.props.answer.created_at).toString();
+	
+	    return React.createElement(
+	      "div",
+	      { className: "answer-container" },
+	      React.createElement(
+	        "div",
+	        { className: "answerer-container" },
+	        "Answered By: ",
+	        React.createElement(
+	          "a",
+	          { href: "#", className: "answerer" },
+	          answerer
+	        ),
+	        ",",
+	        React.createElement(
+	          "span",
+	          { className: "answer-time" },
+	          answerTime
+	        )
+	      ),
+	      React.createElement(
+	        "div",
+	        { className: "answer-body" },
+	        this.props.answer.body
+	      ),
+	      React.createElement("hr", null),
+	      React.createElement("br", null)
+	    );
+	  }
+	
+	});
+	
+	module.exports = AnswerIndexItem;
 
 /***/ }
 /******/ ]);

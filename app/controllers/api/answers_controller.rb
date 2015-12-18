@@ -1,5 +1,10 @@
 class Api::AnswersController < ApplicationController
 
+
+  def index
+    @answers = Answer.all
+  end
+
   def create
     @answer = current_user.answers.new(answer_params)
 

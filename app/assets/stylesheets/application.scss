@@ -84,6 +84,18 @@ html {
   color: #7F7F7F;
 }
 
+.answerer-container{
+  font-size: 17px;
+  font-weight: 200;
+  color: gray;
+}
+
+.answerer {
+  font-size: 19px;
+  font-weight: 500;
+  padding-left: 5px;
+}
+
 hr {
   border-color: black;
   margin: 30px 0px;
@@ -101,6 +113,10 @@ hr {
 .btn-primary {
   background-color: black;
   border-color: black;
+}
+
+#btn-delete{
+  margin-bottom: 30px;
 }
 
 #edit-question {

@@ -12,7 +12,7 @@ var AnswerActions = {
   },
 
   createAnswer: function (answer) {
-    ApiUtil.createAnswer();
+    ApiUtil.createAnswer(answer);
   },
 
   editQuestion: function (answer) {
