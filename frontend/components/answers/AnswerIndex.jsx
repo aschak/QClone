@@ -33,6 +33,8 @@ var AnswerIndex = React.createClass({
       <div className="answers-main">
         <AnswerForm question={question}/>
 
+      <hr/>
+
         <div className="answers-container">
           {
             question.answers.map(function (answer, idx) {

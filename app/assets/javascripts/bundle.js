@@ -31927,6 +31927,7 @@
 	      'div',
 	      { className: 'answers-main' },
 	      React.createElement(AnswerForm, { question: question }),
+	      React.createElement('hr', null),
 	      React.createElement(
 	        'div',
 	        { className: 'answers-container' },
@@ -32092,7 +32093,7 @@
 	    if (!answerBox) {
 	      return React.createElement(
 	        'div',
-	        null,
+	        { className: 'answer-form' },
 	        React.createElement(
 	          'button',
 	          {
@@ -32134,7 +32135,7 @@
 	              valueLink: this.linkState('body')
 	            })
 	          ),
-	          React.createElement('input', { type: 'submit', className: 'btn btn-primary', value: 'Submit Answer' })
+	          React.createElement('input', { type: 'submit', className: 'btn btn-primary', id: 'ans-submit', value: 'Submit Answer' })
 	        )
 	      );
 	    }

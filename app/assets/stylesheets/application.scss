@@ -84,6 +84,10 @@ html {
   color: #7F7F7F;
 }
 
+.answer-form {
+  margin-top: 70px;
+}
+
 .answerer-container{
   font-size: 17px;
   font-weight: 200;
@@ -94,6 +98,11 @@ html {
   font-size: 19px;
   font-weight: 500;
   padding-left: 5px;
+}
+
+#ans-submit {
+  margin-top: 15px;
+  margin-left: 155px; 
 }
 
 hr {

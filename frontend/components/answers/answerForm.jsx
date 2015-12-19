@@ -48,7 +48,7 @@ var AnswerForm = React.createClass({
 
     if (!answerBox) {
       return(
-        <div>
+        <div className='answer-form'>
           <button
             type='button'
             className='btn btn-primary'
@@ -79,7 +79,7 @@ var AnswerForm = React.createClass({
                 />
             </div>
 
-            <input type='submit' className='btn btn-primary' value="Submit Answer"/>
+            <input type='submit' className='btn btn-primary' id='ans-submit' value="Submit Answer"/>
           </form>
         </div>
       );
