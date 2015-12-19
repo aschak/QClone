@@ -71,7 +71,7 @@ module.exports = React.createClass({
 
         <QuestionForm className="question-form" id="edit" new={false} question={question}/>
         <br/>
-        <button type="button" className="btn btn-primary" id="btn-delete" onClick={this.deleteQuestion}>Delete Question</button>
+        <button type="button" className="btn btn-primary" id="ques-delete" onClick={this.deleteQuestion}>Delete Question</button>
 
         <div>
           <AnswerIndex question={question}/>

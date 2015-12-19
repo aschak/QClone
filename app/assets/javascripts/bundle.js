@@ -31716,7 +31716,7 @@
 	      React.createElement('br', null),
 	      React.createElement(
 	        'button',
-	        { type: 'button', className: 'btn btn-primary', id: 'btn-delete', onClick: this.deleteQuestion },
+	        { type: 'button', className: 'btn btn-primary', id: 'ques-delete', onClick: this.deleteQuestion },
 	        'Delete Question'
 	      ),
 	      React.createElement(
@@ -32147,41 +32147,64 @@
 /* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(1);
+	var React = __webpack_require__(1),
+	    AnswerActions = __webpack_require__(247),
+	    History = __webpack_require__(159).History;
 	
 	var AnswerIndexItem = React.createClass({
-	  displayName: "AnswerIndexItem",
+	  displayName: 'AnswerIndexItem',
+	
+	  mixins: [History],
+	
+	  deleteAnswer: function (event) {
+	    event.preventDefault();
+	    AnswerActions.destroyAnswer(this.props.answer.id);
+	    this.navigateToQuestion();
+	  },
+	
+	  navigateToQuestion: function () {
+	    this.history.push('question/' + this.props.question.id);
+	  },
 	
 	  render: function () {
 	    var answerer = this.props.answer.author,
 	        answerTime = new Date(this.props.answer.created_at).toString();
 	
 	    return React.createElement(
-	      "div",
-	      { className: "answer-container" },
+	      'div',
+	      { className: 'answer-container' },
 	      React.createElement(
-	        "div",
-	        { className: "answerer-container" },
-	        "Answered By: ",
+	        'div',
+	        { className: 'answerer-container' },
+	        'Answered By: ',
 	        React.createElement(
-	          "a",
-	          { href: "#", className: "answerer" },
+	          'a',
+	          { href: '#', className: 'answerer' },
 	          answerer
 	        ),
-	        ",",
+	        ',',
 	        React.createElement(
-	          "span",
-	          { className: "answer-time" },
+	          'span',
+	          { className: 'answer-time' },
 	          answerTime
 	        )
 	      ),
 	      React.createElement(
-	        "div",
-	        { className: "answer-body" },
+	        'div',
+	        { className: 'answer-body' },
 	        this.props.answer.body
 	      ),
-	      React.createElement("hr", null),
-	      React.createElement("br", null)
+	      React.createElement(
+	        'button',
+	        {
+	          type: 'button',
+	          className: 'btn btn-primary',
+	          id: 'ans-delete',
+	          onClick: this.deleteAnswer },
+	        'Delete Answer'
+	      ),
+	      React.createElement('hr', null),
+	      React.createElement('br', null)
 	    );
 	  }
 	
