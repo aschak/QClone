@@ -32043,65 +32043,101 @@
 
 	var React = __webpack_require__(1),
 	    AnswerActions = __webpack_require__(247),
+	    History = __webpack_require__(159).History,
 	    LinkedStateMixin = __webpack_require__(238);
 	
 	var AnswerForm = React.createClass({
 	  displayName: 'AnswerForm',
 	
-	  mixins: [LinkedStateMixin],
+	  mixins: [LinkedStateMixin, History],
 	
 	  getInitialState: function () {
-	    var question_id = this.props.question.id;
+	    var questionId = this.props.question.id;
 	    return {
 	      body: '',
 	      author_id: null,
-	      question_id: question_id
+	      question_id: questionId,
+	      answerBox: false
 	    };
 	  },
+	
+	  // componentDidMount: function () {
+	  //   this.setState({
+	  //     body: '',
+	  //     author_id: null
+	  //   });
+	  // },
 	
 	  handleSubmit: function (event) {
 	    event.preventDefault();
 	    var answer = Object.assign({}, this.props.answer, this.state);
 	    AnswerActions.createAnswer(answer);
+	    this.navigateToQuestion();
+	    this.revealAnswerBox();
 	  },
 	
-	  componentDidMount: function () {},
+	  revealAnswerBox: function () {
+	    var answerBox = this.state.answerBox ? false : true;
+	    this.setState({ answerBox: answerBox });
+	  },
+	
+	  navigateToQuestion: function () {
+	    var questionId = this.props.question.id;
+	    this.history.push('question/' + questionId);
+	  },
 	
 	  render: function () {
+	    var answerBox = this.state.answerBox;
 	
-	    return React.createElement(
-	      'div',
-	      { className: 'answer-form' },
-	      React.createElement(
-	        'form',
-	        { onSubmit: this.handleSubmit },
+	    if (!answerBox) {
+	      return React.createElement(
+	        'div',
+	        null,
 	        React.createElement(
-	          'div',
-	          null,
-	          React.createElement('input', {
-	            type: 'hidden',
-	            id: 'answer_author_id',
-	            valueLink: this.linkState('author_id')
-	          })
-	        ),
+	          'button',
+	          {
+	            type: 'button',
+	            className: 'btn btn-primary',
+	            onClick: this.revealAnswerBox },
+	          'Answer This Question '
+	        )
+	      );
+	    } else if (answerBox) {
+	
+	      return React.createElement(
+	        'div',
+	        { className: 'answer-form' },
 	        React.createElement(
-	          'div',
-	          null,
+	          'form',
+	          { onSubmit: this.handleSubmit },
 	          React.createElement(
-	            'label',
-	            { htmlFor: 'answer_body' },
-	            'Enter Answer:'
+	            'div',
+	            null,
+	            React.createElement('input', {
+	              type: 'hidden',
+	              id: 'answer_author_id',
+	              valueLink: this.linkState('author_id')
+	            })
 	          ),
-	          React.createElement('input', {
-	            type: 'textarea',
-	            id: 'answer_body',
+	          React.createElement(
+	            'div',
+	            null,
+	            React.createElement(
+	              'label',
+	              { htmlFor: 'answer_body' },
+	              'Enter Answer:'
+	            ),
+	            React.createElement('input', {
+	              type: 'textarea',
+	              id: 'answer_body',
 	
-	            valueLink: this.linkState('body')
-	          })
-	        ),
-	        React.createElement('input', { type: 'submit', className: 'btn btn-primary', value: 'Submit Answer' })
-	      )
-	    );
+	              valueLink: this.linkState('body')
+	            })
+	          ),
+	          React.createElement('input', { type: 'submit', className: 'btn btn-primary', value: 'Submit Answer' })
+	        )
+	      );
+	    }
 	  }
 	});
 	
