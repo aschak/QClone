@@ -52,10 +52,10 @@
 	    IndexRoute = ReactRouter.IndexRoute;
 	
 	var SeekIndex = __webpack_require__(206),
-	    QuestionShow = __webpack_require__(242),
-	    QuestionForm = __webpack_require__(243);
+	    QuestionShow = __webpack_require__(243),
+	    QuestionForm = __webpack_require__(244);
 	
-	window.ApiUtil = __webpack_require__(230);
+	window.ApiUtil = __webpack_require__(231);
 	window.QuestionStore = __webpack_require__(208);
 	
 	var App = React.createClass({
@@ -24007,8 +24007,8 @@
 
 	var React = __webpack_require__(1),
 	    QuestionsIndex = __webpack_require__(207),
-	    UserLog = __webpack_require__(235),
-	    UserActions = __webpack_require__(237);
+	    UserLog = __webpack_require__(236),
+	    UserActions = __webpack_require__(238);
 	
 	var SeekIndex = React.createClass({
 	  displayName: 'SeekIndex',
@@ -24078,8 +24078,8 @@
 
 	var React = __webpack_require__(1),
 	    QuestionStore = __webpack_require__(208),
-	    QuestionActions = __webpack_require__(233),
-	    QuestionIndexItem = __webpack_require__(234);
+	    QuestionActions = __webpack_require__(230),
+	    QuestionIndexItem = __webpack_require__(235);
 	
 	var QuestionIndex = React.createClass({
 	  displayName: 'QuestionIndex',
@@ -30899,7 +30899,43 @@
 /* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ApiActions = __webpack_require__(231);
+	var Dispatcher = __webpack_require__(226),
+	    ApiUtil = __webpack_require__(231);
+	
+	var QuestionActions = {
+	  fetchQuestions: function () {
+	    ApiUtil.fetchAllQuestions();
+	    // Dispatcher.dispatch({
+	    //   actionType: QuestionConstants.QUESTIONS_LOADING,
+	    //   questions: questions
+	    // });
+	  },
+	
+	  fetchQuestion: function (id) {
+	    ApiUtil.fetchSingleQuestion(id);
+	  },
+	
+	  createQuestion: function (question, callback) {
+	    ApiUtil.createQuestion(question, callback);
+	  },
+	
+	  editQuestion: function (question) {
+	    ApiUtil.editQuestion(question);
+	  },
+	
+	  destroyQuestion: function (id) {
+	    ApiUtil.destroyQuestion(id);
+	  }
+	
+	};
+	
+	module.exports = QuestionActions;
+
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ApiActions = __webpack_require__(232);
 	
 	var ApiUtil = {
 	
@@ -31010,7 +31046,7 @@
 	    $.ajax({
 	      url: '/api/answers/' + answer.id,
 	      type: 'PUT',
-	      data: { question: question },
+	      data: { answer: answer },
 	      success: function (answer) {
 	        ApiActions.receiveSingleAnswer(answer);
 	      }
@@ -31025,6 +31061,45 @@
 	        ApiActions.deleteSingleAnswer(answer);
 	      }
 	    });
+	  },
+	
+	  fetchAllComments: function () {
+	    $.get('/api/comments', function (comments) {
+	      ApiActions.receiveAllComments(comments);
+	    });
+	  },
+	
+	  fetchSingleComment: function (id) {
+	    $.get('/api/comments/' + id, function (comment) {
+	      ApiActions.receiveSingleComment(comment);
+	    });
+	  },
+	
+	  createComment: function (comment) {
+	    $.post('/api/comments', { comment: comment }, function (comment) {
+	      ApiActions.receiveSingleComment(comment);
+	    });
+	  },
+	
+	  editComment: function (comment) {
+	    $.ajax({
+	      url: '/api/comments/' + comment.id,
+	      type: 'PUT',
+	      data: { comment: comment },
+	      success: function (comment) {
+	        ApiActions.receiveSingleComment(comment);
+	      }
+	    });
+	  },
+	
+	  destroyComment: function (id) {
+	    $.ajax({
+	      url: '/api/comments/' + id,
+	      type: 'DELETE',
+	      success: function (comment) {
+	        ApiActions.deleteSingleComment(comment);
+	      }
+	    });
 	  }
 	
 	};
@@ -31032,13 +31107,14 @@
 	module.exports = ApiUtil;
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(226),
 	    QuestionConstants = __webpack_require__(229),
-	    UserConstants = __webpack_require__(232),
-	    AnswerConstants = __webpack_require__(244);
+	    UserConstants = __webpack_require__(233),
+	    AnswerConstants = __webpack_require__(234),
+	    CommentConstants = __webpack_require__(250);
 	
 	var ApiActions = {
 	
@@ -31089,13 +31165,34 @@
 	      actionType: AnswerConstants.ANSWER_DELETED,
 	      answer: answer
 	    });
+	  },
+	
+	  receiveAllComments: function (comments) {
+	    Dispatcher.dispatch({
+	      actionType: CommentConstants.COMMENTS_RECEIVED,
+	      comments: comments
+	    });
+	  },
+	
+	  receiveSingleComment: function (comment) {
+	    Dispatcher.dispatch({
+	      actionType: CommentConstants.COMMENT_RECEIVED,
+	      comment: comment
+	    });
+	  },
+	
+	  deleteSingleComment: function (comment) {
+	    Dispatcher.dispatch({
+	      actionType: CommentConstants.COMMENT_DELETED,
+	      comment: comment
+	    });
 	  }
 	};
 	
 	module.exports = ApiActions;
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -31103,43 +31200,17 @@
 	};
 
 /***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
+/* 234 */
+/***/ function(module, exports) {
 
-	var Dispatcher = __webpack_require__(226),
-	    ApiUtil = __webpack_require__(230);
-	
-	var QuestionActions = {
-	  fetchQuestions: function () {
-	    ApiUtil.fetchAllQuestions();
-	    // Dispatcher.dispatch({
-	    //   actionType: QuestionConstants.QUESTIONS_LOADING,
-	    //   questions: questions
-	    // });
-	  },
-	
-	  fetchQuestion: function (id) {
-	    ApiUtil.fetchSingleQuestion(id);
-	  },
-	
-	  createQuestion: function (question, callback) {
-	    ApiUtil.createQuestion(question, callback);
-	  },
-	
-	  editQuestion: function (question) {
-	    ApiUtil.editQuestion(question);
-	  },
-	
-	  destroyQuestion: function (id) {
-	    ApiUtil.destroyQuestion(id);
-	  }
-	
+	module.exports = {
+	  ANSWERS_RECEIVED: "ANSWERS_RECEIVED",
+	  ANSWER_RECIEVED: "ANSWER_RECIEVED",
+	  ANSWER_DELETED: "ANSWER_DELETED"
 	};
-	
-	module.exports = QuestionActions;
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -31159,8 +31230,7 @@
 	  },
 	
 	  revealDetails: function () {
-	    showDetails = this.state.showDetails ? false : true;
-	    console.log("clicked!");
+	    var showDetails = this.state.showDetails ? false : true;
 	    this.setState({ showDetails: showDetails });
 	  },
 	
@@ -31231,13 +31301,13 @@
 	module.exports = QuestionIndexItem;
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    UserStore = __webpack_require__(236),
-	    UserActions = __webpack_require__(237),
-	    LinkedStateMixin = __webpack_require__(238);
+	    UserStore = __webpack_require__(237),
+	    UserActions = __webpack_require__(238),
+	    LinkedStateMixin = __webpack_require__(239);
 	
 	var UserLog = React.createClass({
 	  displayName: 'UserLog',
@@ -31341,12 +31411,12 @@
 	module.exports = UserLog;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(209).Store,
 	    AppDispatcher = __webpack_require__(226),
-	    UserConstants = __webpack_require__(232);
+	    UserConstants = __webpack_require__(233);
 	
 	var UserStore = new Store(AppDispatcher);
 	
@@ -31372,11 +31442,11 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(226),
-	    ApiUtil = __webpack_require__(230);
+	    ApiUtil = __webpack_require__(231);
 	
 	var UserActions = {
 	  userSignIn: function (user) {
@@ -31395,13 +31465,13 @@
 	module.exports = UserActions;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(239);
+	module.exports = __webpack_require__(240);
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31418,8 +31488,8 @@
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(240);
-	var ReactStateSetters = __webpack_require__(241);
+	var ReactLink = __webpack_require__(241);
+	var ReactStateSetters = __webpack_require__(242);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -31442,7 +31512,7 @@
 	module.exports = LinkedStateMixin;
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31516,7 +31586,7 @@
 	module.exports = ReactLink;
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports) {
 
 	/**
@@ -31625,14 +31695,14 @@
 	module.exports = ReactStateSetters;
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    QuestionStore = __webpack_require__(208),
-	    QuestionActions = __webpack_require__(233),
+	    QuestionActions = __webpack_require__(230),
 	    QuestionsIndex = __webpack_require__(207),
-	    QuestionForm = __webpack_require__(243),
+	    QuestionForm = __webpack_require__(244),
 	    AnswerIndex = __webpack_require__(245);
 	
 	module.exports = React.createClass({
@@ -31734,13 +31804,13 @@
 	});
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    QuestionActions = __webpack_require__(233),
+	    QuestionActions = __webpack_require__(230),
 	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(238);
+	    LinkedStateMixin = __webpack_require__(239);
 	
 	var QuestionForm = React.createClass({
 	  displayName: 'QuestionForm',
@@ -31748,7 +31818,7 @@
 	  mixins: [LinkedStateMixin, History],
 	
 	  blankForm: {
-	    title: '?',
+	    title: '',
 	    body: ' ',
 	    author_id: null,
 	    modal: false
@@ -31880,16 +31950,6 @@
 	module.exports = QuestionForm;
 
 /***/ },
-/* 244 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  ANSWERS_RECEIVED: "ANSWERS_RECEIVED",
-	  ANSWER_RECIEVED: "ANSWER_RECIEVED",
-	  ANSWER_DELETED: "ANSWER_DELETED"
-	};
-
-/***/ },
 /* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -31951,7 +32011,7 @@
 
 	var Store = __webpack_require__(209).Store,
 	    AppDispatcher = __webpack_require__(226),
-	    AnswerConstants = __webpack_require__(244);
+	    AnswerConstants = __webpack_require__(234);
 	
 	var AnswerStore = new Store(AppDispatcher);
 	var _answers = [];
@@ -31973,11 +32033,11 @@
 	  return _answers.slice(0);
 	};
 	
-	AnswerStore.find = function () {
+	AnswerStore.find = function (id) {
 	  var found;
 	
 	  _answers.forEach(function (answer) {
-	    if (answer.id = id) {
+	    if (answer.id === id) {
 	      found = answer;
 	    }
 	  });
@@ -32011,7 +32071,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(226),
-	    ApiUtil = __webpack_require__(230);
+	    ApiUtil = __webpack_require__(231);
 	
 	var AnswerActions = {
 	  fetchAnswers: function () {
@@ -32019,14 +32079,14 @@
 	  },
 	
 	  fetchAnswer: function (id) {
-	    ApiUtil.fetchSingleQuestion(id);
+	    ApiUtil.fetchSingleAnswer(id);
 	  },
 	
 	  createAnswer: function (answer) {
 	    ApiUtil.createAnswer(answer);
 	  },
 	
-	  editQuestion: function (answer) {
+	  editAnswer: function (answer) {
 	    ApiUtil.editAnswer(answer);
 	  },
 	
@@ -32045,7 +32105,7 @@
 	var React = __webpack_require__(1),
 	    AnswerActions = __webpack_require__(247),
 	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(238);
+	    LinkedStateMixin = __webpack_require__(239);
 	
 	var AnswerForm = React.createClass({
 	  displayName: 'AnswerForm',
@@ -32150,12 +32210,17 @@
 
 	var React = __webpack_require__(1),
 	    AnswerActions = __webpack_require__(247),
+	    AnswerStore = __webpack_require__(246),
 	    History = __webpack_require__(159).History;
 	
 	var AnswerIndexItem = React.createClass({
 	  displayName: 'AnswerIndexItem',
 	
 	  mixins: [History],
+	
+	  getStateFromStore: function () {
+	    return { answer: AnswerStore.find(parseInt(this.props.params.id)) };
+	  },
 	
 	  deleteAnswer: function (event) {
 	    event.preventDefault();
@@ -32168,7 +32233,8 @@
 	  },
 	
 	  render: function () {
-	    var answerer = this.props.answer.author,
+	    var answer = this.state.answer,
+	        answerer = this.props.answer.author,
 	        answerTime = new Date(this.props.answer.created_at).toString();
 	
 	    return React.createElement(
@@ -32196,6 +32262,11 @@
 	        this.props.answer.body
 	      ),
 	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement(CommentIndex, { answer: answer })
+	      ),
+	      React.createElement(
 	        'button',
 	        {
 	          type: 'button',
@@ -32212,6 +32283,16 @@
 	});
 	
 	module.exports = AnswerIndexItem;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  COMMENTS_RECEIVED: "COMMENTS_RECEIVED",
+	  COMMENT_RECEIVED: "COMMENT_RECEIVED",
+	  COMMENT_DELETED: "COMMENT_DELETED"
+	};
 
 /***/ }
 /******/ ]);

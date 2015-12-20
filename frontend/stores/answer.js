@@ -22,11 +22,11 @@ AnswerStore.all = function () {
   return _answers.slice(0);
 };
 
-AnswerStore.find = function () {
+AnswerStore.find = function (id) {
   var found;
 
   _answers.forEach(function (answer) {
-    if (answer.id = id) {
+    if (answer.id === id) {
       found = answer;
     }
   });

@@ -9,7 +9,7 @@ var QuestionForm = React.createClass({
   mixins: [LinkedStateMixin, History],
 
   blankForm: {
-    title: '?',
+    title: '',
     body: ' ',
     author_id: null,
     modal: false

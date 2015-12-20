@@ -14,8 +14,7 @@ var QuestionIndexItem = React.createClass({
   },
 
   revealDetails: function () {
-    showDetails = this.state.showDetails ? false : true;
-    console.log("clicked!");
+    var showDetails = this.state.showDetails ? false : true;
     this.setState({showDetails: showDetails});
   },
 

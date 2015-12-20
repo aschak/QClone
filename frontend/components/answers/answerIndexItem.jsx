@@ -1,10 +1,15 @@
 var React = require('react'),
     AnswerActions = require('../../actions/answer_actions.js'),
+    AnswerStore = require('../../stores/answer.js'),
     History = require('react-router').History;
 
 
 var AnswerIndexItem = React.createClass({
   mixins: [History],
+
+  getStateFromStore: function () {
+    return {answer: AnswerStore.find(parseInt(this.props.params.id))};
+  },
 
   deleteAnswer: function (event) {
     event.preventDefault();
@@ -17,9 +22,10 @@ var AnswerIndexItem = React.createClass({
   },
 
   render: function () {
-    var answerer = this.props.answer.author,
+    var answer = this.state.answer,
+        answerer = this.props.answer.author,
         answerTime = new Date(this.props.answer.created_at).toString();
-  
+
     return (
       <div className="answer-container">
 
@@ -31,6 +37,12 @@ var AnswerIndexItem = React.createClass({
         <div className="answer-body">
           {this.props.answer.body}
         </div>
+
+        <div>
+          <CommentIndex answer={answer}/>
+        </div>
+
+
           <button
             type="button"
             className="btn btn-primary"
@@ -38,6 +50,7 @@ var AnswerIndexItem = React.createClass({
             onClick={this.deleteAnswer}>
               Delete Answer
             </button>
+
         <hr/>
         <br/>
       </div>

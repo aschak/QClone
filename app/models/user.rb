@@ -21,12 +21,20 @@ class User < ActiveRecord::Base
   has_many :questions,
     primary_key: :id,
     foreign_key: :author_id,
+    dependent: :destroy,
     class_name: "Question"
 
   has_many :answers,
     primary_key: :id,
     foreign_key: :author_id,
+    dependent: :destroy,
     class_name: "Answer"
+
+  has_many :comments,
+    primary_key: :id,
+    foreign_key: :author_id,
+    dependent: :destroy,
+    class_name: "Comment"
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

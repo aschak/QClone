@@ -8,14 +8,14 @@ var AnswerActions = {
   },
 
   fetchAnswer: function (id) {
-    ApiUtil.fetchSingleQuestion(id);
+    ApiUtil.fetchSingleAnswer(id);
   },
 
   createAnswer: function (answer) {
     ApiUtil.createAnswer(answer);
   },
 
-  editQuestion: function (answer) {
+  editAnswer: function (answer) {
     ApiUtil.editAnswer(answer);
   },
 

@@ -112,19 +112,58 @@ var ApiUtil = {
     $.ajax({
       url: '/api/answers/' + answer.id,
       type: 'PUT',
-      data: {question: question},
+      data: {answer: answer},
       success: function (answer) {
         ApiActions.receiveSingleAnswer(answer);
       }
     });
   },
 
-  destroyAnswer:function (id) {
+  destroyAnswer: function (id) {
     $.ajax({
       url: '/api/answers/' + id,
       type: 'DELETE',
       success: function (answer) {
         ApiActions.deleteSingleAnswer(answer);
+      }
+    });
+  },
+
+  fetchAllComments: function () {
+    $.get('/api/comments', function (comments) {
+      ApiActions.receiveAllComments(comments);
+    });
+  },
+
+  fetchSingleComment: function (id) {
+    $.get('/api/comments/' + id, function (comment) {
+      ApiActions.receiveSingleComment(comment);
+    });
+  },
+
+  createComment: function (comment) {
+    $.post('/api/comments', {comment: comment}, function (comment) {
+      ApiActions.receiveSingleComment(comment);
+    });
+  },
+
+  editComment: function (comment) {
+    $.ajax({
+      url: '/api/comments/' + comment.id,
+      type: 'PUT',
+      data: {comment: comment},
+      success: function (comment) {
+        ApiActions.receiveSingleComment(comment);
+      }
+    });
+  },
+
+  destroyComment: function (id) {
+    $.ajax({
+      url: '/api/comments/' + id,
+      type: 'DELETE',
+      success: function (comment) {
+        ApiActions.deleteSingleComment(comment);
       }
     });
   }
