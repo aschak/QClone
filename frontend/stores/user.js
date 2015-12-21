@@ -8,6 +8,7 @@ var _user = [];
 
 var resetUser = function (user) {
   _user = user;
+  this.__emitChange();
 };
 
 UserStore.all = function () {

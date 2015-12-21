@@ -27,7 +27,6 @@ var AnswerIndex = React.createClass({
     var question = this.props.question;
         // answers;
 
-
     return (
 
       <div className="answers-main">

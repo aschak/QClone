@@ -7,6 +7,7 @@ var React = require('react'),
 
 var SeekIndex = require('./components/seek_index.jsx'),
     QuestionShow = require('./components/questions/questionShow.jsx'),
+    NavBar = require('./components/navBar.jsx'),
     QuestionForm = require('./components/questions/questionForm.jsx');
 
 
@@ -18,7 +19,7 @@ var App = React.createClass({
     return(
       <div>
         <div>
-          <QuestionForm className="question-form" id="new" new={true}/>
+          <NavBar/>
         </div>
 
         {this.props.children}

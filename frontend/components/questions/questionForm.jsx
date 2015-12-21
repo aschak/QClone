@@ -34,7 +34,7 @@ var QuestionForm = React.createClass({
     if (this.props.new) {
       QuestionActions.createQuestion(question, this.navigateToQuestion);
       this.setState(this.blankForm);
-      this.navigateToQuestion();
+      // this.navigateToQuestion();
 
     } else if (!this.props.new) {
       QuestionActions.editQuestion(question);

@@ -3,12 +3,17 @@ var React = require('react'),
     QuestionActions = require('../../actions/question_actions.js'),
     QuestionsIndex = require('./questionsIndex.jsx'),
     QuestionForm = require('./questionForm.jsx'),
+    UserActions = require('../../actions/user_actions.js'),
+    UserStore = require('../../stores/user.js'),
     AnswerIndex = require('../answers/answerIndex.jsx');
 
 
 module.exports = React.createClass({
   getStateFromStore: function () {
-    return { question: QuestionStore.find(parseInt(this.props.params.id)) };
+    return {
+       question: QuestionStore.find(parseInt(this.props.params.id)),
+       user: UserStore.all() //Why won't user actions be required?
+    };
   },
 
   _questionChange: function () {
@@ -43,7 +48,9 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var question = this.state.question;
+    var question = this.state.question,
+        user = this.state.user;
+
     if (question === undefined) { return <div></div>; }
 
     var asker = question.author.username,
@@ -74,7 +81,7 @@ module.exports = React.createClass({
         <button type="button" className="btn btn-primary" id="ques-delete" onClick={this.deleteQuestion}>Delete Question</button>
 
         <div>
-          <AnswerIndex question={question}/>
+          <AnswerIndex question={question} user={user}/>
         </div>
 
         <button className="btn btn-primary" onClick={this.navigateToIndex}>Back</button>

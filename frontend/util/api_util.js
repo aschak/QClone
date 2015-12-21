@@ -26,6 +26,12 @@ var ApiUtil = {
     });
   },
 
+  fetchSingleUser: function (id) {
+    $.get('api/users/' + id, function (user) {
+      ApiActions.receiveUser(user);
+    });
+  },
+
   fetchAllQuestions: function () {
     // $.ajax({
     //   url: '/api/questions',

@@ -11,6 +11,10 @@ var UserActions = {
     ApiUtil.userSignOut(user);
   },
 
+  fetchUser: function (id) {
+    ApiUtil.fetchSingleUser(id);
+  },
+
   createUser: function (user) {
     ApiUtil.createUser(user);
   }

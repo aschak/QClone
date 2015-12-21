@@ -53,6 +53,7 @@
 	
 	var SeekIndex = __webpack_require__(206),
 	    QuestionShow = __webpack_require__(244),
+	    NavBar = __webpack_require__(256),
 	    QuestionForm = __webpack_require__(245);
 	
 	window.ApiUtil = __webpack_require__(231);
@@ -68,7 +69,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement(QuestionForm, { className: 'question-form', id: 'new', 'new': true })
+	        React.createElement(NavBar, null)
 	      ),
 	      this.props.children
 	    );
@@ -30960,6 +30961,12 @@
 	    });
 	  },
 	
+	  fetchSingleUser: function (id) {
+	    $.get('api/users/' + id, function (user) {
+	      ApiActions.receiveUser(user);
+	    });
+	  },
+	
 	  fetchAllQuestions: function () {
 	    // $.ajax({
 	    //   url: '/api/questions',
@@ -31434,6 +31441,7 @@
 	
 	var resetUser = function (user) {
 	  _user = user;
+	  this.__emitChange();
 	};
 	
 	UserStore.all = function () {
@@ -31465,6 +31473,10 @@
 	
 	  userSignOut: function (user) {
 	    ApiUtil.userSignOut(user);
+	  },
+	
+	  fetchUser: function (id) {
+	    ApiUtil.fetchSingleUser(id);
 	  },
 	
 	  createUser: function (user) {
@@ -31713,13 +31725,18 @@
 	    QuestionActions = __webpack_require__(230),
 	    QuestionsIndex = __webpack_require__(207),
 	    QuestionForm = __webpack_require__(245),
+	    UserActions = __webpack_require__(239),
+	    UserStore = __webpack_require__(238),
 	    AnswerIndex = __webpack_require__(246);
 	
 	module.exports = React.createClass({
 	  displayName: 'exports',
 	
 	  getStateFromStore: function () {
-	    return { question: QuestionStore.find(parseInt(this.props.params.id)) };
+	    return {
+	      question: QuestionStore.find(parseInt(this.props.params.id)),
+	      user: UserStore.all() //Why won't user actions be required?
+	    };
 	  },
 	
 	  _questionChange: function () {
@@ -31754,7 +31771,9 @@
 	  },
 	
 	  render: function () {
-	    var question = this.state.question;
+	    var question = this.state.question,
+	        user = this.state.user;
+	
 	    if (question === undefined) {
 	      return React.createElement('div', null);
 	    }
@@ -31802,7 +31821,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement(AnswerIndex, { question: question })
+	        React.createElement(AnswerIndex, { question: question, user: user })
 	      ),
 	      React.createElement(
 	        'button',
@@ -31853,11 +31872,11 @@
 	    if (this.props.new) {
 	      QuestionActions.createQuestion(question, this.navigateToQuestion);
 	      this.setState(this.blankForm);
-	      this.navigateToQuestion();
+	      // this.navigateToQuestion();
 	    } else if (!this.props.new) {
-	      QuestionActions.editQuestion(question);
-	      this.changeModal();
-	    }
+	        QuestionActions.editQuestion(question);
+	        this.changeModal();
+	      }
 	  },
 	
 	  changeModal: function () {
@@ -32636,6 +32655,27 @@
 	});
 	
 	module.exports = CommentIndexItem;
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    QuestionForm = __webpack_require__(245);
+	
+	var NavBar = React.createClass({
+	  displayName: 'NavBar',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      { className: 'nav-bar' },
+	      React.createElement(QuestionForm, { className: 'question-form', id: 'new', 'new': true })
+	    );
+	  }
+	});
+	
+	module.exports = NavBar;
 
 /***/ }
 /******/ ]);
