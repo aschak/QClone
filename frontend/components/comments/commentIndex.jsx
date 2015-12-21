@@ -40,6 +40,14 @@ var CommentIndex = React.createClass({
         <div>
           <CommentForm answer={answer}/>
 
+          <button
+            type="button"
+            className="btn btn-primary"
+            id="com-hide"
+            onClick={this.revealComments}>
+            Hide Comments
+          </button>
+          
           <hr/>
 
           <div className="comments-container">
@@ -54,13 +62,6 @@ var CommentIndex = React.createClass({
             }
           </div>
 
-          <button
-            type="button"
-            className="btn btn-primary"
-            id="com-hide"
-            onClick={this.revealComments}>
-            Hide Comments
-          </button>
 
         </div>
       );

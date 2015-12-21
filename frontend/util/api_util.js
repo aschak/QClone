@@ -3,28 +3,28 @@ var ApiActions = require('../actions/api_actions.js');
 
 var ApiUtil = {
 
-  createUser: function (user) {
-    $.post('users', {user: user}, function (user) {
-      ApiActions.receiveUser(user);
-    });
-  },
-
-  signUserIn: function (user) {
-    $.post('session', {user: user}, function (user) {
-      ApiActions.receiveUser(user);
-    });
-  },
-
-  signUserOut: function (user) {
-    $.ajax({
-      url: 'session',
-      type: 'DELETE',
-      data: {user: user},
-      success: function (user) {
-
-      }
-    });
-  },
+  // createUser: function (user) {
+  //   $.post('users', {user: user}, function (user) {
+  //     ApiActions.receiveUser(user);
+  //   });
+  // },
+  //
+  // signUserIn: function (user) {
+  //   $.post('session', {user: user}, function (user) {
+  //     ApiActions.receiveUser(user);
+  //   });
+  // },
+  //
+  // signUserOut: function (user) {
+  //   $.ajax({
+  //     url: 'session',
+  //     type: 'DELETE',
+  //     data: {user: user},
+  //     success: function (user) {
+  //
+  //     }
+  //   });
+  // },
 
   fetchSingleUser: function (id) {
     $.get('api/users/' + id, function (user) {

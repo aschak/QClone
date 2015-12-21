@@ -20,13 +20,13 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
+    comment = current_user.comments.find(params[:id])
     comment.destroy
     render json: comment #Why does what we render not matter? Comment has no show page!
   end
 
   def update
-    @comment = Comment.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
 
     if @comment.update(comment_params)
       render :show

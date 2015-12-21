@@ -3,13 +3,13 @@ var Dispatcher = require('../dispatcher/dispatcher.js'),
 
 
 var UserActions = {
-  userSignIn: function (user) {
-    ApiUtil.userSignIn(user);
-  },
-
-  userSignOut: function (user) {
-    ApiUtil.userSignOut(user);
-  },
+  // userSignIn: function (user) {
+  //   ApiUtil.userSignIn(user);
+  // },
+  //
+  // userSignOut: function (user) {
+  //   ApiUtil.userSignOut(user);
+  // },
 
   fetchUser: function (id) {
     ApiUtil.fetchSingleUser(id);

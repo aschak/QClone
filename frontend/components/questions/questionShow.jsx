@@ -1,10 +1,10 @@
+/* global seek_user */
+
 var React = require('react'),
     QuestionStore = require('../../stores/question.js'),
     QuestionActions = require('../../actions/question_actions.js'),
     QuestionsIndex = require('./questionsIndex.jsx'),
     QuestionForm = require('./questionForm.jsx'),
-    UserActions = require('../../actions/user_actions.js'),
-    UserStore = require('../../stores/user.js'),
     AnswerIndex = require('../answers/answerIndex.jsx');
 
 
@@ -12,7 +12,6 @@ module.exports = React.createClass({
   getStateFromStore: function () {
     return {
        question: QuestionStore.find(parseInt(this.props.params.id)),
-       user: UserStore.all() //Why won't user actions be required?
     };
   },
 
@@ -48,8 +47,37 @@ module.exports = React.createClass({
   },
 
   render: function () {
+
+
     var question = this.state.question,
-        user = this.state.user;
+        modButtons;
+
+    if (!this.state.question) {
+      return (
+        <div>
+          LOADING...
+        </div>
+      );
+    }
+
+    if (question.author_id === seek_user.id) {
+      modButtons = <div>
+                    <QuestionForm
+                          className="question-form"
+                          id="edit"
+                          new={false}
+                          question={question}/>
+                   <br/>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      id="ques-delete"
+                      onClick={this.deleteQuestion}>Delete Question</button>
+                   </div> ;
+
+    } else {
+      modButtons = <div></div>;
+    }
 
     if (question === undefined) { return <div></div>; }
 
@@ -76,12 +104,10 @@ module.exports = React.createClass({
         </div>
 
 
-        <QuestionForm className="question-form" id="edit" new={false} question={question}/>
-        <br/>
-        <button type="button" className="btn btn-primary" id="ques-delete" onClick={this.deleteQuestion}>Delete Question</button>
+        {modButtons}
 
         <div>
-          <AnswerIndex question={question} user={user}/>
+          <AnswerIndex question={question}/>
         </div>
 
         <button className="btn btn-primary" onClick={this.navigateToIndex}>Back</button>

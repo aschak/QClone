@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   before_action :require_user!
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     render :show
   end
 

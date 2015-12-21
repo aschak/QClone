@@ -1,3 +1,5 @@
+/* global seek_user */
+
 var React = require('react'),
     AnswerActions = require('../../actions/answer_actions.js'),
     AnswerStore = require('../../stores/answer.js'),
@@ -46,7 +48,22 @@ var AnswerIndexItem = React.createClass({
   render: function () {
     var answer = this.props.answer,
         answerer = this.props.answer.author,
-        answerTime = new Date(this.props.answer.created_at).toString();
+        answerTime = new Date(this.props.answer.created_at).toString(),
+        modButtons;
+
+    if (answer.author_id === seek_user.id) {
+      modButtons = <div>
+                      <button
+                        type="button"
+                        className="btn btn-primary"
+                        id="ans-delete"
+                        onClick={this.deleteAnswer}>Delete Answer</button>
+                    </div>;
+    } else {
+      modButtons = <div></div>;
+    }
+
+
 
     return (
       <div className="answer-container">
@@ -64,14 +81,7 @@ var AnswerIndexItem = React.createClass({
           <CommentIndex answer={answer}/>
         </div>
 
-
-          <button
-            type="button"
-            className="btn btn-primary"
-            id="ans-delete"
-            onClick={this.deleteAnswer}>
-              Delete Answer
-            </button>
+        {modButtons}
 
         <hr/>
         <br/>

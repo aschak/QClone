@@ -30940,26 +30940,28 @@
 	
 	var ApiUtil = {
 	
-	  createUser: function (user) {
-	    $.post('users', { user: user }, function (user) {
-	      ApiActions.receiveUser(user);
-	    });
-	  },
-	
-	  signUserIn: function (user) {
-	    $.post('session', { user: user }, function (user) {
-	      ApiActions.receiveUser(user);
-	    });
-	  },
-	
-	  signUserOut: function (user) {
-	    $.ajax({
-	      url: 'session',
-	      type: 'DELETE',
-	      data: { user: user },
-	      success: function (user) {}
-	    });
-	  },
+	  // createUser: function (user) {
+	  //   $.post('users', {user: user}, function (user) {
+	  //     ApiActions.receiveUser(user);
+	  //   });
+	  // },
+	  //
+	  // signUserIn: function (user) {
+	  //   $.post('session', {user: user}, function (user) {
+	  //     ApiActions.receiveUser(user);
+	  //   });
+	  // },
+	  //
+	  // signUserOut: function (user) {
+	  //   $.ajax({
+	  //     url: 'session',
+	  //     type: 'DELETE',
+	  //     data: {user: user},
+	  //     success: function (user) {
+	  //
+	  //     }
+	  //   });
+	  // },
 	
 	  fetchSingleUser: function (id) {
 	    $.get('api/users/' + id, function (user) {
@@ -31467,13 +31469,13 @@
 	    ApiUtil = __webpack_require__(231);
 	
 	var UserActions = {
-	  userSignIn: function (user) {
-	    ApiUtil.userSignIn(user);
-	  },
-	
-	  userSignOut: function (user) {
-	    ApiUtil.userSignOut(user);
-	  },
+	  // userSignIn: function (user) {
+	  //   ApiUtil.userSignIn(user);
+	  // },
+	  //
+	  // userSignOut: function (user) {
+	  //   ApiUtil.userSignOut(user);
+	  // },
 	
 	  fetchUser: function (id) {
 	    ApiUtil.fetchSingleUser(id);
@@ -31720,13 +31722,13 @@
 /* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* global seek_user */
+	
 	var React = __webpack_require__(1),
 	    QuestionStore = __webpack_require__(208),
 	    QuestionActions = __webpack_require__(230),
 	    QuestionsIndex = __webpack_require__(207),
 	    QuestionForm = __webpack_require__(245),
-	    UserActions = __webpack_require__(239),
-	    UserStore = __webpack_require__(238),
 	    AnswerIndex = __webpack_require__(246);
 	
 	module.exports = React.createClass({
@@ -31734,8 +31736,7 @@
 	
 	  getStateFromStore: function () {
 	    return {
-	      question: QuestionStore.find(parseInt(this.props.params.id)),
-	      user: UserStore.all() //Why won't user actions be required?
+	      question: QuestionStore.find(parseInt(this.props.params.id))
 	    };
 	  },
 	
@@ -31771,8 +31772,41 @@
 	  },
 	
 	  render: function () {
+	
 	    var question = this.state.question,
-	        user = this.state.user;
+	        modButtons;
+	
+	    if (!this.state.question) {
+	      return React.createElement(
+	        'div',
+	        null,
+	        'LOADING...'
+	      );
+	    }
+	
+	    if (question.author_id === seek_user.id) {
+	      modButtons = React.createElement(
+	        'div',
+	        null,
+	        React.createElement(QuestionForm, {
+	          className: 'question-form',
+	          id: 'edit',
+	          'new': false,
+	          question: question }),
+	        React.createElement('br', null),
+	        React.createElement(
+	          'button',
+	          {
+	            type: 'button',
+	            className: 'btn btn-primary',
+	            id: 'ques-delete',
+	            onClick: this.deleteQuestion },
+	          'Delete Question'
+	        )
+	      );
+	    } else {
+	      modButtons = React.createElement('div', null);
+	    }
 	
 	    if (question === undefined) {
 	      return React.createElement('div', null);
@@ -31811,17 +31845,11 @@
 	        'Details: ',
 	        question.body
 	      ),
-	      React.createElement(QuestionForm, { className: 'question-form', id: 'edit', 'new': false, question: question }),
-	      React.createElement('br', null),
-	      React.createElement(
-	        'button',
-	        { type: 'button', className: 'btn btn-primary', id: 'ques-delete', onClick: this.deleteQuestion },
-	        'Delete Question'
-	      ),
+	      modButtons,
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement(AnswerIndex, { question: question, user: user })
+	        React.createElement(AnswerIndex, { question: question })
 	      ),
 	      React.createElement(
 	        'button',
@@ -32239,6 +32267,8 @@
 /* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* global seek_user */
+	
 	var React = __webpack_require__(1),
 	    AnswerActions = __webpack_require__(248),
 	    AnswerStore = __webpack_require__(247),
@@ -32288,7 +32318,26 @@
 	  render: function () {
 	    var answer = this.props.answer,
 	        answerer = this.props.answer.author,
-	        answerTime = new Date(this.props.answer.created_at).toString();
+	        answerTime = new Date(this.props.answer.created_at).toString(),
+	        modButtons;
+	
+	    if (answer.author_id === seek_user.id) {
+	      modButtons = React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	          'button',
+	          {
+	            type: 'button',
+	            className: 'btn btn-primary',
+	            id: 'ans-delete',
+	            onClick: this.deleteAnswer },
+	          'Delete Answer'
+	        )
+	      );
+	    } else {
+	      modButtons = React.createElement('div', null);
+	    }
 	
 	    return React.createElement(
 	      'div',
@@ -32319,15 +32368,7 @@
 	        { className: 'comment-index' },
 	        React.createElement(CommentIndex, { answer: answer })
 	      ),
-	      React.createElement(
-	        'button',
-	        {
-	          type: 'button',
-	          className: 'btn btn-primary',
-	          id: 'ans-delete',
-	          onClick: this.deleteAnswer },
-	        'Delete Answer'
-	      ),
+	      modButtons,
 	      React.createElement('hr', null),
 	      React.createElement('br', null)
 	    );
@@ -32384,6 +32425,15 @@
 	        'div',
 	        null,
 	        React.createElement(CommentForm, { answer: answer }),
+	        React.createElement(
+	          'button',
+	          {
+	            type: 'button',
+	            className: 'btn btn-primary',
+	            id: 'com-hide',
+	            onClick: this.revealComments },
+	          'Hide Comments'
+	        ),
 	        React.createElement('hr', null),
 	        React.createElement(
 	          'div',
@@ -32395,15 +32445,6 @@
 	              comment: comment
 	            });
 	          })
-	        ),
-	        React.createElement(
-	          'button',
-	          {
-	            type: 'button',
-	            className: 'btn btn-primary',
-	            id: 'com-hide',
-	            onClick: this.revealComments },
-	          'Hide Comments'
 	        )
 	      );
 	    } else if (!showComments) {
@@ -32593,6 +32634,8 @@
 /* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/* global seek_user */
+	
 	var React = __webpack_require__(1),
 	    CommentActions = __webpack_require__(253),
 	    History = __webpack_require__(159).History;
@@ -32609,13 +32652,34 @@
 	  },
 	
 	  navigateToQuestion: function () {
-	    var id = this.props.answer.question_id; //DOUBLE CHECK THIS WORKS!
+	    var id = this.props.answer.question_id;
 	    this.history.push('question/' + id);
 	  },
 	
 	  render: function () {
-	    var commenter = this.props.comment.author,
-	        commentTime = new Date(this.props.answer.created_at).toString();
+	    var comment = this.props.comment,
+	        commenter = comment.author,
+	        commentTime = new Date(this.props.answer.created_at).toString(),
+	        modButtons;
+	
+	    if (comment.author_id === seek_user.id) {
+	
+	      modButtons = React.createElement(
+	        'div',
+	        null,
+	        React.createElement(
+	          'button',
+	          {
+	            type: 'button',
+	            className: 'btn btn-primary',
+	            id: 'com-delete',
+	            onClick: this.deleteComment },
+	          'Delete Comment'
+	        )
+	      );
+	    } else {
+	      modButtons = React.createElement('div', null);
+	    }
 	
 	    return React.createElement(
 	      'div',
@@ -32639,15 +32703,7 @@
 	        { className: 'comment-body' },
 	        this.props.comment.body
 	      ),
-	      React.createElement(
-	        'button',
-	        {
-	          type: 'button',
-	          className: 'btn btn-primary',
-	          id: 'com-delete',
-	          onClick: this.deleteComment },
-	        'Delete Comment'
-	      ),
+	      modButtons,
 	      React.createElement('hr', null),
 	      React.createElement('br', null)
 	    );

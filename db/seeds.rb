@@ -9,18 +9,21 @@
 
 5.times do
   name = Faker::Name.name
-  pass_digest = Faker::Internet.password
-  User.create!(username: name, password_digest: pass_digest )
+  password = Faker::Internet.password
+  User.create!(username: name, password: password )
 end
 
-10.times do
+User.create!(username: 'Guest_Seeker', password: 'AlwaysSeeking')
+
+
+15.times do
   question = Faker::Hacker.say_something_smart
   body = Faker::Lorem.paragraph(5)
-  author_id = rand(1..5)
+  author_id = rand(1..6)
   Question.create!(title: question, author_id: author_id, body: body)
 end
 
-15.times do
+20.times do
   answer = Faker::Lorem.paragraph(2)
   author_id = rand(1..5)
   question_id = rand(1..10)
@@ -32,7 +35,7 @@ end
   )
 end
 
-25.times do
+30.times do
   comment = Faker::Hacker.say_something_smart
   author_id = rand(1..5)
   answer_id = rand(1..15)
