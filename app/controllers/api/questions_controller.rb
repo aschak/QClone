@@ -42,8 +42,6 @@ class Api::QuestionsController < ApplicationController
     question = current_user.questions.find(params[:id])
     question.destroy
     render json: question
-    render json: ["USER ERROR"]
-
   end
 
   private

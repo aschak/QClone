@@ -50,9 +50,8 @@ var React = require('react'),
       // }
 
       return(
-        <div className="container">
-          <div className="nav-bar">
-          </div>
+        <div className="seek-index">
+
 
           <div>
             {<QuestionsIndex/>}

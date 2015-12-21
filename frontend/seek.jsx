@@ -7,8 +7,7 @@ var React = require('react'),
 
 var SeekIndex = require('./components/seek_index.jsx'),
     QuestionShow = require('./components/questions/questionShow.jsx'),
-    NavBar = require('./components/navBar.jsx'),
-    QuestionForm = require('./components/questions/questionForm.jsx');
+    NavBar = require('./components/navBar.jsx');
 
 
 window.ApiUtil = require('./util/api_util.js');
@@ -17,7 +16,7 @@ window.QuestionStore = require('./stores/question.js');
 var App = React.createClass({
   render: function () {
     return(
-      <div>
+      <div className="container">
         <div>
           <NavBar/>
         </div>

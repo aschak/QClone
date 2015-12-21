@@ -44,6 +44,23 @@ html {
   max-width: 700px;
 }
 
+
+.search-bar {
+  position: relative;
+  margin: 100px 75px;
+}
+
+.search-bar input {
+  font-weight: 500;
+  font-size: 32px;
+  width: 100%;
+  height: 75px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: black;
+}
+
 .question-show {
   max-width: 700px;
   margin: auto;
@@ -54,6 +71,7 @@ html {
 }
 
 .question-container {
+  margin: 75px 0px;
 
 }
 
@@ -138,13 +156,21 @@ hr {
   border-color: black;
 }
 
+#Q-index-back-btn {
+  margin-bottom: 50px;
+}
+
 #btn-delete{
   margin-bottom: 30px;
 }
 
-#edit-question {
-  margin-top: 24px;
-  margin-bottom: 11px;
+#edit-question-btn {
+  
+}
+
+#question-form {
+  width: 100%;
+  margin-bottom: 30px;
 }
 
 

@@ -73,7 +73,7 @@ var QuestionForm = React.createClass({
 
     if (!modal) {
       return(
-        <button type="button" id="edit-question" className="btn btn-primary" onClick={this.changeModal}>
+        <button type="button" id="question-form" className="btn btn-primary" onClick={this.changeModal}>
           {prompt}
         </button>
       );

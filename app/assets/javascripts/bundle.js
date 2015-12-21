@@ -53,8 +53,7 @@
 	
 	var SeekIndex = __webpack_require__(206),
 	    QuestionShow = __webpack_require__(244),
-	    NavBar = __webpack_require__(256),
-	    QuestionForm = __webpack_require__(245);
+	    NavBar = __webpack_require__(256);
 	
 	window.ApiUtil = __webpack_require__(231);
 	window.QuestionStore = __webpack_require__(208);
@@ -65,7 +64,7 @@
 	  render: function () {
 	    return React.createElement(
 	      'div',
-	      null,
+	      { className: 'container' },
 	      React.createElement(
 	        'div',
 	        null,
@@ -24059,8 +24058,7 @@
 	
 	    return React.createElement(
 	      'div',
-	      { className: 'container' },
-	      React.createElement('div', { className: 'nav-bar' }),
+	      { className: 'seek-index' },
 	      React.createElement(
 	        'div',
 	        null,
@@ -31819,6 +31817,11 @@
 	      'div',
 	      { className: 'question-show' },
 	      React.createElement(
+	        'button',
+	        { className: 'btn btn-primary', id: 'Q-index-back-btn', onClick: this.navigateToIndex },
+	        'Return to Main'
+	      ),
+	      React.createElement(
 	        'div',
 	        { className: 'asker-container' },
 	        'Question asked by',
@@ -31850,11 +31853,6 @@
 	        'div',
 	        null,
 	        React.createElement(AnswerIndex, { question: question })
-	      ),
-	      React.createElement(
-	        'button',
-	        { className: 'btn btn-primary', onClick: this.navigateToIndex },
-	        'Back'
 	      )
 	    );
 	  }
@@ -31939,7 +31937,7 @@
 	    if (!modal) {
 	      return React.createElement(
 	        'button',
-	        { type: 'button', id: 'edit-question', className: 'btn btn-primary', onClick: this.changeModal },
+	        { type: 'button', id: 'question-form', className: 'btn btn-primary', onClick: this.changeModal },
 	        prompt
 	      );
 	    } else {
@@ -32726,6 +32724,18 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'nav-bar' },
+	      React.createElement(
+	        'div',
+	        { className: 'search-bar' },
+	        React.createElement(
+	          'h1',
+	          null,
+	          'What answers do you seek?'
+	        ),
+	        React.createElement('input', {
+	          type: 'text',
+	          placeholder: 'Search bar doesn\'t work yet :(' })
+	      ),
 	      React.createElement(QuestionForm, { className: 'question-form', id: 'new', 'new': true })
 	    );
 	  }
