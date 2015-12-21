@@ -31,3 +31,15 @@ end
     question_id: question_id
   )
 end
+
+25.times do
+  comment = Faker::Hacker.say_something_smart
+  author_id = rand(1..5)
+  answer_id = rand(1..15)
+
+  Comment.create!(
+    body: comment,
+    author_id: author_id,
+    answer_id: answer_id
+  )
+end

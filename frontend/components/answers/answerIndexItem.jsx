@@ -1,15 +1,37 @@
 var React = require('react'),
     AnswerActions = require('../../actions/answer_actions.js'),
     AnswerStore = require('../../stores/answer.js'),
+    CommentIndex = require('../comments/commentIndex.jsx'),
     History = require('react-router').History;
 
 
 var AnswerIndexItem = React.createClass({
   mixins: [History],
-
-  getStateFromStore: function () {
-    return {answer: AnswerStore.find(parseInt(this.props.params.id))};
-  },
+  // Commented code below is part of grabbing comments form answer..not working
+  // getStateFromStore: function () {
+  //   return {answer: AnswerStore.find(parseInt(this.props.answer.id))};
+  // },
+  //
+  // _answerChange: function () {
+  //   this.setState(this.getStateFromStore());
+  // },
+  //
+  // getInitialState: function () {
+  //   return this.getStateFromStore();
+  // },
+  //
+  // componentWillReceiveProps: function (newProps) {
+  //   AnswerActions.fetchAnswer(parseInt(newProps.answer.id));
+  // },
+  //
+  // componentDidMount: function () {
+  //   this.answerListener = AnswerStore.addListener(this._answerChange);
+  //   AnswerActions.fetchAnswer(parseInt(this.props.answer.id));
+  // },
+  //
+  // componentWillUnmount: function () {
+  //   this.answerListener.remove();
+  // },
 
   deleteAnswer: function (event) {
     event.preventDefault();
@@ -22,7 +44,7 @@ var AnswerIndexItem = React.createClass({
   },
 
   render: function () {
-    var answer = this.state.answer,
+    var answer = this.props.answer,
         answerer = this.props.answer.author,
         answerTime = new Date(this.props.answer.created_at).toString();
 
@@ -38,7 +60,7 @@ var AnswerIndexItem = React.createClass({
           {this.props.answer.body}
         </div>
 
-        <div>
+        <div className='comment-index'>
           <CommentIndex answer={answer}/>
         </div>
 

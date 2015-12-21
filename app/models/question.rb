@@ -24,5 +24,9 @@ class Question < ActiveRecord::Base
     dependent: :destroy,
     class_name: "Answer"
 
+  has_many :comments,
+    through: :answers,
+    source: :comments
+
 
 end

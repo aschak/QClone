@@ -33,11 +33,10 @@ var CommentIndex = React.createClass({
 
   render: function () {
     var answer = this.props.answer,
-        showComments = this.state.showComments,
-        reveal;
+        showComments = this.state.showComments;
 
     if (showComments) {
-      reveal =
+      return(
         <div>
           <CommentForm answer={answer}/>
 
@@ -63,24 +62,21 @@ var CommentIndex = React.createClass({
             Hide Comments
           </button>
 
-        </div>;
+        </div>
+      );
 
     } else if (!showComments) {
-      reveal =
+      return(
         <button
           type="button"
           className="btn btn-primary"
           onClick={this.revealComments}>
-            Show Comments
-        </button>;
+          Show Comments
+        </button>
+
+      );
 
     }
-
-    return(
-      <div className="comments-main">
-        {reveal}
-      </div>
-    );
   }
 });
 

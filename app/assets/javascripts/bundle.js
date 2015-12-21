@@ -52,8 +52,8 @@
 	    IndexRoute = ReactRouter.IndexRoute;
 	
 	var SeekIndex = __webpack_require__(206),
-	    QuestionShow = __webpack_require__(243),
-	    QuestionForm = __webpack_require__(244);
+	    QuestionShow = __webpack_require__(244),
+	    QuestionForm = __webpack_require__(245);
 	
 	window.ApiUtil = __webpack_require__(231);
 	window.QuestionStore = __webpack_require__(208);
@@ -24007,8 +24007,8 @@
 
 	var React = __webpack_require__(1),
 	    QuestionsIndex = __webpack_require__(207),
-	    UserLog = __webpack_require__(236),
-	    UserActions = __webpack_require__(238);
+	    UserLog = __webpack_require__(237),
+	    UserActions = __webpack_require__(239);
 	
 	var SeekIndex = React.createClass({
 	  displayName: 'SeekIndex',
@@ -24079,7 +24079,7 @@
 	var React = __webpack_require__(1),
 	    QuestionStore = __webpack_require__(208),
 	    QuestionActions = __webpack_require__(230),
-	    QuestionIndexItem = __webpack_require__(235);
+	    QuestionIndexItem = __webpack_require__(236);
 	
 	var QuestionIndex = React.createClass({
 	  displayName: 'QuestionIndex',
@@ -31114,7 +31114,7 @@
 	    QuestionConstants = __webpack_require__(229),
 	    UserConstants = __webpack_require__(233),
 	    AnswerConstants = __webpack_require__(234),
-	    CommentConstants = __webpack_require__(250);
+	    CommentConstants = __webpack_require__(235);
 	
 	var ApiActions = {
 	
@@ -31211,6 +31211,16 @@
 
 /***/ },
 /* 235 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  COMMENTS_RECEIVED: "COMMENTS_RECEIVED",
+	  COMMENT_RECEIVED: "COMMENT_RECEIVED",
+	  COMMENT_DELETED: "COMMENT_DELETED"
+	};
+
+/***/ },
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -31301,13 +31311,13 @@
 	module.exports = QuestionIndexItem;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    UserStore = __webpack_require__(237),
-	    UserActions = __webpack_require__(238),
-	    LinkedStateMixin = __webpack_require__(239);
+	    UserStore = __webpack_require__(238),
+	    UserActions = __webpack_require__(239),
+	    LinkedStateMixin = __webpack_require__(240);
 	
 	var UserLog = React.createClass({
 	  displayName: 'UserLog',
@@ -31411,7 +31421,7 @@
 	module.exports = UserLog;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(209).Store,
@@ -31442,7 +31452,7 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(226),
@@ -31465,13 +31475,13 @@
 	module.exports = UserActions;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(240);
+	module.exports = __webpack_require__(241);
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31488,8 +31498,8 @@
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(241);
-	var ReactStateSetters = __webpack_require__(242);
+	var ReactLink = __webpack_require__(242);
+	var ReactStateSetters = __webpack_require__(243);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -31512,7 +31522,7 @@
 	module.exports = LinkedStateMixin;
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31586,7 +31596,7 @@
 	module.exports = ReactLink;
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports) {
 
 	/**
@@ -31695,15 +31705,15 @@
 	module.exports = ReactStateSetters;
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    QuestionStore = __webpack_require__(208),
 	    QuestionActions = __webpack_require__(230),
 	    QuestionsIndex = __webpack_require__(207),
-	    QuestionForm = __webpack_require__(244),
-	    AnswerIndex = __webpack_require__(245);
+	    QuestionForm = __webpack_require__(245),
+	    AnswerIndex = __webpack_require__(246);
 	
 	module.exports = React.createClass({
 	  displayName: 'exports',
@@ -31804,13 +31814,13 @@
 	});
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    QuestionActions = __webpack_require__(230),
 	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(239);
+	    LinkedStateMixin = __webpack_require__(240);
 	
 	var QuestionForm = React.createClass({
 	  displayName: 'QuestionForm',
@@ -31950,14 +31960,14 @@
 	module.exports = QuestionForm;
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    AnswerStore = __webpack_require__(246),
-	    AnswerActions = __webpack_require__(247),
-	    AnswerForm = __webpack_require__(248),
-	    AnswerIndexItem = __webpack_require__(249);
+	    AnswerStore = __webpack_require__(247),
+	    AnswerActions = __webpack_require__(248),
+	    AnswerForm = __webpack_require__(249),
+	    AnswerIndexItem = __webpack_require__(250);
 	
 	var AnswerIndex = React.createClass({
 	  displayName: 'AnswerIndex',
@@ -32006,7 +32016,7 @@
 	module.exports = AnswerIndex;
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(209).Store,
@@ -32043,6 +32053,8 @@
 	  });
 	
 	  return found;
+	
+	  // return _answers[id];
 	};
 	
 	AnswerStore.__onDispatch = function (payload) {
@@ -32067,7 +32079,7 @@
 	module.exports = AnswerStore;
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(226),
@@ -32099,13 +32111,13 @@
 	module.exports = AnswerActions;
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    AnswerActions = __webpack_require__(247),
+	    AnswerActions = __webpack_require__(248),
 	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(239);
+	    LinkedStateMixin = __webpack_require__(240);
 	
 	var AnswerForm = React.createClass({
 	  displayName: 'AnswerForm',
@@ -32205,22 +32217,44 @@
 	module.exports = AnswerForm;
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    AnswerActions = __webpack_require__(247),
-	    AnswerStore = __webpack_require__(246),
+	    AnswerActions = __webpack_require__(248),
+	    AnswerStore = __webpack_require__(247),
+	    CommentIndex = __webpack_require__(251),
 	    History = __webpack_require__(159).History;
 	
 	var AnswerIndexItem = React.createClass({
 	  displayName: 'AnswerIndexItem',
 	
 	  mixins: [History],
-	
-	  getStateFromStore: function () {
-	    return { answer: AnswerStore.find(parseInt(this.props.params.id)) };
-	  },
+	  // Commented code below is part of grabbing comments form answer..not working
+	  // getStateFromStore: function () {
+	  //   return {answer: AnswerStore.find(parseInt(this.props.answer.id))};
+	  // },
+	  //
+	  // _answerChange: function () {
+	  //   this.setState(this.getStateFromStore());
+	  // },
+	  //
+	  // getInitialState: function () {
+	  //   return this.getStateFromStore();
+	  // },
+	  //
+	  // componentWillReceiveProps: function (newProps) {
+	  //   AnswerActions.fetchAnswer(parseInt(newProps.answer.id));
+	  // },
+	  //
+	  // componentDidMount: function () {
+	  //   this.answerListener = AnswerStore.addListener(this._answerChange);
+	  //   AnswerActions.fetchAnswer(parseInt(this.props.answer.id));
+	  // },
+	  //
+	  // componentWillUnmount: function () {
+	  //   this.answerListener.remove();
+	  // },
 	
 	  deleteAnswer: function (event) {
 	    event.preventDefault();
@@ -32233,7 +32267,7 @@
 	  },
 	
 	  render: function () {
-	    var answer = this.state.answer,
+	    var answer = this.props.answer,
 	        answerer = this.props.answer.author,
 	        answerTime = new Date(this.props.answer.created_at).toString();
 	
@@ -32263,7 +32297,7 @@
 	      ),
 	      React.createElement(
 	        'div',
-	        null,
+	        { className: 'comment-index' },
 	        React.createElement(CommentIndex, { answer: answer })
 	      ),
 	      React.createElement(
@@ -32285,14 +32319,323 @@
 	module.exports = AnswerIndexItem;
 
 /***/ },
-/* 250 */
-/***/ function(module, exports) {
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
 
-	module.exports = {
-	  COMMENTS_RECEIVED: "COMMENTS_RECEIVED",
-	  COMMENT_RECEIVED: "COMMENT_RECEIVED",
-	  COMMENT_DELETED: "COMMENT_DELETED"
+	var React = __webpack_require__(1),
+	    CommentStore = __webpack_require__(252),
+	    CommentActions = __webpack_require__(253),
+	    CommentForm = __webpack_require__(254),
+	    CommentIndexItem = __webpack_require__(255);
+	
+	var CommentIndex = React.createClass({
+	  displayName: 'CommentIndex',
+	
+	  getInitialState: function () {
+	    return {
+	      comments: CommentStore.all(),
+	      showComments: false
+	    };
+	  },
+	
+	  _indexChange: function () {
+	    this.setState({ comments: CommentStore.all() });
+	  },
+	
+	  componentDidMount: function () {
+	    this.commentListener = CommentStore.addListener(this._indexChange);
+	    CommentActions.fetchComments();
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.commentListener.remove();
+	  },
+	
+	  revealComments: function () {
+	    var showComments = this.state.showComments ? false : true;
+	    this.setState({ showComments: showComments });
+	  },
+	
+	  render: function () {
+	    var answer = this.props.answer,
+	        showComments = this.state.showComments;
+	
+	    if (showComments) {
+	      return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(CommentForm, { answer: answer }),
+	        React.createElement('hr', null),
+	        React.createElement(
+	          'div',
+	          { className: 'comments-container' },
+	          answer.comments.map(function (comment, idx) {
+	            return React.createElement(CommentIndexItem, {
+	              key: idx,
+	              answer: answer,
+	              comment: comment
+	            });
+	          })
+	        ),
+	        React.createElement(
+	          'button',
+	          {
+	            type: 'button',
+	            className: 'btn btn-primary',
+	            id: 'com-hide',
+	            onClick: this.revealComments },
+	          'Hide Comments'
+	        )
+	      );
+	    } else if (!showComments) {
+	      return React.createElement(
+	        'button',
+	        {
+	          type: 'button',
+	          className: 'btn btn-primary',
+	          onClick: this.revealComments },
+	        'Show Comments'
+	      );
+	    }
+	  }
+	});
+	
+	module.exports = CommentIndex;
+
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Store = __webpack_require__(209).Store,
+	    AppDispatcher = __webpack_require__(226),
+	    CommentConstants = __webpack_require__(235);
+	
+	var CommentStore = new Store(AppDispatcher);
+	var _comments = [];
+	
+	var resetComments = function (comments) {
+	  _comments = comments.slice(0);
 	};
+	
+	var resetComment = function (comment) {
+	  _comments[comment.id] = comment;
+	};
+	
+	var deleteComment = function (comment) {
+	  var idx = _comments.indexOf(comment);
+	  _comments.splice(idx, 1);
+	};
+	
+	CommentStore.all = function () {
+	  return _comments.slice(0);
+	};
+	
+	CommentStore.find = function (id) {
+	  var found;
+	
+	  _comments.forEach(function (comment) {
+	    if (comment.id === id) {
+	      found = comment;
+	    }
+	  });
+	
+	  return found;
+	};
+	
+	CommentStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case CommentConstants.COMMENTS_RECEIVED:
+	      resetComments(payload.comments);
+	      CommentStore.__emitChange();
+	      break;
+	
+	    case CommentConstants.COMMENT_RECEIVED:
+	      resetComment(payload.comment);
+	      CommentStore.__emitChange();
+	      break;
+	
+	    case CommentConstants.COMMENT_DELETED:
+	      deleteComment(payload.comment);
+	      CommentStore.__emitChange();
+	      break;
+	  }
+	};
+	
+	module.exports = CommentStore;
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(226),
+	    ApiUtil = __webpack_require__(231);
+	
+	var CommentActions = {
+	  fetchComments: function () {
+	    ApiUtil.fetchAllComments();
+	  },
+	
+	  fetchAnswer: function (id) {
+	    ApiUtil.fetchSingleComment(id);
+	  },
+	
+	  createComment: function (comment) {
+	    ApiUtil.createComment(comment);
+	  },
+	
+	  editComment: function (comment) {
+	    ApiUtil.editComment(comment);
+	  },
+	
+	  destroyComment: function (id) {
+	    ApiUtil.destroyComment(id);
+	  }
+	};
+	
+	module.exports = CommentActions;
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    CommentActions = __webpack_require__(253),
+	    History = __webpack_require__(159).History,
+	    LinkedStateMixin = __webpack_require__(240);
+	
+	var CommentForm = React.createClass({
+	  displayName: 'CommentForm',
+	
+	  mixins: [LinkedStateMixin, History],
+	
+	  getInitialState: function () {
+	    var answerId = this.props.answer.id;
+	    return {
+	      body: '',
+	      author_id: null,
+	      answer_id: answerId,
+	      commentBox: false
+	    };
+	  },
+	
+	  handleSubmit: function (event) {
+	    event.preventDefault();
+	    var comment = Object.assign({}, this.props.comment, this.state);
+	    CommentActions.createComment(comment);
+	    this.navigateToQuestion();
+	  },
+	
+	  navigateToQuestion: function () {
+	    var questionId = this.props.answer.question_id;
+	    this.history.push('question/' + questionId);
+	  },
+	
+	  render: function () {
+	    var commentBox = this.state.commentBox;
+	
+	    return React.createElement(
+	      'div',
+	      { className: 'comment-form' },
+	      React.createElement(
+	        'form',
+	        { onSubmit: this.handleSubmit },
+	        React.createElement(
+	          'div',
+	          null,
+	          React.createElement('input', {
+	            type: 'hidden',
+	            id: 'comment_author_id',
+	            valueLink: this.linkState('author_id')
+	          })
+	        ),
+	        React.createElement(
+	          'div',
+	          null,
+	          React.createElement(
+	            'label',
+	            { htmlFor: 'comment_body' },
+	            'Enter Comment: '
+	          ),
+	          React.createElement('input', {
+	            type: 'textarea',
+	            id: 'comment_author_id',
+	            valueLink: this.linkState('body')
+	          })
+	        ),
+	        React.createElement('input', { type: 'submit', className: 'btn btn-primary', id: 'com-submit', value: 'Submit Comment' })
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = CommentForm;
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    CommentActions = __webpack_require__(253),
+	    History = __webpack_require__(159).History;
+	
+	var CommentIndexItem = React.createClass({
+	  displayName: 'CommentIndexItem',
+	
+	  mixins: [History],
+	
+	  deleteComment: function (event) {
+	    event.preventDefault();
+	    CommentActions.destroyComment(this.props.comment.id);
+	    this.navigateToQuestion();
+	  },
+	
+	  navigateToQuestion: function () {
+	    var id = this.props.answer.question_id; //DOUBLE CHECK THIS WORKS!
+	    this.history.push('question/' + id);
+	  },
+	
+	  render: function () {
+	    var commenter = this.props.comment.author,
+	        commentTime = new Date(this.props.answer.created_at).toString();
+	
+	    return React.createElement(
+	      'div',
+	      { className: 'comment-container' },
+	      React.createElement(
+	        'div',
+	        { className: 'commenter-container' },
+	        React.createElement(
+	          'a',
+	          { href: '#', className: 'commenter' },
+	          commenter
+	        ),
+	        React.createElement(
+	          'span',
+	          { className: 'comment-time' },
+	          commentTime
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'comment-body' },
+	        this.props.comment.body
+	      ),
+	      React.createElement(
+	        'button',
+	        {
+	          type: 'button',
+	          className: 'btn btn-primary',
+	          id: 'com-delete',
+	          onClick: this.deleteComment },
+	        'Delete Comment'
+	      ),
+	      React.createElement('hr', null),
+	      React.createElement('br', null)
+	    );
+	  }
+	});
+	
+	module.exports = CommentIndexItem;
 
 /***/ }
 /******/ ]);

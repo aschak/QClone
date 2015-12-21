@@ -1,4 +1,4 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
 
   def index
     @comments = Comment.all
@@ -10,7 +10,8 @@ class CommentsController < ApplicationController
     if @comment.save
       render :show
     else
-      render json: @answer.errors.full_messages, status: "Unprocessable Entity"
+      render json: @comment.errors.full_messages, status: "Unprocessable Entity"
+    end
   end
 
   def show

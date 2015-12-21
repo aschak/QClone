@@ -1,1 +1,1 @@
-json.partial! @comment, partial: './answer'
+json.partial! @comment, partial: './comment'

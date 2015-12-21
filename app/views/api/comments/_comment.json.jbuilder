@@ -1,5 +1,5 @@
 json.extract! comment, :body, :id, :author_id, :created_at
 
 json.author do
-  json.username answer.author.username
+  json.username comment.author.username
 end

@@ -1,5 +1,5 @@
 var React = require('react'),
-    CommentActions = require('../../comments/comment_actions'),
+    CommentActions = require('../../actions/comment_actions'),
     History = require('react-router').History;
 
 var CommentIndexItem = React.createClass({
@@ -12,7 +12,7 @@ var CommentIndexItem = React.createClass({
   },
 
   navigateToQuestion: function () {
-    var id = this.props.answer.question.id; //DOUBLE CHECK THIS WORKS!
+    var id = this.props.answer.question_id; //DOUBLE CHECK THIS WORKS!
     this.history.push('question/' + id);
   },
 

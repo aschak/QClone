@@ -1,4 +1,4 @@
-var Store = require('flux/utils'),
+var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher.js'),
     CommentConstants = require('../constants/comment_constants');
 
@@ -16,7 +16,7 @@ var resetComment = function (comment) {
 };
 
 var deleteComment = function (comment) {
-  var idx = _comments.indexof(comment);
+  var idx = _comments.indexOf(comment);
   _comments.splice(idx, 1);
 };
 
