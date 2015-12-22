@@ -19,6 +19,8 @@ gem 'faker'
 gem 'bootstrap-sass'
 #Annotate for quick schema
 gem 'annotate'
+#Figaro for secure configuration
+gem 'figaro'
 
 gem 'rails_12factor', group: :production
 

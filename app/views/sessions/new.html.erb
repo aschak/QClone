@@ -1,48 +1,61 @@
-<h1>Sign In</h1>
+<!-- <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Knowledge_transfer.svg/1280px-Knowledge_transfer.svg.png'
+      class='background-container'> -->
+      <!-- <div class="background-container"></div> -->
 
 
+    <h1 id='welcome-statement'>Welcome To <span id='logo'>Seek<span></h1>
+    <h2 id='welcome-statement'>Seek Knowledge, Share Knowledge</h2>
 
-<form class="user-login-form" action="<%= session_url %>" method="post">
 
-  <%= auth_token %>
+  <div class="container" id='user-login-form'>
+    <h2 id='login-prompt'>Sign In</h2>
 
-  <label>
-    Username
-  <input
-    type="text"
-    name="user[username]"
-    value="">
-  </label>
+    <br/>
 
-  <label>
-    Password
-  <input
-    type="password"
-    name="user[password]"
-    value="">
-  </label>
+    <form class="user-login-form" action="<%= session_url %>" method="post">
+      <%= auth_token %>
 
-  <input
-    class="btn btn-primary"
-    type="submit"
-    value="Sign In">
-</form>
+      <input
+        type="text"
+        name="user[username]"
+        placeholder="Username"
+        value="">
 
-<form class="user-login-form" action="<%= session_url %>" method="post">
-  <%= auth_token %>
+      <br/>
 
-  <input
-    type="hidden"
-    name="user[username]"
-    value="Guest_Seeker">
+        <input
+          type="password"
+          name="user[password]"
+          placeholder="Password"
+          value="">
 
-  <input
-    type="hidden"
-    name="user[password]"
-    value="AlwaysSeeking">
+      <br/>
+      <br/>
 
-  <input
-    class="btn btn-primary"
-    type="submit"
-    value="Guest Login">
-</form>
+      <input
+        class="btn btn-primary"
+        type="submit"
+        value="Sign In">
+    </form>
+
+    <br/>
+
+    <form class="guest-user-login" action="<%= session_url %>" method="post">
+      <%= auth_token %>
+
+      <input
+        type="hidden"
+        name="user[username]"
+        value="Guest_Seeker">
+
+      <input
+        type="hidden"
+        name="user[password]"
+        value="AlwaysSeeking">
+
+      <input
+        class="btn btn-primary"
+        type="submit"
+        value="Guest Login">
+    </form>
+  </div>

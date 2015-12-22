@@ -52,8 +52,8 @@
 	    IndexRoute = ReactRouter.IndexRoute;
 	
 	var SeekIndex = __webpack_require__(206),
-	    QuestionShow = __webpack_require__(244),
-	    NavBar = __webpack_require__(256);
+	    QuestionShow = __webpack_require__(245),
+	    NavBar = __webpack_require__(257);
 	
 	window.ApiUtil = __webpack_require__(231);
 	window.QuestionStore = __webpack_require__(208);
@@ -24008,8 +24008,8 @@
 
 	var React = __webpack_require__(1),
 	    QuestionsIndex = __webpack_require__(207),
-	    UserLog = __webpack_require__(237),
-	    UserActions = __webpack_require__(239);
+	    UserLog = __webpack_require__(238),
+	    UserActions = __webpack_require__(240);
 	
 	var SeekIndex = React.createClass({
 	  displayName: 'SeekIndex',
@@ -24079,7 +24079,7 @@
 	var React = __webpack_require__(1),
 	    QuestionStore = __webpack_require__(208),
 	    QuestionActions = __webpack_require__(230),
-	    QuestionIndexItem = __webpack_require__(236);
+	    QuestionIndexItem = __webpack_require__(237);
 	
 	var QuestionIndex = React.createClass({
 	  displayName: 'QuestionIndex',
@@ -31139,7 +31139,7 @@
 	    UserConstants = __webpack_require__(233),
 	    AnswerConstants = __webpack_require__(234),
 	    CommentConstants = __webpack_require__(235),
-	    TagConstants = __webpack_require__(257);
+	    TagConstants = __webpack_require__(236);
 	
 	var ApiActions = {
 	
@@ -31253,6 +31253,14 @@
 
 /***/ },
 /* 236 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  TAGS_RECEIVED: "TAGS_RECEIVED"
+	};
+
+/***/ },
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -31343,13 +31351,13 @@
 	module.exports = QuestionIndexItem;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    UserStore = __webpack_require__(238),
-	    UserActions = __webpack_require__(239),
-	    LinkedStateMixin = __webpack_require__(240);
+	    UserStore = __webpack_require__(239),
+	    UserActions = __webpack_require__(240),
+	    LinkedStateMixin = __webpack_require__(241);
 	
 	var UserLog = React.createClass({
 	  displayName: 'UserLog',
@@ -31453,7 +31461,7 @@
 	module.exports = UserLog;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(209).Store,
@@ -31485,7 +31493,7 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(226),
@@ -31512,13 +31520,13 @@
 	module.exports = UserActions;
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(241);
+	module.exports = __webpack_require__(242);
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31535,8 +31543,8 @@
 	
 	'use strict';
 	
-	var ReactLink = __webpack_require__(242);
-	var ReactStateSetters = __webpack_require__(243);
+	var ReactLink = __webpack_require__(243);
+	var ReactStateSetters = __webpack_require__(244);
 	
 	/**
 	 * A simple mixin around ReactLink.forState().
@@ -31559,7 +31567,7 @@
 	module.exports = LinkedStateMixin;
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31633,7 +31641,7 @@
 	module.exports = ReactLink;
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports) {
 
 	/**
@@ -31742,7 +31750,7 @@
 	module.exports = ReactStateSetters;
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global seek_user */
@@ -31751,8 +31759,8 @@
 	    QuestionStore = __webpack_require__(208),
 	    QuestionActions = __webpack_require__(230),
 	    QuestionsIndex = __webpack_require__(207),
-	    QuestionForm = __webpack_require__(245),
-	    AnswerIndex = __webpack_require__(246);
+	    QuestionForm = __webpack_require__(246),
+	    AnswerIndex = __webpack_require__(247);
 	
 	module.exports = React.createClass({
 	  displayName: 'exports',
@@ -31884,13 +31892,13 @@
 	});
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
 	    QuestionActions = __webpack_require__(230),
 	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(240);
+	    LinkedStateMixin = __webpack_require__(241);
 	
 	var QuestionForm = React.createClass({
 	  displayName: 'QuestionForm',
@@ -32030,14 +32038,14 @@
 	module.exports = QuestionForm;
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    AnswerStore = __webpack_require__(247),
-	    AnswerActions = __webpack_require__(248),
-	    AnswerForm = __webpack_require__(249),
-	    AnswerIndexItem = __webpack_require__(250);
+	    AnswerStore = __webpack_require__(248),
+	    AnswerActions = __webpack_require__(249),
+	    AnswerForm = __webpack_require__(250),
+	    AnswerIndexItem = __webpack_require__(251);
 	
 	var AnswerIndex = React.createClass({
 	  displayName: 'AnswerIndex',
@@ -32086,7 +32094,7 @@
 	module.exports = AnswerIndex;
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(209).Store,
@@ -32149,7 +32157,7 @@
 	module.exports = AnswerStore;
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(226),
@@ -32181,13 +32189,13 @@
 	module.exports = AnswerActions;
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    AnswerActions = __webpack_require__(248),
+	    AnswerActions = __webpack_require__(249),
 	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(240);
+	    LinkedStateMixin = __webpack_require__(241);
 	
 	var AnswerForm = React.createClass({
 	  displayName: 'AnswerForm',
@@ -32287,15 +32295,15 @@
 	module.exports = AnswerForm;
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global seek_user */
 	
 	var React = __webpack_require__(1),
-	    AnswerActions = __webpack_require__(248),
-	    AnswerStore = __webpack_require__(247),
-	    CommentIndex = __webpack_require__(251),
+	    AnswerActions = __webpack_require__(249),
+	    AnswerStore = __webpack_require__(248),
+	    CommentIndex = __webpack_require__(252),
 	    History = __webpack_require__(159).History;
 	
 	var AnswerIndexItem = React.createClass({
@@ -32402,14 +32410,14 @@
 	module.exports = AnswerIndexItem;
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    CommentStore = __webpack_require__(252),
-	    CommentActions = __webpack_require__(253),
-	    CommentForm = __webpack_require__(254),
-	    CommentIndexItem = __webpack_require__(255);
+	    CommentStore = __webpack_require__(253),
+	    CommentActions = __webpack_require__(254),
+	    CommentForm = __webpack_require__(255),
+	    CommentIndexItem = __webpack_require__(256);
 	
 	var CommentIndex = React.createClass({
 	  displayName: 'CommentIndex',
@@ -32486,7 +32494,7 @@
 	module.exports = CommentIndex;
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Store = __webpack_require__(209).Store,
@@ -32547,7 +32555,7 @@
 	module.exports = CommentStore;
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(226),
@@ -32578,13 +32586,13 @@
 	module.exports = CommentActions;
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    CommentActions = __webpack_require__(253),
+	    CommentActions = __webpack_require__(254),
 	    History = __webpack_require__(159).History,
-	    LinkedStateMixin = __webpack_require__(240);
+	    LinkedStateMixin = __webpack_require__(241);
 	
 	var CommentForm = React.createClass({
 	  displayName: 'CommentForm',
@@ -32654,13 +32662,13 @@
 	module.exports = CommentForm;
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global seek_user */
 	
 	var React = __webpack_require__(1),
-	    CommentActions = __webpack_require__(253),
+	    CommentActions = __webpack_require__(254),
 	    History = __webpack_require__(159).History;
 	
 	var CommentIndexItem = React.createClass({
@@ -32736,11 +32744,11 @@
 	module.exports = CommentIndexItem;
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    QuestionForm = __webpack_require__(245);
+	    QuestionForm = __webpack_require__(246);
 	
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -32759,7 +32767,7 @@
 	        ),
 	        React.createElement('input', {
 	          type: 'text',
-	          placeholder: 'Search bar under construction :(' })
+	          placeholder: 'Search bar coming soon!' })
 	      ),
 	      React.createElement(QuestionForm, { className: 'question-form', id: 'new', 'new': true })
 	    );
@@ -32767,14 +32775,6 @@
 	});
 	
 	module.exports = NavBar;
-
-/***/ },
-/* 257 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  TAGS_RECEIVED: "TAGS_RECEIVED"
-	};
 
 /***/ }
 /******/ ]);
