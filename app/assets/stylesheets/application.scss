@@ -98,6 +98,7 @@ body.welcome {
   background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Knowledge_transfer.svg/1280px-Knowledge_transfer.svg.png);
   background-repeat: no-repeat;
   height: 100%;
+	margin-top: 1%;
   background-size: contain;
   background-position-x: 57%;
 }
@@ -131,10 +132,18 @@ body.welcome {
 	font-weight: 600;
 }
 
-#welcome-statement {
+#welcome-statement-right {
   font-size: 30px;
 	font-weight: 600;
 	font-family: "Raleway", sans-serif;
+	margin-left: 75%;
+}
+
+#welcome-statement-left {
+  font-size: 30px;
+	font-weight: 600;
+	font-family: "Raleway", sans-serif;
+	margin-left: 20px;
 	margin-top: 15px;
 }
 

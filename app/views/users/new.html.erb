@@ -1,24 +1,34 @@
-<h1>Sign Up</h1>
+  <h1 id='welcome-statement-left'>Welcome To <span id='logo'>Seek<span>,</h1>
+  <h2 id='welcome-statement-left'> A Place to Seek Knowledge...</h2>
 
-<form action="<%= users_url %>" method="post">
+  <h2 id='welcome-statement-right'>..And Share Knowledge</h2>
+
+
+<form className='container' id='user-login-form' action="<%= users_url %>" method="post">
+
+  <h1 id='login-prompt'>Sign Up</h1>
 
   <%= auth_token %>
 
-  <label>
-    Username
+  <br/>
+
+
   <input
     type="text"
     name="user[username]"
+    placeholder="Username"
     value="<%= @user.username%>">
-  </label>
 
-  <label>
-    Password
+  <br/>
+
+
   <input
     type="password"
     name="user[password]"
+    placeholder="Password (6 or less)"
     value="<%= @user.password%>">
-  </label>
 
-  <input type="submit" value="Sign Up">
+  <br/>
+
+  <input class="btn btn-primary" type="submit" value="Sign Up">
 </form>

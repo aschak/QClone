@@ -24,4 +24,14 @@ UserStore.__onDispatch = function (payload) {
   }
 };
 
+UserStore.find = function (id) {
+  var found;
+
+  _user.forEach(function (user) {
+    if (user.id === id) {
+      found = user;
+    }
+  });
+};
+
 module.exports = UserStore;

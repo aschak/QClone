@@ -5,6 +5,8 @@ var React = require('react'),
     QuestionActions = require('../../actions/question_actions.js'),
     QuestionsIndex = require('./questionsIndex.jsx'),
     QuestionForm = require('./questionForm.jsx'),
+    UserStore = require('../../stores/user.js'),
+    UserActions = require('../../actions/user_actions.js'),
     AnswerIndex = require('../answers/answerIndex.jsx');
 
 
@@ -25,6 +27,7 @@ module.exports = React.createClass({
 
   componentWillReceiveProps: function (newProps) {
     QuestionActions.fetchQuestion(parseInt(newProps.params.id));
+    UserActions.fetchUser(seek_user.id);
   },
 
   componentDidMount: function () {
@@ -47,10 +50,9 @@ module.exports = React.createClass({
   },
 
   render: function () {
-
-
     var question = this.state.question,
-        modButtons;
+        modButtons,
+        tags;
 
     if (!this.state.question) {
       return (
@@ -58,6 +60,20 @@ module.exports = React.createClass({
           LOADING...
         </div>
       );
+    }
+
+    if (question.tags[0]) {
+      tags =  <ul className="question-tags">
+              tags: <br/>  {
+                  question.tags.map(function (tag, idx) {
+                    return <li
+                              key={idx}
+                              className="question-tag" >{tag.tag_name}</li>;
+                  })
+                }
+             </ul>;
+    } else {
+      tags = <span></span>;
     }
 
     if (question.author_id === seek_user.id) {
@@ -95,7 +111,10 @@ module.exports = React.createClass({
             <span className="ask-time">{askTime}</span>
         </div>
 
+        <br/>
+        {tags}
 
+        <br/>
         <div className="question-title">
           {question.title}
         </div>
