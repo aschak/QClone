@@ -17,8 +17,6 @@ var NavBar = React.createClass({
 
         </div>
 
-
-
           <QuestionForm className="question-form" id="new" new={true}/>
 
       </div>

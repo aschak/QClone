@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     resources :questions
     resources :answers, only: [:create, :destroy, :edit, :update, :show, :index]
     resources :comments, only: [:create, :destroy, :edit, :update, :show, :index]
+    resources :tags, only: [:new, :create, :index]
   end
+
+  
 end

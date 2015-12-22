@@ -17,7 +17,9 @@ var App = React.createClass({
   render: function () {
     return(
       <div className="container">
+
         <div>
+          <img className='logo-pic' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Knowledge_transfer.svg/1280px-Knowledge_transfer.svg.png"/>
           <NavBar/>
         </div>
 

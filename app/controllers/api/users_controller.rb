@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
 
-  before_action :require_user!
+  # before_action :require_user!
 
   def show
     @user = User.find(params[:id])

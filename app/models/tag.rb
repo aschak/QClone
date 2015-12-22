@@ -7,5 +7,6 @@ class Tag < ActiveRecord::Base
     class_name: "Tagging"
 
   has_many :questions,
-    through: :taggings 
+    through: :taggings
+    source: :question
 end

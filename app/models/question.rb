@@ -24,9 +24,19 @@ class Question < ActiveRecord::Base
     dependent: :destroy,
     class_name: "Answer"
 
+  has_many :taggings,
+    primary_key: :id,
+    foreign_key: :question_id,
+    dependent: :destroy,
+    class_name: "Tagging"
+
   has_many :comments,
     through: :answers,
     source: :comments
+
+  has_many :tags,
+    through: :taggings,
+    source: :tag
 
 
 end

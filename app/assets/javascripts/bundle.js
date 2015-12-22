@@ -68,6 +68,7 @@
 	      React.createElement(
 	        'div',
 	        null,
+	        React.createElement('img', { className: 'logo-pic', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Knowledge_transfer.svg/1280px-Knowledge_transfer.svg.png' }),
 	        React.createElement(NavBar, null)
 	      ),
 	      this.props.children
