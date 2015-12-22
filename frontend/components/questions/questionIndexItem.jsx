@@ -19,13 +19,31 @@ var QuestionIndexItem = React.createClass({
   },
 
   render: function () {
-    var asker = this.props.question.author.username,
+    var question = this.props.question,
+        asker = question.author.username,
         askTime = new Date(this.props.question.created_at).toString(),
         preview = this.props.question.body.slice(0, 60).trim() + "...",
         more = "More",
-        showDetails = this.state.showDetails;
+        showDetails = this.state.showDetails,
+        tags;
+
+
 
     if (preview.length < 10) {preview = this.props.question.body;}
+
+    if (question.tags[0]) {
+      tags =  <ul className="question-tags">
+              tags: <br/>  {
+                  question.tags.map(function (tag, idx) {
+                    return <li
+                              key={idx}
+                              className="question-tag" >{tag.tag_name}</li>;
+                  })
+                }
+             </ul>;
+    } else {
+      tags = <span></span>;
+    }
 
     if (showDetails) {
       preview = this.props.question.body;
@@ -39,11 +57,14 @@ var QuestionIndexItem = React.createClass({
 
       <div key={this.props.question.id} className="question-container">
 
-
         <div className="asker-container">Question asked by
           <a href="#" className="asker">{asker}</a>,
             <span className="ask-time">{askTime}</span>
         </div>
+
+        <br/>
+
+        {tags}
 
         <div onClick={this.showQuestion} className="question-title">
           {this.props.question.title}

@@ -1,4 +1,5 @@
 class Tagging < ActiveRecord::Base
+  # validates :question_id, scope: [:user_id]
 
   belongs_to :question,
     primary_key: :id,

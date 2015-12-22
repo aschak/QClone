@@ -55,9 +55,25 @@ end
   )
 end
 
-10.times do
-  question_id = rand(1..10)
+
+i = 1
+while i < 15
+
   tag_id = rand(1..5)
+  question_id = i
+
+  Tagging.create!(
+  question_id: question_id,
+  tag_id: tag_id
+  )
+
+  i += 1
+end
+
+
+5.times do
+  tag_id = rand(1..5)
+  question_id = rand(1..15)
 
   Tagging.create!(
     question_id: question_id,
