@@ -13,7 +13,7 @@ var NavBar = React.createClass({
 
           <input
             type="text"
-            placeholder="Search bar doesn't work yet :(" />
+            placeholder="Search bar under construction :(" />
 
         </div>
 

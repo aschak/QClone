@@ -172,7 +172,23 @@ var ApiUtil = {
         ApiActions.deleteSingleComment(comment);
       }
     });
+  },
+
+  fetchAllTags: function () {
+    $.get('/api/tags/', function (tags) {
+      ApiActions.receiveAllTags(tags);
+    });
   }
+
+  // updateAllTaggings: function (taggings) {
+  //   $.post(
+  //     "/api/tags",
+  //     {taggings: {tag_names: taggings }},
+  //     function (question) {
+  //       ApiActions.receiveSingleQuestion(question);
+  //     }
+  //   );
+  // }
 
 };
 

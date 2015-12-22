@@ -46,3 +46,22 @@ end
     answer_id: answer_id
   )
 end
+
+5.times do
+  tag_name = Faker::Team.creature
+
+  Tag.create!(
+    tag_name: tag_name
+  )
+end
+
+10.times do
+  question_id = rand(1..10)
+  tag_id = rand(1..5)
+
+  Tagging.create!(
+    question_id: question_id,
+    tag_id: tag_id
+  )
+
+end

@@ -36,6 +36,15 @@ class User < ActiveRecord::Base
     dependent: :destroy,
     class_name: "Comment"
 
+  has_many :profile_tags,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: "ProfileTag"
+
+  has_many :tags,
+    through: :profile_tags,
+    source: :tag
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil

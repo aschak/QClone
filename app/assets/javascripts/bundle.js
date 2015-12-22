@@ -31108,7 +31108,23 @@
 	        ApiActions.deleteSingleComment(comment);
 	      }
 	    });
+	  },
+	
+	  fetchAllTags: function () {
+	    $.get('/api/tags/', function (tags) {
+	      ApiActions.receiveAllTags(tags);
+	    });
 	  }
+	
+	  // updateAllTaggings: function (taggings) {
+	  //   $.post(
+	  //     "/api/tags",
+	  //     {taggings: {tag_names: taggings }},
+	  //     function (question) {
+	  //       ApiActions.receiveSingleQuestion(question);
+	  //     }
+	  //   );
+	  // }
 	
 	};
 	
@@ -31122,7 +31138,8 @@
 	    QuestionConstants = __webpack_require__(229),
 	    UserConstants = __webpack_require__(233),
 	    AnswerConstants = __webpack_require__(234),
-	    CommentConstants = __webpack_require__(235);
+	    CommentConstants = __webpack_require__(235),
+	    TagConstants = __webpack_require__(257);
 	
 	var ApiActions = {
 	
@@ -31193,6 +31210,13 @@
 	    Dispatcher.dispatch({
 	      actionType: CommentConstants.COMMENT_DELETED,
 	      comment: comment
+	    });
+	  },
+	
+	  receiveAllTags: function (tags) {
+	    Dispatcher.dispatch({
+	      actionType: TagConstants.TAGS_RECEIVED,
+	      tags: tags
 	    });
 	  }
 	};
@@ -32735,7 +32759,7 @@
 	        ),
 	        React.createElement('input', {
 	          type: 'text',
-	          placeholder: 'Search bar doesn\'t work yet :(' })
+	          placeholder: 'Search bar under construction :(' })
 	      ),
 	      React.createElement(QuestionForm, { className: 'question-form', id: 'new', 'new': true })
 	    );
@@ -32743,6 +32767,14 @@
 	});
 	
 	module.exports = NavBar;
+
+/***/ },
+/* 257 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  TAGS_RECEIVED: "TAGS_RECEIVED"
+	};
 
 /***/ }
 /******/ ]);

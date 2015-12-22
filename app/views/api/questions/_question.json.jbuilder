@@ -1,6 +1,11 @@
 json.extract! question, :title, :body, :id, :author_id, :created_at
 
 
+
+json.author do
+  json.username question.author.username
+end
+
 json.answers question.answers do |answer|
   json.body answer.body
   json.author_id answer.author_id
@@ -20,6 +25,6 @@ json.answers question.answers do |answer|
 
 end
 
-json.author do
-  json.username question.author.username
+json.tags question.tags do |tag|
+  json.tag_name tag.tag_name
 end

@@ -2,7 +2,8 @@ var Dispatcher = require('../dispatcher/dispatcher.js'),
     QuestionConstants = require('../constants/question_constants.js'),
     UserConstants = require('../constants/user_constants.js'),
     AnswerConstants = require('../constants/answer_constants.js'),
-    CommentConstants = require('../constants/comment_constants.js');
+    CommentConstants = require('../constants/comment_constants.js'),
+    TagConstants = require('../constants/tag_constants.js');
 
 
 var ApiActions = {
@@ -74,6 +75,13 @@ var ApiActions = {
     Dispatcher.dispatch({
       actionType: CommentConstants.COMMENT_DELETED,
       comment: comment
+    });
+  },
+
+  receiveAllTags: function (tags) {
+    Dispatcher.dispatch({
+      actionType: TagConstants.TAGS_RECEIVED,
+      tags: tags
     });
   }
 };
