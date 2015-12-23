@@ -8,10 +8,17 @@ var Dispatcher = require('../dispatcher/dispatcher.js'),
 
 var ApiActions = {
 
-  receiveUser: function (user) {
+  receiveAllUsers: function (users) {
     Dispatcher.dispatch({
-      actionType: UserConstants.USER_RECEIVED,
-      user: user
+      actionType: UserConstants.USERS_RECEIVED,
+      users: users
+    });
+  },
+
+  receiveCurrentUser: function (currentUser) {
+    Dispatcher.dispatch({
+      actionType: UserConstants.CURRENT_USER_RECEIVED,
+      currentUser: currentUser
     });
   },
 

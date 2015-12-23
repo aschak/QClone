@@ -4,17 +4,19 @@ var React = require('react'),
 
 
 
-var TagIndexItem = React.createClass({
+var ProfileTagIndexItem = React.createClass({
 
 
   render: function () {
-    return (
-      <div>
+    var profileTag = this.props.tag;
 
+    return (
+      <div className='prof-tag-index-item'>
+        {profileTag.tag_name}
       </div>
     );
   }
 });
 
 
-module.exports = TagIndexItem;
+module.exports = ProfileTagIndexItem;

@@ -9,8 +9,6 @@ var TagActions = {
   updateTaggings: function (taggings) {
     ApiUtil.fetchAllTaggings(taggings);
   }
-
-  // fetchProfileTags: function (profileTags) {
-  //   ApiUtil.fetchAllProfileTags(profileTags);
-  // }
 };
+
+module.exports = TagActions;

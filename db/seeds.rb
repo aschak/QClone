@@ -14,8 +14,6 @@ User.create!(username: 'Guest_Seeker', password: 'AlwaysSeeking')
   User.create!(username: name, password: password )
 end
 
-
-
 15.times do
   question = Faker::Hacker.say_something_smart
   body = Faker::Lorem.paragraph(5)

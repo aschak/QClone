@@ -84,8 +84,4 @@ var QuestionIndexItem = React.createClass({
 });
 
 
-// <div onClick={this.showQuestion} className="question-title">
-//   {this.props.question.title}
-// </div>
-
 module.exports = QuestionIndexItem;

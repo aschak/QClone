@@ -7,13 +7,21 @@ var React = require('react'),
 
 var SeekIndex = require('./components/seek_index.jsx'),
     QuestionShow = require('./components/questions/questionShow.jsx'),
-    NavBar = require('./components/navBar.jsx');
+    NavBar = require('./components/navBar.jsx'),
+    ProfileTagIndex = require('./components/tags/profileTagIndex.jsx'),
+    ProfileTagForm = require('./components/tags/profileTagForm.jsx');
 
 
 window.ApiUtil = require('./util/api_util.js');
 window.QuestionStore = require('./stores/question.js');
 
 var App = React.createClass({
+
+  //Double check that state gets passed to children as props in router
+  // componentDidMount: function () {
+  //   UserActions.fetchCurrentUser();
+  // },
+
   render: function () {
     return(
       <div className="container">
@@ -22,6 +30,10 @@ var App = React.createClass({
           <img className='logo-pic' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Knowledge_transfer.svg/1280px-Knowledge_transfer.svg.png"/>
           <NavBar/>
         </div>
+
+        <ProfileTagIndex/>
+        <ProfileTagForm/>
+
 
         {this.props.children}
       </div>

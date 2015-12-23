@@ -26,6 +26,18 @@ var ApiUtil = {
   //   });
   // },
 
+  fetchAllUsers: function () {
+    $.get('api/users/', function (users) {
+      ApiActions.receiveAllUsers(users);
+    });
+  },
+
+  fetchCurrentUser: function () {
+    $.get('api/current_user', function (currentUser) {
+      ApiActions.receiveCurrentUser(currentUser);
+    });
+  },
+
   fetchSingleUser: function (id) {
     $.get('api/users/' + id, function (user) {
       ApiActions.receiveUser(user);
@@ -178,6 +190,14 @@ var ApiUtil = {
     $.get('/api/tags/', function (tags) {
       ApiActions.receiveAllTags(tags);
     });
+  },
+
+  updateProfileTags: function (checkedTags) {
+    $.ajax({
+      url: "",
+      type: "PUT",
+      data: {tag_ids: checkedTags},} // tag_ids is a method given by Rails via user assoc with tags through profile tags
+    );
   }
 
   // updateAllTaggings: function (taggings) {

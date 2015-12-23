@@ -4,24 +4,50 @@ var Store = require('flux/utils').Store,
 
 var UserStore = new Store(AppDispatcher);
 
-var _user = [];
+var _user = [],
+    _currentUser = {};
 
-var resetUser = function (user) {
-  _user = user;
-  this.__emitChange();
+var resetUsers = function (users) {
+  _user = users;
+};
+
+var resetCurrentUser = function (currentUser) {
+  _currentUser = currentUser;
 };
 
 UserStore.all = function () {
   return _user.slice(0);
 };
 
+UserStore.currentUser = function () {
+  return _currentUser;
+};
+
+UserStore.profileTags = function () {
+  var profileTags = [];
+
+  if (_currentUser) {
+    _currentUser.tags.forEach(function (tag) {
+      profileTags.push(tag.tag_name);
+    });
+  }
+
+  return profileTags;
+};
+
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
-    case UserConstants.USER_RECEIVED:
-      resetUser(payload.user);
+    case UserConstants.USERS_RECEIVED:
+      resetUsers(payload.users);
+      UserStore.__emitChange();
+      break;
+    case UserConstants.CURRENT_USER_RECEIVED:
+      resetCurrentUser(payload.currentUser);
+      UserStore.__emitChange();
       break;
 
   }
+
 };
 
 UserStore.find = function (id) {

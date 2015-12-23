@@ -15,6 +15,14 @@ var UserActions = {
     ApiUtil.fetchSingleUser(id);
   },
 
+  fetchUsers: function () {
+    ApiUtil.fetchAllUsers();
+  },
+
+  fetchCurrentUser: function () {
+    ApiUtil.fetchCurrentUser();
+  },
+
   createUser: function (user) {
     ApiUtil.createUser(user);
   }

@@ -7,6 +7,10 @@ var React = require('react'),
     QuestionForm = require('./questionForm.jsx'),
     AnswerIndex = require('../answers/answerIndex.jsx');
 
+window.UserStore = require('../../stores/user.js');
+window.TagStore = require('../../stores/tag.js');
+window.UserActions = require('../../actions/user_actions.js');
+window.TagActions = require('../../actions/tag_actions.js');
 
 module.exports = React.createClass({
   getStateFromStore: function () {

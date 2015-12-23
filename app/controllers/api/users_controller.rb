@@ -7,6 +7,15 @@ class Api::UsersController < ApplicationController
     render :show
   end
 
+  def index
+    @users = User.all
+  end
+
+  def current_show
+    @user = current_user
+    render :show
+  end
+
   private
 
   def user_params

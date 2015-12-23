@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       login!(@user)
+      @user.tags = Tag.all
       # render json: ["Created"]
       redirect_to root_url
     else
