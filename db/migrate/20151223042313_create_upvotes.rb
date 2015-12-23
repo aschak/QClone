@@ -8,6 +8,6 @@ class CreateUpvotes < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :upvotes, [:user_id, :question_id], unique: true 
+    add_index :upvotes, [:user_id, :question_id], unique: true  
   end
 end
