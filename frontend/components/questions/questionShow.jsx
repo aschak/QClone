@@ -5,8 +5,6 @@ var React = require('react'),
     QuestionActions = require('../../actions/question_actions.js'),
     QuestionsIndex = require('./questionsIndex.jsx'),
     QuestionForm = require('./questionForm.jsx'),
-    UserStore = require('../../stores/user.js'),
-    UserActions = require('../../actions/user_actions.js'),
     AnswerIndex = require('../answers/answerIndex.jsx');
 
 
@@ -27,7 +25,6 @@ module.exports = React.createClass({
 
   componentWillReceiveProps: function (newProps) {
     QuestionActions.fetchQuestion(parseInt(newProps.params.id));
-    UserActions.fetchUser(seek_user.id);
   },
 
   componentDidMount: function () {

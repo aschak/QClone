@@ -25,7 +25,7 @@ var CommentIndexItem = React.createClass({
         modButtons;
 
     if (comment.author_id === seek_user.id) {
-      
+
       modButtons = <div>
                     <button
                       type="button"

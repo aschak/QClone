@@ -39,11 +39,18 @@ class User < ActiveRecord::Base
   has_many :profile_tags,
     primary_key: :id,
     foreign_key: :user_id,
+    dependent: :destroy,
     class_name: "ProfileTag"
 
   has_many :tags,
     through: :profile_tags,
     source: :tag
+
+  has_many :upvotes,
+    primary_key: :id,
+    foreign_key: :user_id,
+    dependent: :destroy,
+    class_name: "Upvote"
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

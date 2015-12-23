@@ -10,13 +10,13 @@
   <script>
     window.seek_user = <%=
       if current_user
-        {id: current_user.id, username: current_user.username}.to_json.html_safe
+        {id: current_user.id, username: current_user.username, tags: current_user.tags}.to_json.html_safe
       else
         {id: 'blank', username: 'blank'}.to_json.html_safe
       end
     %>
   </script>
-  
+
 </head>
 <body <%= "class=welcome" unless logged_in? %>>
 

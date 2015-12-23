@@ -38,5 +38,11 @@ class Question < ActiveRecord::Base
     through: :taggings,
     source: :tag
 
+  has_many :upvotes,
+    primary_key: :id,
+    foreign_key: :question_id,
+    dependent: :destroy,
+    class_name: "Upvote"
+
 
 end

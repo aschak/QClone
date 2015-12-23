@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create!(username: 'Guest_Seeker', password: 'AlwaysSeeking')
 
 5.times do
   name = Faker::Name.name
@@ -13,7 +14,6 @@
   User.create!(username: name, password: password )
 end
 
-User.create!(username: 'Guest_Seeker', password: 'AlwaysSeeking')
 
 
 15.times do
@@ -78,6 +78,18 @@ end
   Tagging.create!(
     question_id: question_id,
     tag_id: tag_id
+  )
+
+end
+
+
+User.all.each do |user|
+  tag_id = rand(1..5)
+  user_id = user.id
+
+  ProfileTag.create!(
+    tag_id: tag_id,
+    user_id: user_id
   )
 
 end
