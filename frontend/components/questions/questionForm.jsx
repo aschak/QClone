@@ -24,13 +24,12 @@ var QuestionForm = React.createClass({
   },
 
   populateForm: function () {
-    this.setState({
-      title: this.props.question.title,
-      body: this.props.question.body,
-      author_id: this.props.question.author_id,
-      checkedTags: this.props.question.tags
-    });
+    this.setState(this.props.question);
   },
+  // title: this.props.question.title,
+  // body: this.props.question.body,
+  // author_id: this.props.question.author_id
+  // checkedTags: this.props.question.tags
 
   handleSubmit: function (event) {
     event.preventDefault();
@@ -40,7 +39,7 @@ var QuestionForm = React.createClass({
 
     if (this.props.new) {
       QuestionActions.createQuestion(question, this.navigateToQuestion);
-      this.setState(this.blankForm);
+      this.setState(this.blankForm); // STATE CHANGE FIX HERE
       // this.navigateToQuestion();
 
     } else if (!this.props.new) {
@@ -50,23 +49,24 @@ var QuestionForm = React.createClass({
   },
 
   handleChange: function (event) {
-    var checkedTags = this.refs.tagsGroup.getCheckedValues(),
+    var updatedTags = this.refs.tagsGroup.getCheckedValues(),
         tagAttrs = [];
 
-    checkedTags.forEach(function (tag) {
+    updatedTags.forEach(function (tag) {
       tagAttrs.push({
         tag_id: tag
       });
     });
 
     // debugger
-
-    this.setState({taggings_attributes: tagAttrs});
+    this.state.question.taggings_attributes = tagAttrs;
+    this.setState(this.state.question);
+    // this.props.question.tags
   },
 
   changeModal: function () {
-    var modal = this.state.modal ? false : true;
-    this.setState({modal: modal});
+    var modal = this.modal ? false : true;
+    // this.setState({modal: modal}); //STATE CHANGE FIX HERE
   },
 
   componentDidMount: function () {
@@ -80,12 +80,12 @@ var QuestionForm = React.createClass({
 
 
   render: function () {
-    var modal = this.state.modal ? true : false;
+    var modal = this.modal ? true : false;
     var prompt;
     var submit;
     var allTags = this.props.tags;
     var renderTags = [];
-
+    // debugger
     if (allTags && this.props.new) {
       allTags.forEach(function (tag, idx) {
         renderTags.push(
@@ -108,8 +108,9 @@ var QuestionForm = React.createClass({
         allTags.forEach(function (tag, idx) {
           var checked = false;
 
-          checkedTags.forEach(function (checkTag) {
-            if (tag.tag_name === checkTag.tag_name) {
+          checkedTags.forEach(function (checkedTag) {
+            debugger
+            if (tag.id === parseInt(checkedTag.id)) {
               checked = true;
             }
           });
