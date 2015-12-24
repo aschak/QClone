@@ -1,6 +1,6 @@
 class Upvote < ActiveRecord::Base
   validates :user_id, :question_id, presence: true
-  validates :user_id, scope: [:question_id]
+  # validates :user_id, scope: [:question_id]
 
   belongs_to :user,
     primary_key: :id,

@@ -5,6 +5,8 @@ var React = require('react'),
     QuestionActions = require('../../actions/question_actions.js'),
     QuestionsIndex = require('./questionsIndex.jsx'),
     QuestionForm = require('./questionForm.jsx'),
+    TagStore = require('../../stores/tag.js'),
+    TagActions = require('../../actions/tag_actions.js'),
     AnswerIndex = require('../answers/answerIndex.jsx');
 
 window.UserStore = require('../../stores/user.js');
@@ -14,17 +16,21 @@ window.TagActions = require('../../actions/tag_actions.js');
 
 module.exports = React.createClass({
   getStateFromStore: function () {
-    return {
-       question: QuestionStore.find(parseInt(this.props.params.id)),
-    };
+    return QuestionStore.find(parseInt(this.props.params.id));
   },
 
   _questionChange: function () {
-    this.setState(this.getStateFromStore());
+    this.setState({
+      question: this.getStateFromStore(),
+      allTags: TagStore.all()
+    });
   },
 
   getInitialState: function () {
-    return this.getStateFromStore();
+    return {
+      question: this.getStateFromStore(),
+      allTags: TagStore.all()
+    };
   },
 
   componentWillReceiveProps: function (newProps) {
@@ -33,11 +39,14 @@ module.exports = React.createClass({
 
   componentDidMount: function () {
     this.questionListener = QuestionStore.addListener(this._questionChange);
+    this.tagListener = TagStore.addListener(this._questionChange);
     QuestionActions.fetchQuestion(parseInt(this.props.params.id));
+    TagActions.fetchTags();
   },
 
   componentWillUnmount: function () {
     this.questionListener.remove();
+    this.tagListener.remove();
   },
 
   deleteQuestion: function (event) {
@@ -53,7 +62,8 @@ module.exports = React.createClass({
   render: function () {
     var question = this.state.question,
         modButtons,
-        tags;
+        tags,
+        allTags = this.state.allTags;
 
     if (!this.state.question) {
       return (
@@ -83,7 +93,8 @@ module.exports = React.createClass({
                           className="question-form"
                           id="edit"
                           new={false}
-                          question={question}/>
+                          question={question}
+                          tags={allTags}/>
                    <br/>
                     <button
                       type="button"

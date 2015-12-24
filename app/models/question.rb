@@ -44,5 +44,6 @@ class Question < ActiveRecord::Base
     dependent: :destroy,
     class_name: "Upvote"
 
+  accepts_nested_attributes_for :taggings
 
 end

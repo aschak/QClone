@@ -5,8 +5,9 @@ var React = require('react'),
     TagStore = require('../../stores/tag.js'),
     TagActions = require('../../actions/tag_actions.js'),
     TagFormItem = require('./tagFormItem.jsx'),
-    LinkedStateMixin = require('react-addons-linked-state-mixin'),
-    CheckboxGroup = require('react-checkbox-group');
+    LinkedStateMixin = require('react-addons-linked-state-mixin');
+
+var CheckboxGroup = require('react-checkbox-group');
 
 
 window.UserStore = UserStore;
@@ -59,29 +60,34 @@ var ProfileTagForm = React.createClass({
     // });
 
     allTags.forEach(function (tag, idx) {
+    //   checked = false;
+    //   loop over checked tags {
+    //     if (ids match) {
+    //       checked = true;
+    //     }
+    //   }
+    //   jsx create element
+    //     checked={checked}
+    //
+    //
       // debugger;
-      if (checkedTags.indexOf(tag) === -1) {
-        renderTags.push(
-          <div key={idx}>
-            <label>
-              {tag.tag_name}
-              <input type="checkbox"
-                value={tag.id}/>
-            </label>
-          </div>
+      var checked = false;
+      checkedTags.forEach(function (checkTag) {
+        if (tag.id === checkTag.id) {
+          checked = true;
+        }
+      });
+
+      renderTags.push(
+            <div key={idx}>
+              <label>
+                {tag.tag_name}
+                <input type="checkbox"
+                  value={tag.id}
+                  checked={checked} />
+              </label>
+            </div>
         );
-      } else {
-        renderTags.push(
-          <div key={idx}>
-            <label>
-              {tag.tag_name}
-              <input type="checkbox"
-                value={tag.id}
-                checked/>
-            </label>
-          </div>
-        );
-      }
     });
 
     return(
@@ -95,6 +101,34 @@ var ProfileTagForm = React.createClass({
   }
 });
 
+//SECOND ATTEMPT AT PREFILL TAGS
+//   if (checkedTags.indexOf(tag) === -1) {
+//     renderTags.push(
+//       <div key={idx}>
+//         <label>
+//           {tag.tag_name}
+//           <input type="checkbox"
+//             value={tag.id}
+//             checked="true" />
+//         </label>
+//       </div>
+//     );
+//   } else {
+//     renderTags.push(
+//       <div key={idx}>
+//         <label>
+//           {tag.tag_name}
+//           <input type="checkbox"
+//             value={tag.id}
+//             checked="true"/>
+//         </label>
+//       </div>
+//     );
+//   }
+
+
+
+
 // allTags.map(function (tag, idx) {
 //   return (<div key={idx}>
 //     <label>
@@ -104,6 +138,8 @@ var ProfileTagForm = React.createClass({
 //     </label>
 //   </div>);
 // })
+
+
 
 // <form className="profile-tag-form" onSubmit={this.handleSubmit}>
 //   {
