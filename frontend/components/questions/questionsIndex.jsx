@@ -35,7 +35,7 @@ var QuestionIndex = React.createClass({
   },
 
   render: function () {
-    if(this.state.tags.length === 0){
+    if(!this.state.tags || this.state.tags.length === 0){
         return (<div>Loading...</div>);
     }
 

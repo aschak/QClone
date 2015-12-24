@@ -11,6 +11,19 @@ class Api::UsersController < ApplicationController
     @users = User.all
   end
 
+  def update
+    @user = current_user
+
+    tags = params[:tag_ids].map {|tag| tag = Tag.find(tag.to_i)}
+
+    if @user.update!(tags: tags)
+      render :show
+    else
+      render json: @user.errors.full_messages, status: "Unprocessable Entity"
+    end
+
+  end
+
   def current_show
     @user = current_user
     render :show
@@ -19,6 +32,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :tags)
   end
 end

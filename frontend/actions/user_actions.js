@@ -25,6 +25,10 @@ var UserActions = {
 
   createUser: function (user) {
     ApiUtil.createUser(user);
+  },
+
+  updateProfileTags: function (checkedTags) {
+    ApiUtil.updateProfileTags(checkedTags);
   }
 };
 

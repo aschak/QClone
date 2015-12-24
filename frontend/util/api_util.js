@@ -1,3 +1,5 @@
+/* global seek_user */
+
 var ApiActions = require('../actions/api_actions.js');
 
 
@@ -194,10 +196,15 @@ var ApiUtil = {
 
   updateProfileTags: function (checkedTags) {
     $.ajax({
-      url: "",
+      url: "/api/users/" + seek_user.id,
       type: "PUT",
-      data: {tag_ids: checkedTags},} // tag_ids is a method given by Rails via user assoc with tags through profile tags
-    );
+      data: {tag_ids: checkedTags},
+      success: function (seek_user) { //THIS LINE COULE BE A PROBLEM IS IT TAG_IDS OR CHECKEDTAGS?
+        ApiActions.receiveCurrentUser(seek_user);
+        //Don't we need to update _users as well in store? or does it
+        //not matter since tags are a personal thing?
+      }
+    }); // tag_ids is a method given by Rails via user assoc with tags through profile tags
   }
 
   // updateAllTaggings: function (taggings) {

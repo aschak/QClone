@@ -8,6 +8,9 @@ var React = require('react'),
     LinkedStateMixin = require('react-addons-linked-state-mixin'),
     CheckboxGroup = require('react-checkbox-group');
 
+
+window.UserStore = UserStore;
+
 var ProfileTagForm = React.createClass({
   mixins: [LinkedStateMixin, History],
 
@@ -17,8 +20,7 @@ var ProfileTagForm = React.createClass({
 
   _tagChange: function () {
     this.setState({allTags: TagStore.all(), checkedTags: UserStore.currentUser().tags});
-    TagActions.fetchTags();
-    UserActions.fetchCurrentUser();
+    // TagActions.fetchTags();
   },
 
   handleChange: function (event) {
@@ -28,36 +30,67 @@ var ProfileTagForm = React.createClass({
   },
 
   componentDidMount: function () {
-    UserStore.addListener(this._tagChange);
+    this.userListener = UserStore.addListener(this._tagChange);
     TagActions.fetchTags();
+    UserActions.fetchCurrentUser();
+  },
+
+  componentWillUnmount: function () {
+    this.userListener.remove();
   },
 
 
   render: function () {
 
-    var allTags = this.state.allTags;
-    var checkedTags = this.state.checkedTags;
+    var allTags = this.state.allTags,
+        checkedTags = this.state.checkedTags,
+        renderTags = [];
+
+    allTags.forEach(function (tag, idx) {
+      debugger;
+      if (checkedTags.indexOf(tag) === -1) {
+        renderTags.push(
+          <div key={idx}>
+            <label>
+              {tag.tag_name}
+              <input type="checkbox"
+                value={tag.id}/>
+            </label>
+          </div>
+        );
+      } else {
+        renderTags.push(
+          <div key={idx}>
+            <label>
+              {tag.tag_name}
+              <input type="checkbox"
+                value={tag.id}
+                checked/>
+            </label>
+          </div>
+        );
+      }
+    });
 
     return(
       <div>
         <CheckboxGroup name="profileTags" value={this.state.checkedTags} ref="tagsGroup" onChange={this.handleChange} >
-          {
-            allTags.map(function (tag, idx) {
-              return (<div key={idx}>
-                        <label>
-                          {tag.tag_name}
-                          <input type="checkbox"
-                            value={tag.id}/>
-                        </label>
-                      </div>);
-            })
-          }
+          {renderTags}
         </CheckboxGroup>
       </div>
     );
   }
 });
 
+// allTags.map(function (tag, idx) {
+//   return (<div key={idx}>
+//     <label>
+//       {tag.tag_name}
+//       <input type="checkbox"
+//         value={tag.id} />
+//     </label>
+//   </div>);
+// })
 
 // <form className="profile-tag-form" onSubmit={this.handleSubmit}>
 //   {
