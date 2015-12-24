@@ -7,11 +7,18 @@ var React = require('react'),
 
 var NavBar = React.createClass({
   getInitialState: function () {
-    return {questions: QuestionStore.all()};
+    return {
+      questions: QuestionStore.all(),
+      searchInput: ""
+    };
   },
 
   _onChange: function () {
     this.setState({questions: QuestionStore.all()});
+  },
+
+  clearSearch: function () {
+    this.setState({searchInput: ""})
   },
 
   componentDidMount: function () {
@@ -43,15 +50,20 @@ var NavBar = React.createClass({
       shouldSort = true,
       threshold = 0.2,
       keys: ['title']
+    };
+
+    var fuse = new Fuse(questionTitles, options)
+
+    if (fuse.search(this.state.searchInput)[0]) {
+      return fuse.search(this.state.searchInput);
+    } else {
+     return false;
     }
-
-
 
   },
 
 
   render : function () {
-
 
     return (
 
