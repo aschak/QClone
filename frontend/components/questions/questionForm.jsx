@@ -24,12 +24,13 @@ var QuestionForm = React.createClass({
   },
 
   populateForm: function () {
-    this.setState(this.props.question);
+    this.setState({
+      title: this.props.question.title,
+      body: this.props.question.body,
+      author_id: this.props.question.author_id,
+      checkedTags: this.props.question.tags //Search here
+    });
   },
-  // title: this.props.question.title,
-  // body: this.props.question.body,
-  // author_id: this.props.question.author_id
-  // checkedTags: this.props.question.tags
 
   handleSubmit: function (event) {
     event.preventDefault();
@@ -39,7 +40,7 @@ var QuestionForm = React.createClass({
 
     if (this.props.new) {
       QuestionActions.createQuestion(question, this.navigateToQuestion);
-      this.setState(this.blankForm); // STATE CHANGE FIX HERE
+      this.setState(this.blankForm);
       // this.navigateToQuestion();
 
     } else if (!this.props.new) {
@@ -59,14 +60,13 @@ var QuestionForm = React.createClass({
     });
 
     // debugger
-    this.state.question.taggings_attributes = tagAttrs;
-    this.setState(this.state.question);
-    // this.props.question.tags
+
+    this.setState({taggings_attributes: tagAttrs);
   },
 
   changeModal: function () {
-    var modal = this.modal ? false : true;
-    // this.setState({modal: modal}); //STATE CHANGE FIX HERE
+    var modal = this.state.modal ? false : true;
+    this.setState({modal: modal});
   },
 
   componentDidMount: function () {
@@ -80,7 +80,7 @@ var QuestionForm = React.createClass({
 
 
   render: function () {
-    var modal = this.modal ? true : false;
+    var modal = this.state.modal ? true : false;
     var prompt;
     var submit;
     var allTags = this.props.tags;
