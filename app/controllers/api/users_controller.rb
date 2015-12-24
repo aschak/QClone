@@ -14,7 +14,11 @@ class Api::UsersController < ApplicationController
   def update
     @user = current_user
 
-    tags = params[:tag_ids].map {|tag| tag = Tag.find(tag.to_i)}
+    if params[:tag_ids]
+      tags = params[:tag_ids].map {|tag| tag = Tag.find(tag.to_i)}
+    else
+      tags = []
+    end
 
     if @user.update!(tags: tags)
       render :show

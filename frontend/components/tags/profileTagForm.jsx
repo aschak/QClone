@@ -46,8 +46,20 @@ var ProfileTagForm = React.createClass({
         checkedTags = this.state.checkedTags,
         renderTags = [];
 
+    // this.state.checkedTags.map(function (tag) {
+    //
+    // });
+
+    // if(!this.state.checkedTags || this.state.checkedTags.length === 0) {
+    //   return(<div>Loading...</div>);
+    // }
+
+    // this.state.checkedTags.map(function (tag) {
+    //   checkedTagNames.push(tag.tag_name);
+    // });
+
     allTags.forEach(function (tag, idx) {
-      debugger;
+      // debugger;
       if (checkedTags.indexOf(tag) === -1) {
         renderTags.push(
           <div key={idx}>
@@ -74,6 +86,7 @@ var ProfileTagForm = React.createClass({
 
     return(
       <div>
+        <hr/>
         <CheckboxGroup name="profileTags" value={this.state.checkedTags} ref="tagsGroup" onChange={this.handleChange} >
           {renderTags}
         </CheckboxGroup>

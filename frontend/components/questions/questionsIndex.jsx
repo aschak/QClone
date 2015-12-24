@@ -36,7 +36,7 @@ var QuestionIndex = React.createClass({
 
   render: function () {
     if(!this.state.tags || this.state.tags.length === 0){
-        return (<div>Loading...</div>);
+        return (<div>No Tags Selected!</div>);
     }
 
     //Put questions filter logic in store?
