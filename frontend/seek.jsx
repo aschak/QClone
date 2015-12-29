@@ -29,13 +29,10 @@ var App = React.createClass({
           <img className='logo-pic' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Knowledge_transfer.svg/1280px-Knowledge_transfer.svg.png"/>
           <NavBar/>
         </div>
-        
+
         <ProfileTagForm className='profile-tag-form'/>
 
-
-
         <div className="container">
-
           <ProfileTagIndex/>
 
           {this.props.children}

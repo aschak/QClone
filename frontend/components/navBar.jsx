@@ -109,6 +109,12 @@ var NavBar = React.createClass({
 
       <div className="nav-bar">
 
+        <QuestionForm
+          tags={this.state.allTags}
+          className="question-form"
+          id="new"
+          new={true}/>
+
         <div className="search-bar">
           <h1>What answers do you seek?</h1>
 
@@ -127,12 +133,7 @@ var NavBar = React.createClass({
 
         </div>
 
-          <QuestionForm
-            tags={this.state.allTags}
-            className="question-form"
-            id="new"
-            new={true}/>
-
+        <hr id='nav-line'/>
       </div>
 
 

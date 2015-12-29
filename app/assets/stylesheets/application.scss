@@ -105,6 +105,7 @@ body.welcome {
 
 .container {
   max-width: 700px;
+	padding-top: 20%;
 }
 
 .background-container {
@@ -147,6 +148,12 @@ body.welcome {
 	margin-top: 15px;
 }
 
+#user-signout {
+	position: fixed;
+	left: 86.8%;
+	top: 2%;
+}
+
 .search-bar {
   position: relative;
   margin: 100px 75px;
@@ -164,14 +171,34 @@ body.welcome {
   color: black;
 }
 
+.search-listsearch-listreveal {
+	background: whitesmoke;
+	border-bottom: 3px solid black;
+	width: 812px;
+	position: fixed;
+	left: 27%;
+	padding-left: 6%
+}
+
 .full-nav {
+	position: fixed;
+	width: 800px;
+	height: 200px;
+	top: -5%;
+	background: whitesmoke;
 	max-width: 700px;
 	margin-left: 27%;
+}
+
+#nav-line {
+	margin: -92px 0 0 0;
+	border-top: 3px solid black;
 }
 
 .logo-pic {
   position: absolute;
   background: transparent;
+	top: 32%;
   float: right;
   height: 60px;
 }
@@ -262,8 +289,11 @@ hr {
 }
 
 .logo {
-  font-size: 40px;
-  letter-spacing: 2px;
+	position: fixed;
+	left: 7%;
+	top: 4%;
+  font-size: 83px;
+  letter-spacing: 7px;
 }
 
 .logo:hover {
@@ -290,7 +320,7 @@ hr {
 #question-form {
   width: 25%;
 	float: right;
-  margin: -4% -40% 0 0;
+  margin: 1% -40% 0 0;
 }
 
 
@@ -344,12 +374,11 @@ hr {
 .profile-tags-container {
 	position: fixed;
 	// margin: -250px 0 0 60px;
-	top: 20%;
+	top: 37%;
 	left: 8%;
 	font-weight: 500;
 	z-index: 2
 }
-
 
 .modal-screen {
   z-index: 998;
