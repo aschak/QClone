@@ -61,7 +61,7 @@ var QuestionForm = React.createClass({
 
     // debugger
 
-    this.setState({taggings_attributes: tagAttrs);
+    this.setState({taggings_attributes: tagAttrs});
   },
 
   changeModal: function () {
@@ -82,6 +82,8 @@ var QuestionForm = React.createClass({
   render: function () {
     var modal = this.state.modal ? true : false;
     var prompt;
+    var titlePlaceholder;
+    var bodyPlaceholder;
     var submit;
     var allTags = this.props.tags;
     var renderTags = [];
@@ -89,11 +91,17 @@ var QuestionForm = React.createClass({
     if (allTags && this.props.new) {
       allTags.forEach(function (tag, idx) {
         renderTags.push(
-          <div key={idx}>
+          <div className="tags-form-container" key={idx}>
             <label>
-              {tag.tag_name}
-              <input type="checkbox"
-                value={tag.id}/>
+              <span
+                id='tags-form-item'
+                className='input-group-addon'>
+                {tag.tag_name}
+                <input
+                  id='tags-form'
+                  type="checkbox"
+                  value={tag.id}/>
+              </span>
             </label>
           </div>
         );
@@ -102,42 +110,50 @@ var QuestionForm = React.createClass({
 
       var checkedTags = this.state.checkedTags;
 
+      //DROPPING OPTION TO EDIT TAGS
 
-      if (checkedTags) {
-        // debugger;
-        allTags.forEach(function (tag, idx) {
-          var checked = false;
-
-          checkedTags.forEach(function (checkedTag) {
-            debugger
-            if (tag.id === parseInt(checkedTag.id)) {
-              checked = true;
-            }
-          });
-
-          renderTags.push(
-            <div key={idx}>
-              <label>
-                {tag.tag_name}
-                <input type="checkbox"
-                  value={tag.id}
-                  checked={checked} />
-              </label>
-            </div>
-          );
-        });
-
-      }
+      // if (checkedTags) {
+      //   // debugger;
+      //   allTags.forEach(function (tag, idx) {
+      //     var checked = false;
+      //
+      //     checkedTags.forEach(function (checkedTag) {
+      //       debugger
+      //       if (tag.id === parseInt(checkedTag.id)) {
+      //         checked = true;
+      //       }
+      //     });
+      //
+      //     renderTags.push(
+      //       <div key={idx}>
+      //         <label>
+      //           {tag.tag_name}
+      //           <input type="checkbox"
+      //             value={tag.id}
+      //             checked={checked} />
+      //         </label>
+      //       </div>
+      //     );
+      //   });
+      //
+      // }
 
     }
 
 
     if (this.props.new) {
-      prompt = "Ask Question";
+      prompt = 'Ask a New Question!';
       submit = 'Ask Your Question!';
+      titlePlaceholder = 'I want to know...';
+      bodyPlaceholder = 'Add any additional details here...';
+      var tagPrompt = 'Tag This Question (Minimum 1 Required!)';
+
     } else {
-      prompt = "Edit Question";
+      prompt = 'Edit Question';
       submit = 'Update Question!';
+      titlePlaceholder = '';
+      bodyPlaceholder = '';
+      var tagPrompt = '';
     }
 
     if (!modal) {
@@ -151,12 +167,12 @@ var QuestionForm = React.createClass({
 
       return (
         <div>
-          <button type="button" id="edit-question" className="btn btn-primary" onClick={this.changeModal}>
+          <button type="button" id="question-btn" className="btn btn-primary" onClick={this.changeModal}>
             {prompt}
           </button>
           <div className='modal-screen' onClick={this.changeModal}/>
           <div className='modal-content'>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className='question-form-modal'>
 
               <div>
                 <input
@@ -167,26 +183,33 @@ var QuestionForm = React.createClass({
               </div>
 
               <div>
-                <label htmlFor='question_title'>Enter Question:</label>
+                <label id='question-title-prompt' htmlFor='question_body'>What is your Question?</label>
                 <input
                   type='text'
-                  id='question_title'
+                  id='question-input-title'
                   valueLink={this.linkState('title')}
+                  placeholder={titlePlaceholder}
                   />
               </div>
 
               <div>
-                <label htmlFor='question_body'>Enter Details:</label>
-                <input
-                  type='text'
-                  id='question_body'
-                  valueLink={this.linkState('body')}
-                  />
+                <label id='question-body-prompt' htmlFor='question_body'>Need to clarify? Add any context to your question below:</label>
+                <br/>
+                <br/>
+                <textarea
+                    type='textarea'
+                    id='question-input-body'
+                    valueLink={this.linkState('body')}
+                    placeholder={bodyPlaceholder}
+                    />
               </div>
 
-              <CheckboxGroup name='tags' ref='tagsGroup' onChange={this.handleChange}>
-                {renderTags}
-              </CheckboxGroup>
+              <label id='question-tags-prompt' htmlFor="question_tags">
+                {tagPrompt}
+                <CheckboxGroup name='tags' ref='tagsGroup' onChange={this.handleChange}>
+                  {renderTags}
+                </CheckboxGroup>
+              </label>
 
               <input type='submit' className='btn' value={submit} />
             </form>

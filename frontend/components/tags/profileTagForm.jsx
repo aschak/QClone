@@ -79,20 +79,27 @@ var ProfileTagForm = React.createClass({
       });
 
       renderTags.push(
-            <div key={idx}>
+            <div className="profile-tags-item" key={idx}>
               <label>
-                {tag.tag_name}
-                <input type="checkbox"
-                  value={tag.id}
-                  checked={checked} />
+                <span id='tags-form-item'
+                  className='input-group-addon'>
+                  {tag.tag_name}
+                  <input
+                    id='tags-form'
+                    type="checkbox"
+                    value={tag.id}
+                    checked={checked} />
+                </span>
               </label>
             </div>
         );
     });
 
     return(
-      <div>
-        <hr/>
+      <div className="profile-tags-container">
+        My Tags:
+        <br/>
+        <br/>
         <CheckboxGroup name="profileTags" value={this.state.checkedTags} ref="tagsGroup" onChange={this.handleChange} >
           {renderTags}
         </CheckboxGroup>

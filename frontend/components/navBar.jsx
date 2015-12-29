@@ -82,7 +82,7 @@ var NavBar = React.createClass({
 
 
   render : function () {
-    var searchResults = <div>No matches</div>,
+    var searchResults = <div></div>,
         searchList = "search-list",
         url;
 
@@ -93,7 +93,7 @@ var NavBar = React.createClass({
         url = '/question/' + (parseInt(questionId) + 1);
         return <div>
           <div className="search-result" key={idx}>
-            <Link to={url}>{userResults[parseInt(questionId)]}</Link>
+            <Link to={url} key={idx}>{userResults[parseInt(questionId)]}</Link>
           </div>
           <br></br>
         </div>;

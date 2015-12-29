@@ -164,6 +164,11 @@ body.welcome {
   color: black;
 }
 
+.full-nav {
+	max-width: 700px;
+	margin-left: 27%;
+}
+
 .logo-pic {
   position: absolute;
   background: transparent;
@@ -278,15 +283,72 @@ hr {
   margin-bottom: 30px;
 }
 
-#edit-question-btn {
+#question-btn {
 
 }
 
 #question-form {
-  width: 100%;
-  margin-bottom: 30px;
+  width: 25%;
+	float: right;
+  margin: -4% -40% 0 0;
 }
 
+
+.question-form-modal {
+	padding-top: 15px;
+}
+
+
+#question-title-prompt {
+	font-weight: 500;
+}
+
+#question-body-prompt {
+	font-weight: 500;
+}
+
+#question-tags-prompt {
+	font-weight: 500;
+	padding: 10px 0;
+}
+
+
+#question-input-title {
+	width: 85%;
+	margin: 20px;
+	font-weight: 300;
+}
+
+#question-input-body {
+	width: 85%;
+	height: 165px;
+	font-weight: 300;
+}
+
+#tags-form-item {
+	width: 130px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-weight: 600;
+}
+
+#tags-form {
+	margin: 0 5px;
+}
+
+.tags-form-container {
+	float: left;
+	margin: 13px 3px 0px 4px;
+}
+
+.profile-tags-container {
+	position: fixed;
+	// margin: -250px 0 0 60px;
+	top: 20%;
+	left: 8%;
+	font-weight: 500;
+	z-index: 2
+}
 
 
 .modal-screen {
@@ -303,12 +365,12 @@ hr {
   z-index: 999;
   position: absolute;
   background: white;
-  border-radius: 5px;
+  border-radius: 12px;
   border: 1px solid black;
   font-size: 20px;
   font-weight: 100;
-  width: 600px;
-  height: 300px;
+  width: 690px;
+  height: 450px;
   top: 50%;
   left: 50%;
   text-align: center;
