@@ -383,7 +383,8 @@ hr {
 
 .modal-screen {
   z-index: 998;
-  position: absolute;
+  position: fixed;
+	width: 100%;
   top: 0%;
   bottom: 0%;
   left: 0%;
@@ -401,7 +402,7 @@ hr {
   font-weight: 100;
   width: 690px;
   height: 450px;
-  top: 50%;
+  top: 200%;
   left: 50%;
   text-align: center;
   transform: translateX(-50%) translateY(-50%);
