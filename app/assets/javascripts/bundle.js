@@ -31756,7 +31756,7 @@
 	      React.createElement('br', null),
 	      tags,
 	      React.createElement(
-	        'div',
+	        'a',
 	        { onClick: this.showQuestion, className: 'question-title' },
 	        this.props.question.title
 	      ),

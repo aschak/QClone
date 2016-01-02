@@ -66,9 +66,9 @@ var QuestionIndexItem = React.createClass({
 
         {tags}
 
-        <div onClick={this.showQuestion} className="question-title">
+        <a onClick={this.showQuestion} className="question-title">
           {this.props.question.title}
-        </div>
+        </a>
 
         <br/>
 
