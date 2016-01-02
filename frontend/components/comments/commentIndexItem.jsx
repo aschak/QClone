@@ -18,6 +18,11 @@ var CommentIndexItem = React.createClass({
     this.history.push('question/' + id);
   },
 
+  showUser: function () {
+    console.log(this.props.comment.author_id);
+    // this.history.push('/user/' + this.props.comment.author_id);
+  },
+
   render: function () {
     var comment = this.props.comment,
         commenter = comment.author,
@@ -40,7 +45,7 @@ var CommentIndexItem = React.createClass({
     return (
       <div className="comment-container">
         <div className="commenter-container">
-          <a href="#" className="commenter">{commenter}</a>
+          <a onClick={this.showUser} className="commenter">{commenter}</a>
           <span className="comment-time">{commentTime}</span>
         </div>
 

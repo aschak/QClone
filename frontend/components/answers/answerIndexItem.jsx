@@ -45,6 +45,11 @@ var AnswerIndexItem = React.createClass({
     this.history.push('question/' + this.props.question.id);
   },
 
+  showUser: function () {
+    // console.log(this.props.answer.author_id);
+    this.history.push('/user/' + this.props.answer.author_id);
+  },
+
   render: function () {
     var answer = this.props.answer,
         answerer = this.props.answer.author,
@@ -69,7 +74,7 @@ var AnswerIndexItem = React.createClass({
       <div className="answer-container">
 
         <div className="answerer-container">
-          Answered By: <a href="#" className="answerer">{answerer}</a>,
+          Answered By: <a onClick={this.showUser} className="answerer">{answerer}</a>,
           <span className="answer-time">{answerTime}</span>
         </div>
 

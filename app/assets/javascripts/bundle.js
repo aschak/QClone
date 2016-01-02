@@ -53,9 +53,10 @@
 	
 	var SeekIndex = __webpack_require__(208),
 	    QuestionShow = __webpack_require__(247),
-	    NavBar = __webpack_require__(262),
-	    ProfileTagIndex = __webpack_require__(264),
-	    ProfileTagForm = __webpack_require__(266);
+	    UserProfile = __webpack_require__(262),
+	    NavBar = __webpack_require__(263),
+	    ProfileTagIndex = __webpack_require__(265),
+	    ProfileTagForm = __webpack_require__(267);
 	
 	window.ApiUtil = __webpack_require__(233);
 	window.QuestionStore = __webpack_require__(210);
@@ -67,6 +68,7 @@
 	  // componentDidMount: function () {
 	  //   UserActions.fetchCurrentUser();
 	  // },
+	  // <ProfileTagIndex/> This was right under <div className="container">
 	
 	  render: function () {
 	    return React.createElement(
@@ -82,7 +84,6 @@
 	      React.createElement(
 	        'div',
 	        { className: 'container' },
-	        React.createElement(ProfileTagIndex, null),
 	        this.props.children
 	      )
 	    );
@@ -93,7 +94,8 @@
 	  Route,
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: SeekIndex }),
-	  React.createElement(Route, { path: 'question/:id', component: QuestionShow })
+	  React.createElement(Route, { path: 'question/:id', component: QuestionShow }),
+	  React.createElement(Route, { path: 'user/:id', component: UserProfile })
 	);
 	
 	document.addEventListener("DOMContentLoaded", function () {
@@ -31671,6 +31673,7 @@
 /* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
+	
 	var React = __webpack_require__(1);
 	History = __webpack_require__(159).History;
 	
@@ -31685,6 +31688,10 @@
 	
 	  showQuestion: function () {
 	    this.history.push('/question/' + this.props.question.id);
+	  },
+	
+	  showUser: function () {
+	    this.history.push('/user/' + this.props.question.author_id);
 	  },
 	
 	  revealDetails: function () {
@@ -31707,14 +31714,12 @@
 	
 	    if (question.tags[0]) {
 	      tags = React.createElement(
-	        'ul',
+	        'div',
 	        { className: 'question-tags' },
 	        'tags: ',
-	        React.createElement('br', null),
-	        '  ',
 	        question.tags.map(function (tag, idx) {
 	          return React.createElement(
-	            'li',
+	            'span',
 	            {
 	              key: idx,
 	              className: 'question-tag' },
@@ -31743,7 +31748,7 @@
 	        'Question asked by',
 	        React.createElement(
 	          'a',
-	          { href: '#', className: 'asker' },
+	          { onClick: this.showUser, className: 'asker' },
 	          asker
 	        ),
 	        ',',
@@ -32292,6 +32297,10 @@
 	    this.props.history.push("/");
 	  },
 	
+	  showUser: function () {
+	    this.history.push('/user/' + this.state.question.author_id);
+	  },
+	
 	  render: function () {
 	    var question = this.state.question,
 	        modButtons,
@@ -32308,14 +32317,12 @@
 	
 	    if (question.tags[0]) {
 	      tags = React.createElement(
-	        'ul',
+	        'div',
 	        { className: 'question-tags' },
 	        'tags: ',
-	        React.createElement('br', null),
-	        '  ',
 	        question.tags.map(function (tag, idx) {
 	          return React.createElement(
-	            'li',
+	            'span',
 	            {
 	              key: idx,
 	              className: 'question-tag' },
@@ -32330,14 +32337,13 @@
 	    if (question.author_id === seek_user.id) {
 	      modButtons = React.createElement(
 	        'div',
-	        null,
+	        { className: 'mod-buttons' },
 	        React.createElement(QuestionForm, {
 	          className: 'question-form',
 	          id: 'edit',
 	          'new': false,
 	          question: question,
 	          tags: allTags }),
-	        React.createElement('br', null),
 	        React.createElement(
 	          'button',
 	          {
@@ -32373,7 +32379,7 @@
 	        'Question asked by',
 	        React.createElement(
 	          'a',
-	          { href: '#', className: 'asker' },
+	          { onClick: this.showUser, className: 'asker' },
 	          asker
 	        ),
 	        ',',
@@ -32524,9 +32530,11 @@
 	          )
 	        ));
 	      });
+	      var editId = "question-form";
 	    } else if (allTags && !this.props.new) {
 	
 	      var checkedTags = this.state.checkedTags;
+	      var editId = "question-edit-form";
 	
 	      //DROPPING OPTION TO EDIT TAGS
 	
@@ -32574,7 +32582,7 @@
 	    if (!modal) {
 	      return React.createElement(
 	        'button',
-	        { type: 'button', id: 'question-form', className: 'btn btn-primary', onClick: this.changeModal },
+	        { type: 'button', id: editId, className: 'btn btn-primary', onClick: this.changeModal },
 	        prompt
 	      );
 	    } else {
@@ -33121,6 +33129,11 @@
 	    this.history.push('question/' + this.props.question.id);
 	  },
 	
+	  showUser: function () {
+	    // console.log(this.props.answer.author_id);
+	    this.history.push('/user/' + this.props.answer.author_id);
+	  },
+	
 	  render: function () {
 	    var answer = this.props.answer,
 	        answerer = this.props.answer.author,
@@ -33154,7 +33167,7 @@
 	        'Answered By: ',
 	        React.createElement(
 	          'a',
-	          { href: '#', className: 'answerer' },
+	          { onClick: this.showUser, className: 'answerer' },
 	          answerer
 	        ),
 	        ',',
@@ -33462,6 +33475,11 @@
 	    this.history.push('question/' + id);
 	  },
 	
+	  showUser: function () {
+	    console.log(this.props.comment.author_id);
+	    // this.history.push('/user/' + this.props.comment.author_id);
+	  },
+	
 	  render: function () {
 	    var comment = this.props.comment,
 	        commenter = comment.author,
@@ -33495,7 +33513,7 @@
 	        { className: 'commenter-container' },
 	        React.createElement(
 	          'a',
-	          { href: '#', className: 'commenter' },
+	          { onClick: this.showUser, className: 'commenter' },
 	          commenter
 	        ),
 	        React.createElement(
@@ -33523,6 +33541,27 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
+	    UserStore = __webpack_require__(240);
+	
+	var UserProfile = React.createClass({
+	  displayName: 'UserProfile',
+	
+	  // getStateFromStore: function () {
+	  //   return UserStore.find(parseInt(this.props.params.id));
+	  // },
+	
+	  render: function () {
+	    return React.createElement('div', null);
+	  }
+	});
+	
+	module.exports = UserProfile;
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
 	    QuestionForm = __webpack_require__(248),
 	    QuestionStore = __webpack_require__(210),
 	    QuestionActions = __webpack_require__(232),
@@ -33530,7 +33569,7 @@
 	    TagActions = __webpack_require__(250),
 	    Link = __webpack_require__(159).Link,
 	    LinkedStateMixin = __webpack_require__(243),
-	    Fuse = __webpack_require__(263);
+	    Fuse = __webpack_require__(264);
 	
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -33649,7 +33688,7 @@
 	        React.createElement(
 	          'h1',
 	          null,
-	          'What answers do you seek?'
+	          'TAGLINE HERE'
 	        ),
 	        React.createElement(
 	          'form',
@@ -33677,7 +33716,7 @@
 	module.exports = NavBar;
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34184,7 +34223,7 @@
 
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global seek_user */
@@ -34192,7 +34231,7 @@
 	var React = __webpack_require__(1),
 	    TagStore = __webpack_require__(249),
 	    TagActions = __webpack_require__(250),
-	    ProfileTagIndexItem = __webpack_require__(265),
+	    ProfileTagIndexItem = __webpack_require__(266),
 	    UserStore = __webpack_require__(240),
 	    UserActions = __webpack_require__(241);
 	
@@ -34243,7 +34282,7 @@
 	module.exports = ProfileTagIndex;
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
@@ -34267,7 +34306,7 @@
 	module.exports = ProfileTagIndexItem;
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
@@ -34276,7 +34315,7 @@
 	    History = __webpack_require__(159).History,
 	    TagStore = __webpack_require__(249),
 	    TagActions = __webpack_require__(250),
-	    TagFormItem = __webpack_require__(267),
+	    TagFormItem = __webpack_require__(268),
 	    LinkedStateMixin = __webpack_require__(243);
 	
 	var CheckboxGroup = __webpack_require__(251);
@@ -34431,7 +34470,7 @@
 	module.exports = ProfileTagForm;
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);

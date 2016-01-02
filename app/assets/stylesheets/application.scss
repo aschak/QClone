@@ -118,7 +118,7 @@ a:hover {
 }
 
 .container {
-  max-width: 700px;
+  max-width: 55%;
 	padding-top: 12%;
 }
 
@@ -164,8 +164,8 @@ a:hover {
 
 #user-signout {
 	position: fixed;
-	left: 86.8%;
-	top: 2%;
+	left: 89.5%;
+	top: 3%;
 	z-index: 1;
 }
 
@@ -192,17 +192,21 @@ a:hover {
 	width: 812px;
 	position: fixed;
 	left: 27%;
-	padding-left: 6%
+	padding-left: 2%
+}
+
+.search-parameter {
+	padding-left: 11%
 }
 
 .full-nav {
 	position: fixed;
-	width: 800px;
+	width: 75%;
 	height: 200px;
 	top: -5%;
 	background: whitesmoke;
 	// max-width: 700px;
-	margin-left: 27%;
+	margin-left: 14%;
 }
 
 #nav-line {
@@ -219,6 +223,7 @@ a:hover {
 }
 
 .question-show {
+	padding-top: 14%;
   max-width: 700px;
   margin: auto;
 }
@@ -251,7 +256,18 @@ a:hover {
 	// -webkit-animation: fadein 2s;
 }
 
+.question-tags {
+	margin-bottom: 2%;
+}
 
+.question-tag {
+	margin-left: 1%;
+	padding: 2px;
+	color: white;
+	background-color: black;
+	border: solid 2px black;
+	border-radius: 6px;
+}
 
 .asker-container {
   font-size: 17px;
@@ -318,10 +334,14 @@ hr {
 
 .logo {
 	position: fixed;
-	left: 7%;
-	top: 4%;
+	padding: 5px;
+	z-index: 5;
+	left: 3%;
+	top: 22%;
   font-size: 83px;
   letter-spacing: 7px;
+	background-color: whitesmoke;
+	border-radius: 5%;
 }
 
 .logo:hover {
@@ -346,11 +366,20 @@ hr {
 }
 
 #question-form {
-  width: 25%;
-	float: right;
-  margin: 1% -24% 0 0;
+  // width: 25%;
+	// float: right;
+	position: absolute;
+	left: 93%;
+  margin: 4% -14% 0 0;
 }
 
+#question-edit-form {
+
+}
+
+.mod-buttons {
+	margin-top: 14px;
+}
 
 .question-form-modal {
 	padding-top: 15px;
@@ -373,6 +402,7 @@ hr {
 
 #question-input-title {
 	width: 85%;
+	font-size: 30px;
 	margin: 20px;
 	font-weight: 300;
 }
@@ -388,6 +418,7 @@ hr {
 	border: 1px solid #ccc;
 	border-radius: 6px;
 	font-weight: 600;
+	cursor: pointer;
 }
 
 #tags-form {
@@ -403,9 +434,13 @@ hr {
 	position: fixed;
 	// margin: -250px 0 0 60px;
 	top: 37%;
-	left: 8%;
+	left: 5%;
 	font-weight: 500;
-	z-index: 2
+	z-index: 2;
+	border: solid 2px black;
+	border-radius: 4%;
+	background-color: whitesmoke;
+	padding: 12px;
 }
 
 .modal-screen {
@@ -421,7 +456,7 @@ hr {
 
 .modal-content {
   z-index: 999;
-  position: absolute;
+  position: fixed;
   background: white;
   border-radius: 12px;
   border: 1px solid black;
@@ -429,7 +464,7 @@ hr {
   font-weight: 100;
   width: 690px;
   height: 450px;
-  top: 200%;
+  top: 42%;
   left: 50%;
   text-align: center;
   transform: translateX(-50%) translateY(-50%);

@@ -7,6 +7,7 @@ var React = require('react'),
 
 var SeekIndex = require('./components/seek_index.jsx'),
     QuestionShow = require('./components/questions/questionShow.jsx'),
+    UserProfile = require('./components/userProfile.jsx'),
     NavBar = require('./components/navBar.jsx'),
     ProfileTagIndex = require('./components/tags/profileTagIndex.jsx'),
     ProfileTagForm = require('./components/tags/profileTagForm.jsx');
@@ -21,6 +22,7 @@ var App = React.createClass({
   // componentDidMount: function () {
   //   UserActions.fetchCurrentUser();
   // },
+  // <ProfileTagIndex/> This was right under <div className="container">
 
   render: function () {
     return(
@@ -33,7 +35,6 @@ var App = React.createClass({
         <ProfileTagForm className='profile-tag-form'/>
 
         <div className="container">
-          <ProfileTagIndex/>
 
           {this.props.children}
         </div>
@@ -49,6 +50,7 @@ var routes = (
 <Route path='/' component={App}>
   <IndexRoute component={SeekIndex}/>
   <Route path='question/:id' component={QuestionShow}/>
+  <Route path='user/:id' component={UserProfile}/>
 
 </Route>
 );

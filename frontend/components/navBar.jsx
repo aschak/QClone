@@ -116,7 +116,7 @@ var NavBar = React.createClass({
           new={true}/>
 
         <div className="search-bar">
-          <h1>What answers do you seek?</h1>
+          <h1>TAGLINE HERE</h1>
 
           <form onSubmit={this.handleSubmit}>
             <div className="search-parameter">

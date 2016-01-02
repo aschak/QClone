@@ -59,6 +59,10 @@ module.exports = React.createClass({
     this.props.history.push("/");
   },
 
+  showUser: function () {
+    this.history.push('/user/' + this.state.question.author_id);
+  },
+
   render: function () {
     var question = this.state.question,
         modButtons,
@@ -74,28 +78,27 @@ module.exports = React.createClass({
     }
 
     if (question.tags[0]) {
-      tags =  <ul className="question-tags">
-              tags: <br/>  {
+      tags =  <div className="question-tags">
+              tags: {
                   question.tags.map(function (tag, idx) {
-                    return <li
+                    return <span
                               key={idx}
-                              className="question-tag" >{tag.tag_name}</li>;
+                              className="question-tag" >{tag.tag_name}</span>;
                   })
                 }
-             </ul>;
+             </div>;
     } else {
       tags = <span></span>;
     }
 
     if (question.author_id === seek_user.id) {
-      modButtons = <div>
+      modButtons = <div className="mod-buttons">
                     <QuestionForm
                           className="question-form"
                           id="edit"
                           new={false}
                           question={question}
                           tags={allTags}/>
-                   <br/>
                     <button
                       type="button"
                       className="btn btn-primary"
@@ -119,7 +122,7 @@ module.exports = React.createClass({
 
 
         <div className="asker-container">Question asked by
-          <a href="#" className="asker">{asker}</a>,
+          <a onClick={this.showUser} className="asker">{asker}</a>,
             <span className="ask-time">{askTime}</span>
         </div>
 

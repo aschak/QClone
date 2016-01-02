@@ -106,9 +106,11 @@ var QuestionForm = React.createClass({
           </div>
         );
       });
+      var editId = "question-form";
     } else if (allTags && !this.props.new) {
 
       var checkedTags = this.state.checkedTags;
+      var editId = "question-edit-form";
 
       //DROPPING OPTION TO EDIT TAGS
 
@@ -158,7 +160,7 @@ var QuestionForm = React.createClass({
 
     if (!modal) {
       return(
-        <button type="button" id="question-form" className="btn btn-primary" onClick={this.changeModal}>
+        <button type="button" id={editId} className="btn btn-primary" onClick={this.changeModal}>
           {prompt}
         </button>
       );

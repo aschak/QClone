@@ -1,3 +1,4 @@
+
 var React = require('react');
     History = require('react-router').History;
 
@@ -11,6 +12,10 @@ var QuestionIndexItem = React.createClass({
 
   showQuestion: function () {
     this.history.push('/question/' + this.props.question.id);
+  },
+
+  showUser: function () {
+    this.history.push('/user/' + this.props.question.author_id);
   },
 
   revealDetails: function () {
@@ -32,15 +37,15 @@ var QuestionIndexItem = React.createClass({
     if (preview.length < 10) {preview = this.props.question.body;}
 
     if (question.tags[0]) {
-      tags =  <ul className="question-tags">
-              tags: <br/>  {
+      tags =  <div className="question-tags">
+              tags: {
                   question.tags.map(function (tag, idx) {
-                    return <li
+                    return <span
                               key={idx}
-                              className="question-tag" >{tag.tag_name}</li>;
+                              className="question-tag" >{tag.tag_name}</span>;
                   })
                 }
-             </ul>;
+             </div>;
     } else {
       tags = <span></span>;
     }
@@ -58,7 +63,7 @@ var QuestionIndexItem = React.createClass({
       <div key={this.props.question.id} className="question-container">
 
         <div className="asker-container">Question asked by
-          <a href="#" className="asker">{asker}</a>,
+          <a onClick={this.showUser} className="asker">{asker}</a>,
             <span className="ask-time">{askTime}</span>
         </div>
 
