@@ -42,7 +42,7 @@ var ApiUtil = {
 
   fetchSingleUser: function (id) {
     $.get('api/users/' + id, function (user) {
-      ApiActions.receiveUser(user);
+      ApiActions.receiveSingleUser(user);
     });
   },
 

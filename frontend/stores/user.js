@@ -11,6 +11,10 @@ var resetUsers = function (users) {
   _user = users;
 };
 
+var resetUser = function (user) {
+  _user[user.id] = user;
+};
+
 var resetCurrentUser = function (currentUser) {
   _currentUser = currentUser;
 };
@@ -35,12 +39,30 @@ UserStore.profileTags = function () {
   return profileTags;
 };
 
+UserStore.find = function (id) {
+  var found;
+
+  _user.forEach(function (user) {
+    if (user.id === id) {
+      found = user;
+    }
+  });
+
+  return found;
+};
+
 UserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case UserConstants.USERS_RECEIVED:
       resetUsers(payload.users);
       UserStore.__emitChange();
       break;
+
+    case UserConstants.USER_RECEIVED:
+      resetUser(payload.user);
+      UserStore.__emitChange();
+      break;
+
     case UserConstants.CURRENT_USER_RECEIVED:
       resetCurrentUser(payload.currentUser);
       UserStore.__emitChange();
@@ -50,14 +72,5 @@ UserStore.__onDispatch = function (payload) {
 
 };
 
-UserStore.find = function (id) {
-  var found;
-
-  _user.forEach(function (user) {
-    if (user.id === id) {
-      found = user;
-    }
-  });
-};
 
 module.exports = UserStore;

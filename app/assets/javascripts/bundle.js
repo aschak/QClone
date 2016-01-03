@@ -31352,7 +31352,7 @@
 	
 	  fetchSingleUser: function (id) {
 	    $.get('api/users/' + id, function (user) {
-	      ApiActions.receiveUser(user);
+	      ApiActions.receiveSingleUser(user);
 	    });
 	  },
 	
@@ -31552,6 +31552,13 @@
 	    });
 	  },
 	
+	  receiveSingleUser: function (user) {
+	    Dispatcher.dispatch({
+	      actionType: UserConstants.USER_RECEIVED,
+	      user: user
+	    });
+	  },
+	
 	  receiveCurrentUser: function (currentUser) {
 	    Dispatcher.dispatch({
 	      actionType: UserConstants.CURRENT_USER_RECEIVED,
@@ -31638,6 +31645,7 @@
 
 	module.exports = {
 	  USERS_RECEIVED: "USERS_RECEIVED",
+	  USER_RECEIVED: "USER_RECEIVED",
 	  CURRENT_USER_RECEIVED: "CURRENT_USER_RECEIVED"
 	};
 
@@ -31801,6 +31809,10 @@
 	  _user = users;
 	};
 	
+	var resetUser = function (user) {
+	  _user[user.id] = user;
+	};
+	
 	var resetCurrentUser = function (currentUser) {
 	  _currentUser = currentUser;
 	};
@@ -31825,20 +31837,6 @@
 	  return profileTags;
 	};
 	
-	UserStore.__onDispatch = function (payload) {
-	  switch (payload.actionType) {
-	    case UserConstants.USERS_RECEIVED:
-	      resetUsers(payload.users);
-	      UserStore.__emitChange();
-	      break;
-	    case UserConstants.CURRENT_USER_RECEIVED:
-	      resetCurrentUser(payload.currentUser);
-	      UserStore.__emitChange();
-	      break;
-	
-	  }
-	};
-	
 	UserStore.find = function (id) {
 	  var found;
 	
@@ -31847,6 +31845,28 @@
 	      found = user;
 	    }
 	  });
+	
+	  return found;
+	};
+	
+	UserStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case UserConstants.USERS_RECEIVED:
+	      resetUsers(payload.users);
+	      UserStore.__emitChange();
+	      break;
+	
+	    case UserConstants.USER_RECEIVED:
+	      resetUser(payload.user);
+	      UserStore.__emitChange();
+	      break;
+	
+	    case UserConstants.CURRENT_USER_RECEIVED:
+	      resetCurrentUser(payload.currentUser);
+	      UserStore.__emitChange();
+	      break;
+	
+	  }
 	};
 	
 	module.exports = UserStore;
@@ -32298,7 +32318,8 @@
 	  },
 	
 	  showUser: function () {
-	    this.history.push('/user/' + this.state.question.author_id);
+	    // debugger
+	    this.props.history.push('/user/' + this.state.question.author_id);
 	  },
 	
 	  render: function () {
@@ -32314,7 +32335,7 @@
 	        'LOADING...'
 	      );
 	    }
-	
+	    //  debugger
 	    if (question.tags[0]) {
 	      tags = React.createElement(
 	        'div',
@@ -33541,17 +33562,62 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
-	    UserStore = __webpack_require__(240);
+	    UserStore = __webpack_require__(240),
+	    UserActions = __webpack_require__(241);
+	
+	window.UserStore = __webpack_require__(240);
+	window.UserActions = __webpack_require__(241);
 	
 	var UserProfile = React.createClass({
 	  displayName: 'UserProfile',
 	
-	  // getStateFromStore: function () {
-	  //   return UserStore.find(parseInt(this.props.params.id));
-	  // },
+	  getStateFromStore: function () {
+	    // debugger
+	    return UserStore.find(parseInt(this.props.params.id));
+	  },
+	
+	  _userChange: function () {
+	    this.setState({
+	      user: this.getStateFromStore()
+	    });
+	  },
+	
+	  getInitialState: function () {
+	    return {
+	      user: this.getStateFromStore()
+	    };
+	  },
+	
+	  componentWillReceiveProps: function (newProps) {
+	    UserActions.fetchUser(parseInt(newProps.params.id));
+	  },
+	
+	  componentDidMount: function () {
+	    // debugger
+	    this.userListener = UserStore.addListener(this._userChange);
+	    UserActions.fetchUser(parseInt(this.props.params.id));
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.userListener.remove();
+	  },
 	
 	  render: function () {
-	    return React.createElement('div', null);
+	    // debugger
+	
+	    if (!this.state.user) {
+	      return React.createElement(
+	        'div',
+	        null,
+	        'LOADING...'
+	      );
+	    }
+	
+	    return React.createElement(
+	      'div',
+	      null,
+	      this.state.user.username
+	    );
 	  }
 	});
 	

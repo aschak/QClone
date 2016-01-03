@@ -15,6 +15,13 @@ var ApiActions = {
     });
   },
 
+  receiveSingleUser: function (user) {
+    Dispatcher.dispatch({
+      actionType: UserConstants.USER_RECEIVED,
+      user: user
+    });
+  },
+
   receiveCurrentUser: function (currentUser) {
     Dispatcher.dispatch({
       actionType: UserConstants.CURRENT_USER_RECEIVED,

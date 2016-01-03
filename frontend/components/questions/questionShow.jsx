@@ -60,7 +60,8 @@ module.exports = React.createClass({
   },
 
   showUser: function () {
-    this.history.push('/user/' + this.state.question.author_id);
+    // debugger
+    this.props.history.push('/user/' + this.state.question.author_id);
   },
 
   render: function () {
@@ -76,7 +77,7 @@ module.exports = React.createClass({
         </div>
       );
     }
-
+    //  debugger
     if (question.tags[0]) {
       tags =  <div className="question-tags">
               tags: {
