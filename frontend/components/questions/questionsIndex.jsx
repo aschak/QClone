@@ -52,7 +52,7 @@ var QuestionIndex = React.createClass({
     this.state.questions.forEach(function (question) {
       question.tags.forEach(function (tag) {
         // debugger
-        if (profileTags.indexOf(tag.tag_name) !== -1) {
+        if (profileTags.indexOf(tag.tag_name) !== -1 && questions.indexOf(question) === -1) {
           questions.push(question);
         }
       });
