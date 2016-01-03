@@ -37,8 +37,16 @@ var UserProfile = React.createClass({
     this.userListener.remove();
   },
 
+  showQuestion: function () {
+    console.log("click logged!");
+  },
+
+  showPromptQuestion: function () {
+    console.log("other click logged!");
+  },
+
   render: function () {
-    // debugger
+    var user = this.state.user;
 
     if (!this.state.user) {
       return(
@@ -49,8 +57,29 @@ var UserProfile = React.createClass({
     }
 
     return (
-      <div>
-        {this.state.user.username}
+      <div className="user-show">
+
+        <div className="user-username">
+          {user.username}
+        </div>
+
+        <ul className="user-questions">
+          Questions Asked:
+          {user.questions.map(function (question, idx) {
+            return <li key={idx} onClick={this.showQuestion}>
+              {question.title}
+            </li>;
+          })}
+        </ul>
+
+        <ul className="user-answers">
+          Answers Given:
+          {user.answers.map(function (answer, idx) {
+            return <li key={idx} onClick={this.showPromptQuestion}>
+              {answer.question_title}
+            </li>;
+          })}
+        </ul>
       </div>
     );
   }

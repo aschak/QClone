@@ -32265,10 +32265,10 @@
 	    TagActions = __webpack_require__(250),
 	    AnswerIndex = __webpack_require__(252);
 	
-	window.UserStore = __webpack_require__(240);
-	window.TagStore = __webpack_require__(249);
-	window.UserActions = __webpack_require__(241);
-	window.TagActions = __webpack_require__(250);
+	// window.UserStore = require('../../stores/user.js');
+	// window.TagStore = require('../../stores/tag.js');
+	// window.UserActions = require('../../actions/user_actions.js');
+	// window.TagActions = require('../../actions/tag_actions.js');
 	
 	module.exports = React.createClass({
 	  displayName: 'exports',
@@ -33602,8 +33602,16 @@
 	    this.userListener.remove();
 	  },
 	
+	  showQuestion: function () {
+	    console.log("click logged!");
+	  },
+	
+	  showPromptQuestion: function () {
+	    console.log("other click logged!");
+	  },
+	
 	  render: function () {
-	    // debugger
+	    var user = this.state.user;
 	
 	    if (!this.state.user) {
 	      return React.createElement(
@@ -33615,8 +33623,36 @@
 	
 	    return React.createElement(
 	      'div',
-	      null,
-	      this.state.user.username
+	      { className: 'user-show' },
+	      React.createElement(
+	        'div',
+	        { className: 'user-username' },
+	        user.username
+	      ),
+	      React.createElement(
+	        'ul',
+	        { className: 'user-questions' },
+	        'Questions Asked:',
+	        user.questions.map(function (question, idx) {
+	          return React.createElement(
+	            'li',
+	            { key: idx, onClick: this.showQuestion },
+	            question.title
+	          );
+	        })
+	      ),
+	      React.createElement(
+	        'ul',
+	        { className: 'user-answers' },
+	        'Answers Given:',
+	        user.answers.map(function (answer, idx) {
+	          return React.createElement(
+	            'li',
+	            { key: idx, onClick: this.showPromptQuestion },
+	            answer.question_title
+	          );
+	        })
+	      )
 	    );
 	  }
 	});

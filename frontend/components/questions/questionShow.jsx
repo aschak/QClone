@@ -9,10 +9,10 @@ var React = require('react'),
     TagActions = require('../../actions/tag_actions.js'),
     AnswerIndex = require('../answers/answerIndex.jsx');
 
-window.UserStore = require('../../stores/user.js');
-window.TagStore = require('../../stores/tag.js');
-window.UserActions = require('../../actions/user_actions.js');
-window.TagActions = require('../../actions/tag_actions.js');
+// window.UserStore = require('../../stores/user.js');
+// window.TagStore = require('../../stores/tag.js');
+// window.UserActions = require('../../actions/user_actions.js');
+// window.TagActions = require('../../actions/tag_actions.js');
 
 module.exports = React.createClass({
   getStateFromStore: function () {
