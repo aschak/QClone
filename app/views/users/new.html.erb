@@ -4,31 +4,37 @@
   <h2 id='welcome-statement-right'>..And Share Knowledge</h2>
 
 
-<form className='splash-container' id='user-login-form' action="<%= users_url %>" method="post">
 
-  <h1 id='login-prompt'>Sign Up</h1>
+<div>
+  <form class='splash-container' id='user-login-form' action="<%= users_url %>" method="post">
 
-  <%= auth_token %>
+    <h1 id='login-prompt'>Sign Up</h1>
 
-  <br/>
+    <%= auth_token %>
+
+    <br/>
 
 
-  <input
+    <input
     type="text"
+    id="user-login-input"
     name="user[username]"
     placeholder="Username"
     value="<%= @user.username%>">
 
-  <br/>
+    <br/>
 
 
-  <input
+    <input
     type="password"
+    id="user-login-input"
     name="user[password]"
-    placeholder="Password (6 or less)"
+    placeholder="Password"
     value="<%= @user.password%>">
 
-  <br/>
+    <br/>
 
-  <input class="btn btn-primary" type="submit" value="Sign Up">
-</form>
+    <input class="btn btn-primary" type="submit" value="Sign Up">
+  </form>
+
+</div>

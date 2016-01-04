@@ -33796,9 +33796,9 @@
 	        'div',
 	        { className: 'search-bar' },
 	        React.createElement(
-	          'h1',
-	          null,
-	          'TAGLINE HERE'
+	          'h2',
+	          { id: 'tagline' },
+	          'asdf'
 	        ),
 	        React.createElement(
 	          'form',

@@ -122,6 +122,14 @@ a:hover {
 	padding-top: 12%;
 }
 
+.splash-container {
+	width: 209px;
+	border: black 3px solid;
+	padding: 15px 0 13px 19px;
+	background-color: #9BBBA5;
+	border-radius: 15px;
+}
+
 .background-container {
   z-index: -1;
   margin-left: 95px;
@@ -139,7 +147,14 @@ a:hover {
 #user-login-form {
   z-index: 4;
 	margin-left: 45%;
-	margin-top: 6%;
+	margin-top: -10%;
+}
+
+#user-login-input {
+	width: 173px;
+	height: 38px;
+	font-size: 26px;
+	margin-bottom: 6px;
 }
 
 #login-prompt {
@@ -217,9 +232,14 @@ a:hover {
 .logo-pic {
   position: absolute;
   background: transparent;
-	top: 32%;
+	top: 70%;
+	left: 8%;
   float: right;
   height: 60px;
+}
+
+#tagline {
+	color: whitesmoke;
 }
 
 .question-show {

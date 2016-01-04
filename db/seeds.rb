@@ -226,8 +226,8 @@ Question.create!(
   author_id: rand(1..7)
 )
 
-Tagging.create!(question_id: 9, tag_id: 1)
-Tagging.create!(question_id: 9, tag_id: 2)
+Tagging.create!(question_id: 10, tag_id: 1)
+Tagging.create!(question_id: 10, tag_id: 3)
 
 Answer.create!(
   body: "This would depend heavily upon on where you were dropped and what time of year it was. If you sent people back to modern day Canada during the winter, then it’s doubtful they would get very far. But people in the tropics might stand a chance at thriving, despite having to face a whole new range of flora and (potentially aggressive) fauna. ",
@@ -246,18 +246,6 @@ Answer.create!(
     answer_id: answer_id
   )
 end
-
-
-# 5.times do
-#   tag_id = rand(1..5)
-#   question_id = rand(1..15)
-#
-#   Tagging.create!(
-#     question_id: question_id,
-#     tag_id: tag_id
-#   )
-#
-# end
 
 
 User.all.each do |user|
