@@ -72,7 +72,7 @@ Question.create!(
   author_id: rand(1..7)
 )
 
-Tagging.create(question_id: 3, tag_id: 2)
+Tagging.create!(question_id: 3, tag_id: 2)
 
 Answer.create!(
   body: "The important thing is to know what you’re looking for when you mention the 1%. A CEO of a major corporation can make $10 million in yearly salary, but that’s still taxable. The trouble with the 1% is that there are a lot of ways to acquire wealth that do not qualify as taxable income as far as the IRS is concerned. Bonuses are a prime example of this. ",
@@ -95,6 +95,7 @@ Question.create!(
 )
 
 Tagging.create!(question_id:4, tag_id: 2)
+Tagging.create!(question_id: 3, tag_id: 4)
 
 Answer.create!(
   body: "Well for one, businesses aren’t required to shutdown on federal holidays. Most businesses that close on national holidays are more white-collar businesses that have employees who can afford to miss some time off work. Places like hospitals, restaurants, retail shops, etc don’t usually close for holidays and their employees can’t afford to take the day off, even to vote.",
@@ -116,7 +117,8 @@ Question.create!(
   author_id: rand(1..7)
 )
 
-Tagging.create(question_id: 5, tag_id: 1)
+Tagging.create!(question_id: 5, tag_id: 1)
+Tagging.create!(question_id: 5, tag_id: 4)
 
 Answer.create!(
   body: "Wear wrist pads! Find wrist pads that are made specifically for snowboarding. There are even special gloves you can find that have a wrist protector built into the lining of it. ",
@@ -135,11 +137,12 @@ Answer.create!(
 
 Question.create!(
   title: "Why does resetting a malfunctioning router cause it to work again?",
-  body: "I would imagine that router manufacturers would be able to track down this sort of error but I’ve found to be an issue with every brand I’ve owned. ",
+  body: "I would imagine that router manufacturers would be able to track down this sort of error but I’ve found it to be an issue with every brand I’ve owned. ",
   author_id: rand(1..7)
 )
 
 Tagging.create(question_id: 6, tag_id: 3)
+Tagging.create(question_id: 6, tag_id: 4)
 
 Answer.create!(
   body: "This could be an issue with your routers overheating. Make sure you’re positioning them in a cool dry place that has plenty of airflow around it. I used to suffer from the same problem!",
@@ -184,6 +187,7 @@ Question.create!(
 )
 
 Tagging.create!(question_id: 8, tag_id: 5)
+Tagging.create!(question_id: 8, tag_id: 3)
 
 Answer.create!(
 body: "I would suggest investing in a wok to use for making your stir fry, but first try cooking your meat and vegetables separately in small batches to add at the end. Rice is very absorbent and can soak in the juices from your other ingredients. ",
@@ -223,6 +227,7 @@ Question.create!(
 )
 
 Tagging.create!(question_id: 9, tag_id: 1)
+Tagging.create!(question_id: 9, tag_id: 2)
 
 Answer.create!(
   body: "This would depend heavily upon on where you were dropped and what time of year it was. If you sent people back to modern day Canada during the winter, then it’s doubtful they would get very far. But people in the tropics might stand a chance at thriving, despite having to face a whole new range of flora and (potentially aggressive) fauna. ",
@@ -243,16 +248,16 @@ Answer.create!(
 end
 
 
-5.times do
-  tag_id = rand(1..5)
-  question_id = rand(1..15)
-
-  Tagging.create!(
-    question_id: question_id,
-    tag_id: tag_id
-  )
-
-end
+# 5.times do
+#   tag_id = rand(1..5)
+#   question_id = rand(1..15)
+#
+#   Tagging.create!(
+#     question_id: question_id,
+#     tag_id: tag_id
+#   )
+#
+# end
 
 
 User.all.each do |user|
