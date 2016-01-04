@@ -283,9 +283,11 @@ a:hover {
 }
 
 .question-details {
+	margin: 13px 0 0 0;
   font-size: 17px;
   font-style: oblique;
   color: #7F7F7F;
+	line-height: 22px;
 }
 
 .answer-form {
@@ -304,6 +306,11 @@ a:hover {
   padding-left: 5px;
 }
 
+.answer-body {
+	margin: 12px 0 0 0;
+	line-height: 22px;
+}
+
 .comments-container {
   background-color: #E6E6E6;
   margin-left: 100px;
@@ -318,8 +325,16 @@ a:hover {
   margin-top: 15px;
 }
 
+.comment-body {
+	margin: 12px 0 6px 0;
+}
+
 #com-hide {
   margin-top: 25px;
+}
+
+#com-delete {
+	margin-top: 11px;
 }
 
 #ans-submit {
@@ -433,7 +448,7 @@ hr {
 .profile-tags-container {
 	position: fixed;
 	// margin: -250px 0 0 60px;
-	top: 37%;
+	top: 42%;
 	left: 5%;
 	font-weight: 500;
 	z-index: 2;
@@ -441,6 +456,36 @@ hr {
 	border-radius: 4%;
 	background-color: whitesmoke;
 	padding: 12px;
+}
+
+.user-username {
+	font-size: 20px;
+	font-weight: 500;
+	margin: 5% 0 4% 0;
+}
+
+.user-questions {
+	margin-bottom: 3%;
+}
+
+#questions-asked {
+	font-size: 20px;
+	font-weight: 400;
+	text-decoration: underline;
+}
+
+.user-question {
+	margin: 8px 0 0 0;
+}
+
+#answers-given {
+	font-size: 20px;
+	font-weight: 400;
+	text-decoration: underline;
+}
+
+.user-answer {
+	margin: 8px 0 0 0;
 }
 
 .modal-screen {

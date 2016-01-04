@@ -64,18 +64,18 @@ var UserProfile = React.createClass({
         </div>
 
         <ul className="user-questions">
-          Questions Asked:
+          <span id="questions-asked">Questions Asked:</span>
           {user.questions.map(function (question, idx) {
-            return <li key={idx} onClick={this.showQuestion}>
+            return <li className="user-question" key={idx} onClick={this.showQuestion}>
               {question.title}
             </li>;
           })}
         </ul>
 
         <ul className="user-answers">
-          Answers Given:
+          <span id="answers-given">Answers Given:</span>
           {user.answers.map(function (answer, idx) {
-            return <li key={idx} onClick={this.showPromptQuestion}>
+            return <li className="user-answer" key={idx} onClick={this.showPromptQuestion}>
               {answer.question_title}
             </li>;
           })}

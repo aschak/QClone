@@ -33632,11 +33632,15 @@
 	      React.createElement(
 	        'ul',
 	        { className: 'user-questions' },
-	        'Questions Asked:',
+	        React.createElement(
+	          'span',
+	          { id: 'questions-asked' },
+	          'Questions Asked:'
+	        ),
 	        user.questions.map(function (question, idx) {
 	          return React.createElement(
 	            'li',
-	            { key: idx, onClick: this.showQuestion },
+	            { className: 'user-question', key: idx, onClick: this.showQuestion },
 	            question.title
 	          );
 	        })
@@ -33644,11 +33648,15 @@
 	      React.createElement(
 	        'ul',
 	        { className: 'user-answers' },
-	        'Answers Given:',
+	        React.createElement(
+	          'span',
+	          { id: 'answers-given' },
+	          'Answers Given:'
+	        ),
 	        user.answers.map(function (answer, idx) {
 	          return React.createElement(
 	            'li',
-	            { key: idx, onClick: this.showPromptQuestion },
+	            { className: 'user-answer', key: idx, onClick: this.showPromptQuestion },
 	            answer.question_title
 	          );
 	        })
