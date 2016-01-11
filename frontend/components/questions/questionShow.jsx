@@ -120,18 +120,22 @@ module.exports = React.createClass({
 
       <div className="question-show">
 
+        <div className="question-title">
+          {question.title}
+        </div>
+
+        <br/>
+
         <div className="asker-container">Question asked by
           <a onClick={this.showUser} className="asker">{asker}</a>,
             <span className="ask-time">{askTime}</span>
         </div>
 
         <br/>
+
         {tags}
 
         <br/>
-        <div className="question-title">
-          {question.title}
-        </div>
 
         <div className="question-details">
           Details: {question.body}

@@ -62,6 +62,12 @@ var QuestionIndexItem = React.createClass({
 
       <div key={this.props.question.id} className="question-container">
 
+        <a onClick={this.showQuestion} className="question-title">
+          {this.props.question.title}
+        </a>
+
+        <br/>
+
         <div className="asker-container">Question asked by
           <a onClick={this.showUser} className="asker">{asker}</a>,
             <span className="ask-time">{askTime}</span>
@@ -70,10 +76,6 @@ var QuestionIndexItem = React.createClass({
         <br/>
 
         {tags}
-
-        <a onClick={this.showQuestion} className="question-title">
-          {this.props.question.title}
-        </a>
 
         <br/>
 

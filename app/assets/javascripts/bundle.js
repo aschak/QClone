@@ -31751,6 +31751,12 @@
 	      'div',
 	      { key: this.props.question.id, className: 'question-container' },
 	      React.createElement(
+	        'a',
+	        { onClick: this.showQuestion, className: 'question-title' },
+	        this.props.question.title
+	      ),
+	      React.createElement('br', null),
+	      React.createElement(
 	        'div',
 	        { className: 'asker-container' },
 	        'Question asked by',
@@ -31768,11 +31774,6 @@
 	      ),
 	      React.createElement('br', null),
 	      tags,
-	      React.createElement(
-	        'a',
-	        { onClick: this.showQuestion, className: 'question-title' },
-	        this.props.question.title
-	      ),
 	      React.createElement('br', null),
 	      React.createElement(
 	        'div',
@@ -32391,6 +32392,12 @@
 	      { className: 'question-show' },
 	      React.createElement(
 	        'div',
+	        { className: 'question-title' },
+	        question.title
+	      ),
+	      React.createElement('br', null),
+	      React.createElement(
+	        'div',
 	        { className: 'asker-container' },
 	        'Question asked by',
 	        React.createElement(
@@ -32408,11 +32415,6 @@
 	      React.createElement('br', null),
 	      tags,
 	      React.createElement('br', null),
-	      React.createElement(
-	        'div',
-	        { className: 'question-title' },
-	        question.title
-	      ),
 	      React.createElement(
 	        'div',
 	        { className: 'question-details' },
