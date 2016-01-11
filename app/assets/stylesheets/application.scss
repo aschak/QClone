@@ -146,8 +146,9 @@ a:hover {
 
 #user-login-form {
   z-index: 4;
-	margin-left: 45%;
-	margin-top: -10%;
+	margin-left: 46%;
+	margin-top: -6%;
+	display: inline-table;
 }
 
 #user-login-input {
@@ -182,6 +183,10 @@ a:hover {
 	left: 89.5%;
 	top: 3%;
 	z-index: 1;
+}
+
+#user-signup {
+	margin: 0 0 15px 0
 }
 
 .search-bar {
@@ -404,7 +409,8 @@ hr {
   // width: 25%;
 	// float: right;
 	position: absolute;
-	left: 93%;
+	left: 95%;
+	top: 120%;
   margin: 4% -14% 0 0;
 }
 

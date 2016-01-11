@@ -119,8 +119,6 @@ module.exports = React.createClass({
     return (
 
       <div className="question-show">
-        <button className="btn btn-primary" id="Q-index-back-btn" onClick={this.navigateToIndex}>Return to Main</button>
-
 
         <div className="asker-container">Question asked by
           <a onClick={this.showUser} className="asker">{asker}</a>,

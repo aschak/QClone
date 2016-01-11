@@ -47,30 +47,8 @@ var ProfileTagForm = React.createClass({
         checkedTags = this.state.checkedTags,
         renderTags = [];
 
-    // this.state.checkedTags.map(function (tag) {
-    //
-    // });
-
-    // if(!this.state.checkedTags || this.state.checkedTags.length === 0) {
-    //   return(<div>Loading...</div>);
-    // }
-
-    // this.state.checkedTags.map(function (tag) {
-    //   checkedTagNames.push(tag.tag_name);
-    // });
 
     allTags.forEach(function (tag, idx) {
-    //   checked = false;
-    //   loop over checked tags {
-    //     if (ids match) {
-    //       checked = true;
-    //     }
-    //   }
-    //   jsx create element
-    //     checked={checked}
-    //
-    //
-      // debugger;
       var checked = false;
       checkedTags.forEach(function (checkTag) {
         if (tag.id === checkTag.id) {
@@ -108,51 +86,4 @@ var ProfileTagForm = React.createClass({
   }
 });
 
-//SECOND ATTEMPT AT PREFILL TAGS
-//   if (checkedTags.indexOf(tag) === -1) {
-//     renderTags.push(
-//       <div key={idx}>
-//         <label>
-//           {tag.tag_name}
-//           <input type="checkbox"
-//             value={tag.id}
-//             checked="true" />
-//         </label>
-//       </div>
-//     );
-//   } else {
-//     renderTags.push(
-//       <div key={idx}>
-//         <label>
-//           {tag.tag_name}
-//           <input type="checkbox"
-//             value={tag.id}
-//             checked="true"/>
-//         </label>
-//       </div>
-//     );
-//   }
-
-
-
-
-// allTags.map(function (tag, idx) {
-//   return (<div key={idx}>
-//     <label>
-//       {tag.tag_name}
-//       <input type="checkbox"
-//         value={tag.id} />
-//     </label>
-//   </div>);
-// })
-
-
-
-// <form className="profile-tag-form" onSubmit={this.handleSubmit}>
-//   {
-//     allTags.map(function (tag, idx) {
-//       return <TagFormItem key={idx} tag={tag} handleChange={this.handleChange}/>;
-//     })
-//   }
-// </form>
 module.exports = ProfileTagForm;

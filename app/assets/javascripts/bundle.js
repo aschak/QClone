@@ -32390,11 +32390,6 @@
 	      'div',
 	      { className: 'question-show' },
 	      React.createElement(
-	        'button',
-	        { className: 'btn btn-primary', id: 'Q-index-back-btn', onClick: this.navigateToIndex },
-	        'Return to Main'
-	      ),
-	      React.createElement(
 	        'div',
 	        { className: 'asker-container' },
 	        'Question asked by',
@@ -33572,7 +33567,6 @@
 	  displayName: 'UserProfile',
 	
 	  getStateFromStore: function () {
-	    // debugger
 	    return UserStore.find(parseInt(this.props.params.id));
 	  },
 	
@@ -33593,7 +33587,6 @@
 	  },
 	
 	  componentDidMount: function () {
-	    // debugger
 	    this.userListener = UserStore.addListener(this._userChange);
 	    UserActions.fetchUser(parseInt(this.props.params.id));
 	  },
@@ -33639,7 +33632,7 @@
 	        ),
 	        user.questions.map(function (question, idx) {
 	          return React.createElement(
-	            'li',
+	            'div',
 	            { className: 'user-question', key: idx, onClick: this.showQuestion },
 	            question.title
 	          );
@@ -33655,8 +33648,8 @@
 	        ),
 	        user.answers.map(function (answer, idx) {
 	          return React.createElement(
-	            'li',
-	            { className: 'user-answer', key: idx, onClick: this.showPromptQuestion },
+	            'div',
+	            { className: 'user-answer', key: idx, onClick: this.showAnswer },
 	            answer.question_title
 	          );
 	        })
@@ -34468,30 +34461,7 @@
 	        checkedTags = this.state.checkedTags,
 	        renderTags = [];
 	
-	    // this.state.checkedTags.map(function (tag) {
-	    //
-	    // });
-	
-	    // if(!this.state.checkedTags || this.state.checkedTags.length === 0) {
-	    //   return(<div>Loading...</div>);
-	    // }
-	
-	    // this.state.checkedTags.map(function (tag) {
-	    //   checkedTagNames.push(tag.tag_name);
-	    // });
-	
 	    allTags.forEach(function (tag, idx) {
-	      //   checked = false;
-	      //   loop over checked tags {
-	      //     if (ids match) {
-	      //       checked = true;
-	      //     }
-	      //   }
-	      //   jsx create element
-	      //     checked={checked}
-	      //
-	      //
-	      // debugger;
 	      var checked = false;
 	      checkedTags.forEach(function (checkTag) {
 	        if (tag.id === checkTag.id) {
@@ -34535,48 +34505,6 @@
 	  }
 	});
 	
-	//SECOND ATTEMPT AT PREFILL TAGS
-	//   if (checkedTags.indexOf(tag) === -1) {
-	//     renderTags.push(
-	//       <div key={idx}>
-	//         <label>
-	//           {tag.tag_name}
-	//           <input type="checkbox"
-	//             value={tag.id}
-	//             checked="true" />
-	//         </label>
-	//       </div>
-	//     );
-	//   } else {
-	//     renderTags.push(
-	//       <div key={idx}>
-	//         <label>
-	//           {tag.tag_name}
-	//           <input type="checkbox"
-	//             value={tag.id}
-	//             checked="true"/>
-	//         </label>
-	//       </div>
-	//     );
-	//   }
-	
-	// allTags.map(function (tag, idx) {
-	//   return (<div key={idx}>
-	//     <label>
-	//       {tag.tag_name}
-	//       <input type="checkbox"
-	//         value={tag.id} />
-	//     </label>
-	//   </div>);
-	// })
-	
-	// <form className="profile-tag-form" onSubmit={this.handleSubmit}>
-	//   {
-	//     allTags.map(function (tag, idx) {
-	//       return <TagFormItem key={idx} tag={tag} handleChange={this.handleChange}/>;
-	//     })
-	//   }
-	// </form>
 	module.exports = ProfileTagForm;
 
 /***/ },

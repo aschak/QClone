@@ -7,7 +7,6 @@ window.UserActions = require('../actions/user_actions.js');
 
 var UserProfile = React.createClass({
   getStateFromStore: function () {
-    // debugger
     return UserStore.find(parseInt(this.props.params.id));
   },
 
@@ -28,7 +27,6 @@ var UserProfile = React.createClass({
   },
 
   componentDidMount: function () {
-    // debugger
     this.userListener = UserStore.addListener(this._userChange);
     UserActions.fetchUser(parseInt(this.props.params.id));
   },
@@ -49,10 +47,8 @@ var UserProfile = React.createClass({
     var user = this.state.user;
 
     if (!this.state.user) {
-      return(
-        <div>
-          LOADING...
-        </div>
+      return (
+        <div>LOADING...</div>
       );
     }
 
@@ -66,18 +62,18 @@ var UserProfile = React.createClass({
         <ul className="user-questions">
           <span id="questions-asked">Questions Asked:</span>
           {user.questions.map(function (question, idx) {
-            return <li className="user-question" key={idx} onClick={this.showQuestion}>
+            return <div className="user-question" key={idx} onClick={this.showQuestion}>
               {question.title}
-            </li>;
+            </div>;
           })}
         </ul>
 
         <ul className="user-answers">
           <span id="answers-given">Answers Given:</span>
           {user.answers.map(function (answer, idx) {
-            return <li className="user-answer" key={idx} onClick={this.showPromptQuestion}>
+            return <div className="user-answer" key={idx} onClick={this.showAnswer}>
               {answer.question_title}
-            </li>;
+            </div>;
           })}
         </ul>
       </div>

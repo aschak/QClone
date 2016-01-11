@@ -43,6 +43,8 @@
     </form>
 
     <br/>
+    <%= link_to "Sign Up", new_user_url, class: "btn btn-primary", id: "user-signup" %>
+    <br/>
 
     <form class="guest-user-login" action="<%= session_url %>" method="post">
       <%= auth_token %>
@@ -62,4 +64,5 @@
         type="submit"
         value="Guest Login">
     </form>
+
   </div>
