@@ -55,8 +55,8 @@
 	    QuestionShow = __webpack_require__(247),
 	    UserProfile = __webpack_require__(262),
 	    NavBar = __webpack_require__(263),
-	    ProfileTagIndex = __webpack_require__(265),
-	    ProfileTagForm = __webpack_require__(267);
+	    ProfileTagIndex = __webpack_require__(264),
+	    ProfileTagForm = __webpack_require__(266);
 	
 	window.ApiUtil = __webpack_require__(233);
 	window.QuestionStore = __webpack_require__(210);
@@ -33646,7 +33646,7 @@
 	    TagActions = __webpack_require__(250),
 	    Link = __webpack_require__(159).Link,
 	    LinkedStateMixin = __webpack_require__(243),
-	    Fuse = __webpack_require__(264);
+	    Fuse = __webpack_require__(268);
 	
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -33789,6 +33789,216 @@
 
 /***/ },
 /* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* global seek_user */
+	
+	var React = __webpack_require__(1),
+	    TagStore = __webpack_require__(249),
+	    TagActions = __webpack_require__(250),
+	    ProfileTagIndexItem = __webpack_require__(265),
+	    UserStore = __webpack_require__(240),
+	    UserActions = __webpack_require__(241);
+	
+	var ProfileTagIndex = React.createClass({
+	  displayName: 'ProfileTagIndex',
+	
+	  getInitialState: function () {
+	    return { tags: UserStore.currentUser().tags };
+	  },
+	
+	  _tagChange: function () {
+	    return this.setState({ tags: UserStore.currentUser().tags });
+	  },
+	
+	  componentWillMount: function () {
+	    this.userListener = UserStore.addListener(this._tagChange);
+	    UserActions.fetchCurrentUser();
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.userListener.remove();
+	  },
+	
+	  render: function () {
+	    var profileTags;
+	
+	    if (this.state.tags) {
+	      profileTags = this.state.tags;
+	    } else {
+	      profileTags = [];
+	    }
+	
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'ul',
+	        { className: 'prof-tag-index' },
+	        'Feed: ',
+	        profileTags.map(function (tag, idx) {
+	          return React.createElement(ProfileTagIndexItem, { key: idx, tag: tag });
+	        })
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = ProfileTagIndex;
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    TagActions = __webpack_require__(250),
+	    History = __webpack_require__(159).History;
+	
+	var ProfileTagIndexItem = React.createClass({
+	  displayName: 'ProfileTagIndexItem',
+	
+	  render: function () {
+	    var profileTag = this.props.tag;
+	
+	    return React.createElement(
+	      'div',
+	      { className: 'prof-tag-index-item' },
+	      profileTag.tag_name
+	    );
+	  }
+	});
+	
+	module.exports = ProfileTagIndexItem;
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1),
+	    UserActions = __webpack_require__(241),
+	    UserStore = __webpack_require__(240),
+	    History = __webpack_require__(159).History,
+	    TagStore = __webpack_require__(249),
+	    TagActions = __webpack_require__(250),
+	    TagFormItem = __webpack_require__(267),
+	    LinkedStateMixin = __webpack_require__(243);
+	
+	var CheckboxGroup = __webpack_require__(251);
+	
+	window.UserStore = UserStore;
+	
+	var ProfileTagForm = React.createClass({
+	  displayName: 'ProfileTagForm',
+	
+	  mixins: [LinkedStateMixin, History],
+	
+	  getInitialState: function () {
+	    return { allTags: TagStore.all(), checkedTags: UserStore.currentUser().tags };
+	  },
+	
+	  _tagChange: function () {
+	    this.setState({ allTags: TagStore.all(), checkedTags: UserStore.currentUser().tags });
+	    // TagActions.fetchTags();
+	  },
+	
+	  handleChange: function (event) {
+	    // event.preventDefault(); React doesn't like preventing default with checkboxes
+	    var checkedTags = this.refs.tagsGroup.getCheckedValues(); //Send patch request to user.t ags
+	    UserActions.updateProfileTags(checkedTags);
+	  },
+	
+	  componentDidMount: function () {
+	    this.userListener = UserStore.addListener(this._tagChange);
+	    TagActions.fetchTags();
+	    UserActions.fetchCurrentUser();
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.userListener.remove();
+	  },
+	
+	  render: function () {
+	
+	    var allTags = this.state.allTags,
+	        checkedTags = this.state.checkedTags,
+	        renderTags = [];
+	
+	    allTags.forEach(function (tag, idx) {
+	      var checked = false;
+	      checkedTags.forEach(function (checkTag) {
+	        if (tag.id === checkTag.id) {
+	          checked = true;
+	        }
+	      });
+	
+	      renderTags.push(React.createElement(
+	        'div',
+	        { className: 'profile-tags-item', key: idx },
+	        React.createElement(
+	          'label',
+	          null,
+	          React.createElement(
+	            'span',
+	            { id: 'tags-form-item',
+	              className: 'input-group-addon' },
+	            tag.tag_name,
+	            React.createElement('input', {
+	              id: 'tags-form',
+	              type: 'checkbox',
+	              value: tag.id,
+	              checked: checked })
+	          )
+	        )
+	      ));
+	    });
+	
+	    return React.createElement(
+	      'div',
+	      { className: 'profile-tags-container' },
+	      'My Tags:',
+	      React.createElement('br', null),
+	      React.createElement('br', null),
+	      React.createElement(
+	        CheckboxGroup,
+	        { name: 'profileTags', value: this.state.checkedTags, ref: 'tagsGroup', onChange: this.handleChange },
+	        renderTags
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = ProfileTagForm;
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var TagFormItem = React.createClass({
+	  displayName: "TagFormItem",
+	
+	  render: function () {
+	    var tag = this.props.tag;
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "label",
+	        null,
+	        tag.tag_name,
+	        React.createElement("input", { type: "checkbox",
+	          checked: this.props.checked,
+	          onChange: this.props.handleChange, value: tag.tag_name })
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = TagFormItem;
+
+/***/ },
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34293,216 +34503,6 @@
 	
 	})(this);
 
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* global seek_user */
-	
-	var React = __webpack_require__(1),
-	    TagStore = __webpack_require__(249),
-	    TagActions = __webpack_require__(250),
-	    ProfileTagIndexItem = __webpack_require__(266),
-	    UserStore = __webpack_require__(240),
-	    UserActions = __webpack_require__(241);
-	
-	var ProfileTagIndex = React.createClass({
-	  displayName: 'ProfileTagIndex',
-	
-	  getInitialState: function () {
-	    return { tags: UserStore.currentUser().tags };
-	  },
-	
-	  _tagChange: function () {
-	    return this.setState({ tags: UserStore.currentUser().tags });
-	  },
-	
-	  componentWillMount: function () {
-	    this.userListener = UserStore.addListener(this._tagChange);
-	    UserActions.fetchCurrentUser();
-	  },
-	
-	  componentWillUnmount: function () {
-	    this.userListener.remove();
-	  },
-	
-	  render: function () {
-	    var profileTags;
-	
-	    if (this.state.tags) {
-	      profileTags = this.state.tags;
-	    } else {
-	      profileTags = [];
-	    }
-	
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'ul',
-	        { className: 'prof-tag-index' },
-	        'Feed: ',
-	        profileTags.map(function (tag, idx) {
-	          return React.createElement(ProfileTagIndexItem, { key: idx, tag: tag });
-	        })
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = ProfileTagIndex;
-
-/***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1),
-	    TagActions = __webpack_require__(250),
-	    History = __webpack_require__(159).History;
-	
-	var ProfileTagIndexItem = React.createClass({
-	  displayName: 'ProfileTagIndexItem',
-	
-	  render: function () {
-	    var profileTag = this.props.tag;
-	
-	    return React.createElement(
-	      'div',
-	      { className: 'prof-tag-index-item' },
-	      profileTag.tag_name
-	    );
-	  }
-	});
-	
-	module.exports = ProfileTagIndexItem;
-
-/***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1),
-	    UserActions = __webpack_require__(241),
-	    UserStore = __webpack_require__(240),
-	    History = __webpack_require__(159).History,
-	    TagStore = __webpack_require__(249),
-	    TagActions = __webpack_require__(250),
-	    TagFormItem = __webpack_require__(268),
-	    LinkedStateMixin = __webpack_require__(243);
-	
-	var CheckboxGroup = __webpack_require__(251);
-	
-	window.UserStore = UserStore;
-	
-	var ProfileTagForm = React.createClass({
-	  displayName: 'ProfileTagForm',
-	
-	  mixins: [LinkedStateMixin, History],
-	
-	  getInitialState: function () {
-	    return { allTags: TagStore.all(), checkedTags: UserStore.currentUser().tags };
-	  },
-	
-	  _tagChange: function () {
-	    this.setState({ allTags: TagStore.all(), checkedTags: UserStore.currentUser().tags });
-	    // TagActions.fetchTags();
-	  },
-	
-	  handleChange: function (event) {
-	    // event.preventDefault(); React doesn't like preventing default with checkboxes
-	    var checkedTags = this.refs.tagsGroup.getCheckedValues(); //Send patch request to user.t ags
-	    UserActions.updateProfileTags(checkedTags);
-	  },
-	
-	  componentDidMount: function () {
-	    this.userListener = UserStore.addListener(this._tagChange);
-	    TagActions.fetchTags();
-	    UserActions.fetchCurrentUser();
-	  },
-	
-	  componentWillUnmount: function () {
-	    this.userListener.remove();
-	  },
-	
-	  render: function () {
-	
-	    var allTags = this.state.allTags,
-	        checkedTags = this.state.checkedTags,
-	        renderTags = [];
-	
-	    allTags.forEach(function (tag, idx) {
-	      var checked = false;
-	      checkedTags.forEach(function (checkTag) {
-	        if (tag.id === checkTag.id) {
-	          checked = true;
-	        }
-	      });
-	
-	      renderTags.push(React.createElement(
-	        'div',
-	        { className: 'profile-tags-item', key: idx },
-	        React.createElement(
-	          'label',
-	          null,
-	          React.createElement(
-	            'span',
-	            { id: 'tags-form-item',
-	              className: 'input-group-addon' },
-	            tag.tag_name,
-	            React.createElement('input', {
-	              id: 'tags-form',
-	              type: 'checkbox',
-	              value: tag.id,
-	              checked: checked })
-	          )
-	        )
-	      ));
-	    });
-	
-	    return React.createElement(
-	      'div',
-	      { className: 'profile-tags-container' },
-	      'My Tags:',
-	      React.createElement('br', null),
-	      React.createElement('br', null),
-	      React.createElement(
-	        CheckboxGroup,
-	        { name: 'profileTags', value: this.state.checkedTags, ref: 'tagsGroup', onChange: this.handleChange },
-	        renderTags
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = ProfileTagForm;
-
-/***/ },
-/* 268 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var TagFormItem = React.createClass({
-	  displayName: "TagFormItem",
-	
-	  render: function () {
-	    var tag = this.props.tag;
-	    return React.createElement(
-	      "div",
-	      null,
-	      React.createElement(
-	        "label",
-	        null,
-	        tag.tag_name,
-	        React.createElement("input", { type: "checkbox",
-	          checked: this.props.checked,
-	          onChange: this.props.handleChange, value: tag.tag_name })
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = TagFormItem;
 
 /***/ }
 /******/ ]);

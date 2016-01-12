@@ -1,7 +1,17 @@
 # Seek.
 
+## Summary
 
-## Minimum Viable Product
+Seek is a community platform for asking and answering questions built
+with Ruby on Rails, React.js, Twitter Boostrap, and jQuery. Seek is
+inspired by Quora's model of information sharing.
+
+I wanted to simplify the interface, focusing only on the
+primary function of the site: Seeking and giving answers.
+
+* [Seek][seekanswers.herokuapp.com]
+
+## Main Functionality
 
 Seek is a web application influenced by Quora built using Ruby
 on Rails in tangent with React.js. Users on Seek are able to:
@@ -12,8 +22,7 @@ on Rails in tangent with React.js. Users on Seek are able to:
 - [ ] Log in / Log out
 - [ ] Create, read, edit, and delete questions
 - [ ] Create, read, edit, and delete answers to questions
-- [ ] Tag questions with multiple tags, view questions by tag
-- [ ] Upvote questions, view questions sorted by upvotes
+- [ ] Tag questions with multiple tags
 - [ ] Search for questions by question title
 
 ## Design Docs
@@ -23,31 +32,25 @@ on Rails in tangent with React.js. Users on Seek are able to:
 [view]: ./docs/views.md
 [schema]: ./docs/schema.md
 
-## Implementation Timeline
+## Implementation History
 
 ### Phase 1: User Authentication, Question Model and JSON API (1.5 days)
 
-<!-- In Phase 1, I will begin by implementing user signup and authentication (using
-BCrypt). There will be a basic landing page after signup that will contain the
-container for the application's root React component. Before building out the
-front end, I will begin by setting up a full JSON API for Notes. -->
-
-In Phase 1, I will first establish user signup and authentication functionality
-using BCrypt. Upon signing in, users will be redirected to a page that will contain
-the SeekIndex root React component. I will also implement a JSON API for all models,
-but will begin with the Question Model.
+In Phase 1, I established user signup and authentication functionality
+using BCrypt. Upon signing in, users are be redirected to a page that will contain
+the SeekIndex root React component. I implemented a JSON API for all models,
+beginning with the Question Model.
 
 [Details][phase-one]
 
 ### Phase 2: Flux Architecture and Question CRUD (2.5 days)
 
 In Phase 2, the Flux architecture, React Router, and React view layout for
-Seek will be constructed. When this architecture is functioning, a Question
-store will be created alongside all corresponding actions needed to
-establish CRUD functionality. React views will be created for the
+Seek were constructed. A Question Store was created alongside all corresponding
+actions needed to establish CRUD functionality. React views were created for the
 `QuestionsIndex`, `QuestionsIndexItem`, and `QuestionForm`. Users can create,
-read, edit, and destroy Questions. Basic styling using bootstrap will
-begin when these views are created.
+read, edit, and destroy Questions. Basic styling using bootstrap began
+begin when these views were created.
 
 
 [Details][phase-two]
@@ -56,10 +59,8 @@ begin when these views are created.
 
 Phase 3 adds another level of React components to the hierarchy. Users
 can now reply with Answers to Questions posted by other Users.
-The author of a Question will not be able to answer their own Question.
-Users may also post Comments on Answers, including the author of the
-original question. Once Question title can be posted, I will begin
-constructing the basic search bar component.
+Users may also post Comments on Answers. Basic search bar construction
+began after establishing question/answer posting.
 
 [Details][phase-three]
 
@@ -67,23 +68,24 @@ constructing the basic search bar component.
 
 In phase 4, a Tag component can be added that will attach to a question.
 When a User is signed in, they can view all their preferred Tags and their
-feed will only contain Questions which contain those Tags.
+feed will only contain Questions which contain those Tags. A distinction
+between tags on a question (Taggings) and tags a user prefers (ProfileTags)
+allows for easy filtering of a user's tags.
 
 [Details][phase-four]
 
 ### Phase 5: Search Bar + Nav (1 day)
 
-Phase 5 will focus on fleshing out and improving the Search Bar alongside
+Phase 5 will focused fleshing out and improving the Search Bar alongside
 the full nav bar on the top of the page. This will include styling and
 implementing fuzzy search functionality for Questions by title. The
-Textacular Ruby Gem fuzzy search will be used to achieve this.
+Fuse.js JavaScript library was used to achieve this.
 
 [Details][phase-five]
 
 ### Phase 6: Users Profile Page (1 day)
 
-Phase 6 will improve the existing User show page. Users will be able to
-update their description and profile pictures. Users will be able to
+Phase 6 improved the existing User show page. Users are able to
 view all Questions and Answers they have posted.
 
 [Details][phase-six]

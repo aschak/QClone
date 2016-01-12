@@ -1,0 +1,2687 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Applications/Atom.app/Contents/Resources/app/apm/bin/node',
+1 verbose cli   '/Applications/Atom.app/Contents/Resources/app/apm/node_modules/npm/bin/npm-cli.js',
+1 verbose cli   '--globalconfig',
+1 verbose cli   '/Users/appacademy/.atom/.apm/.apmrc',
+1 verbose cli   '--userconfig',
+1 verbose cli   '/Users/appacademy/.atom/.apmrc',
+1 verbose cli   'install',
+1 verbose cli   '--target=0.34.5',
+1 verbose cli   '--arch=x64' ]
+2 info using npm@2.13.3
+3 info using node@v0.10.40
+4 verbose readDependencies loading dependencies from /Users/appacademy/Desktop/Seek/package.json
+5 warn package.json Seek@1.0.0 No description
+6 verbose install where, deps [ '/Users/appacademy/Desktop/Seek',
+6 verbose install   [ 'babel-core',
+6 verbose install     'babel-loader',
+6 verbose install     'babel-preset-react',
+6 verbose install     'flux',
+6 verbose install     'foobar',
+6 verbose install     'fuse.js',
+6 verbose install     'history',
+6 verbose install     'qs',
+6 verbose install     'react',
+6 verbose install     'react-addons-linked-state-mixin',
+6 verbose install     'react-checkbox-group',
+6 verbose install     'react-dom',
+6 verbose install     'react-router',
+6 verbose install     'webpack' ] ]
+7 verbose install where, peers [ '/Users/appacademy/Desktop/Seek', [] ]
+8 verbose installManyTop reading for lifecycle /Users/appacademy/Desktop/Seek/package.json
+9 info preinstall Seek@1.0.0
+10 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/Base64/package.json
+11 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/align-text/package.json
+12 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/amdefine/package.json
+13 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/ansi-green/package.json
+14 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/ansi-regex/package.json
+15 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/ansi-styles/package.json
+16 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/ansi-wrap/package.json
+17 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/anymatch/package.json
+18 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/arr-diff/package.json
+19 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/arr-flatten/package.json
+20 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/array-unique/package.json
+21 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/arrify/package.json
+22 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/asap/package.json
+23 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/assert/package.json
+24 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/async/package.json
+25 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/async-each/package.json
+26 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-code-frame/package.json
+27 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-core/package.json
+28 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-generator/package.json
+29 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-helper-builder-react-jsx/package.json
+30 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-helpers/package.json
+31 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-loader/package.json
+32 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-messages/package.json
+33 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-syntax-flow/package.json
+34 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-syntax-jsx/package.json
+35 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-flow-strip-types/package.json
+36 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-display-name/package.json
+37 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-jsx/package.json
+38 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-jsx-source/package.json
+39 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-preset-react/package.json
+40 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-register/package.json
+41 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-runtime/package.json
+42 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-template/package.json
+43 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-traverse/package.json
+44 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babel-types/package.json
+45 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/babylon/package.json
+46 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/balanced-match/package.json
+47 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/base62/package.json
+48 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/base64-js/package.json
+49 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/big.js/package.json
+50 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/binary-extensions/package.json
+51 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/brace-expansion/package.json
+52 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/braces/package.json
+53 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/browserify-zlib/package.json
+54 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/buffer/package.json
+55 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/camelcase/package.json
+56 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/center-align/package.json
+57 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/chalk/package.json
+58 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/chokidar/package.json
+59 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/cliui/package.json
+60 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/clone/package.json
+61 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/concat-map/package.json
+62 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/console-browserify/package.json
+63 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/constants-browserify/package.json
+64 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/convert-source-map/package.json
+65 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/core-js/package.json
+66 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/core-util-is/package.json
+67 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/crypto-browserify/package.json
+68 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/date-now/package.json
+69 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/debug/package.json
+70 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/decamelize/package.json
+71 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/deep-equal/package.json
+72 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/detect-indent/package.json
+73 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/domain-browser/package.json
+74 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/enhanced-resolve/package.json
+75 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/envify/package.json
+76 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/errno/package.json
+77 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/escape-string-regexp/package.json
+78 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/esprima-fb/package.json
+79 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/esutils/package.json
+80 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/events/package.json
+81 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/expand-brackets/package.json
+82 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/expand-range/package.json
+83 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/extglob/package.json
+84 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/fbemitter/package.json
+85 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/fbjs/package.json
+86 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/filename-regex/package.json
+87 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/fill-range/package.json
+88 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/flux/package.json
+89 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/foobar/package.json
+90 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/for-in/package.json
+91 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/for-own/package.json
+92 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/fsevents/package.json
+93 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/fuse.js/package.json
+94 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/get-stdin/package.json
+95 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/glob-base/package.json
+96 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/glob-parent/package.json
+97 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/globals/package.json
+98 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/graceful-fs/package.json
+99 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/has-ansi/package.json
+100 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/has-flag/package.json
+101 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/history/package.json
+102 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/home-or-tmp/package.json
+103 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/http-browserify/package.json
+104 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/https-browserify/package.json
+105 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/ieee754/package.json
+106 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/immutable/package.json
+107 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/indexof/package.json
+108 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/inherits/package.json
+109 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/interpret/package.json
+110 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/invariant/package.json
+111 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-binary-path/package.json
+112 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-buffer/package.json
+113 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-dotfile/package.json
+114 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-equal-shallow/package.json
+115 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-extendable/package.json
+116 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-extglob/package.json
+117 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-finite/package.json
+118 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-glob/package.json
+119 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-integer/package.json
+120 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-number/package.json
+121 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/is-primitive/package.json
+122 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/isarray/package.json
+123 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/isobject/package.json
+124 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/js-tokens/package.json
+125 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/json5/package.json
+126 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/jstransform/package.json
+127 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/kind-of/package.json
+128 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/lazy-cache/package.json
+129 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/left-pad/package.json
+130 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/line-numbers/package.json
+131 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/loader-utils/package.json
+132 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/lodash/package.json
+133 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/longest/package.json
+134 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/loose-envify/package.json
+135 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/memory-fs/package.json
+136 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/micromatch/package.json
+137 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/minimatch/package.json
+138 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/minimist/package.json
+139 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/mkdirp/package.json
+140 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/ms/package.json
+141 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/nan/package.json
+142 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/node-libs-browser/package.json
+143 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/normalize-path/package.json
+144 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/number-is-nan/package.json
+145 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/object-assign/package.json
+146 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/object.omit/package.json
+147 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/optimist/package.json
+148 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/os-browserify/package.json
+149 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/os-tmpdir/package.json
+150 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/pako/package.json
+151 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/parse-glob/package.json
+152 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/path-browserify/package.json
+153 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/path-exists/package.json
+154 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/path-is-absolute/package.json
+155 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/pbkdf2-compat/package.json
+156 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/preserve/package.json
+157 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/private/package.json
+158 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/process/package.json
+159 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/process-nextick-args/package.json
+160 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/promise/package.json
+161 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/prr/package.json
+162 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/punycode/package.json
+163 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/qs/package.json
+164 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/query-string/package.json
+165 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/querystring/package.json
+166 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/querystring-es3/package.json
+167 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/randomatic/package.json
+168 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/react/package.json
+169 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/react-addons-linked-state-mixin/package.json
+170 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/react-checkbox-group/package.json
+171 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/react-dom/package.json
+172 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/react-router/package.json
+173 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/readable-stream/package.json
+174 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/readdirp/package.json
+175 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/regex-cache/package.json
+176 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/repeat-element/package.json
+177 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/repeat-string/package.json
+178 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/repeating/package.json
+179 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/right-align/package.json
+180 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/ripemd160/package.json
+181 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/sha.js/package.json
+182 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/shebang-regex/package.json
+183 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/slash/package.json
+184 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/source-list-map/package.json
+185 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/source-map/package.json
+186 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/source-map-support/package.json
+187 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/stream-browserify/package.json
+188 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/strict-uri-encode/package.json
+189 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/string_decoder/package.json
+190 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/strip-ansi/package.json
+191 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/success-symbol/package.json
+192 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/supports-color/package.json
+193 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/tapable/package.json
+194 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/through/package.json
+195 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/timers-browserify/package.json
+196 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/to-fast-properties/package.json
+197 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/trim-right/package.json
+198 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/tty-browserify/package.json
+199 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/ua-parser-js/package.json
+200 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/uglify-js/package.json
+201 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/uglify-to-browserify/package.json
+202 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/url/package.json
+203 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/user-home/package.json
+204 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/util/package.json
+205 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/util-deprecate/package.json
+206 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/vm-browserify/package.json
+207 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/warning/package.json
+208 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/watchpack/package.json
+209 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/webpack/package.json
+210 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/webpack-core/package.json
+211 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/whatwg-fetch/package.json
+212 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/window-size/package.json
+213 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/wordwrap/package.json
+214 verbose installManyTop reading scoped package data from /Users/appacademy/Desktop/Seek/node_modules/yargs/package.json
+215 info package.json Base64@0.2.1 No license field.
+216 info package.json ansi-wrap@0.1.0 license should be a valid SPDX license expression
+217 info package.json arr-flatten@1.0.1 license should be a valid SPDX license expression
+218 info package.json array-unique@0.2.1 license should be a valid SPDX license expression
+219 info package.json asap@2.0.3 license should be a valid SPDX license expression
+220 info package.json assert@1.3.0 assert is also the name of a node core module.
+221 info package.json babel-plugin-syntax-flow@6.3.13 No description
+222 info package.json babel-plugin-syntax-jsx@6.3.13 No description
+223 info package.json babel-traverse@6.3.19 No description
+224 info package.json base62@0.1.1 No license field.
+225 info package.json buffer@3.5.5 buffer is also the name of a node core module.
+226 info package.json console-browserify@1.1.0 No license field.
+227 info package.json date-now@0.1.4 No license field.
+228 info package.json enhanced-resolve@0.9.1 No license field.
+229 info package.json esprima-fb@13001.1001.0-dev-harmony-fb No license field.
+230 info package.json esutils@2.0.2 No license field.
+231 info package.json events@1.1.0 events is also the name of a node core module.
+232 info package.json expand-range@1.8.1 license should be a valid SPDX license expression
+233 info package.json filename-regex@2.0.0 license should be a valid SPDX license expression
+234 info package.json foobar@1.1.0 No license field.
+235 info package.json for-in@0.1.4 license should be a valid SPDX license expression
+236 info package.json for-own@0.1.3 license should be a valid SPDX license expression
+237 info package.json fuse.js@1.3.1 license should be a valid SPDX license expression
+238 info package.json glob-base@0.3.0 license should be a valid SPDX license expression
+239 info package.json http-browserify@1.7.0 license should be a valid SPDX license expression
+240 info package.json indexof@0.0.1 No repository field.
+241 info package.json indexof@0.0.1 No license field.
+242 info package.json is-primitive@2.0.0 license should be a valid SPDX license expression
+243 info package.json jstransform@10.1.0 No license field.
+244 info package.json left-pad@0.0.3 license should be a valid SPDX license expression
+245 info package.json longest@1.0.1 license should be a valid SPDX license expression
+246 info package.json ms@0.7.1 No license field.
+247 info package.json optimist@0.6.1 license should be a valid SPDX license expression
+248 info package.json pako@0.2.8 license should be a valid SPDX license expression
+249 info package.json preserve@0.2.0 license should be a valid SPDX license expression
+250 info package.json punycode@1.4.0 punycode is also the name of a node core module.
+251 info package.json querystring-es3@0.2.1 No license field.
+252 info package.json querystring@0.2.0 querystring is also the name of a node core module.
+253 info package.json querystring@0.2.0 No license field.
+254 info package.json regex-cache@0.4.2 license should be a valid SPDX license expression
+255 info package.json repeat-element@1.1.2 license should be a valid SPDX license expression
+256 info package.json repeat-string@1.5.2 license should be a valid SPDX license expression
+257 info package.json ripemd160@0.2.0 No license field.
+258 info package.json source-map-support@0.2.10 No license field.
+259 info package.json string_decoder@0.10.31 string_decoder is also the name of a node core module.
+260 info package.json timers-browserify@1.4.2 No license field.
+261 info package.json ua-parser-js@0.7.10 No license field.
+262 info package.json url@0.10.3 url is also the name of a node core module.
+263 info package.json util@0.10.3 util is also the name of a node core module.
+264 info package.json webpack-core@0.6.8 No license field.
+265 info package.json whatwg-fetch@0.9.0 No license field.
+266 info package.json window-size@0.1.0 No license field.
+267 verbose readDependencies loading dependencies from /Users/appacademy/Desktop/Seek/package.json
+268 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/Base64/package.json
+269 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/align-text/package.json
+270 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/amdefine/package.json
+271 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/ansi-green/package.json
+272 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/ansi-regex/package.json
+273 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/ansi-styles/package.json
+274 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/ansi-wrap/package.json
+275 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/anymatch/package.json
+276 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/arr-diff/package.json
+277 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/arr-flatten/package.json
+278 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/array-unique/package.json
+279 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/arrify/package.json
+280 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/asap/package.json
+281 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/assert/package.json
+282 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/async/package.json
+283 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/async-each/package.json
+284 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-code-frame/package.json
+285 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-core/package.json
+286 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-generator/package.json
+287 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-helper-builder-react-jsx/package.json
+288 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-helpers/package.json
+289 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-loader/package.json
+290 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-messages/package.json
+291 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-syntax-flow/package.json
+292 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-syntax-jsx/package.json
+293 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-flow-strip-types/package.json
+294 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-display-name/package.json
+295 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-jsx/package.json
+296 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-jsx-source/package.json
+297 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-preset-react/package.json
+298 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-register/package.json
+299 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-runtime/package.json
+300 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-template/package.json
+301 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-traverse/package.json
+302 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babel-types/package.json
+303 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/babylon/package.json
+304 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/balanced-match/package.json
+305 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/base62/package.json
+306 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/base64-js/package.json
+307 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/big.js/package.json
+308 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/binary-extensions/package.json
+309 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/brace-expansion/package.json
+310 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/braces/package.json
+311 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/browserify-zlib/package.json
+312 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/buffer/package.json
+313 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/camelcase/package.json
+314 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/center-align/package.json
+315 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/chalk/package.json
+316 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/chokidar/package.json
+317 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/cliui/package.json
+318 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/clone/package.json
+319 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/concat-map/package.json
+320 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/console-browserify/package.json
+321 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/constants-browserify/package.json
+322 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/convert-source-map/package.json
+323 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/core-js/package.json
+324 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/core-util-is/package.json
+325 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/crypto-browserify/package.json
+326 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/date-now/package.json
+327 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/debug/package.json
+328 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/decamelize/package.json
+329 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/deep-equal/package.json
+330 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/detect-indent/package.json
+331 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/domain-browser/package.json
+332 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/enhanced-resolve/package.json
+333 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/envify/package.json
+334 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/errno/package.json
+335 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/escape-string-regexp/package.json
+336 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/esprima-fb/package.json
+337 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/esutils/package.json
+338 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/events/package.json
+339 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/expand-brackets/package.json
+340 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/expand-range/package.json
+341 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/extglob/package.json
+342 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/fbemitter/package.json
+343 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/fbjs/package.json
+344 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/filename-regex/package.json
+345 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/fill-range/package.json
+346 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/flux/package.json
+347 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/foobar/package.json
+348 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/for-in/package.json
+349 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/for-own/package.json
+350 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/fsevents/package.json
+351 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/fuse.js/package.json
+352 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/get-stdin/package.json
+353 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/glob-base/package.json
+354 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/glob-parent/package.json
+355 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/globals/package.json
+356 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/graceful-fs/package.json
+357 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/has-ansi/package.json
+358 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/has-flag/package.json
+359 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/history/package.json
+360 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/home-or-tmp/package.json
+361 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/http-browserify/package.json
+362 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/https-browserify/package.json
+363 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/ieee754/package.json
+364 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/immutable/package.json
+365 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/indexof/package.json
+366 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/inherits/package.json
+367 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/interpret/package.json
+368 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/invariant/package.json
+369 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-binary-path/package.json
+370 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-buffer/package.json
+371 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-dotfile/package.json
+372 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-equal-shallow/package.json
+373 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-extendable/package.json
+374 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-extglob/package.json
+375 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-finite/package.json
+376 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-glob/package.json
+377 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-integer/package.json
+378 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-number/package.json
+379 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/is-primitive/package.json
+380 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/isarray/package.json
+381 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/isobject/package.json
+382 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/js-tokens/package.json
+383 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/json5/package.json
+384 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/jstransform/package.json
+385 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/kind-of/package.json
+386 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/lazy-cache/package.json
+387 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/left-pad/package.json
+388 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/line-numbers/package.json
+389 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/loader-utils/package.json
+390 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/lodash/package.json
+391 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/longest/package.json
+392 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/loose-envify/package.json
+393 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/memory-fs/package.json
+394 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/micromatch/package.json
+395 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/minimatch/package.json
+396 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/minimist/package.json
+397 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/mkdirp/package.json
+398 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/ms/package.json
+399 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/nan/package.json
+400 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/node-libs-browser/package.json
+401 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/normalize-path/package.json
+402 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/number-is-nan/package.json
+403 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/object-assign/package.json
+404 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/object.omit/package.json
+405 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/optimist/package.json
+406 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/os-browserify/package.json
+407 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/os-tmpdir/package.json
+408 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/pako/package.json
+409 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/parse-glob/package.json
+410 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/path-browserify/package.json
+411 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/path-exists/package.json
+412 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/path-is-absolute/package.json
+413 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/pbkdf2-compat/package.json
+414 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/preserve/package.json
+415 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/private/package.json
+416 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/process/package.json
+417 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/process-nextick-args/package.json
+418 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/promise/package.json
+419 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/prr/package.json
+420 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/punycode/package.json
+421 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/qs/package.json
+422 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/query-string/package.json
+423 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/querystring/package.json
+424 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/querystring-es3/package.json
+425 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/randomatic/package.json
+426 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/react/package.json
+427 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/react-addons-linked-state-mixin/package.json
+428 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/react-checkbox-group/package.json
+429 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/react-dom/package.json
+430 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/react-router/package.json
+431 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/readable-stream/package.json
+432 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/readdirp/package.json
+433 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/regex-cache/package.json
+434 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/repeat-element/package.json
+435 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/repeat-string/package.json
+436 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/repeating/package.json
+437 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/right-align/package.json
+438 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/ripemd160/package.json
+439 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/sha.js/package.json
+440 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/shebang-regex/package.json
+441 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/slash/package.json
+442 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/source-list-map/package.json
+443 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/source-map/package.json
+444 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/source-map-support/package.json
+445 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/stream-browserify/package.json
+446 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/strict-uri-encode/package.json
+447 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/string_decoder/package.json
+448 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/strip-ansi/package.json
+449 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/success-symbol/package.json
+450 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/supports-color/package.json
+451 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/tapable/package.json
+452 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/through/package.json
+453 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/timers-browserify/package.json
+454 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/to-fast-properties/package.json
+455 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/trim-right/package.json
+456 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/tty-browserify/package.json
+457 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/ua-parser-js/package.json
+458 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/uglify-js/package.json
+459 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/uglify-to-browserify/package.json
+460 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/url/package.json
+461 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/user-home/package.json
+462 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/util/package.json
+463 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/util-deprecate/package.json
+464 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/vm-browserify/package.json
+465 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/warning/package.json
+466 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/watchpack/package.json
+467 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/webpack/package.json
+468 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/webpack-core/package.json
+469 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/whatwg-fetch/package.json
+470 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/window-size/package.json
+471 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/wordwrap/package.json
+472 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/yargs/package.json
+473 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/babylon/package.json
+474 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/detect-indent/package.json
+475 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/envify/package.json
+476 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/errno/package.json
+477 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/esparse/package.json
+478 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/esvalidate/package.json
+479 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/json5/package.json
+480 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/mkdirp/package.json
+481 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/repeating/package.json
+482 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/sha.js/package.json
+483 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/uglifyjs/package.json
+484 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/user-home/package.json
+485 verbose targetResolver reading package data from /Users/appacademy/Desktop/Seek/node_modules/.bin/webpack/package.json
+486 verbose already installed skipping babel-core@^6.3.17 /Users/appacademy/Desktop/Seek
+487 verbose already installed skipping babel-loader@^6.2.0 /Users/appacademy/Desktop/Seek
+488 verbose already installed skipping babel-preset-react@^6.3.13 /Users/appacademy/Desktop/Seek
+489 verbose already installed skipping flux@^2.1.1 /Users/appacademy/Desktop/Seek
+490 verbose already installed skipping foobar@^1.1.0 /Users/appacademy/Desktop/Seek
+491 verbose already installed skipping fuse.js@^1.3.1 /Users/appacademy/Desktop/Seek
+492 verbose already installed skipping history@1.13.x /Users/appacademy/Desktop/Seek
+493 verbose already installed skipping qs@^6.0.1 /Users/appacademy/Desktop/Seek
+494 verbose already installed skipping react@^0.14.3 /Users/appacademy/Desktop/Seek
+495 verbose already installed skipping react-addons-linked-state-mixin@^0.14.3 /Users/appacademy/Desktop/Seek
+496 verbose already installed skipping react-checkbox-group@^0.3.1 /Users/appacademy/Desktop/Seek
+497 verbose already installed skipping react-dom@^0.14.3 /Users/appacademy/Desktop/Seek
+498 verbose already installed skipping react-router@^1.0.0 /Users/appacademy/Desktop/Seek
+499 verbose already installed skipping webpack@^1.12.9 /Users/appacademy/Desktop/Seek
+500 silly install resolved []
+501 info build /Users/appacademy/Desktop/Seek
+502 info linkStuff Seek@1.0.0
+503 silly linkStuff Seek@1.0.0 has /Users/appacademy/Desktop as its parent node_modules
+504 verbose linkBins Seek@1.0.0
+505 verbose linkMans Seek@1.0.0
+506 verbose rebuildBundles Seek@1.0.0
+507 verbose rebuildBundles [ '.bin',
+507 verbose rebuildBundles   'Base64',
+507 verbose rebuildBundles   'align-text',
+507 verbose rebuildBundles   'amdefine',
+507 verbose rebuildBundles   'ansi-green',
+507 verbose rebuildBundles   'ansi-regex',
+507 verbose rebuildBundles   'ansi-styles',
+507 verbose rebuildBundles   'ansi-wrap',
+507 verbose rebuildBundles   'anymatch',
+507 verbose rebuildBundles   'arr-diff',
+507 verbose rebuildBundles   'arr-flatten',
+507 verbose rebuildBundles   'array-unique',
+507 verbose rebuildBundles   'arrify',
+507 verbose rebuildBundles   'asap',
+507 verbose rebuildBundles   'assert',
+507 verbose rebuildBundles   'async',
+507 verbose rebuildBundles   'async-each',
+507 verbose rebuildBundles   'babel-code-frame',
+507 verbose rebuildBundles   'babel-core',
+507 verbose rebuildBundles   'babel-generator',
+507 verbose rebuildBundles   'babel-helper-builder-react-jsx',
+507 verbose rebuildBundles   'babel-helpers',
+507 verbose rebuildBundles   'babel-loader',
+507 verbose rebuildBundles   'babel-messages',
+507 verbose rebuildBundles   'babel-plugin-syntax-flow',
+507 verbose rebuildBundles   'babel-plugin-syntax-jsx',
+507 verbose rebuildBundles   'babel-plugin-transform-flow-strip-types',
+507 verbose rebuildBundles   'babel-plugin-transform-react-display-name',
+507 verbose rebuildBundles   'babel-plugin-transform-react-jsx',
+507 verbose rebuildBundles   'babel-plugin-transform-react-jsx-source',
+507 verbose rebuildBundles   'babel-preset-react',
+507 verbose rebuildBundles   'babel-register',
+507 verbose rebuildBundles   'babel-runtime',
+507 verbose rebuildBundles   'babel-template',
+507 verbose rebuildBundles   'babel-traverse',
+507 verbose rebuildBundles   'babel-types',
+507 verbose rebuildBundles   'babylon',
+507 verbose rebuildBundles   'balanced-match',
+507 verbose rebuildBundles   'base62',
+507 verbose rebuildBundles   'base64-js',
+507 verbose rebuildBundles   'big.js',
+507 verbose rebuildBundles   'binary-extensions',
+507 verbose rebuildBundles   'brace-expansion',
+507 verbose rebuildBundles   'braces',
+507 verbose rebuildBundles   'browserify-zlib',
+507 verbose rebuildBundles   'buffer',
+507 verbose rebuildBundles   'camelcase',
+507 verbose rebuildBundles   'center-align',
+507 verbose rebuildBundles   'chalk',
+507 verbose rebuildBundles   'chokidar',
+507 verbose rebuildBundles   'cliui',
+507 verbose rebuildBundles   'clone',
+507 verbose rebuildBundles   'concat-map',
+507 verbose rebuildBundles   'console-browserify',
+507 verbose rebuildBundles   'constants-browserify',
+507 verbose rebuildBundles   'convert-source-map',
+507 verbose rebuildBundles   'core-js',
+507 verbose rebuildBundles   'core-util-is',
+507 verbose rebuildBundles   'crypto-browserify',
+507 verbose rebuildBundles   'date-now',
+507 verbose rebuildBundles   'debug',
+507 verbose rebuildBundles   'decamelize',
+507 verbose rebuildBundles   'deep-equal',
+507 verbose rebuildBundles   'detect-indent',
+507 verbose rebuildBundles   'domain-browser',
+507 verbose rebuildBundles   'enhanced-resolve',
+507 verbose rebuildBundles   'envify',
+507 verbose rebuildBundles   'errno',
+507 verbose rebuildBundles   'escape-string-regexp',
+507 verbose rebuildBundles   'esprima-fb',
+507 verbose rebuildBundles   'esutils',
+507 verbose rebuildBundles   'events',
+507 verbose rebuildBundles   'expand-brackets',
+507 verbose rebuildBundles   'expand-range',
+507 verbose rebuildBundles   'extglob',
+507 verbose rebuildBundles   'fbemitter',
+507 verbose rebuildBundles   'fbjs',
+507 verbose rebuildBundles   'filename-regex',
+507 verbose rebuildBundles   'fill-range',
+507 verbose rebuildBundles   'flux',
+507 verbose rebuildBundles   'foobar',
+507 verbose rebuildBundles   'for-in',
+507 verbose rebuildBundles   'for-own',
+507 verbose rebuildBundles   'fsevents',
+507 verbose rebuildBundles   'fuse.js',
+507 verbose rebuildBundles   'get-stdin',
+507 verbose rebuildBundles   'glob-base',
+507 verbose rebuildBundles   'glob-parent',
+507 verbose rebuildBundles   'globals',
+507 verbose rebuildBundles   'graceful-fs',
+507 verbose rebuildBundles   'has-ansi',
+507 verbose rebuildBundles   'has-flag',
+507 verbose rebuildBundles   'history',
+507 verbose rebuildBundles   'home-or-tmp',
+507 verbose rebuildBundles   'http-browserify',
+507 verbose rebuildBundles   'https-browserify',
+507 verbose rebuildBundles   'ieee754',
+507 verbose rebuildBundles   'immutable',
+507 verbose rebuildBundles   'indexof',
+507 verbose rebuildBundles   'inherits',
+507 verbose rebuildBundles   'interpret',
+507 verbose rebuildBundles   'invariant',
+507 verbose rebuildBundles   'is-binary-path',
+507 verbose rebuildBundles   'is-buffer',
+507 verbose rebuildBundles   'is-dotfile',
+507 verbose rebuildBundles   'is-equal-shallow',
+507 verbose rebuildBundles   'is-extendable',
+507 verbose rebuildBundles   'is-extglob',
+507 verbose rebuildBundles   'is-finite',
+507 verbose rebuildBundles   'is-glob',
+507 verbose rebuildBundles   'is-integer',
+507 verbose rebuildBundles   'is-number',
+507 verbose rebuildBundles   'is-primitive',
+507 verbose rebuildBundles   'isarray',
+507 verbose rebuildBundles   'isobject',
+507 verbose rebuildBundles   'js-tokens',
+507 verbose rebuildBundles   'json5',
+507 verbose rebuildBundles   'jstransform',
+507 verbose rebuildBundles   'kind-of',
+507 verbose rebuildBundles   'lazy-cache',
+507 verbose rebuildBundles   'left-pad',
+507 verbose rebuildBundles   'line-numbers',
+507 verbose rebuildBundles   'loader-utils',
+507 verbose rebuildBundles   'lodash',
+507 verbose rebuildBundles   'longest',
+507 verbose rebuildBundles   'loose-envify',
+507 verbose rebuildBundles   'memory-fs',
+507 verbose rebuildBundles   'micromatch',
+507 verbose rebuildBundles   'minimatch',
+507 verbose rebuildBundles   'minimist',
+507 verbose rebuildBundles   'mkdirp',
+507 verbose rebuildBundles   'ms',
+507 verbose rebuildBundles   'nan',
+507 verbose rebuildBundles   'node-libs-browser',
+507 verbose rebuildBundles   'normalize-path',
+507 verbose rebuildBundles   'number-is-nan',
+507 verbose rebuildBundles   'object-assign',
+507 verbose rebuildBundles   'object.omit',
+507 verbose rebuildBundles   'optimist',
+507 verbose rebuildBundles   'os-browserify',
+507 verbose rebuildBundles   'os-tmpdir',
+507 verbose rebuildBundles   'pako',
+507 verbose rebuildBundles   'parse-glob',
+507 verbose rebuildBundles   'path-browserify',
+507 verbose rebuildBundles   'path-exists',
+507 verbose rebuildBundles   'path-is-absolute',
+507 verbose rebuildBundles   'pbkdf2-compat',
+507 verbose rebuildBundles   'preserve',
+507 verbose rebuildBundles   'private',
+507 verbose rebuildBundles   'process',
+507 verbose rebuildBundles   'process-nextick-args',
+507 verbose rebuildBundles   'promise',
+507 verbose rebuildBundles   'prr',
+507 verbose rebuildBundles   'punycode',
+507 verbose rebuildBundles   'qs',
+507 verbose rebuildBundles   'query-string',
+507 verbose rebuildBundles   'querystring',
+507 verbose rebuildBundles   'querystring-es3',
+507 verbose rebuildBundles   'randomatic',
+507 verbose rebuildBundles   'react',
+507 verbose rebuildBundles   'react-addons-linked-state-mixin',
+507 verbose rebuildBundles   'react-checkbox-group',
+507 verbose rebuildBundles   'react-dom',
+507 verbose rebuildBundles   'react-router',
+507 verbose rebuildBundles   'readable-stream',
+507 verbose rebuildBundles   'readdirp',
+507 verbose rebuildBundles   'regex-cache',
+507 verbose rebuildBundles   'repeat-element',
+507 verbose rebuildBundles   'repeat-string',
+507 verbose rebuildBundles   'repeating',
+507 verbose rebuildBundles   'right-align',
+507 verbose rebuildBundles   'ripemd160',
+507 verbose rebuildBundles   'sha.js',
+507 verbose rebuildBundles   'shebang-regex',
+507 verbose rebuildBundles   'slash',
+507 verbose rebuildBundles   'source-list-map',
+507 verbose rebuildBundles   'source-map',
+507 verbose rebuildBundles   'source-map-support',
+507 verbose rebuildBundles   'stream-browserify',
+507 verbose rebuildBundles   'strict-uri-encode',
+507 verbose rebuildBundles   'string_decoder',
+507 verbose rebuildBundles   'strip-ansi',
+507 verbose rebuildBundles   'success-symbol',
+507 verbose rebuildBundles   'supports-color',
+507 verbose rebuildBundles   'tapable',
+507 verbose rebuildBundles   'through',
+507 verbose rebuildBundles   'timers-browserify',
+507 verbose rebuildBundles   'to-fast-properties',
+507 verbose rebuildBundles   'trim-right',
+507 verbose rebuildBundles   'tty-browserify',
+507 verbose rebuildBundles   'ua-parser-js',
+507 verbose rebuildBundles   'uglify-js',
+507 verbose rebuildBundles   'uglify-to-browserify',
+507 verbose rebuildBundles   'url',
+507 verbose rebuildBundles   'user-home',
+507 verbose rebuildBundles   'util',
+507 verbose rebuildBundles   'util-deprecate',
+507 verbose rebuildBundles   'vm-browserify',
+507 verbose rebuildBundles   'warning',
+507 verbose rebuildBundles   'watchpack',
+507 verbose rebuildBundles   'webpack',
+507 verbose rebuildBundles   'webpack-core',
+507 verbose rebuildBundles   'whatwg-fetch',
+507 verbose rebuildBundles   'window-size',
+507 verbose rebuildBundles   'wordwrap',
+507 verbose rebuildBundles   'yargs' ]
+508 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/Base64
+509 info build /Users/appacademy/Desktop/Seek/node_modules/Base64
+510 info preinstall Base64@0.2.1
+511 info linkStuff Base64@0.2.1
+512 silly linkStuff Base64@0.2.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+513 verbose linkBins Base64@0.2.1
+514 verbose linkMans Base64@0.2.1
+515 verbose rebuildBundles Base64@0.2.1
+516 info install Base64@0.2.1
+517 info postinstall Base64@0.2.1
+518 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/align-text
+519 info build /Users/appacademy/Desktop/Seek/node_modules/align-text
+520 info preinstall align-text@0.1.3
+521 info linkStuff align-text@0.1.3
+522 silly linkStuff align-text@0.1.3 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+523 verbose linkBins align-text@0.1.3
+524 verbose linkMans align-text@0.1.3
+525 verbose rebuildBundles align-text@0.1.3
+526 info install align-text@0.1.3
+527 info postinstall align-text@0.1.3
+528 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/amdefine
+529 info build /Users/appacademy/Desktop/Seek/node_modules/amdefine
+530 info preinstall amdefine@1.0.0
+531 info linkStuff amdefine@1.0.0
+532 silly linkStuff amdefine@1.0.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+533 verbose linkBins amdefine@1.0.0
+534 verbose linkMans amdefine@1.0.0
+535 verbose rebuildBundles amdefine@1.0.0
+536 info install amdefine@1.0.0
+537 info postinstall amdefine@1.0.0
+538 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/ansi-green
+539 info build /Users/appacademy/Desktop/Seek/node_modules/ansi-green
+540 info preinstall ansi-green@0.1.1
+541 info linkStuff ansi-green@0.1.1
+542 silly linkStuff ansi-green@0.1.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+543 verbose linkBins ansi-green@0.1.1
+544 verbose linkMans ansi-green@0.1.1
+545 verbose rebuildBundles ansi-green@0.1.1
+546 info install ansi-green@0.1.1
+547 info postinstall ansi-green@0.1.1
+548 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/ansi-regex
+549 info build /Users/appacademy/Desktop/Seek/node_modules/ansi-regex
+550 info preinstall ansi-regex@2.0.0
+551 info linkStuff ansi-regex@2.0.0
+552 silly linkStuff ansi-regex@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+553 verbose linkBins ansi-regex@2.0.0
+554 verbose linkMans ansi-regex@2.0.0
+555 verbose rebuildBundles ansi-regex@2.0.0
+556 info install ansi-regex@2.0.0
+557 info postinstall ansi-regex@2.0.0
+558 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/ansi-styles
+559 info build /Users/appacademy/Desktop/Seek/node_modules/ansi-styles
+560 info preinstall ansi-styles@2.1.0
+561 info linkStuff ansi-styles@2.1.0
+562 silly linkStuff ansi-styles@2.1.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+563 verbose linkBins ansi-styles@2.1.0
+564 verbose linkMans ansi-styles@2.1.0
+565 verbose rebuildBundles ansi-styles@2.1.0
+566 info install ansi-styles@2.1.0
+567 info postinstall ansi-styles@2.1.0
+568 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/ansi-wrap
+569 info build /Users/appacademy/Desktop/Seek/node_modules/ansi-wrap
+570 info preinstall ansi-wrap@0.1.0
+571 info linkStuff ansi-wrap@0.1.0
+572 silly linkStuff ansi-wrap@0.1.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+573 verbose linkBins ansi-wrap@0.1.0
+574 verbose linkMans ansi-wrap@0.1.0
+575 verbose rebuildBundles ansi-wrap@0.1.0
+576 info install ansi-wrap@0.1.0
+577 info postinstall ansi-wrap@0.1.0
+578 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/anymatch
+579 info build /Users/appacademy/Desktop/Seek/node_modules/anymatch
+580 info preinstall anymatch@1.3.0
+581 info linkStuff anymatch@1.3.0
+582 silly linkStuff anymatch@1.3.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+583 verbose linkBins anymatch@1.3.0
+584 verbose linkMans anymatch@1.3.0
+585 verbose rebuildBundles anymatch@1.3.0
+586 info install anymatch@1.3.0
+587 info postinstall anymatch@1.3.0
+588 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/arr-diff
+589 info build /Users/appacademy/Desktop/Seek/node_modules/arr-diff
+590 info preinstall arr-diff@2.0.0
+591 info linkStuff arr-diff@2.0.0
+592 silly linkStuff arr-diff@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+593 verbose linkBins arr-diff@2.0.0
+594 verbose linkMans arr-diff@2.0.0
+595 verbose rebuildBundles arr-diff@2.0.0
+596 info install arr-diff@2.0.0
+597 info postinstall arr-diff@2.0.0
+598 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/arr-flatten
+599 info build /Users/appacademy/Desktop/Seek/node_modules/arr-flatten
+600 info preinstall arr-flatten@1.0.1
+601 info linkStuff arr-flatten@1.0.1
+602 silly linkStuff arr-flatten@1.0.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+603 verbose linkBins arr-flatten@1.0.1
+604 verbose linkMans arr-flatten@1.0.1
+605 verbose rebuildBundles arr-flatten@1.0.1
+606 info install arr-flatten@1.0.1
+607 info postinstall arr-flatten@1.0.1
+608 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/array-unique
+609 info build /Users/appacademy/Desktop/Seek/node_modules/array-unique
+610 info preinstall array-unique@0.2.1
+611 info linkStuff array-unique@0.2.1
+612 silly linkStuff array-unique@0.2.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+613 verbose linkBins array-unique@0.2.1
+614 verbose linkMans array-unique@0.2.1
+615 verbose rebuildBundles array-unique@0.2.1
+616 info install array-unique@0.2.1
+617 info postinstall array-unique@0.2.1
+618 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/arrify
+619 info build /Users/appacademy/Desktop/Seek/node_modules/arrify
+620 info preinstall arrify@1.0.1
+621 info linkStuff arrify@1.0.1
+622 silly linkStuff arrify@1.0.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+623 verbose linkBins arrify@1.0.1
+624 verbose linkMans arrify@1.0.1
+625 verbose rebuildBundles arrify@1.0.1
+626 info install arrify@1.0.1
+627 info postinstall arrify@1.0.1
+628 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/asap
+629 info build /Users/appacademy/Desktop/Seek/node_modules/asap
+630 info preinstall asap@2.0.3
+631 info linkStuff asap@2.0.3
+632 silly linkStuff asap@2.0.3 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+633 verbose linkBins asap@2.0.3
+634 verbose linkMans asap@2.0.3
+635 verbose rebuildBundles asap@2.0.3
+636 info install asap@2.0.3
+637 info postinstall asap@2.0.3
+638 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/assert
+639 info build /Users/appacademy/Desktop/Seek/node_modules/assert
+640 info preinstall assert@1.3.0
+641 info linkStuff assert@1.3.0
+642 silly linkStuff assert@1.3.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+643 verbose linkBins assert@1.3.0
+644 verbose linkMans assert@1.3.0
+645 verbose rebuildBundles assert@1.3.0
+646 info install assert@1.3.0
+647 info postinstall assert@1.3.0
+648 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/async
+649 info build /Users/appacademy/Desktop/Seek/node_modules/async
+650 info preinstall async@1.5.0
+651 info linkStuff async@1.5.0
+652 silly linkStuff async@1.5.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+653 verbose linkBins async@1.5.0
+654 verbose linkMans async@1.5.0
+655 verbose rebuildBundles async@1.5.0
+656 info install async@1.5.0
+657 info postinstall async@1.5.0
+658 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/async-each
+659 info build /Users/appacademy/Desktop/Seek/node_modules/async-each
+660 info preinstall async-each@0.1.6
+661 info linkStuff async-each@0.1.6
+662 silly linkStuff async-each@0.1.6 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+663 verbose linkBins async-each@0.1.6
+664 verbose linkMans async-each@0.1.6
+665 verbose rebuildBundles async-each@0.1.6
+666 info install async-each@0.1.6
+667 info postinstall async-each@0.1.6
+668 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-code-frame
+669 info build /Users/appacademy/Desktop/Seek/node_modules/babel-code-frame
+670 info preinstall babel-code-frame@6.3.13
+671 info linkStuff babel-code-frame@6.3.13
+672 silly linkStuff babel-code-frame@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+673 verbose linkBins babel-code-frame@6.3.13
+674 verbose linkMans babel-code-frame@6.3.13
+675 verbose rebuildBundles babel-code-frame@6.3.13
+676 info install babel-code-frame@6.3.13
+677 info postinstall babel-code-frame@6.3.13
+678 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-generator
+679 info build /Users/appacademy/Desktop/Seek/node_modules/babel-generator
+680 info preinstall babel-generator@6.3.20
+681 info linkStuff babel-generator@6.3.20
+682 silly linkStuff babel-generator@6.3.20 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+683 verbose linkBins babel-generator@6.3.20
+684 verbose linkMans babel-generator@6.3.20
+685 verbose rebuildBundles babel-generator@6.3.20
+686 info install babel-generator@6.3.20
+687 info postinstall babel-generator@6.3.20
+688 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-helper-builder-react-jsx
+689 info build /Users/appacademy/Desktop/Seek/node_modules/babel-helper-builder-react-jsx
+690 info preinstall babel-helper-builder-react-jsx@6.3.13
+691 info linkStuff babel-helper-builder-react-jsx@6.3.13
+692 silly linkStuff babel-helper-builder-react-jsx@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+693 verbose linkBins babel-helper-builder-react-jsx@6.3.13
+694 verbose linkMans babel-helper-builder-react-jsx@6.3.13
+695 verbose rebuildBundles babel-helper-builder-react-jsx@6.3.13
+696 info install babel-helper-builder-react-jsx@6.3.13
+697 info postinstall babel-helper-builder-react-jsx@6.3.13
+698 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-helpers
+699 info build /Users/appacademy/Desktop/Seek/node_modules/babel-helpers
+700 info preinstall babel-helpers@6.3.13
+701 info linkStuff babel-helpers@6.3.13
+702 silly linkStuff babel-helpers@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+703 verbose linkBins babel-helpers@6.3.13
+704 verbose linkMans babel-helpers@6.3.13
+705 verbose rebuildBundles babel-helpers@6.3.13
+706 info install babel-helpers@6.3.13
+707 info postinstall babel-helpers@6.3.13
+708 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-messages
+709 info build /Users/appacademy/Desktop/Seek/node_modules/babel-messages
+710 info preinstall babel-messages@6.3.18
+711 info linkStuff babel-messages@6.3.18
+712 silly linkStuff babel-messages@6.3.18 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+713 verbose linkBins babel-messages@6.3.18
+714 verbose linkMans babel-messages@6.3.18
+715 verbose rebuildBundles babel-messages@6.3.18
+716 info install babel-messages@6.3.18
+717 info postinstall babel-messages@6.3.18
+718 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-syntax-flow
+719 info build /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-syntax-flow
+720 info preinstall babel-plugin-syntax-flow@6.3.13
+721 info linkStuff babel-plugin-syntax-flow@6.3.13
+722 silly linkStuff babel-plugin-syntax-flow@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+723 verbose linkBins babel-plugin-syntax-flow@6.3.13
+724 verbose linkMans babel-plugin-syntax-flow@6.3.13
+725 verbose rebuildBundles babel-plugin-syntax-flow@6.3.13
+726 info install babel-plugin-syntax-flow@6.3.13
+727 info postinstall babel-plugin-syntax-flow@6.3.13
+728 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-syntax-jsx
+729 info build /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-syntax-jsx
+730 info preinstall babel-plugin-syntax-jsx@6.3.13
+731 info linkStuff babel-plugin-syntax-jsx@6.3.13
+732 silly linkStuff babel-plugin-syntax-jsx@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+733 verbose linkBins babel-plugin-syntax-jsx@6.3.13
+734 verbose linkMans babel-plugin-syntax-jsx@6.3.13
+735 verbose rebuildBundles babel-plugin-syntax-jsx@6.3.13
+736 info install babel-plugin-syntax-jsx@6.3.13
+737 info postinstall babel-plugin-syntax-jsx@6.3.13
+738 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-flow-strip-types
+739 info build /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-flow-strip-types
+740 info preinstall babel-plugin-transform-flow-strip-types@6.3.15
+741 info linkStuff babel-plugin-transform-flow-strip-types@6.3.15
+742 silly linkStuff babel-plugin-transform-flow-strip-types@6.3.15 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+743 verbose linkBins babel-plugin-transform-flow-strip-types@6.3.15
+744 verbose linkMans babel-plugin-transform-flow-strip-types@6.3.15
+745 verbose rebuildBundles babel-plugin-transform-flow-strip-types@6.3.15
+746 info install babel-plugin-transform-flow-strip-types@6.3.15
+747 info postinstall babel-plugin-transform-flow-strip-types@6.3.15
+748 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-display-name
+749 info build /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-display-name
+750 info preinstall babel-plugin-transform-react-display-name@6.3.13
+751 info linkStuff babel-plugin-transform-react-display-name@6.3.13
+752 silly linkStuff babel-plugin-transform-react-display-name@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+753 verbose linkBins babel-plugin-transform-react-display-name@6.3.13
+754 verbose linkMans babel-plugin-transform-react-display-name@6.3.13
+755 verbose rebuildBundles babel-plugin-transform-react-display-name@6.3.13
+756 info install babel-plugin-transform-react-display-name@6.3.13
+757 info postinstall babel-plugin-transform-react-display-name@6.3.13
+758 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-jsx
+759 info build /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-jsx
+760 info preinstall babel-plugin-transform-react-jsx@6.3.13
+761 info linkStuff babel-plugin-transform-react-jsx@6.3.13
+762 silly linkStuff babel-plugin-transform-react-jsx@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+763 verbose linkBins babel-plugin-transform-react-jsx@6.3.13
+764 verbose linkMans babel-plugin-transform-react-jsx@6.3.13
+765 verbose rebuildBundles babel-plugin-transform-react-jsx@6.3.13
+766 info install babel-plugin-transform-react-jsx@6.3.13
+767 info postinstall babel-plugin-transform-react-jsx@6.3.13
+768 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-jsx-source
+769 info build /Users/appacademy/Desktop/Seek/node_modules/babel-plugin-transform-react-jsx-source
+770 info preinstall babel-plugin-transform-react-jsx-source@6.3.13
+771 info linkStuff babel-plugin-transform-react-jsx-source@6.3.13
+772 silly linkStuff babel-plugin-transform-react-jsx-source@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+773 verbose linkBins babel-plugin-transform-react-jsx-source@6.3.13
+774 verbose linkMans babel-plugin-transform-react-jsx-source@6.3.13
+775 verbose rebuildBundles babel-plugin-transform-react-jsx-source@6.3.13
+776 info install babel-plugin-transform-react-jsx-source@6.3.13
+777 info postinstall babel-plugin-transform-react-jsx-source@6.3.13
+778 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-register
+779 info build /Users/appacademy/Desktop/Seek/node_modules/babel-register
+780 info preinstall babel-register@6.3.13
+781 info linkStuff babel-register@6.3.13
+782 silly linkStuff babel-register@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+783 verbose linkBins babel-register@6.3.13
+784 verbose linkMans babel-register@6.3.13
+785 verbose rebuildBundles babel-register@6.3.13
+786 info install babel-register@6.3.13
+787 info postinstall babel-register@6.3.13
+788 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-runtime
+789 info build /Users/appacademy/Desktop/Seek/node_modules/babel-runtime
+790 info preinstall babel-runtime@5.8.34
+791 info linkStuff babel-runtime@5.8.34
+792 silly linkStuff babel-runtime@5.8.34 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+793 verbose linkBins babel-runtime@5.8.34
+794 verbose linkMans babel-runtime@5.8.34
+795 verbose rebuildBundles babel-runtime@5.8.34
+796 info install babel-runtime@5.8.34
+797 info postinstall babel-runtime@5.8.34
+798 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-template
+799 info build /Users/appacademy/Desktop/Seek/node_modules/babel-template
+800 info preinstall babel-template@6.3.13
+801 info linkStuff babel-template@6.3.13
+802 silly linkStuff babel-template@6.3.13 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+803 verbose linkBins babel-template@6.3.13
+804 verbose linkMans babel-template@6.3.13
+805 verbose rebuildBundles babel-template@6.3.13
+806 info install babel-template@6.3.13
+807 info postinstall babel-template@6.3.13
+808 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-traverse
+809 info build /Users/appacademy/Desktop/Seek/node_modules/babel-traverse
+810 info preinstall babel-traverse@6.3.19
+811 info linkStuff babel-traverse@6.3.19
+812 silly linkStuff babel-traverse@6.3.19 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+813 verbose linkBins babel-traverse@6.3.19
+814 verbose linkMans babel-traverse@6.3.19
+815 verbose rebuildBundles babel-traverse@6.3.19
+816 info install babel-traverse@6.3.19
+817 info postinstall babel-traverse@6.3.19
+818 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babel-types
+819 info build /Users/appacademy/Desktop/Seek/node_modules/babel-types
+820 info preinstall babel-types@6.3.20
+821 info linkStuff babel-types@6.3.20
+822 silly linkStuff babel-types@6.3.20 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+823 verbose linkBins babel-types@6.3.20
+824 verbose linkMans babel-types@6.3.20
+825 verbose rebuildBundles babel-types@6.3.20
+826 info install babel-types@6.3.20
+827 info postinstall babel-types@6.3.20
+828 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/babylon
+829 info build /Users/appacademy/Desktop/Seek/node_modules/babylon
+830 info preinstall babylon@6.3.20
+831 info linkStuff babylon@6.3.20
+832 silly linkStuff babylon@6.3.20 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+833 verbose linkBins babylon@6.3.20
+834 verbose link bins [ { babylon: './bin/babylon.js' },
+834 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/.bin',
+834 verbose link bins   false ]
+835 verbose linkMans babylon@6.3.20
+836 verbose rebuildBundles babylon@6.3.20
+837 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/.bin/babylon is being purged
+838 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/.bin/babylon
+839 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/.bin/babylon
+840 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/.bin
+841 info install babylon@6.3.20
+842 info postinstall babylon@6.3.20
+843 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/balanced-match
+844 info build /Users/appacademy/Desktop/Seek/node_modules/balanced-match
+845 info preinstall balanced-match@0.3.0
+846 info linkStuff balanced-match@0.3.0
+847 silly linkStuff balanced-match@0.3.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+848 verbose linkBins balanced-match@0.3.0
+849 verbose linkMans balanced-match@0.3.0
+850 verbose rebuildBundles balanced-match@0.3.0
+851 info install balanced-match@0.3.0
+852 info postinstall balanced-match@0.3.0
+853 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/base62
+854 info build /Users/appacademy/Desktop/Seek/node_modules/base62
+855 info preinstall base62@0.1.1
+856 info linkStuff base62@0.1.1
+857 silly linkStuff base62@0.1.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+858 verbose linkBins base62@0.1.1
+859 verbose linkMans base62@0.1.1
+860 verbose rebuildBundles base62@0.1.1
+861 info install base62@0.1.1
+862 info postinstall base62@0.1.1
+863 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/base64-js
+864 info build /Users/appacademy/Desktop/Seek/node_modules/base64-js
+865 info preinstall base64-js@0.0.8
+866 info linkStuff base64-js@0.0.8
+867 silly linkStuff base64-js@0.0.8 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+868 verbose linkBins base64-js@0.0.8
+869 verbose linkMans base64-js@0.0.8
+870 verbose rebuildBundles base64-js@0.0.8
+871 info install base64-js@0.0.8
+872 info postinstall base64-js@0.0.8
+873 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/big.js
+874 info build /Users/appacademy/Desktop/Seek/node_modules/big.js
+875 info preinstall big.js@3.1.3
+876 info linkStuff big.js@3.1.3
+877 silly linkStuff big.js@3.1.3 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+878 verbose linkBins big.js@3.1.3
+879 verbose linkMans big.js@3.1.3
+880 verbose rebuildBundles big.js@3.1.3
+881 info install big.js@3.1.3
+882 info postinstall big.js@3.1.3
+883 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/binary-extensions
+884 info build /Users/appacademy/Desktop/Seek/node_modules/binary-extensions
+885 info preinstall binary-extensions@1.4.0
+886 info linkStuff binary-extensions@1.4.0
+887 silly linkStuff binary-extensions@1.4.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+888 verbose linkBins binary-extensions@1.4.0
+889 verbose linkMans binary-extensions@1.4.0
+890 verbose rebuildBundles binary-extensions@1.4.0
+891 info install binary-extensions@1.4.0
+892 info postinstall binary-extensions@1.4.0
+893 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/brace-expansion
+894 info build /Users/appacademy/Desktop/Seek/node_modules/brace-expansion
+895 info preinstall brace-expansion@1.1.2
+896 info linkStuff brace-expansion@1.1.2
+897 silly linkStuff brace-expansion@1.1.2 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+898 verbose linkBins brace-expansion@1.1.2
+899 verbose linkMans brace-expansion@1.1.2
+900 verbose rebuildBundles brace-expansion@1.1.2
+901 info install brace-expansion@1.1.2
+902 info postinstall brace-expansion@1.1.2
+903 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/braces
+904 info build /Users/appacademy/Desktop/Seek/node_modules/braces
+905 info preinstall braces@1.8.2
+906 info linkStuff braces@1.8.2
+907 silly linkStuff braces@1.8.2 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+908 verbose linkBins braces@1.8.2
+909 verbose linkMans braces@1.8.2
+910 verbose rebuildBundles braces@1.8.2
+911 info install braces@1.8.2
+912 info postinstall braces@1.8.2
+913 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/browserify-zlib
+914 info build /Users/appacademy/Desktop/Seek/node_modules/browserify-zlib
+915 info preinstall browserify-zlib@0.1.4
+916 info linkStuff browserify-zlib@0.1.4
+917 silly linkStuff browserify-zlib@0.1.4 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+918 verbose linkBins browserify-zlib@0.1.4
+919 verbose linkMans browserify-zlib@0.1.4
+920 verbose rebuildBundles browserify-zlib@0.1.4
+921 info install browserify-zlib@0.1.4
+922 info postinstall browserify-zlib@0.1.4
+923 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/buffer
+924 info build /Users/appacademy/Desktop/Seek/node_modules/buffer
+925 info preinstall buffer@3.5.5
+926 info linkStuff buffer@3.5.5
+927 silly linkStuff buffer@3.5.5 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+928 verbose linkBins buffer@3.5.5
+929 verbose linkMans buffer@3.5.5
+930 verbose rebuildBundles buffer@3.5.5
+931 verbose rebuildBundles [ 'isarray' ]
+932 info install buffer@3.5.5
+933 info postinstall buffer@3.5.5
+934 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/camelcase
+935 info build /Users/appacademy/Desktop/Seek/node_modules/camelcase
+936 info preinstall camelcase@1.2.1
+937 info linkStuff camelcase@1.2.1
+938 silly linkStuff camelcase@1.2.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+939 verbose linkBins camelcase@1.2.1
+940 verbose linkMans camelcase@1.2.1
+941 verbose rebuildBundles camelcase@1.2.1
+942 info install camelcase@1.2.1
+943 info postinstall camelcase@1.2.1
+944 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/center-align
+945 info build /Users/appacademy/Desktop/Seek/node_modules/center-align
+946 info preinstall center-align@0.1.2
+947 info linkStuff center-align@0.1.2
+948 silly linkStuff center-align@0.1.2 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+949 verbose linkBins center-align@0.1.2
+950 verbose linkMans center-align@0.1.2
+951 verbose rebuildBundles center-align@0.1.2
+952 info install center-align@0.1.2
+953 info postinstall center-align@0.1.2
+954 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/chalk
+955 info build /Users/appacademy/Desktop/Seek/node_modules/chalk
+956 info preinstall chalk@1.1.1
+957 info linkStuff chalk@1.1.1
+958 silly linkStuff chalk@1.1.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+959 verbose linkBins chalk@1.1.1
+960 verbose linkMans chalk@1.1.1
+961 verbose rebuildBundles chalk@1.1.1
+962 info install chalk@1.1.1
+963 info postinstall chalk@1.1.1
+964 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/chokidar
+965 info build /Users/appacademy/Desktop/Seek/node_modules/chokidar
+966 info preinstall chokidar@1.4.1
+967 info linkStuff chokidar@1.4.1
+968 silly linkStuff chokidar@1.4.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+969 verbose linkBins chokidar@1.4.1
+970 verbose linkMans chokidar@1.4.1
+971 verbose rebuildBundles chokidar@1.4.1
+972 info install chokidar@1.4.1
+973 info postinstall chokidar@1.4.1
+974 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/cliui
+975 info build /Users/appacademy/Desktop/Seek/node_modules/cliui
+976 info preinstall cliui@2.1.0
+977 info linkStuff cliui@2.1.0
+978 silly linkStuff cliui@2.1.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+979 verbose linkBins cliui@2.1.0
+980 verbose linkMans cliui@2.1.0
+981 verbose rebuildBundles cliui@2.1.0
+982 verbose rebuildBundles [ 'wordwrap' ]
+983 info install cliui@2.1.0
+984 info postinstall cliui@2.1.0
+985 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/clone
+986 info build /Users/appacademy/Desktop/Seek/node_modules/clone
+987 info preinstall clone@1.0.2
+988 info linkStuff clone@1.0.2
+989 silly linkStuff clone@1.0.2 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+990 verbose linkBins clone@1.0.2
+991 verbose linkMans clone@1.0.2
+992 verbose rebuildBundles clone@1.0.2
+993 info install clone@1.0.2
+994 info postinstall clone@1.0.2
+995 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/concat-map
+996 info build /Users/appacademy/Desktop/Seek/node_modules/concat-map
+997 info preinstall concat-map@0.0.1
+998 info linkStuff concat-map@0.0.1
+999 silly linkStuff concat-map@0.0.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1000 verbose linkBins concat-map@0.0.1
+1001 verbose linkMans concat-map@0.0.1
+1002 verbose rebuildBundles concat-map@0.0.1
+1003 info install concat-map@0.0.1
+1004 info postinstall concat-map@0.0.1
+1005 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/console-browserify
+1006 info build /Users/appacademy/Desktop/Seek/node_modules/console-browserify
+1007 info preinstall console-browserify@1.1.0
+1008 info linkStuff console-browserify@1.1.0
+1009 silly linkStuff console-browserify@1.1.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1010 verbose linkBins console-browserify@1.1.0
+1011 verbose linkMans console-browserify@1.1.0
+1012 verbose rebuildBundles console-browserify@1.1.0
+1013 info install console-browserify@1.1.0
+1014 info postinstall console-browserify@1.1.0
+1015 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/constants-browserify
+1016 info build /Users/appacademy/Desktop/Seek/node_modules/constants-browserify
+1017 info preinstall constants-browserify@0.0.1
+1018 info linkStuff constants-browserify@0.0.1
+1019 silly linkStuff constants-browserify@0.0.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1020 verbose linkBins constants-browserify@0.0.1
+1021 verbose linkMans constants-browserify@0.0.1
+1022 verbose rebuildBundles constants-browserify@0.0.1
+1023 info install constants-browserify@0.0.1
+1024 info postinstall constants-browserify@0.0.1
+1025 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/convert-source-map
+1026 info build /Users/appacademy/Desktop/Seek/node_modules/convert-source-map
+1027 info preinstall convert-source-map@1.1.2
+1028 info linkStuff convert-source-map@1.1.2
+1029 silly linkStuff convert-source-map@1.1.2 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1030 verbose linkBins convert-source-map@1.1.2
+1031 verbose linkMans convert-source-map@1.1.2
+1032 verbose rebuildBundles convert-source-map@1.1.2
+1033 info install convert-source-map@1.1.2
+1034 info postinstall convert-source-map@1.1.2
+1035 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/core-js
+1036 info build /Users/appacademy/Desktop/Seek/node_modules/core-js
+1037 info preinstall core-js@1.2.6
+1038 info linkStuff core-js@1.2.6
+1039 silly linkStuff core-js@1.2.6 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1040 verbose linkBins core-js@1.2.6
+1041 verbose linkMans core-js@1.2.6
+1042 verbose rebuildBundles core-js@1.2.6
+1043 info install core-js@1.2.6
+1044 info postinstall core-js@1.2.6
+1045 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/core-util-is
+1046 info build /Users/appacademy/Desktop/Seek/node_modules/core-util-is
+1047 info preinstall core-util-is@1.0.2
+1048 info linkStuff core-util-is@1.0.2
+1049 silly linkStuff core-util-is@1.0.2 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1050 verbose linkBins core-util-is@1.0.2
+1051 verbose linkMans core-util-is@1.0.2
+1052 verbose rebuildBundles core-util-is@1.0.2
+1053 info install core-util-is@1.0.2
+1054 info postinstall core-util-is@1.0.2
+1055 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/crypto-browserify
+1056 info build /Users/appacademy/Desktop/Seek/node_modules/crypto-browserify
+1057 info preinstall crypto-browserify@3.2.8
+1058 info linkStuff crypto-browserify@3.2.8
+1059 silly linkStuff crypto-browserify@3.2.8 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1060 verbose linkBins crypto-browserify@3.2.8
+1061 verbose linkMans crypto-browserify@3.2.8
+1062 verbose rebuildBundles crypto-browserify@3.2.8
+1063 info install crypto-browserify@3.2.8
+1064 info postinstall crypto-browserify@3.2.8
+1065 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/date-now
+1066 info build /Users/appacademy/Desktop/Seek/node_modules/date-now
+1067 info preinstall date-now@0.1.4
+1068 info linkStuff date-now@0.1.4
+1069 silly linkStuff date-now@0.1.4 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1070 verbose linkBins date-now@0.1.4
+1071 verbose linkMans date-now@0.1.4
+1072 verbose rebuildBundles date-now@0.1.4
+1073 info install date-now@0.1.4
+1074 info postinstall date-now@0.1.4
+1075 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/debug
+1076 info build /Users/appacademy/Desktop/Seek/node_modules/debug
+1077 info preinstall debug@2.2.0
+1078 info linkStuff debug@2.2.0
+1079 silly linkStuff debug@2.2.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1080 verbose linkBins debug@2.2.0
+1081 verbose linkMans debug@2.2.0
+1082 verbose rebuildBundles debug@2.2.0
+1083 info install debug@2.2.0
+1084 info postinstall debug@2.2.0
+1085 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/decamelize
+1086 info build /Users/appacademy/Desktop/Seek/node_modules/decamelize
+1087 info preinstall decamelize@1.1.1
+1088 info linkStuff decamelize@1.1.1
+1089 silly linkStuff decamelize@1.1.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1090 verbose linkBins decamelize@1.1.1
+1091 verbose linkMans decamelize@1.1.1
+1092 verbose rebuildBundles decamelize@1.1.1
+1093 info install decamelize@1.1.1
+1094 info postinstall decamelize@1.1.1
+1095 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/deep-equal
+1096 info build /Users/appacademy/Desktop/Seek/node_modules/deep-equal
+1097 info preinstall deep-equal@1.0.1
+1098 info linkStuff deep-equal@1.0.1
+1099 silly linkStuff deep-equal@1.0.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1100 verbose linkBins deep-equal@1.0.1
+1101 verbose linkMans deep-equal@1.0.1
+1102 verbose rebuildBundles deep-equal@1.0.1
+1103 info install deep-equal@1.0.1
+1104 info postinstall deep-equal@1.0.1
+1105 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/detect-indent
+1106 info build /Users/appacademy/Desktop/Seek/node_modules/detect-indent
+1107 info preinstall detect-indent@3.0.1
+1108 info linkStuff detect-indent@3.0.1
+1109 silly linkStuff detect-indent@3.0.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1110 verbose linkBins detect-indent@3.0.1
+1111 verbose link bins [ { 'detect-indent': 'cli.js' },
+1111 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/.bin',
+1111 verbose link bins   false ]
+1112 verbose linkMans detect-indent@3.0.1
+1113 verbose rebuildBundles detect-indent@3.0.1
+1114 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/.bin/detect-indent is being purged
+1115 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/.bin/detect-indent
+1116 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/.bin/detect-indent
+1117 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/.bin
+1118 info install detect-indent@3.0.1
+1119 info postinstall detect-indent@3.0.1
+1120 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/domain-browser
+1121 info build /Users/appacademy/Desktop/Seek/node_modules/domain-browser
+1122 info preinstall domain-browser@1.1.7
+1123 info linkStuff domain-browser@1.1.7
+1124 silly linkStuff domain-browser@1.1.7 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1125 verbose linkBins domain-browser@1.1.7
+1126 verbose linkMans domain-browser@1.1.7
+1127 verbose rebuildBundles domain-browser@1.1.7
+1128 info install domain-browser@1.1.7
+1129 info postinstall domain-browser@1.1.7
+1130 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/enhanced-resolve
+1131 info build /Users/appacademy/Desktop/Seek/node_modules/enhanced-resolve
+1132 info preinstall enhanced-resolve@0.9.1
+1133 info linkStuff enhanced-resolve@0.9.1
+1134 silly linkStuff enhanced-resolve@0.9.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1135 verbose linkBins enhanced-resolve@0.9.1
+1136 verbose linkMans enhanced-resolve@0.9.1
+1137 verbose rebuildBundles enhanced-resolve@0.9.1
+1138 verbose rebuildBundles [ 'memory-fs' ]
+1139 info install enhanced-resolve@0.9.1
+1140 info postinstall enhanced-resolve@0.9.1
+1141 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/envify
+1142 info build /Users/appacademy/Desktop/Seek/node_modules/envify
+1143 info preinstall envify@3.4.0
+1144 info linkStuff envify@3.4.0
+1145 silly linkStuff envify@3.4.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1146 verbose linkBins envify@3.4.0
+1147 verbose link bins [ { envify: 'bin/envify' },
+1147 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/.bin',
+1147 verbose link bins   false ]
+1148 verbose linkMans envify@3.4.0
+1149 verbose rebuildBundles envify@3.4.0
+1150 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/.bin/envify is being purged
+1151 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/.bin/envify
+1152 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/.bin/envify
+1153 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/.bin
+1154 info install envify@3.4.0
+1155 info postinstall envify@3.4.0
+1156 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/errno
+1157 info build /Users/appacademy/Desktop/Seek/node_modules/errno
+1158 info preinstall errno@0.1.4
+1159 info linkStuff errno@0.1.4
+1160 silly linkStuff errno@0.1.4 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1161 verbose linkBins errno@0.1.4
+1162 verbose link bins [ { errno: './cli.js' },
+1162 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/.bin',
+1162 verbose link bins   false ]
+1163 verbose linkMans errno@0.1.4
+1164 verbose rebuildBundles errno@0.1.4
+1165 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/.bin/errno is being purged
+1166 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/.bin/errno
+1167 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/.bin/errno
+1168 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/.bin
+1169 info install errno@0.1.4
+1170 info postinstall errno@0.1.4
+1171 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/escape-string-regexp
+1172 info build /Users/appacademy/Desktop/Seek/node_modules/escape-string-regexp
+1173 info preinstall escape-string-regexp@1.0.3
+1174 info linkStuff escape-string-regexp@1.0.3
+1175 silly linkStuff escape-string-regexp@1.0.3 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1176 verbose linkBins escape-string-regexp@1.0.3
+1177 verbose linkMans escape-string-regexp@1.0.3
+1178 verbose rebuildBundles escape-string-regexp@1.0.3
+1179 info install escape-string-regexp@1.0.3
+1180 info postinstall escape-string-regexp@1.0.3
+1181 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/esprima-fb
+1182 info build /Users/appacademy/Desktop/Seek/node_modules/esprima-fb
+1183 info preinstall esprima-fb@13001.1001.0-dev-harmony-fb
+1184 info linkStuff esprima-fb@13001.1001.0-dev-harmony-fb
+1185 silly linkStuff esprima-fb@13001.1001.0-dev-harmony-fb has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1186 verbose linkBins esprima-fb@13001.1001.0-dev-harmony-fb
+1187 verbose link bins [ { esparse: './bin/esparse.js',
+1187 verbose link bins     esvalidate: './bin/esvalidate.js' },
+1187 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/.bin',
+1187 verbose link bins   false ]
+1188 verbose linkMans esprima-fb@13001.1001.0-dev-harmony-fb
+1189 verbose rebuildBundles esprima-fb@13001.1001.0-dev-harmony-fb
+1190 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/.bin/esparse is being purged
+1191 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/.bin/esparse
+1192 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/.bin/esvalidate is being purged
+1193 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/.bin/esvalidate
+1194 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/.bin/esparse
+1195 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/.bin/esvalidate
+1196 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/.bin
+1197 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/.bin
+1198 info install esprima-fb@13001.1001.0-dev-harmony-fb
+1199 info postinstall esprima-fb@13001.1001.0-dev-harmony-fb
+1200 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/esutils
+1201 info build /Users/appacademy/Desktop/Seek/node_modules/esutils
+1202 info preinstall esutils@2.0.2
+1203 info linkStuff esutils@2.0.2
+1204 silly linkStuff esutils@2.0.2 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1205 verbose linkBins esutils@2.0.2
+1206 verbose linkMans esutils@2.0.2
+1207 verbose rebuildBundles esutils@2.0.2
+1208 info install esutils@2.0.2
+1209 info postinstall esutils@2.0.2
+1210 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/events
+1211 info build /Users/appacademy/Desktop/Seek/node_modules/events
+1212 info preinstall events@1.1.0
+1213 info linkStuff events@1.1.0
+1214 silly linkStuff events@1.1.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1215 verbose linkBins events@1.1.0
+1216 verbose linkMans events@1.1.0
+1217 verbose rebuildBundles events@1.1.0
+1218 info install events@1.1.0
+1219 info postinstall events@1.1.0
+1220 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/expand-brackets
+1221 info build /Users/appacademy/Desktop/Seek/node_modules/expand-brackets
+1222 info preinstall expand-brackets@0.1.4
+1223 info linkStuff expand-brackets@0.1.4
+1224 silly linkStuff expand-brackets@0.1.4 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1225 verbose linkBins expand-brackets@0.1.4
+1226 verbose linkMans expand-brackets@0.1.4
+1227 verbose rebuildBundles expand-brackets@0.1.4
+1228 info install expand-brackets@0.1.4
+1229 info postinstall expand-brackets@0.1.4
+1230 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/expand-range
+1231 info build /Users/appacademy/Desktop/Seek/node_modules/expand-range
+1232 info preinstall expand-range@1.8.1
+1233 info linkStuff expand-range@1.8.1
+1234 silly linkStuff expand-range@1.8.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1235 verbose linkBins expand-range@1.8.1
+1236 verbose linkMans expand-range@1.8.1
+1237 verbose rebuildBundles expand-range@1.8.1
+1238 info install expand-range@1.8.1
+1239 info postinstall expand-range@1.8.1
+1240 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/extglob
+1241 info build /Users/appacademy/Desktop/Seek/node_modules/extglob
+1242 info preinstall extglob@0.3.1
+1243 info linkStuff extglob@0.3.1
+1244 silly linkStuff extglob@0.3.1 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1245 verbose linkBins extglob@0.3.1
+1246 verbose linkMans extglob@0.3.1
+1247 verbose rebuildBundles extglob@0.3.1
+1248 info install extglob@0.3.1
+1249 info postinstall extglob@0.3.1
+1250 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fbemitter
+1251 info build /Users/appacademy/Desktop/Seek/node_modules/fbemitter
+1252 info preinstall fbemitter@2.0.0
+1253 info linkStuff fbemitter@2.0.0
+1254 silly linkStuff fbemitter@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1255 verbose linkBins fbemitter@2.0.0
+1256 verbose linkMans fbemitter@2.0.0
+1257 verbose rebuildBundles fbemitter@2.0.0
+1258 info install fbemitter@2.0.0
+1259 info postinstall fbemitter@2.0.0
+1260 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fbjs
+1261 info build /Users/appacademy/Desktop/Seek/node_modules/fbjs
+1262 info preinstall fbjs@0.1.0-alpha.7
+1263 info linkStuff fbjs@0.1.0-alpha.7
+1264 silly linkStuff fbjs@0.1.0-alpha.7 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1265 verbose linkBins fbjs@0.1.0-alpha.7
+1266 verbose linkMans fbjs@0.1.0-alpha.7
+1267 verbose rebuildBundles fbjs@0.1.0-alpha.7
+1268 info install fbjs@0.1.0-alpha.7
+1269 info postinstall fbjs@0.1.0-alpha.7
+1270 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/filename-regex
+1271 info build /Users/appacademy/Desktop/Seek/node_modules/filename-regex
+1272 info preinstall filename-regex@2.0.0
+1273 info linkStuff filename-regex@2.0.0
+1274 silly linkStuff filename-regex@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1275 verbose linkBins filename-regex@2.0.0
+1276 verbose linkMans filename-regex@2.0.0
+1277 verbose rebuildBundles filename-regex@2.0.0
+1278 info install filename-regex@2.0.0
+1279 info postinstall filename-regex@2.0.0
+1280 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fill-range
+1281 info build /Users/appacademy/Desktop/Seek/node_modules/fill-range
+1282 info preinstall fill-range@2.2.3
+1283 info linkStuff fill-range@2.2.3
+1284 silly linkStuff fill-range@2.2.3 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1285 verbose linkBins fill-range@2.2.3
+1286 verbose linkMans fill-range@2.2.3
+1287 verbose rebuildBundles fill-range@2.2.3
+1288 info install fill-range@2.2.3
+1289 info postinstall fill-range@2.2.3
+1290 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/for-in
+1291 info build /Users/appacademy/Desktop/Seek/node_modules/for-in
+1292 info preinstall for-in@0.1.4
+1293 info linkStuff for-in@0.1.4
+1294 silly linkStuff for-in@0.1.4 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1295 verbose linkBins for-in@0.1.4
+1296 verbose linkMans for-in@0.1.4
+1297 verbose rebuildBundles for-in@0.1.4
+1298 info install for-in@0.1.4
+1299 info postinstall for-in@0.1.4
+1300 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/for-own
+1301 info build /Users/appacademy/Desktop/Seek/node_modules/for-own
+1302 info preinstall for-own@0.1.3
+1303 info linkStuff for-own@0.1.3
+1304 silly linkStuff for-own@0.1.3 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1305 verbose linkBins for-own@0.1.3
+1306 verbose linkMans for-own@0.1.3
+1307 verbose rebuildBundles for-own@0.1.3
+1308 info install for-own@0.1.3
+1309 info postinstall for-own@0.1.3
+1310 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents
+1311 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents
+1312 info preinstall fsevents@1.0.6
+1313 info linkStuff fsevents@1.0.6
+1314 silly linkStuff fsevents@1.0.6 has /Users/appacademy/Desktop/Seek/node_modules as its parent node_modules
+1315 verbose linkBins fsevents@1.0.6
+1316 verbose linkMans fsevents@1.0.6
+1317 verbose rebuildBundles fsevents@1.0.6
+1318 verbose rebuildBundles [ '.bin',
+1318 verbose rebuildBundles   'ansi',
+1318 verbose rebuildBundles   'ansi-regex',
+1318 verbose rebuildBundles   'ansi-styles',
+1318 verbose rebuildBundles   'are-we-there-yet',
+1318 verbose rebuildBundles   'asn1',
+1318 verbose rebuildBundles   'assert-plus',
+1318 verbose rebuildBundles   'async',
+1318 verbose rebuildBundles   'aws-sign2',
+1318 verbose rebuildBundles   'bl',
+1318 verbose rebuildBundles   'block-stream',
+1318 verbose rebuildBundles   'boom',
+1318 verbose rebuildBundles   'caseless',
+1318 verbose rebuildBundles   'chalk',
+1318 verbose rebuildBundles   'combined-stream',
+1318 verbose rebuildBundles   'commander',
+1318 verbose rebuildBundles   'core-util-is',
+1318 verbose rebuildBundles   'cryptiles',
+1318 verbose rebuildBundles   'dashdash',
+1318 verbose rebuildBundles   'debug',
+1318 verbose rebuildBundles   'deep-extend',
+1318 verbose rebuildBundles   'delayed-stream',
+1318 verbose rebuildBundles   'delegates',
+1318 verbose rebuildBundles   'ecc-jsbn',
+1318 verbose rebuildBundles   'escape-string-regexp',
+1318 verbose rebuildBundles   'extend',
+1318 verbose rebuildBundles   'extsprintf',
+1318 verbose rebuildBundles   'forever-agent',
+1318 verbose rebuildBundles   'form-data',
+1318 verbose rebuildBundles   'fstream',
+1318 verbose rebuildBundles   'fstream-ignore',
+1318 verbose rebuildBundles   'gauge',
+1318 verbose rebuildBundles   'generate-function',
+1318 verbose rebuildBundles   'generate-object-property',
+1318 verbose rebuildBundles   'graceful-fs',
+1318 verbose rebuildBundles   'graceful-readlink',
+1318 verbose rebuildBundles   'har-validator',
+1318 verbose rebuildBundles   'has-ansi',
+1318 verbose rebuildBundles   'has-unicode',
+1318 verbose rebuildBundles   'hawk',
+1318 verbose rebuildBundles   'hoek',
+1318 verbose rebuildBundles   'http-signature',
+1318 verbose rebuildBundles   'inherits',
+1318 verbose rebuildBundles   'ini',
+1318 verbose rebuildBundles   'is-my-json-valid',
+1318 verbose rebuildBundles   'is-property',
+1318 verbose rebuildBundles   'is-typedarray',
+1318 verbose rebuildBundles   'isarray',
+1318 verbose rebuildBundles   'isstream',
+1318 verbose rebuildBundles   'jodid25519',
+1318 verbose rebuildBundles   'jsbn',
+1318 verbose rebuildBundles   'json-schema',
+1318 verbose rebuildBundles   'json-stringify-safe',
+1318 verbose rebuildBundles   'jsonpointer',
+1318 verbose rebuildBundles   'jsprim',
+1318 verbose rebuildBundles   'lodash._basetostring',
+1318 verbose rebuildBundles   'lodash._createpadding',
+1318 verbose rebuildBundles   'lodash.pad',
+1318 verbose rebuildBundles   'lodash.padleft',
+1318 verbose rebuildBundles   'lodash.padright',
+1318 verbose rebuildBundles   'lodash.repeat',
+1318 verbose rebuildBundles   'mime-db',
+1318 verbose rebuildBundles   'mime-types',
+1318 verbose rebuildBundles   'minimist',
+1318 verbose rebuildBundles   'mkdirp',
+1318 verbose rebuildBundles   'node-pre-gyp',
+1318 verbose rebuildBundles   'node-uuid',
+1318 verbose rebuildBundles   'npmlog',
+1318 verbose rebuildBundles   'oauth-sign',
+1318 verbose rebuildBundles   'once',
+1318 verbose rebuildBundles   'pinkie',
+1318 verbose rebuildBundles   'pinkie-promise',
+1318 verbose rebuildBundles   'qs',
+1318 verbose rebuildBundles   'rc',
+1318 verbose rebuildBundles   'readable-stream',
+1318 verbose rebuildBundles   'request',
+1318 verbose rebuildBundles   'rimraf',
+1318 verbose rebuildBundles   'semver',
+1318 verbose rebuildBundles   'sntp',
+1318 verbose rebuildBundles   'sshpk',
+1318 verbose rebuildBundles   'string_decoder',
+1318 verbose rebuildBundles   'stringstream',
+1318 verbose rebuildBundles   'strip-ansi',
+1318 verbose rebuildBundles   'strip-json-comments',
+1318 verbose rebuildBundles   'supports-color',
+1318 verbose rebuildBundles   'tar',
+1318 verbose rebuildBundles   'tar-pack',
+1318 verbose rebuildBundles   'tough-cookie',
+1318 verbose rebuildBundles   'tunnel-agent',
+1318 verbose rebuildBundles   'tweetnacl',
+1318 verbose rebuildBundles   'uid-number',
+1318 verbose rebuildBundles   'verror',
+1318 verbose rebuildBundles   'xtend' ]
+1319 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ansi
+1320 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ansi
+1321 info preinstall ansi@0.3.0
+1322 info linkStuff ansi@0.3.0
+1323 silly linkStuff ansi@0.3.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1324 verbose linkBins ansi@0.3.0
+1325 verbose linkMans ansi@0.3.0
+1326 verbose rebuildBundles ansi@0.3.0
+1327 info install ansi@0.3.0
+1328 info postinstall ansi@0.3.0
+1329 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ansi-regex
+1330 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ansi-regex
+1331 info preinstall ansi-regex@2.0.0
+1332 info linkStuff ansi-regex@2.0.0
+1333 silly linkStuff ansi-regex@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1334 verbose linkBins ansi-regex@2.0.0
+1335 verbose linkMans ansi-regex@2.0.0
+1336 verbose rebuildBundles ansi-regex@2.0.0
+1337 info install ansi-regex@2.0.0
+1338 info postinstall ansi-regex@2.0.0
+1339 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ansi-styles
+1340 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ansi-styles
+1341 info preinstall ansi-styles@2.1.0
+1342 info linkStuff ansi-styles@2.1.0
+1343 silly linkStuff ansi-styles@2.1.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1344 verbose linkBins ansi-styles@2.1.0
+1345 verbose linkMans ansi-styles@2.1.0
+1346 verbose rebuildBundles ansi-styles@2.1.0
+1347 info install ansi-styles@2.1.0
+1348 info postinstall ansi-styles@2.1.0
+1349 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/are-we-there-yet
+1350 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/are-we-there-yet
+1351 info preinstall are-we-there-yet@1.0.4
+1352 info linkStuff are-we-there-yet@1.0.4
+1353 silly linkStuff are-we-there-yet@1.0.4 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1354 verbose linkBins are-we-there-yet@1.0.4
+1355 verbose linkMans are-we-there-yet@1.0.4
+1356 verbose rebuildBundles are-we-there-yet@1.0.4
+1357 info install are-we-there-yet@1.0.4
+1358 info postinstall are-we-there-yet@1.0.4
+1359 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/asn1
+1360 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/asn1
+1361 info preinstall asn1@0.2.3
+1362 info linkStuff asn1@0.2.3
+1363 silly linkStuff asn1@0.2.3 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1364 verbose linkBins asn1@0.2.3
+1365 verbose linkMans asn1@0.2.3
+1366 verbose rebuildBundles asn1@0.2.3
+1367 info install asn1@0.2.3
+1368 info postinstall asn1@0.2.3
+1369 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/assert-plus
+1370 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/assert-plus
+1371 info preinstall assert-plus@0.1.5
+1372 info linkStuff assert-plus@0.1.5
+1373 silly linkStuff assert-plus@0.1.5 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1374 verbose linkBins assert-plus@0.1.5
+1375 verbose linkMans assert-plus@0.1.5
+1376 verbose rebuildBundles assert-plus@0.1.5
+1377 info install assert-plus@0.1.5
+1378 info postinstall assert-plus@0.1.5
+1379 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/async
+1380 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/async
+1381 info preinstall async@1.5.0
+1382 info linkStuff async@1.5.0
+1383 silly linkStuff async@1.5.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1384 verbose linkBins async@1.5.0
+1385 verbose linkMans async@1.5.0
+1386 verbose rebuildBundles async@1.5.0
+1387 info install async@1.5.0
+1388 info postinstall async@1.5.0
+1389 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/aws-sign2
+1390 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/aws-sign2
+1391 info preinstall aws-sign2@0.6.0
+1392 info linkStuff aws-sign2@0.6.0
+1393 silly linkStuff aws-sign2@0.6.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1394 verbose linkBins aws-sign2@0.6.0
+1395 verbose linkMans aws-sign2@0.6.0
+1396 verbose rebuildBundles aws-sign2@0.6.0
+1397 info install aws-sign2@0.6.0
+1398 info postinstall aws-sign2@0.6.0
+1399 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/bl
+1400 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/bl
+1401 info preinstall bl@1.0.0
+1402 info linkStuff bl@1.0.0
+1403 silly linkStuff bl@1.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1404 verbose linkBins bl@1.0.0
+1405 verbose linkMans bl@1.0.0
+1406 verbose rebuildBundles bl@1.0.0
+1407 verbose rebuildBundles [ 'readable-stream' ]
+1408 info install bl@1.0.0
+1409 info postinstall bl@1.0.0
+1410 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/block-stream
+1411 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/block-stream
+1412 info preinstall block-stream@0.0.8
+1413 info linkStuff block-stream@0.0.8
+1414 silly linkStuff block-stream@0.0.8 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1415 verbose linkBins block-stream@0.0.8
+1416 verbose linkMans block-stream@0.0.8
+1417 verbose rebuildBundles block-stream@0.0.8
+1418 info install block-stream@0.0.8
+1419 info postinstall block-stream@0.0.8
+1420 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/boom
+1421 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/boom
+1422 info preinstall boom@2.10.1
+1423 info linkStuff boom@2.10.1
+1424 silly linkStuff boom@2.10.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1425 verbose linkBins boom@2.10.1
+1426 verbose linkMans boom@2.10.1
+1427 verbose rebuildBundles boom@2.10.1
+1428 info install boom@2.10.1
+1429 info postinstall boom@2.10.1
+1430 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/caseless
+1431 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/caseless
+1432 info preinstall caseless@0.11.0
+1433 info linkStuff caseless@0.11.0
+1434 silly linkStuff caseless@0.11.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1435 verbose linkBins caseless@0.11.0
+1436 verbose linkMans caseless@0.11.0
+1437 verbose rebuildBundles caseless@0.11.0
+1438 info install caseless@0.11.0
+1439 info postinstall caseless@0.11.0
+1440 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/chalk
+1441 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/chalk
+1442 info preinstall chalk@1.1.1
+1443 info linkStuff chalk@1.1.1
+1444 silly linkStuff chalk@1.1.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1445 verbose linkBins chalk@1.1.1
+1446 verbose linkMans chalk@1.1.1
+1447 verbose rebuildBundles chalk@1.1.1
+1448 info install chalk@1.1.1
+1449 info postinstall chalk@1.1.1
+1450 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/combined-stream
+1451 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/combined-stream
+1452 info preinstall combined-stream@1.0.5
+1453 info linkStuff combined-stream@1.0.5
+1454 silly linkStuff combined-stream@1.0.5 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1455 verbose linkBins combined-stream@1.0.5
+1456 verbose linkMans combined-stream@1.0.5
+1457 verbose rebuildBundles combined-stream@1.0.5
+1458 info install combined-stream@1.0.5
+1459 info postinstall combined-stream@1.0.5
+1460 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/commander
+1461 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/commander
+1462 info preinstall commander@2.9.0
+1463 info linkStuff commander@2.9.0
+1464 silly linkStuff commander@2.9.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1465 verbose linkBins commander@2.9.0
+1466 verbose linkMans commander@2.9.0
+1467 verbose rebuildBundles commander@2.9.0
+1468 info install commander@2.9.0
+1469 info postinstall commander@2.9.0
+1470 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/core-util-is
+1471 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/core-util-is
+1472 info preinstall core-util-is@1.0.2
+1473 info linkStuff core-util-is@1.0.2
+1474 silly linkStuff core-util-is@1.0.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1475 verbose linkBins core-util-is@1.0.2
+1476 verbose linkMans core-util-is@1.0.2
+1477 verbose rebuildBundles core-util-is@1.0.2
+1478 info install core-util-is@1.0.2
+1479 info postinstall core-util-is@1.0.2
+1480 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/cryptiles
+1481 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/cryptiles
+1482 info preinstall cryptiles@2.0.5
+1483 info linkStuff cryptiles@2.0.5
+1484 silly linkStuff cryptiles@2.0.5 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1485 verbose linkBins cryptiles@2.0.5
+1486 verbose linkMans cryptiles@2.0.5
+1487 verbose rebuildBundles cryptiles@2.0.5
+1488 info install cryptiles@2.0.5
+1489 info postinstall cryptiles@2.0.5
+1490 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/dashdash
+1491 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/dashdash
+1492 info preinstall dashdash@1.10.1
+1493 info linkStuff dashdash@1.10.1
+1494 silly linkStuff dashdash@1.10.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1495 verbose linkBins dashdash@1.10.1
+1496 verbose linkMans dashdash@1.10.1
+1497 verbose rebuildBundles dashdash@1.10.1
+1498 info install dashdash@1.10.1
+1499 info postinstall dashdash@1.10.1
+1500 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/debug
+1501 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/debug
+1502 info preinstall debug@0.7.4
+1503 info linkStuff debug@0.7.4
+1504 silly linkStuff debug@0.7.4 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1505 verbose linkBins debug@0.7.4
+1506 verbose linkMans debug@0.7.4
+1507 verbose rebuildBundles debug@0.7.4
+1508 info install debug@0.7.4
+1509 info postinstall debug@0.7.4
+1510 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/deep-extend
+1511 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/deep-extend
+1512 info preinstall deep-extend@0.4.0
+1513 info linkStuff deep-extend@0.4.0
+1514 silly linkStuff deep-extend@0.4.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1515 verbose linkBins deep-extend@0.4.0
+1516 verbose linkMans deep-extend@0.4.0
+1517 verbose rebuildBundles deep-extend@0.4.0
+1518 info install deep-extend@0.4.0
+1519 info postinstall deep-extend@0.4.0
+1520 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/delayed-stream
+1521 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/delayed-stream
+1522 info preinstall delayed-stream@1.0.0
+1523 info linkStuff delayed-stream@1.0.0
+1524 silly linkStuff delayed-stream@1.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1525 verbose linkBins delayed-stream@1.0.0
+1526 verbose linkMans delayed-stream@1.0.0
+1527 verbose rebuildBundles delayed-stream@1.0.0
+1528 info install delayed-stream@1.0.0
+1529 info postinstall delayed-stream@1.0.0
+1530 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/delegates
+1531 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/delegates
+1532 info preinstall delegates@0.1.0
+1533 info linkStuff delegates@0.1.0
+1534 silly linkStuff delegates@0.1.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1535 verbose linkBins delegates@0.1.0
+1536 verbose linkMans delegates@0.1.0
+1537 verbose rebuildBundles delegates@0.1.0
+1538 info install delegates@0.1.0
+1539 info postinstall delegates@0.1.0
+1540 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ecc-jsbn
+1541 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ecc-jsbn
+1542 info preinstall ecc-jsbn@0.1.1
+1543 info linkStuff ecc-jsbn@0.1.1
+1544 silly linkStuff ecc-jsbn@0.1.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1545 verbose linkBins ecc-jsbn@0.1.1
+1546 verbose linkMans ecc-jsbn@0.1.1
+1547 verbose rebuildBundles ecc-jsbn@0.1.1
+1548 info install ecc-jsbn@0.1.1
+1549 info postinstall ecc-jsbn@0.1.1
+1550 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/escape-string-regexp
+1551 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/escape-string-regexp
+1552 info preinstall escape-string-regexp@1.0.3
+1553 info linkStuff escape-string-regexp@1.0.3
+1554 silly linkStuff escape-string-regexp@1.0.3 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1555 verbose linkBins escape-string-regexp@1.0.3
+1556 verbose linkMans escape-string-regexp@1.0.3
+1557 verbose rebuildBundles escape-string-regexp@1.0.3
+1558 info install escape-string-regexp@1.0.3
+1559 info postinstall escape-string-regexp@1.0.3
+1560 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/extend
+1561 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/extend
+1562 info preinstall extend@3.0.0
+1563 info linkStuff extend@3.0.0
+1564 silly linkStuff extend@3.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1565 verbose linkBins extend@3.0.0
+1566 verbose linkMans extend@3.0.0
+1567 verbose rebuildBundles extend@3.0.0
+1568 info install extend@3.0.0
+1569 info postinstall extend@3.0.0
+1570 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/extsprintf
+1571 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/extsprintf
+1572 info preinstall extsprintf@1.0.2
+1573 info linkStuff extsprintf@1.0.2
+1574 silly linkStuff extsprintf@1.0.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1575 verbose linkBins extsprintf@1.0.2
+1576 verbose linkMans extsprintf@1.0.2
+1577 verbose rebuildBundles extsprintf@1.0.2
+1578 info install extsprintf@1.0.2
+1579 info postinstall extsprintf@1.0.2
+1580 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/forever-agent
+1581 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/forever-agent
+1582 info preinstall forever-agent@0.6.1
+1583 info linkStuff forever-agent@0.6.1
+1584 silly linkStuff forever-agent@0.6.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1585 verbose linkBins forever-agent@0.6.1
+1586 verbose linkMans forever-agent@0.6.1
+1587 verbose rebuildBundles forever-agent@0.6.1
+1588 info install forever-agent@0.6.1
+1589 info postinstall forever-agent@0.6.1
+1590 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/form-data
+1591 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/form-data
+1592 info preinstall form-data@1.0.0-rc3
+1593 info linkStuff form-data@1.0.0-rc3
+1594 silly linkStuff form-data@1.0.0-rc3 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1595 verbose linkBins form-data@1.0.0-rc3
+1596 verbose linkMans form-data@1.0.0-rc3
+1597 verbose rebuildBundles form-data@1.0.0-rc3
+1598 info install form-data@1.0.0-rc3
+1599 info postinstall form-data@1.0.0-rc3
+1600 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/fstream
+1601 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/fstream
+1602 info preinstall fstream@1.0.8
+1603 info linkStuff fstream@1.0.8
+1604 silly linkStuff fstream@1.0.8 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1605 verbose linkBins fstream@1.0.8
+1606 verbose linkMans fstream@1.0.8
+1607 verbose rebuildBundles fstream@1.0.8
+1608 info install fstream@1.0.8
+1609 info postinstall fstream@1.0.8
+1610 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/fstream-ignore
+1611 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/fstream-ignore
+1612 info preinstall fstream-ignore@1.0.3
+1613 info linkStuff fstream-ignore@1.0.3
+1614 silly linkStuff fstream-ignore@1.0.3 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1615 verbose linkBins fstream-ignore@1.0.3
+1616 verbose linkMans fstream-ignore@1.0.3
+1617 verbose rebuildBundles fstream-ignore@1.0.3
+1618 verbose rebuildBundles [ 'minimatch' ]
+1619 info install fstream-ignore@1.0.3
+1620 info postinstall fstream-ignore@1.0.3
+1621 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/gauge
+1622 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/gauge
+1623 info preinstall gauge@1.2.2
+1624 info linkStuff gauge@1.2.2
+1625 silly linkStuff gauge@1.2.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1626 verbose linkBins gauge@1.2.2
+1627 verbose linkMans gauge@1.2.2
+1628 verbose rebuildBundles gauge@1.2.2
+1629 info install gauge@1.2.2
+1630 info postinstall gauge@1.2.2
+1631 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/generate-function
+1632 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/generate-function
+1633 info preinstall generate-function@2.0.0
+1634 info linkStuff generate-function@2.0.0
+1635 silly linkStuff generate-function@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1636 verbose linkBins generate-function@2.0.0
+1637 verbose linkMans generate-function@2.0.0
+1638 verbose rebuildBundles generate-function@2.0.0
+1639 info install generate-function@2.0.0
+1640 info postinstall generate-function@2.0.0
+1641 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/generate-object-property
+1642 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/generate-object-property
+1643 info preinstall generate-object-property@1.2.0
+1644 info linkStuff generate-object-property@1.2.0
+1645 silly linkStuff generate-object-property@1.2.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1646 verbose linkBins generate-object-property@1.2.0
+1647 verbose linkMans generate-object-property@1.2.0
+1648 verbose rebuildBundles generate-object-property@1.2.0
+1649 info install generate-object-property@1.2.0
+1650 info postinstall generate-object-property@1.2.0
+1651 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/graceful-fs
+1652 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/graceful-fs
+1653 info preinstall graceful-fs@4.1.2
+1654 info linkStuff graceful-fs@4.1.2
+1655 silly linkStuff graceful-fs@4.1.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1656 verbose linkBins graceful-fs@4.1.2
+1657 verbose linkMans graceful-fs@4.1.2
+1658 verbose rebuildBundles graceful-fs@4.1.2
+1659 info install graceful-fs@4.1.2
+1660 info postinstall graceful-fs@4.1.2
+1661 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/graceful-readlink
+1662 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/graceful-readlink
+1663 info preinstall graceful-readlink@1.0.1
+1664 info linkStuff graceful-readlink@1.0.1
+1665 silly linkStuff graceful-readlink@1.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1666 verbose linkBins graceful-readlink@1.0.1
+1667 verbose linkMans graceful-readlink@1.0.1
+1668 verbose rebuildBundles graceful-readlink@1.0.1
+1669 info install graceful-readlink@1.0.1
+1670 info postinstall graceful-readlink@1.0.1
+1671 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/har-validator
+1672 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/har-validator
+1673 info preinstall har-validator@2.0.3
+1674 info linkStuff har-validator@2.0.3
+1675 silly linkStuff har-validator@2.0.3 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1676 verbose linkBins har-validator@2.0.3
+1677 verbose link bins [ { 'har-validator': 'bin/har-validator' },
+1677 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+1677 verbose link bins   false ]
+1678 verbose linkMans har-validator@2.0.3
+1679 verbose rebuildBundles har-validator@2.0.3
+1680 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/har-validator is being purged
+1681 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/har-validator
+1682 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/har-validator
+1683 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+1684 info install har-validator@2.0.3
+1685 info postinstall har-validator@2.0.3
+1686 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/has-ansi
+1687 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/has-ansi
+1688 info preinstall has-ansi@2.0.0
+1689 info linkStuff has-ansi@2.0.0
+1690 silly linkStuff has-ansi@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1691 verbose linkBins has-ansi@2.0.0
+1692 verbose linkMans has-ansi@2.0.0
+1693 verbose rebuildBundles has-ansi@2.0.0
+1694 info install has-ansi@2.0.0
+1695 info postinstall has-ansi@2.0.0
+1696 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/has-unicode
+1697 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/has-unicode
+1698 info preinstall has-unicode@1.0.1
+1699 info linkStuff has-unicode@1.0.1
+1700 silly linkStuff has-unicode@1.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1701 verbose linkBins has-unicode@1.0.1
+1702 verbose linkMans has-unicode@1.0.1
+1703 verbose rebuildBundles has-unicode@1.0.1
+1704 info install has-unicode@1.0.1
+1705 info postinstall has-unicode@1.0.1
+1706 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/hawk
+1707 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/hawk
+1708 info preinstall hawk@3.1.2
+1709 info linkStuff hawk@3.1.2
+1710 silly linkStuff hawk@3.1.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1711 verbose linkBins hawk@3.1.2
+1712 verbose linkMans hawk@3.1.2
+1713 verbose rebuildBundles hawk@3.1.2
+1714 info install hawk@3.1.2
+1715 info postinstall hawk@3.1.2
+1716 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/hoek
+1717 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/hoek
+1718 info preinstall hoek@2.16.3
+1719 info linkStuff hoek@2.16.3
+1720 silly linkStuff hoek@2.16.3 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1721 verbose linkBins hoek@2.16.3
+1722 verbose linkMans hoek@2.16.3
+1723 verbose rebuildBundles hoek@2.16.3
+1724 info install hoek@2.16.3
+1725 info postinstall hoek@2.16.3
+1726 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/http-signature
+1727 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/http-signature
+1728 info preinstall http-signature@1.1.0
+1729 info linkStuff http-signature@1.1.0
+1730 silly linkStuff http-signature@1.1.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1731 verbose linkBins http-signature@1.1.0
+1732 verbose linkMans http-signature@1.1.0
+1733 verbose rebuildBundles http-signature@1.1.0
+1734 info install http-signature@1.1.0
+1735 info postinstall http-signature@1.1.0
+1736 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/inherits
+1737 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/inherits
+1738 info preinstall inherits@2.0.1
+1739 info linkStuff inherits@2.0.1
+1740 silly linkStuff inherits@2.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1741 verbose linkBins inherits@2.0.1
+1742 verbose linkMans inherits@2.0.1
+1743 verbose rebuildBundles inherits@2.0.1
+1744 info install inherits@2.0.1
+1745 info postinstall inherits@2.0.1
+1746 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ini
+1747 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/ini
+1748 info preinstall ini@1.3.4
+1749 info linkStuff ini@1.3.4
+1750 silly linkStuff ini@1.3.4 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1751 verbose linkBins ini@1.3.4
+1752 verbose linkMans ini@1.3.4
+1753 verbose rebuildBundles ini@1.3.4
+1754 info install ini@1.3.4
+1755 info postinstall ini@1.3.4
+1756 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/is-my-json-valid
+1757 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/is-my-json-valid
+1758 info preinstall is-my-json-valid@2.12.3
+1759 info linkStuff is-my-json-valid@2.12.3
+1760 silly linkStuff is-my-json-valid@2.12.3 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1761 verbose linkBins is-my-json-valid@2.12.3
+1762 verbose linkMans is-my-json-valid@2.12.3
+1763 verbose rebuildBundles is-my-json-valid@2.12.3
+1764 info install is-my-json-valid@2.12.3
+1765 info postinstall is-my-json-valid@2.12.3
+1766 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/is-property
+1767 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/is-property
+1768 info preinstall is-property@1.0.2
+1769 info linkStuff is-property@1.0.2
+1770 silly linkStuff is-property@1.0.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1771 verbose linkBins is-property@1.0.2
+1772 verbose linkMans is-property@1.0.2
+1773 verbose rebuildBundles is-property@1.0.2
+1774 info install is-property@1.0.2
+1775 info postinstall is-property@1.0.2
+1776 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/is-typedarray
+1777 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/is-typedarray
+1778 info preinstall is-typedarray@1.0.0
+1779 info linkStuff is-typedarray@1.0.0
+1780 silly linkStuff is-typedarray@1.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1781 verbose linkBins is-typedarray@1.0.0
+1782 verbose linkMans is-typedarray@1.0.0
+1783 verbose rebuildBundles is-typedarray@1.0.0
+1784 info install is-typedarray@1.0.0
+1785 info postinstall is-typedarray@1.0.0
+1786 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/isarray
+1787 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/isarray
+1788 info preinstall isarray@0.0.1
+1789 info linkStuff isarray@0.0.1
+1790 silly linkStuff isarray@0.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1791 verbose linkBins isarray@0.0.1
+1792 verbose linkMans isarray@0.0.1
+1793 verbose rebuildBundles isarray@0.0.1
+1794 info install isarray@0.0.1
+1795 info postinstall isarray@0.0.1
+1796 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/isstream
+1797 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/isstream
+1798 info preinstall isstream@0.1.2
+1799 info linkStuff isstream@0.1.2
+1800 silly linkStuff isstream@0.1.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1801 verbose linkBins isstream@0.1.2
+1802 verbose linkMans isstream@0.1.2
+1803 verbose rebuildBundles isstream@0.1.2
+1804 info install isstream@0.1.2
+1805 info postinstall isstream@0.1.2
+1806 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/jodid25519
+1807 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/jodid25519
+1808 info preinstall jodid25519@1.0.2
+1809 info linkStuff jodid25519@1.0.2
+1810 silly linkStuff jodid25519@1.0.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1811 verbose linkBins jodid25519@1.0.2
+1812 verbose linkMans jodid25519@1.0.2
+1813 verbose rebuildBundles jodid25519@1.0.2
+1814 info install jodid25519@1.0.2
+1815 info postinstall jodid25519@1.0.2
+1816 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/jsbn
+1817 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/jsbn
+1818 info preinstall jsbn@0.1.0
+1819 info linkStuff jsbn@0.1.0
+1820 silly linkStuff jsbn@0.1.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1821 verbose linkBins jsbn@0.1.0
+1822 verbose linkMans jsbn@0.1.0
+1823 verbose rebuildBundles jsbn@0.1.0
+1824 info install jsbn@0.1.0
+1825 info postinstall jsbn@0.1.0
+1826 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/json-schema
+1827 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/json-schema
+1828 info preinstall json-schema@0.2.2
+1829 info linkStuff json-schema@0.2.2
+1830 silly linkStuff json-schema@0.2.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1831 verbose linkBins json-schema@0.2.2
+1832 verbose linkMans json-schema@0.2.2
+1833 verbose rebuildBundles json-schema@0.2.2
+1834 info install json-schema@0.2.2
+1835 info postinstall json-schema@0.2.2
+1836 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/json-stringify-safe
+1837 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/json-stringify-safe
+1838 info preinstall json-stringify-safe@5.0.1
+1839 info linkStuff json-stringify-safe@5.0.1
+1840 silly linkStuff json-stringify-safe@5.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1841 verbose linkBins json-stringify-safe@5.0.1
+1842 verbose linkMans json-stringify-safe@5.0.1
+1843 verbose rebuildBundles json-stringify-safe@5.0.1
+1844 info install json-stringify-safe@5.0.1
+1845 info postinstall json-stringify-safe@5.0.1
+1846 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/jsonpointer
+1847 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/jsonpointer
+1848 info preinstall jsonpointer@2.0.0
+1849 info linkStuff jsonpointer@2.0.0
+1850 silly linkStuff jsonpointer@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1851 verbose linkBins jsonpointer@2.0.0
+1852 verbose linkMans jsonpointer@2.0.0
+1853 verbose rebuildBundles jsonpointer@2.0.0
+1854 info install jsonpointer@2.0.0
+1855 info postinstall jsonpointer@2.0.0
+1856 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/jsprim
+1857 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/jsprim
+1858 info preinstall jsprim@1.2.2
+1859 info linkStuff jsprim@1.2.2
+1860 silly linkStuff jsprim@1.2.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1861 verbose linkBins jsprim@1.2.2
+1862 verbose linkMans jsprim@1.2.2
+1863 verbose rebuildBundles jsprim@1.2.2
+1864 info install jsprim@1.2.2
+1865 info postinstall jsprim@1.2.2
+1866 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash._basetostring
+1867 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash._basetostring
+1868 info preinstall lodash._basetostring@3.0.1
+1869 info linkStuff lodash._basetostring@3.0.1
+1870 silly linkStuff lodash._basetostring@3.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1871 verbose linkBins lodash._basetostring@3.0.1
+1872 verbose linkMans lodash._basetostring@3.0.1
+1873 verbose rebuildBundles lodash._basetostring@3.0.1
+1874 info install lodash._basetostring@3.0.1
+1875 info postinstall lodash._basetostring@3.0.1
+1876 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash._createpadding
+1877 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash._createpadding
+1878 info preinstall lodash._createpadding@3.6.1
+1879 info linkStuff lodash._createpadding@3.6.1
+1880 silly linkStuff lodash._createpadding@3.6.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1881 verbose linkBins lodash._createpadding@3.6.1
+1882 verbose linkMans lodash._createpadding@3.6.1
+1883 verbose rebuildBundles lodash._createpadding@3.6.1
+1884 info install lodash._createpadding@3.6.1
+1885 info postinstall lodash._createpadding@3.6.1
+1886 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash.pad
+1887 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash.pad
+1888 info preinstall lodash.pad@3.1.1
+1889 info linkStuff lodash.pad@3.1.1
+1890 silly linkStuff lodash.pad@3.1.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1891 verbose linkBins lodash.pad@3.1.1
+1892 verbose linkMans lodash.pad@3.1.1
+1893 verbose rebuildBundles lodash.pad@3.1.1
+1894 info install lodash.pad@3.1.1
+1895 info postinstall lodash.pad@3.1.1
+1896 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash.padleft
+1897 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash.padleft
+1898 info preinstall lodash.padleft@3.1.1
+1899 info linkStuff lodash.padleft@3.1.1
+1900 silly linkStuff lodash.padleft@3.1.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1901 verbose linkBins lodash.padleft@3.1.1
+1902 verbose linkMans lodash.padleft@3.1.1
+1903 verbose rebuildBundles lodash.padleft@3.1.1
+1904 info install lodash.padleft@3.1.1
+1905 info postinstall lodash.padleft@3.1.1
+1906 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash.padright
+1907 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash.padright
+1908 info preinstall lodash.padright@3.1.1
+1909 info linkStuff lodash.padright@3.1.1
+1910 silly linkStuff lodash.padright@3.1.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1911 verbose linkBins lodash.padright@3.1.1
+1912 verbose linkMans lodash.padright@3.1.1
+1913 verbose rebuildBundles lodash.padright@3.1.1
+1914 info install lodash.padright@3.1.1
+1915 info postinstall lodash.padright@3.1.1
+1916 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash.repeat
+1917 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/lodash.repeat
+1918 info preinstall lodash.repeat@3.0.1
+1919 info linkStuff lodash.repeat@3.0.1
+1920 silly linkStuff lodash.repeat@3.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1921 verbose linkBins lodash.repeat@3.0.1
+1922 verbose linkMans lodash.repeat@3.0.1
+1923 verbose rebuildBundles lodash.repeat@3.0.1
+1924 info install lodash.repeat@3.0.1
+1925 info postinstall lodash.repeat@3.0.1
+1926 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/mime-db
+1927 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/mime-db
+1928 info preinstall mime-db@1.19.0
+1929 info linkStuff mime-db@1.19.0
+1930 silly linkStuff mime-db@1.19.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1931 verbose linkBins mime-db@1.19.0
+1932 verbose linkMans mime-db@1.19.0
+1933 verbose rebuildBundles mime-db@1.19.0
+1934 info install mime-db@1.19.0
+1935 info postinstall mime-db@1.19.0
+1936 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/mime-types
+1937 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/mime-types
+1938 info preinstall mime-types@2.1.7
+1939 info linkStuff mime-types@2.1.7
+1940 silly linkStuff mime-types@2.1.7 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1941 verbose linkBins mime-types@2.1.7
+1942 verbose linkMans mime-types@2.1.7
+1943 verbose rebuildBundles mime-types@2.1.7
+1944 info install mime-types@2.1.7
+1945 info postinstall mime-types@2.1.7
+1946 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/minimist
+1947 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/minimist
+1948 info preinstall minimist@0.0.8
+1949 info linkStuff minimist@0.0.8
+1950 silly linkStuff minimist@0.0.8 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1951 verbose linkBins minimist@0.0.8
+1952 verbose linkMans minimist@0.0.8
+1953 verbose rebuildBundles minimist@0.0.8
+1954 info install minimist@0.0.8
+1955 info postinstall minimist@0.0.8
+1956 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/mkdirp
+1957 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/mkdirp
+1958 info preinstall mkdirp@0.5.1
+1959 info linkStuff mkdirp@0.5.1
+1960 silly linkStuff mkdirp@0.5.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1961 verbose linkBins mkdirp@0.5.1
+1962 verbose link bins [ { mkdirp: 'bin/cmd.js' },
+1962 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+1962 verbose link bins   false ]
+1963 verbose linkMans mkdirp@0.5.1
+1964 verbose rebuildBundles mkdirp@0.5.1
+1965 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/mkdirp is being purged
+1966 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/mkdirp
+1967 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/mkdirp
+1968 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+1969 info install mkdirp@0.5.1
+1970 info postinstall mkdirp@0.5.1
+1971 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp
+1972 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp
+1973 info preinstall node-pre-gyp@0.6.17
+1974 info linkStuff node-pre-gyp@0.6.17
+1975 silly linkStuff node-pre-gyp@0.6.17 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+1976 verbose linkBins node-pre-gyp@0.6.17
+1977 verbose link bins [ { 'node-pre-gyp': './bin/node-pre-gyp' },
+1977 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+1977 verbose link bins   false ]
+1978 verbose linkMans node-pre-gyp@0.6.17
+1979 verbose rebuildBundles node-pre-gyp@0.6.17
+1980 verbose rebuildBundles [ '.bin', 'nopt' ]
+1981 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/nopt
+1982 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/node-pre-gyp is being purged
+1983 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/node-pre-gyp
+1984 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/nopt
+1985 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/node-pre-gyp
+1986 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+1987 info preinstall nopt@3.0.6
+1988 info linkStuff nopt@3.0.6
+1989 silly linkStuff nopt@3.0.6 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules as its parent node_modules
+1990 verbose linkBins nopt@3.0.6
+1991 verbose link bins [ { nopt: './bin/nopt.js' },
+1991 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/.bin',
+1991 verbose link bins   false ]
+1992 verbose linkMans nopt@3.0.6
+1993 verbose rebuildBundles nopt@3.0.6
+1994 verbose rebuildBundles [ 'abbrev' ]
+1995 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/.bin/nopt is being purged
+1996 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/.bin/nopt
+1997 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/.bin/nopt
+1998 silly vacuum-fs removing /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules/.bin
+1999 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-pre-gyp/node_modules
+2000 info install nopt@3.0.6
+2001 info postinstall nopt@3.0.6
+2002 info install node-pre-gyp@0.6.17
+2003 info postinstall node-pre-gyp@0.6.17
+2004 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-uuid
+2005 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/node-uuid
+2006 info preinstall node-uuid@1.4.7
+2007 info linkStuff node-uuid@1.4.7
+2008 silly linkStuff node-uuid@1.4.7 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2009 verbose linkBins node-uuid@1.4.7
+2010 verbose link bins [ { uuid: './bin/uuid' },
+2010 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+2010 verbose link bins   false ]
+2011 verbose linkMans node-uuid@1.4.7
+2012 verbose rebuildBundles node-uuid@1.4.7
+2013 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/uuid is being purged
+2014 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/uuid
+2015 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/uuid
+2016 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+2017 info install node-uuid@1.4.7
+2018 info postinstall node-uuid@1.4.7
+2019 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/npmlog
+2020 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/npmlog
+2021 info preinstall npmlog@2.0.0
+2022 info linkStuff npmlog@2.0.0
+2023 silly linkStuff npmlog@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2024 verbose linkBins npmlog@2.0.0
+2025 verbose linkMans npmlog@2.0.0
+2026 verbose rebuildBundles npmlog@2.0.0
+2027 info install npmlog@2.0.0
+2028 info postinstall npmlog@2.0.0
+2029 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/oauth-sign
+2030 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/oauth-sign
+2031 info preinstall oauth-sign@0.8.0
+2032 info linkStuff oauth-sign@0.8.0
+2033 silly linkStuff oauth-sign@0.8.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2034 verbose linkBins oauth-sign@0.8.0
+2035 verbose linkMans oauth-sign@0.8.0
+2036 verbose rebuildBundles oauth-sign@0.8.0
+2037 info install oauth-sign@0.8.0
+2038 info postinstall oauth-sign@0.8.0
+2039 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/once
+2040 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/once
+2041 info preinstall once@1.1.1
+2042 info linkStuff once@1.1.1
+2043 silly linkStuff once@1.1.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2044 verbose linkBins once@1.1.1
+2045 verbose linkMans once@1.1.1
+2046 verbose rebuildBundles once@1.1.1
+2047 info install once@1.1.1
+2048 info postinstall once@1.1.1
+2049 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/pinkie
+2050 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/pinkie
+2051 info preinstall pinkie@2.0.1
+2052 info linkStuff pinkie@2.0.1
+2053 silly linkStuff pinkie@2.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2054 verbose linkBins pinkie@2.0.1
+2055 verbose linkMans pinkie@2.0.1
+2056 verbose rebuildBundles pinkie@2.0.1
+2057 info install pinkie@2.0.1
+2058 info postinstall pinkie@2.0.1
+2059 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/pinkie-promise
+2060 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/pinkie-promise
+2061 info preinstall pinkie-promise@2.0.0
+2062 info linkStuff pinkie-promise@2.0.0
+2063 silly linkStuff pinkie-promise@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2064 verbose linkBins pinkie-promise@2.0.0
+2065 verbose linkMans pinkie-promise@2.0.0
+2066 verbose rebuildBundles pinkie-promise@2.0.0
+2067 info install pinkie-promise@2.0.0
+2068 info postinstall pinkie-promise@2.0.0
+2069 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/qs
+2070 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/qs
+2071 info preinstall qs@5.2.0
+2072 info linkStuff qs@5.2.0
+2073 silly linkStuff qs@5.2.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2074 verbose linkBins qs@5.2.0
+2075 verbose linkMans qs@5.2.0
+2076 verbose rebuildBundles qs@5.2.0
+2077 info install qs@5.2.0
+2078 info postinstall qs@5.2.0
+2079 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/rc
+2080 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/rc
+2081 info preinstall rc@1.1.5
+2082 info linkStuff rc@1.1.5
+2083 silly linkStuff rc@1.1.5 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2084 verbose linkBins rc@1.1.5
+2085 verbose link bins [ { rc: './index.js' },
+2085 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+2085 verbose link bins   false ]
+2086 verbose linkMans rc@1.1.5
+2087 verbose rebuildBundles rc@1.1.5
+2088 verbose rebuildBundles [ 'minimist' ]
+2089 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/rc is being purged
+2090 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/rc
+2091 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/rc
+2092 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+2093 info install rc@1.1.5
+2094 info postinstall rc@1.1.5
+2095 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/readable-stream
+2096 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/readable-stream
+2097 info preinstall readable-stream@1.1.13
+2098 info linkStuff readable-stream@1.1.13
+2099 silly linkStuff readable-stream@1.1.13 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2100 verbose linkBins readable-stream@1.1.13
+2101 verbose linkMans readable-stream@1.1.13
+2102 verbose rebuildBundles readable-stream@1.1.13
+2103 info install readable-stream@1.1.13
+2104 info postinstall readable-stream@1.1.13
+2105 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/request
+2106 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/request
+2107 info preinstall request@2.67.0
+2108 info linkStuff request@2.67.0
+2109 silly linkStuff request@2.67.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2110 verbose linkBins request@2.67.0
+2111 verbose linkMans request@2.67.0
+2112 verbose rebuildBundles request@2.67.0
+2113 info install request@2.67.0
+2114 info postinstall request@2.67.0
+2115 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/rimraf
+2116 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/rimraf
+2117 info preinstall rimraf@2.4.4
+2118 info linkStuff rimraf@2.4.4
+2119 silly linkStuff rimraf@2.4.4 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2120 verbose linkBins rimraf@2.4.4
+2121 verbose link bins [ { rimraf: './bin.js' },
+2121 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+2121 verbose link bins   false ]
+2122 verbose linkMans rimraf@2.4.4
+2123 verbose rebuildBundles rimraf@2.4.4
+2124 verbose rebuildBundles [ 'glob' ]
+2125 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/rimraf is being purged
+2126 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/rimraf
+2127 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/rimraf
+2128 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+2129 info install rimraf@2.4.4
+2130 info postinstall rimraf@2.4.4
+2131 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/semver
+2132 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/semver
+2133 info preinstall semver@5.1.0
+2134 info linkStuff semver@5.1.0
+2135 silly linkStuff semver@5.1.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2136 verbose linkBins semver@5.1.0
+2137 verbose link bins [ { semver: './bin/semver' },
+2137 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+2137 verbose link bins   false ]
+2138 verbose linkMans semver@5.1.0
+2139 verbose rebuildBundles semver@5.1.0
+2140 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/semver is being purged
+2141 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/semver
+2142 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/semver
+2143 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+2144 info install semver@5.1.0
+2145 info postinstall semver@5.1.0
+2146 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/sntp
+2147 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/sntp
+2148 info preinstall sntp@1.0.9
+2149 info linkStuff sntp@1.0.9
+2150 silly linkStuff sntp@1.0.9 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2151 verbose linkBins sntp@1.0.9
+2152 verbose linkMans sntp@1.0.9
+2153 verbose rebuildBundles sntp@1.0.9
+2154 info install sntp@1.0.9
+2155 info postinstall sntp@1.0.9
+2156 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/sshpk
+2157 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/sshpk
+2158 info preinstall sshpk@1.7.0
+2159 info linkStuff sshpk@1.7.0
+2160 silly linkStuff sshpk@1.7.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2161 verbose linkBins sshpk@1.7.0
+2162 verbose link bins [ { 'sshpk-conv': 'bin/sshpk-conv' },
+2162 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+2162 verbose link bins   false ]
+2163 verbose linkMans sshpk@1.7.0
+2164 verbose rebuildBundles sshpk@1.7.0
+2165 verbose rebuildBundles [ 'assert-plus' ]
+2166 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/sshpk-conv is being purged
+2167 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/sshpk-conv
+2168 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/sshpk-conv
+2169 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+2170 info install sshpk@1.7.0
+2171 info postinstall sshpk@1.7.0
+2172 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/string_decoder
+2173 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/string_decoder
+2174 info preinstall string_decoder@0.10.31
+2175 info linkStuff string_decoder@0.10.31
+2176 silly linkStuff string_decoder@0.10.31 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2177 verbose linkBins string_decoder@0.10.31
+2178 verbose linkMans string_decoder@0.10.31
+2179 verbose rebuildBundles string_decoder@0.10.31
+2180 info install string_decoder@0.10.31
+2181 info postinstall string_decoder@0.10.31
+2182 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/stringstream
+2183 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/stringstream
+2184 info preinstall stringstream@0.0.5
+2185 info linkStuff stringstream@0.0.5
+2186 silly linkStuff stringstream@0.0.5 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2187 verbose linkBins stringstream@0.0.5
+2188 verbose linkMans stringstream@0.0.5
+2189 verbose rebuildBundles stringstream@0.0.5
+2190 info install stringstream@0.0.5
+2191 info postinstall stringstream@0.0.5
+2192 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/strip-ansi
+2193 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/strip-ansi
+2194 info preinstall strip-ansi@3.0.0
+2195 info linkStuff strip-ansi@3.0.0
+2196 silly linkStuff strip-ansi@3.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2197 verbose linkBins strip-ansi@3.0.0
+2198 verbose linkMans strip-ansi@3.0.0
+2199 verbose rebuildBundles strip-ansi@3.0.0
+2200 info install strip-ansi@3.0.0
+2201 info postinstall strip-ansi@3.0.0
+2202 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/strip-json-comments
+2203 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/strip-json-comments
+2204 info preinstall strip-json-comments@1.0.4
+2205 info linkStuff strip-json-comments@1.0.4
+2206 silly linkStuff strip-json-comments@1.0.4 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2207 verbose linkBins strip-json-comments@1.0.4
+2208 verbose link bins [ { 'strip-json-comments': 'cli.js' },
+2208 verbose link bins   '/Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin',
+2208 verbose link bins   false ]
+2209 verbose linkMans strip-json-comments@1.0.4
+2210 verbose rebuildBundles strip-json-comments@1.0.4
+2211 silly gentlyRm /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/strip-json-comments is being purged
+2212 verbose gentlyRm don't care about contents; nuking /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/strip-json-comments
+2213 silly vacuum-fs purging /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin/strip-json-comments
+2214 silly vacuum-fs quitting because other entries in /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/.bin
+2215 info install strip-json-comments@1.0.4
+2216 info postinstall strip-json-comments@1.0.4
+2217 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/supports-color
+2218 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/supports-color
+2219 info preinstall supports-color@2.0.0
+2220 info linkStuff supports-color@2.0.0
+2221 silly linkStuff supports-color@2.0.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2222 verbose linkBins supports-color@2.0.0
+2223 verbose linkMans supports-color@2.0.0
+2224 verbose rebuildBundles supports-color@2.0.0
+2225 info install supports-color@2.0.0
+2226 info postinstall supports-color@2.0.0
+2227 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tar
+2228 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tar
+2229 info preinstall tar@2.2.1
+2230 info linkStuff tar@2.2.1
+2231 silly linkStuff tar@2.2.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2232 verbose linkBins tar@2.2.1
+2233 verbose linkMans tar@2.2.1
+2234 verbose rebuildBundles tar@2.2.1
+2235 info install tar@2.2.1
+2236 info postinstall tar@2.2.1
+2237 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tar-pack
+2238 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tar-pack
+2239 info preinstall tar-pack@3.1.0
+2240 info linkStuff tar-pack@3.1.0
+2241 silly linkStuff tar-pack@3.1.0 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2242 verbose linkBins tar-pack@3.1.0
+2243 verbose linkMans tar-pack@3.1.0
+2244 verbose rebuildBundles tar-pack@3.1.0
+2245 verbose rebuildBundles [ '.bin', 'readable-stream', 'rimraf' ]
+2246 info install tar-pack@3.1.0
+2247 info postinstall tar-pack@3.1.0
+2248 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tough-cookie
+2249 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tough-cookie
+2250 info preinstall tough-cookie@2.2.1
+2251 info linkStuff tough-cookie@2.2.1
+2252 silly linkStuff tough-cookie@2.2.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2253 verbose linkBins tough-cookie@2.2.1
+2254 verbose linkMans tough-cookie@2.2.1
+2255 verbose rebuildBundles tough-cookie@2.2.1
+2256 info install tough-cookie@2.2.1
+2257 info postinstall tough-cookie@2.2.1
+2258 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tunnel-agent
+2259 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tunnel-agent
+2260 info preinstall tunnel-agent@0.4.1
+2261 info linkStuff tunnel-agent@0.4.1
+2262 silly linkStuff tunnel-agent@0.4.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2263 verbose linkBins tunnel-agent@0.4.1
+2264 verbose linkMans tunnel-agent@0.4.1
+2265 verbose rebuildBundles tunnel-agent@0.4.1
+2266 info install tunnel-agent@0.4.1
+2267 info postinstall tunnel-agent@0.4.1
+2268 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tweetnacl
+2269 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/tweetnacl
+2270 info preinstall tweetnacl@0.13.2
+2271 info linkStuff tweetnacl@0.13.2
+2272 silly linkStuff tweetnacl@0.13.2 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2273 verbose linkBins tweetnacl@0.13.2
+2274 verbose linkMans tweetnacl@0.13.2
+2275 verbose rebuildBundles tweetnacl@0.13.2
+2276 info install tweetnacl@0.13.2
+2277 info postinstall tweetnacl@0.13.2
+2278 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/uid-number
+2279 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/uid-number
+2280 info preinstall uid-number@0.0.3
+2281 info linkStuff uid-number@0.0.3
+2282 silly linkStuff uid-number@0.0.3 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2283 verbose linkBins uid-number@0.0.3
+2284 verbose linkMans uid-number@0.0.3
+2285 verbose rebuildBundles uid-number@0.0.3
+2286 info install uid-number@0.0.3
+2287 info postinstall uid-number@0.0.3
+2288 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/verror
+2289 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/verror
+2290 info preinstall verror@1.3.6
+2291 info linkStuff verror@1.3.6
+2292 silly linkStuff verror@1.3.6 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2293 verbose linkBins verror@1.3.6
+2294 verbose linkMans verror@1.3.6
+2295 verbose rebuildBundles verror@1.3.6
+2296 info install verror@1.3.6
+2297 info postinstall verror@1.3.6
+2298 verbose rebuild bundle /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/xtend
+2299 info build /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules/xtend
+2300 info preinstall xtend@4.0.1
+2301 info linkStuff xtend@4.0.1
+2302 silly linkStuff xtend@4.0.1 has /Users/appacademy/Desktop/Seek/node_modules/fsevents/node_modules as its parent node_modules
+2303 verbose linkBins xtend@4.0.1
+2304 verbose linkMans xtend@4.0.1
+2305 verbose rebuildBundles xtend@4.0.1
+2306 info install xtend@4.0.1
+2307 info postinstall xtend@4.0.1
+2308 info install fsevents@1.0.6
+2309 verbose unsafe-perm in lifecycle true
+2310 info fsevents@1.0.6 Failed to exec install script
+2311 verbose stack Error: fsevents@1.0.6 install: `node-pre-gyp install --fallback-to-build`
+2311 verbose stack Exit status 1
+2311 verbose stack     at EventEmitter.<anonymous> (/Applications/Atom.app/Contents/Resources/app/apm/node_modules/npm/lib/utils/lifecycle.js:214:16)
+2311 verbose stack     at EventEmitter.emit (events.js:98:17)
+2311 verbose stack     at ChildProcess.<anonymous> (/Applications/Atom.app/Contents/Resources/app/apm/node_modules/npm/lib/utils/spawn.js:24:14)
+2311 verbose stack     at ChildProcess.emit (events.js:98:17)
+2311 verbose stack     at maybeClose (child_process.js:766:16)
+2311 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:833:5)
+2312 verbose pkgid fsevents@1.0.6
+2313 verbose cwd /Users/appacademy/Desktop/Seek
+2314 error Darwin 14.0.0
+2315 error argv "/Applications/Atom.app/Contents/Resources/app/apm/bin/node" "/Applications/Atom.app/Contents/Resources/app/apm/node_modules/npm/bin/npm-cli.js" "--globalconfig" "/Users/appacademy/.atom/.apm/.apmrc" "--userconfig" "/Users/appacademy/.atom/.apmrc" "install" "--target=0.34.5" "--arch=x64"
+2316 error node v0.10.40
+2317 error npm  v2.13.3
+2318 error code ELIFECYCLE
+2319 error fsevents@1.0.6 install: `node-pre-gyp install --fallback-to-build`
+2319 error Exit status 1
+2320 error Failed at the fsevents@1.0.6 install script 'node-pre-gyp install --fallback-to-build'.
+2320 error This is most likely a problem with the fsevents package,
+2320 error not with npm itself.
+2320 error Tell the author that this fails on your system:
+2320 error     node-pre-gyp install --fallback-to-build
+2320 error You can get their info via:
+2320 error     npm owner ls fsevents
+2320 error There is likely additional logging output above.
+2321 verbose exit [ 1, true ]
