@@ -504,6 +504,15 @@ hr {
 	margin: 8px 0 0 0;
 }
 
+.user-question:hover {
+	-webkit-transition: 350ms ease-out;
+	-o-transition: 350ms ease-out;
+	transition: 350ms ease-out;
+	color: #79A8A9;
+	text-decoration: none;
+	cursor: pointer;
+}
+
 #answers-given {
 	font-size: 20px;
 	font-weight: 400;
@@ -512,6 +521,15 @@ hr {
 
 .user-answer {
 	margin: 8px 0 0 0;
+}
+
+.user-answer:hover {
+	-webkit-transition: 350ms ease-out;
+	-o-transition: 350ms ease-out;
+	transition: 350ms ease-out;
+	color: #79A8A9;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .modal-screen {
