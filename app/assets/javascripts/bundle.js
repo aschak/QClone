@@ -33531,6 +33531,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
+	    History = __webpack_require__(159).History,
 	    UserStore = __webpack_require__(240),
 	    UserActions = __webpack_require__(241);
 	
@@ -33539,6 +33540,8 @@
 	
 	var UserProfile = React.createClass({
 	  displayName: 'UserProfile',
+	
+	  mixins: [History],
 	
 	  getStateFromStore: function () {
 	    return UserStore.find(parseInt(this.props.params.id));
@@ -33569,16 +33572,13 @@
 	    this.userListener.remove();
 	  },
 	
-	  showQuestion: function () {
-	    console.log("click logged!");
-	  },
-	
-	  showPromptQuestion: function () {
-	    console.log("other click logged!");
+	  showQuestion: function (id) {
+	    this.history.push('/question/' + id);
 	  },
 	
 	  render: function () {
-	    var user = this.state.user;
+	    var user = this.state.user,
+	        that = this;
 	
 	    if (!this.state.user) {
 	      return React.createElement(
@@ -33593,7 +33593,7 @@
 	      { className: 'user-show' },
 	      React.createElement(
 	        'div',
-	        { onClick: this.showQuestion, className: 'user-username' },
+	        { className: 'user-username' },
 	        user.username
 	      ),
 	      React.createElement(
@@ -33607,7 +33607,7 @@
 	        user.questions.map(function (question, idx) {
 	          return React.createElement(
 	            'div',
-	            { className: 'user-question', key: idx, onClick: this.showQuestion },
+	            { className: 'user-question', key: idx, onClick: that.showQuestion.bind(null, question.id) },
 	            question.title
 	          );
 	        })
@@ -33623,7 +33623,7 @@
 	        user.answers.map(function (answer, idx) {
 	          return React.createElement(
 	            'div',
-	            { className: 'user-answer', key: idx, onClick: this.showAnswer },
+	            { className: 'user-answer', key: idx, onClick: that.showQuestion.bind(null, answer.question_id) },
 	            answer.question_title
 	          );
 	        })
