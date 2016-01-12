@@ -112,34 +112,6 @@ var QuestionForm = React.createClass({
       var checkedTags = this.state.checkedTags;
       var editId = "question-edit-form";
 
-      //DROPPING OPTION TO EDIT TAGS
-
-      // if (checkedTags) {
-      //   // debugger;
-      //   allTags.forEach(function (tag, idx) {
-      //     var checked = false;
-      //
-      //     checkedTags.forEach(function (checkedTag) {
-      //       debugger
-      //       if (tag.id === parseInt(checkedTag.id)) {
-      //         checked = true;
-      //       }
-      //     });
-      //
-      //     renderTags.push(
-      //       <div key={idx}>
-      //         <label>
-      //           {tag.tag_name}
-      //           <input type="checkbox"
-      //             value={tag.id}
-      //             checked={checked} />
-      //         </label>
-      //       </div>
-      //     );
-      //   });
-      //
-      // }
-
     }
 
 
@@ -213,7 +185,7 @@ var QuestionForm = React.createClass({
                 </CheckboxGroup>
               </label>
 
-              <input type='submit' className='btn' value={submit} />
+              <input type='submit' className='btn btn-primary' value={submit} />
             </form>
           </div>
         </div>

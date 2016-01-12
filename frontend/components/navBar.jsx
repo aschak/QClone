@@ -91,7 +91,7 @@ var NavBar = React.createClass({
       var userResults = this.search();
       searchResults = Object.keys(userResults).map(function (questionId, idx) {
         url = '/question/' + (parseInt(questionId) + 1);
-        return <div>
+        return <div key={idx}>
           <div className="search-result" key={idx}>
             <Link to={url} key={idx}>{userResults[parseInt(questionId)]}</Link>
           </div>
@@ -99,11 +99,6 @@ var NavBar = React.createClass({
         </div>;
       });
     }
-    //   searchResults = this.search().map(function (question, idx) {
-    //     url = '/questions/' + question;
-    //     // debugger
-    //   });
-    // }
 
     return (
 

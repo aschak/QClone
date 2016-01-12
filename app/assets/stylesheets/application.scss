@@ -119,7 +119,7 @@ a:hover {
 
 .container {
   max-width: 55%;
-	padding-top: 12%;
+	padding-top: 8%;
 }
 
 .splash-container {
@@ -415,7 +415,7 @@ hr {
 }
 
 #question-edit-form {
-
+	margin-right: 12px;
 }
 
 .mod-buttons {
@@ -533,8 +533,9 @@ hr {
   border: 1px solid black;
   font-size: 20px;
   font-weight: 100;
-  width: 690px;
-  height: 450px;
+  width: 700px;
+	padding: 0 0 0 6px;
+  height: 500px;
   top: 42%;
   left: 50%;
   text-align: center;

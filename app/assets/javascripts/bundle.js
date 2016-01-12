@@ -32553,34 +32553,6 @@
 	
 	      var checkedTags = this.state.checkedTags;
 	      var editId = "question-edit-form";
-	
-	      //DROPPING OPTION TO EDIT TAGS
-	
-	      // if (checkedTags) {
-	      //   // debugger;
-	      //   allTags.forEach(function (tag, idx) {
-	      //     var checked = false;
-	      //
-	      //     checkedTags.forEach(function (checkedTag) {
-	      //       debugger
-	      //       if (tag.id === parseInt(checkedTag.id)) {
-	      //         checked = true;
-	      //       }
-	      //     });
-	      //
-	      //     renderTags.push(
-	      //       <div key={idx}>
-	      //         <label>
-	      //           {tag.tag_name}
-	      //           <input type="checkbox"
-	      //             value={tag.id}
-	      //             checked={checked} />
-	      //         </label>
-	      //       </div>
-	      //     );
-	      //   });
-	      //
-	      // }
 	    }
 	
 	    if (this.props.new) {
@@ -32671,7 +32643,7 @@
 	                renderTags
 	              )
 	            ),
-	            React.createElement('input', { type: 'submit', className: 'btn', value: submit })
+	            React.createElement('input', { type: 'submit', className: 'btn btn-primary', value: submit })
 	          )
 	        )
 	      );
@@ -33610,7 +33582,7 @@
 	
 	    if (!this.state.user) {
 	      return React.createElement(
-	        'div',
+	        'span',
 	        null,
 	        'LOADING...'
 	      );
@@ -33621,7 +33593,7 @@
 	      { className: 'user-show' },
 	      React.createElement(
 	        'div',
-	        { className: 'user-username' },
+	        { onClick: this.showQuestion, className: 'user-username' },
 	        user.username
 	      ),
 	      React.createElement(
@@ -33759,7 +33731,7 @@
 	        url = '/question/' + (parseInt(questionId) + 1);
 	        return React.createElement(
 	          'div',
-	          null,
+	          { key: idx },
 	          React.createElement(
 	            'div',
 	            { className: 'search-result', key: idx },
@@ -33773,11 +33745,6 @@
 	        );
 	      });
 	    }
-	    //   searchResults = this.search().map(function (question, idx) {
-	    //     url = '/questions/' + question;
-	    //     // debugger
-	    //   });
-	    // }
 	
 	    return React.createElement(
 	      'div',

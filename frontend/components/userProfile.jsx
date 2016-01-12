@@ -48,14 +48,14 @@ var UserProfile = React.createClass({
 
     if (!this.state.user) {
       return (
-        <div>LOADING...</div>
+        <span>LOADING...</span>
       );
     }
 
     return (
       <div className="user-show">
 
-        <div className="user-username">
+        <div onClick={this.showQuestion} className="user-username">
           {user.username}
         </div>
 
