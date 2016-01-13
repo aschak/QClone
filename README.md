@@ -1,4 +1,4 @@
-# Seek.
+# Seek
 
 ## Summary
 
@@ -13,10 +13,7 @@ primary function of the site: Seeking and giving answers.
 
 ## Main Functionality
 
-Seek is a web application influenced by Quora built using Ruby
-on Rails in tangent with React.js. Users on Seek are able to:
-
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
+Users on Seek are able to:
 
 - [ ] Create an account
 - [ ] Log in / Log out
@@ -24,6 +21,23 @@ on Rails in tangent with React.js. Users on Seek are able to:
 - [ ] Create, read, edit, and delete answers to questions
 - [ ] Tag questions with multiple tags
 - [ ] Search for questions by question title
+
+## React Router
+
+  Building Seek has been exhilarating from start to finish, but my favorite
+aspect of it was using React to achieve a single-page interface. By using
+the React Router extension, I was able to allow users to quickly access
+any link they click, from another User's profile page to the show page
+of a Question.
+
+## Tags
+
+    Tags offered a unique challenge when building Seek. Tags need to be
+  attached to both Questions and Users, but a simple join table to connect
+  them wasn't enough. Since Users need to be able to edit which Tags are
+  associated with them, I created a model called ProfileTags which joins
+  with the user's tags, and Taggings to join the question tags. 
+
 
 ## Design Docs
 * [View Wireframes][view]
