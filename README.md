@@ -30,13 +30,34 @@ the React Router extension, I was able to allow users to quickly access
 any link they click, from another User's profile page to the show page
 of a Question.
 
+    var routes = (
+    <Route path='/' component={App}>
+      <IndexRoute component={SeekIndex}/>
+      <Route path='question/:id' component={QuestionShow}/>
+      <Route path='user/:id' component={UserProfile}/>
+
+    </Route>
+    );
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var root = document.getElementById('root');
+
+      if (root) {
+        ReactDOM.render(
+          <Router>{routes}</Router>,
+          root
+        );
+      }
+    });
+
 ## Tags
 
-    Tags offered a unique challenge when building Seek. Tags need to be
-  attached to both Questions and Users, but a simple join table to connect
-  them wasn't enough. Since Users need to be able to edit which Tags are
-  associated with them, I created a model called ProfileTags which joins
-  with the User's Tags, and Taggings to join the question Tags.
+  Tags offered a unique challenge when building Seek. Tags need to be
+attached to both Questions and Users, but a simple join table to connect
+them wasn't enough. Since Users need to be able to edit which Tags are
+associated with them, I created a model called ProfileTags which joins
+with the User's Tags, and Taggings to join the question Tags.
 
 
 ## Design Docs
