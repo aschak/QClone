@@ -36,7 +36,7 @@ of a Question.
   attached to both Questions and Users, but a simple join table to connect
   them wasn't enough. Since Users need to be able to edit which Tags are
   associated with them, I created a model called ProfileTags which joins
-  with the user's tags, and Taggings to join the question tags. 
+  with the User's Tags, and Taggings to join the question Tags.
 
 
 ## Design Docs
