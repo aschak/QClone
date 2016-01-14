@@ -9,7 +9,7 @@ inspired by Quora's model of information sharing.
 I wanted to simplify the interface, focusing only on the
 primary function of the site: Seeking and giving answers.
 
-[Seek][seekanswers.herokuapp.com]
+[Seek][Seek]
 
 ## Main Functionality
 
@@ -145,3 +145,4 @@ view all Questions and Answers they have posted.
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
 [phase-six]: .docs/phases/phase6.md
+[Seek]: seekanswers.herokuapp.com
