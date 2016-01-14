@@ -9,7 +9,8 @@ inspired by Quora's model of information sharing.
 I wanted to simplify the interface, focusing only on the
 primary function of the site: Seeking and giving answers.
 
-[link]: http://seekanswers.herokuapp.com
+-[Seek][link]
+-[link]: http://seekanswers.herokuapp.com
 
 ## Main Functionality
 
