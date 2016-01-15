@@ -71,11 +71,12 @@ var AnswerForm = React.createClass({
             </div>
 
             <div>
-              <label htmlFor='answer_body'>Enter Answer:</label>
-              <input
+  
+              <textarea
+                className='answer-input'
                 type='textarea'
+                placeholder='Share your knowledge here!'
                 id='answer_body'
-
                 valueLink={this.linkState('body')}
                 />
             </div>
