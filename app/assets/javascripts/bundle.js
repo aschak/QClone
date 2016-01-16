@@ -33638,6 +33638,7 @@
 	    QuestionForm = __webpack_require__(248),
 	    QuestionStore = __webpack_require__(210),
 	    QuestionActions = __webpack_require__(232),
+	    About = __webpack_require__(270),
 	    TagStore = __webpack_require__(249),
 	    TagActions = __webpack_require__(250),
 	    Link = __webpack_require__(159).Link,
@@ -33750,6 +33751,7 @@
 	        className: 'question-form',
 	        id: 'new',
 	        'new': true }),
+	      React.createElement(About, null),
 	      React.createElement(
 	        'div',
 	        { className: 'search-bar' },
@@ -34499,6 +34501,69 @@
 	});
 	
 	module.exports = TagFormItem;
+
+/***/ },
+/* 269 */,
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var About = React.createClass({
+	  displayName: 'About',
+	
+	  getInitialState: function () {
+	    return { modal: false };
+	  },
+	
+	  _userChange: function () {
+	    this.setState({ user: UserStore.all() });
+	  },
+	
+	  changeModal: function () {
+	    var modal = this.state.modal ? false : true;
+	    this.setState({ modal: modal });
+	  },
+	
+	  render: function () {
+	    var modal = this.state.modal ? true : false;
+	
+	    if (!modal) {
+	      return React.createElement(
+	        'button',
+	        { type: 'button', id: 'about-btn', className: 'btn btn-primary', onClick: this.changeModal },
+	        'About'
+	      );
+	    } else {
+	
+	      return React.createElement(
+	        'div',
+	        { className: 'modal-screen', onClick: this.changeModal },
+	        React.createElement(
+	          'div',
+	          { className: 'modal-content' },
+	          React.createElement(
+	            'p',
+	            { id: 'about-paragraph' },
+	            'Seek is a community platform for asking/answering questions. Seeking knowledge? Come to Seek and ask! Just remember to pay it forward by providing answers of your own!'
+	          ),
+	          React.createElement(
+	            'a',
+	            { className: 'about-link', href: 'https://github.com/aschak/Seek', target: '_blank' },
+	            'Github'
+	          ),
+	          React.createElement(
+	            'a',
+	            { className: 'about-link', href: 'http://kareemascha.com', target: '_blank' },
+	            'Kareem Ascha'
+	          )
+	        )
+	      );
+	    }
+	  }
+	});
+	
+	module.exports = About;
 
 /***/ }
 /******/ ]);

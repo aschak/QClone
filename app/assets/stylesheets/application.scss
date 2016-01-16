@@ -381,7 +381,11 @@ a:hover {
 
 #ans-submit {
   margin-top: 15px;
-  margin-left: 155px;
+  margin-left: 277px;
+}
+
+#ans-delete {
+	margin-top: 10px;
 }
 
 hr {
@@ -428,6 +432,28 @@ hr {
 
 #question-btn {
 
+}
+
+#about-btn 	{
+	position: absolute;
+	top: 166%;
+	left: 104%;
+	transform: translateX(2%) translateY(6%);
+}
+
+#about-paragraph {
+	margin: 33px 0 22px 20px;
+	font-weight: 300;
+	text-align: left;
+}
+
+#about-link {
+	margin-left: 40px;
+	font-weight: 400;
+}
+
+#about-link:hover {
+	text-decoration: none;
 }
 
 #question-form {

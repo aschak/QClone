@@ -2,6 +2,7 @@ var React = require('react'),
     QuestionForm = require('./questions/questionForm.jsx'),
     QuestionStore = require('../stores/question.js'),
     QuestionActions = require('../actions/question_actions.js'),
+    About = require('../constants/about.jsx'),
     TagStore = require('../stores/tag.js'),
     TagActions = require('../actions/tag_actions.js'),
     Link = require('react-router').Link,
@@ -109,6 +110,8 @@ var NavBar = React.createClass({
           className="question-form"
           id="new"
           new={true}/>
+
+        <About/>
 
         <div className="search-bar">
           <h2 id="tagline">asdf</h2>
