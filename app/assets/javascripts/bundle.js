@@ -34541,7 +34541,7 @@
 	        { className: 'modal-screen', onClick: this.changeModal },
 	        React.createElement(
 	          'div',
-	          { className: 'modal-content' },
+	          { id: 'about-modal', className: 'modal-content' },
 	          React.createElement(
 	            'p',
 	            { id: 'about-paragraph' },

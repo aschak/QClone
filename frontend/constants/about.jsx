@@ -28,7 +28,7 @@ var About = React.createClass({
 
       return(
         <div className='modal-screen' onClick={this.changeModal}>
-          <div className='modal-content'>
+          <div id='about-modal' className='modal-content'>
             <p id='about-paragraph'>
                  Seek is a community platform for asking/answering questions.
               Seeking knowledge? Come to Seek and ask! Just remember to pay

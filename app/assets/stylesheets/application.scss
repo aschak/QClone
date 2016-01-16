@@ -447,12 +447,16 @@ hr {
 	text-align: left;
 }
 
-#about-link {
+#about-modal {
+	height: 175px;
+}
+
+.about-link {
 	margin-left: 40px;
 	font-weight: 400;
 }
 
-#about-link:hover {
+.about-link:hover {
 	text-decoration: none;
 }
 
