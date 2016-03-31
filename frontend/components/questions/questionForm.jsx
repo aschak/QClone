@@ -28,20 +28,17 @@ var QuestionForm = React.createClass({
       title: this.props.question.title,
       body: this.props.question.body,
       author_id: this.props.question.author_id,
-      checkedTags: this.props.question.tags //Search here
+      checkedTags: this.props.question.tags
     });
   },
 
   handleSubmit: function (event) {
     event.preventDefault();
     var question = Object.assign({}, this.props.question, this.state);
-    //DONT FORGET--> MOD CHECKED TAGS INTO {tag_id: tag_id} as object in
-    // taggings_attributes
 
     if (this.props.new) {
       QuestionActions.createQuestion(question, this.navigateToQuestion);
       this.setState(this.blankForm);
-      // this.navigateToQuestion();
 
     } else if (!this.props.new) {
       QuestionActions.editQuestion(question);
@@ -59,8 +56,6 @@ var QuestionForm = React.createClass({
       });
     });
 
-    // debugger
-
     this.setState({taggings_attributes: tagAttrs});
   },
 
@@ -74,7 +69,6 @@ var QuestionForm = React.createClass({
   },
 
   navigateToQuestion: function (question) {
-    // var question = QuestionStore.all()[QuestionStore.all().length - 1]
     this.history.push('question/' + question.id);
   },
 

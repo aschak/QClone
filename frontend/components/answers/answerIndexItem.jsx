@@ -9,31 +9,6 @@ var React = require('react'),
 
 var AnswerIndexItem = React.createClass({
   mixins: [History],
-  // Commented code below is part of grabbing comments form answer..not working
-  // getStateFromStore: function () {
-  //   return {answer: AnswerStore.find(parseInt(this.props.answer.id))};
-  // },
-  //
-  // _answerChange: function () {
-  //   this.setState(this.getStateFromStore());
-  // },
-  //
-  // getInitialState: function () {
-  //   return this.getStateFromStore();
-  // },
-  //
-  // componentWillReceiveProps: function (newProps) {
-  //   AnswerActions.fetchAnswer(parseInt(newProps.answer.id));
-  // },
-  //
-  // componentDidMount: function () {
-  //   this.answerListener = AnswerStore.addListener(this._answerChange);
-  //   AnswerActions.fetchAnswer(parseInt(this.props.answer.id));
-  // },
-  //
-  // componentWillUnmount: function () {
-  //   this.answerListener.remove();
-  // },
 
   deleteAnswer: function (event) {
     event.preventDefault();
@@ -46,7 +21,6 @@ var AnswerIndexItem = React.createClass({
   },
 
   showUser: function () {
-    // console.log(this.props.answer.author_id);
     this.history.push('/user/' + this.props.answer.author_id);
   },
 

@@ -28,30 +28,10 @@ var React = require('react'),
 
 
     render: function () {
-      // var userLog = "",
-      //     logButtons;
-      //
-      // if (this.state.authorized) {
-      //   userLog = <UserLog
-      //       logType={this.state.logType}
-      //       logIn={this.signIn}/>
-      //   };
-      //
-      // if (this.state.loggedIn) {
-      //   logButtons =
-      //     <button
-      //         type="button"
-      //         className = "btn btn-primary"
-      //         onClick={this.signOut}>
-      //         Sign Out
-      //     </button>
-      // } else {
-      //
-      // }
 
       return(
         <div className="seek-index">
-          
+
 
           <div>
             {<QuestionsIndex/>}

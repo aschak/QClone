@@ -18,12 +18,6 @@ window.QuestionStore = require('./stores/question.js');
 
 var App = React.createClass({
 
-  //Double check that state gets passed to children as props in router
-  // componentDidMount: function () {
-  //   UserActions.fetchCurrentUser();
-  // },
-  // <ProfileTagIndex/> This was right under <div className="container">
-
   render: function () {
     return(
       <div className='main'>

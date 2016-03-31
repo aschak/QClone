@@ -39,7 +39,6 @@ var QuestionIndex = React.createClass({
         return (<div>No Tags Selected!</div>);
     }
 
-    //Put questions filter logic in store?
     var questions = [],
         profileTags = [];
 
@@ -47,11 +46,9 @@ var QuestionIndex = React.createClass({
       profileTags.push(tag.tag_name);
     });
 
-    // debugger
 
     this.state.questions.forEach(function (question) {
       question.tags.forEach(function (tag) {
-        // debugger
         if (profileTags.indexOf(tag.tag_name) !== -1 && questions.indexOf(question) === -1) {
           questions.push(question);
         }

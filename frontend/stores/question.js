@@ -33,8 +33,6 @@ QuestionStore.find = function (id) {
   });
 
   return found;
-
-  // return _questions[id]
 };
 
 QuestionStore.__onDispatch = function (payload) {

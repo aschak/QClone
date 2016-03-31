@@ -55,8 +55,8 @@
 	    QuestionShow = __webpack_require__(247),
 	    UserProfile = __webpack_require__(262),
 	    NavBar = __webpack_require__(263),
-	    ProfileTagIndex = __webpack_require__(265),
-	    ProfileTagForm = __webpack_require__(267);
+	    ProfileTagIndex = __webpack_require__(266),
+	    ProfileTagForm = __webpack_require__(268);
 	
 	window.ApiUtil = __webpack_require__(233);
 	window.QuestionStore = __webpack_require__(210);
@@ -33638,12 +33638,12 @@
 	    QuestionForm = __webpack_require__(248),
 	    QuestionStore = __webpack_require__(210),
 	    QuestionActions = __webpack_require__(232),
-	    About = __webpack_require__(270),
+	    About = __webpack_require__(264),
 	    TagStore = __webpack_require__(249),
 	    TagActions = __webpack_require__(250),
 	    Link = __webpack_require__(159).Link,
 	    LinkedStateMixin = __webpack_require__(243),
-	    Fuse = __webpack_require__(264);
+	    Fuse = __webpack_require__(265);
 	
 	var NavBar = React.createClass({
 	  displayName: 'NavBar',
@@ -33787,6 +33787,68 @@
 
 /***/ },
 /* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var About = React.createClass({
+	  displayName: 'About',
+	
+	  getInitialState: function () {
+	    return { modal: false };
+	  },
+	
+	  _userChange: function () {
+	    this.setState({ user: UserStore.all() });
+	  },
+	
+	  changeModal: function () {
+	    var modal = this.state.modal ? false : true;
+	    this.setState({ modal: modal });
+	  },
+	
+	  render: function () {
+	    var modal = this.state.modal ? true : false;
+	
+	    if (!modal) {
+	      return React.createElement(
+	        'button',
+	        { type: 'button', id: 'about-btn', className: 'btn btn-primary', onClick: this.changeModal },
+	        'About'
+	      );
+	    } else {
+	
+	      return React.createElement(
+	        'div',
+	        { className: 'modal-screen', onClick: this.changeModal },
+	        React.createElement(
+	          'div',
+	          { id: 'about-modal', className: 'modal-content' },
+	          React.createElement(
+	            'p',
+	            { id: 'about-paragraph' },
+	            'Seek is a community platform for asking/answering questions. Seeking knowledge? Come to Seek and ask! Just remember to pay it forward by providing answers of your own!'
+	          ),
+	          React.createElement(
+	            'a',
+	            { className: 'about-link', href: 'https://github.com/aschak/Seek', target: '_blank' },
+	            'Github'
+	          ),
+	          React.createElement(
+	            'a',
+	            { className: 'about-link', href: 'http://kareemascha.com', target: '_blank' },
+	            'Kareem Ascha'
+	          )
+	        )
+	      );
+	    }
+	  }
+	});
+	
+	module.exports = About;
+
+/***/ },
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34293,7 +34355,7 @@
 
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* global seek_user */
@@ -34301,7 +34363,7 @@
 	var React = __webpack_require__(1),
 	    TagStore = __webpack_require__(249),
 	    TagActions = __webpack_require__(250),
-	    ProfileTagIndexItem = __webpack_require__(266),
+	    ProfileTagIndexItem = __webpack_require__(267),
 	    UserStore = __webpack_require__(240),
 	    UserActions = __webpack_require__(241);
 	
@@ -34352,7 +34414,7 @@
 	module.exports = ProfileTagIndex;
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
@@ -34376,7 +34438,7 @@
 	module.exports = ProfileTagIndexItem;
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1),
@@ -34385,7 +34447,7 @@
 	    History = __webpack_require__(159).History,
 	    TagStore = __webpack_require__(249),
 	    TagActions = __webpack_require__(250),
-	    TagFormItem = __webpack_require__(268),
+	    TagFormItem = __webpack_require__(269),
 	    LinkedStateMixin = __webpack_require__(243);
 	
 	var CheckboxGroup = __webpack_require__(251);
@@ -34475,7 +34537,7 @@
 	module.exports = ProfileTagForm;
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -34501,69 +34563,6 @@
 	});
 	
 	module.exports = TagFormItem;
-
-/***/ },
-/* 269 */,
-/* 270 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var About = React.createClass({
-	  displayName: 'About',
-	
-	  getInitialState: function () {
-	    return { modal: false };
-	  },
-	
-	  _userChange: function () {
-	    this.setState({ user: UserStore.all() });
-	  },
-	
-	  changeModal: function () {
-	    var modal = this.state.modal ? false : true;
-	    this.setState({ modal: modal });
-	  },
-	
-	  render: function () {
-	    var modal = this.state.modal ? true : false;
-	
-	    if (!modal) {
-	      return React.createElement(
-	        'button',
-	        { type: 'button', id: 'about-btn', className: 'btn btn-primary', onClick: this.changeModal },
-	        'About'
-	      );
-	    } else {
-	
-	      return React.createElement(
-	        'div',
-	        { className: 'modal-screen', onClick: this.changeModal },
-	        React.createElement(
-	          'div',
-	          { id: 'about-modal', className: 'modal-content' },
-	          React.createElement(
-	            'p',
-	            { id: 'about-paragraph' },
-	            'Seek is a community platform for asking/answering questions. Seeking knowledge? Come to Seek and ask! Just remember to pay it forward by providing answers of your own!'
-	          ),
-	          React.createElement(
-	            'a',
-	            { className: 'about-link', href: 'https://github.com/aschak/Seek', target: '_blank' },
-	            'Github'
-	          ),
-	          React.createElement(
-	            'a',
-	            { className: 'about-link', href: 'http://kareemascha.com', target: '_blank' },
-	            'Kareem Ascha'
-	          )
-	        )
-	      );
-	    }
-	  }
-	});
-	
-	module.exports = About;
 
 /***/ }
 /******/ ]);

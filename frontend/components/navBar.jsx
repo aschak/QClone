@@ -46,11 +46,7 @@ var NavBar = React.createClass({
   search: function () {
     var questions = this.state.questions,
         questionTitles = [];
-
-    // for (title in questions) {
-    //   questionTitles.push(questions['title']);
-    // }
-
+        
     if (questions.length > 0) {
       questions.map(function (question) {
         questionTitles.push(question.title);
@@ -67,8 +63,6 @@ var NavBar = React.createClass({
 
 
     var fuse = new Fuse(questionTitles, options);
-    // debugger
-
     if (fuse.search(this.state.searchInput).length > 0) {
       var searchResults = {};
       fuse.search(this.state.searchInput).forEach(function (result) {

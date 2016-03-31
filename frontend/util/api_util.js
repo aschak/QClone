@@ -60,29 +60,12 @@ var ApiUtil = {
   },
 
   fetchSingleQuestion: function (id) {
-    // $.ajax({
-    //   url: '/api/questions/' + id,
-    //   success: function (question) {
-    //     ApiActions.receiveSingleQuestion(question);
-    //   }
-    // });
-
     $.get('/api/questions/' + id, function (question) {
       ApiActions.receiveSingleQuestion(question);
     });
   },
 
   createQuestion: function (question, callback) {
-    // $.ajax({
-    //   url: '/api/questions',
-    //   type: 'POST',
-    //   data: {question: question},
-    //   error: function (question) {
-    //     debugger
-    //     // ApiActions.receiveSingleQuestion(question);
-    //   }
-    // });
-
     $.post('/api/questions', {question: question}, function (question) {
       ApiActions.receiveSingleQuestion(question);
       callback(question);
@@ -199,23 +182,11 @@ var ApiUtil = {
       url: "/api/users/" + seek_user.id,
       type: "PUT",
       data: {tag_ids: checkedTags},
-      success: function (seek_user) { //THIS LINE COULE BE A PROBLEM IS IT TAG_IDS OR CHECKEDTAGS?
+      success: function (seek_user) { /
         ApiActions.receiveCurrentUser(seek_user);
-        //Don't we need to update _users as well in store? or does it
-        //not matter since tags are a personal thing?
       }
-    }); // tag_ids is a method given by Rails via user assoc with tags through profile tags
+    }); // tag_ids is a method given by Rails via user assoc with tags join table through profile tags 
   }
-
-  // updateAllTaggings: function (taggings) {
-  //   $.post(
-  //     "/api/tags",
-  //     {taggings: {tag_names: taggings }},
-  //     function (question) {
-  //       ApiActions.receiveSingleQuestion(question);
-  //     }
-  //   );
-  // }
 
 };
 

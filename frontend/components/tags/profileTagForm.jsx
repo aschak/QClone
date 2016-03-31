@@ -21,11 +21,9 @@ var ProfileTagForm = React.createClass({
 
   _tagChange: function () {
     this.setState({allTags: TagStore.all(), checkedTags: UserStore.currentUser().tags});
-    // TagActions.fetchTags();
   },
 
   handleChange: function (event) {
-    // event.preventDefault(); React doesn't like preventing default with checkboxes
     var checkedTags = this.refs.tagsGroup.getCheckedValues(); //Send patch request to user.t ags
     UserActions.updateProfileTags(checkedTags);
   },

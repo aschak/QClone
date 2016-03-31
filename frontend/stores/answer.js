@@ -32,8 +32,6 @@ AnswerStore.find = function (id) {
   });
 
   return found;
-
-  // return _answers[id];
 };
 
 

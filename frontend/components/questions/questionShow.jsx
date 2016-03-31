@@ -9,11 +9,6 @@ var React = require('react'),
     TagActions = require('../../actions/tag_actions.js'),
     AnswerIndex = require('../answers/answerIndex.jsx');
 
-// window.UserStore = require('../../stores/user.js');
-// window.TagStore = require('../../stores/tag.js');
-// window.UserActions = require('../../actions/user_actions.js');
-// window.TagActions = require('../../actions/tag_actions.js');
-
 module.exports = React.createClass({
   getStateFromStore: function () {
     return QuestionStore.find(parseInt(this.props.params.id));
@@ -60,7 +55,6 @@ module.exports = React.createClass({
   },
 
   showUser: function () {
-    // debugger
     this.props.history.push('/user/' + this.state.question.author_id);
   },
 
@@ -77,7 +71,7 @@ module.exports = React.createClass({
         </div>
       );
     }
-    //  debugger
+    
     if (question.tags[0]) {
       tags =  <div className="question-tags">
               tags: {
